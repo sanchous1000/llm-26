@@ -1,0 +1,15 @@
+amount_prompts: 3
+
+models_list:
+  - gemma3:1b
+  - tinyllama:latest
+  - qwen3:0.6b
+
+params:
+  temperature: 
+    - 0.1
+    - 1
+
+  repeat_penalty:
+    - 1.1
+    - 0.9
