@@ -7,7 +7,7 @@
 LLM: qwen3:0.6B, tinyllama:1b, gemma3:1b
 
 ## Результаты работы
-[Report](./reports/ollama_report.html)
+[Report](./source/reports/ollama_report.html)
 
 ## Выводы
 Маленькие модельки скорее "пытаются" следовать инструкциям, но у них очень плохо получается. 
