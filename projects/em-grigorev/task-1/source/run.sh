@@ -1,0 +1,1 @@
+uv run eval.py && uv run report_creater.py
