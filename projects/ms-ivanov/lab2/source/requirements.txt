@@ -1,0 +1,22 @@
+# Runtime dependencies (developed and tested with Python 3.14).
+# External tools that pip cannot install: pandoc, Docker (Compose v2), opencode CLI.
+anyio>=4.5
+beautifulsoup4>=4.12
+bibtexparser>=1.4,<2
+huggingface_hub>=1.0
+lxml>=5.0
+mcp>=2,<3
+psycopg[binary]>=3.2
+pydantic>=2.8
+pydantic-settings>=2.4
+pymupdf>=1.26
+pymupdf4llm>=1.28
+pyyaml>=6.0
+qdrant-client>=1.19,<2
+rapidfuzz>=3.0
+requests>=2.31
+semchunk>=4.0
+sqlalchemy>=2.0
+torch>=2.6
+trafilatura>=2.0
+transformers>=4.56
