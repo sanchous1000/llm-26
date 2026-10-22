@@ -1,0 +1,27 @@
+[tool.black]
+line-length = 88
+target-version = ["py311"]
+
+[tool.ruff]
+line-length = 88
+target-version = "py311"
+extend-exclude = [".venv", "data"]
+
+[tool.ruff.lint]
+select = ["E", "W", "F", "I", "N", "UP", "B", "SIM", "C4", "PL"]
+ignore = ["PLR2004", "PLR0913"]
+
+[tool.ruff.lint.isort]
+known-first-party = ["source"]
+
+[tool.pytest.ini_options]
+testpaths = ["source/tests"]
+addopts = "-p no:cacheprovider"
+
+[tool.ruff.lint.per-file-ignores]
+"source/tests/*" = ["E501", "PLC0415"]
+# heavy libraries (torch, transformers) are imported lazily on purpose
+"source/indexing/tokens.py" = ["PLC0415"]
+"source/indexing/embedding/*" = ["PLC0415"]
+"source/cli.py" = ["PLC0415"]
+"source/rag/commands.py" = ["PLC0415"]

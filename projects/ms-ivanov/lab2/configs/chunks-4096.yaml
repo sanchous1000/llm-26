@@ -1,0 +1,28 @@
+# Large-chunk baseline: same as default.yaml but 4096-token chunks.
+chunking:
+  splitter: structured        # structured | recursive | fixed
+  tokenizer: BAAI/bge-m3      # chunk sizes are measured in this tokenizer's tokens
+  chunk_size: 4096
+  overlap: 0                  # tokens (whole units for the structured splitter)
+  split_level: 2              # headings up to this level start a new chunk
+  min_chunk_tokens: 128       # smaller chunks are merged into their neighbour
+  include_headings: true      # prepend "title + section path" to the embedded text
+  strip_images: true          # drop image links from the embedded text
+  include_references: false   # skip the bibliography section
+
+embedding:
+  model: BAAI/bge-m3
+  mode: hybrid                # dense | sparse | hybrid
+  device: auto                # auto -> mps on Apple Silicon
+  dtype: float16
+  max_length: 8192
+  batch_tokens: 16384         # token budget of one forward pass
+
+index:                        # Qdrant collection
+  distance: cosine
+  hnsw_m: 16
+  hnsw_ef_construct: 64
+  hnsw_ef: 64
+  on_disk: false
+
+min_priority: 3               # catalog stars (1-3) a document needs to be indexed

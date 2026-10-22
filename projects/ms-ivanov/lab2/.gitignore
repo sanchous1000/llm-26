@@ -1,0 +1,11 @@
+data/papers/
+.venv/
+.env
+__pycache__/
+.coverage
+.pytest_cache/
+.ruff_cache/
+eval/candidates/
+eval/selection.json
+eval/hnsw/*.json
+eval/rag/
