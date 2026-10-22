@@ -1,0 +1,898 @@
+{
+  "generated_at": "2026-09-17T10:55:03+00:00",
+  "models": [
+    "qwen3.5-35b-a3b",
+    "google/gemma-4-12b-qat",
+    "mistralai/ministral-3-14b-reasoning"
+  ],
+  "short_names": {
+    "qwen3.5-35b-a3b": "Qwen3.5-35B-A3B",
+    "google/gemma-4-12b-qat": "Gemma-4-12B-QAT",
+    "mistralai/ministral-3-14b-reasoning": "Ministral-3-14B"
+  },
+  "key_checks": {
+    "P1": [
+      "указана причина",
+      "предложение о разовых заявках",
+      "нет выдуманных сумм и фамилий",
+      "числа только из условия",
+      "только русский язык"
+    ],
+    "P2": [
+      "точность классификации"
+    ],
+    "P3": [
+      "схема, значения и null-поля",
+      "без markdown-обёртки"
+    ],
+    "P4": [
+      "нет выдуманных чисел",
+      "указана первопричина",
+      "указаны меры",
+      "ключевой факт не искажён",
+      "только русский язык"
+    ],
+    "P5": [
+      "верный итог (1431 ₽)"
+    ],
+    "P6": [
+      "честность вместо выдумки",
+      "числа только из вопроса",
+      "только русский язык"
+    ]
+  },
+  "overview": [
+    {
+      "model": "qwen3.5-35b-a3b",
+      "acceptable": 0.9907407407407407,
+      "score_v2": 0.9886851851851852,
+      "score_v1": 0.9696092592592592,
+      "latency_mean": 65.48487962962963,
+      "latency_median": 56.1675,
+      "total_hours": 1.996348611111111,
+      "tps": 56.019999999999996,
+      "completion_tokens": 3465.990740740741,
+      "reasoning_tokens": 3383.546296296296,
+      "answer_tokens": 82.44444444444444,
+      "reasoning_time_share": 0.96575,
+      "hallucinations": 0,
+      "code_switching": 0,
+      "critical_manual": 0
+    },
+    {
+      "model": "google/gemma-4-12b-qat",
+      "acceptable": 0.9907407407407407,
+      "score_v2": 0.9989722222222222,
+      "score_v1": 0.9985750000000001,
+      "latency_mean": 74.50773148148149,
+      "latency_median": 29.063000000000002,
+      "total_hours": 2.2794572222222222,
+      "tps": 28.865000000000002,
+      "completion_tokens": 2104.8425925925926,
+      "reasoning_tokens": 2027.4166666666667,
+      "answer_tokens": 77.42592592592592,
+      "reasoning_time_share": 0.9267888888888889,
+      "hallucinations": 0,
+      "code_switching": 0,
+      "critical_manual": 1
+    },
+    {
+      "model": "mistralai/ministral-3-14b-reasoning",
+      "acceptable": 0.48148148148148145,
+      "score_v2": 0.8611722222222222,
+      "score_v1": 0.8982342592592593,
+      "latency_mean": 3.7467777777777775,
+      "latency_median": 3.3339999999999996,
+      "total_hours": 0.13189861111111112,
+      "tps": 27.665,
+      "completion_tokens": 100.25925925925925,
+      "reasoning_tokens": 0.0,
+      "answer_tokens": 100.25925925925925,
+      "reasoning_time_share": 0.035325,
+      "hallucinations": 8,
+      "code_switching": 7,
+      "critical_manual": 5
+    }
+  ],
+  "by_prompt": {
+    "qwen3.5-35b-a3b": {
+      "P1": 1.0,
+      "P2": 1.0,
+      "P3": 1.0,
+      "P4": 1.0,
+      "P5": 1.0,
+      "P6": 0.9444444444444444
+    },
+    "google/gemma-4-12b-qat": {
+      "P1": 1.0,
+      "P2": 1.0,
+      "P3": 1.0,
+      "P4": 0.9444444444444444,
+      "P5": 1.0,
+      "P6": 1.0
+    },
+    "mistralai/ministral-3-14b-reasoning": {
+      "P1": 0.5555555555555556,
+      "P2": 1.0,
+      "P3": 0.0,
+      "P4": 0.5555555555555556,
+      "P5": 0.16666666666666666,
+      "P6": 0.6111111111111112
+    }
+  },
+  "by_preset": {
+    "qwen3.5-35b-a3b": {
+      "A_baseline": 1.0,
+      "B_precise": 1.0,
+      "C_creative": 0.9444444444444444,
+      "D_balanced": 1.0,
+      "E_warm": 1.0,
+      "F_min_p": 1.0,
+      "G_budget": 0.0
+    },
+    "google/gemma-4-12b-qat": {
+      "A_baseline": 1.0,
+      "B_precise": 1.0,
+      "C_creative": 0.9444444444444444,
+      "D_balanced": 1.0,
+      "E_warm": 1.0,
+      "F_min_p": 1.0,
+      "G_budget": 0.0
+    },
+    "mistralai/ministral-3-14b-reasoning": {
+      "A_baseline": 0.5555555555555556,
+      "B_precise": 0.6666666666666666,
+      "C_creative": 0.2777777777777778,
+      "D_balanced": 0.6111111111111112,
+      "E_warm": 0.4444444444444444,
+      "F_min_p": 0.3333333333333333,
+      "G_budget": 0.6666666666666666
+    }
+  },
+  "temperature_sweep": {
+    "qwen3.5-35b-a3b": [
+      {
+        "preset": "B_precise",
+        "temperature": 0.0,
+        "acceptable": 1.0,
+        "identical_cells": 1.0,
+        "similarity": 1.0,
+        "tokens_cv": 0.0
+      },
+      {
+        "preset": "D_balanced",
+        "temperature": 0.3,
+        "acceptable": 1.0,
+        "identical_cells": 0.3333333333333333,
+        "similarity": 0.662383685516193,
+        "tokens_cv": 0.21926587585770987
+      },
+      {
+        "preset": "E_warm",
+        "temperature": 0.7,
+        "acceptable": 1.0,
+        "identical_cells": 0.3333333333333333,
+        "similarity": 0.6553863375571051,
+        "tokens_cv": 0.24255410241091213
+      },
+      {
+        "preset": "C_creative",
+        "temperature": 1.15,
+        "acceptable": 0.9444444444444444,
+        "identical_cells": 0.3333333333333333,
+        "similarity": 0.543958216277737,
+        "tokens_cv": 0.35954388982338337
+      }
+    ],
+    "google/gemma-4-12b-qat": [
+      {
+        "preset": "B_precise",
+        "temperature": 0.0,
+        "acceptable": 1.0,
+        "identical_cells": 1.0,
+        "similarity": 1.0,
+        "tokens_cv": 0.0
+      },
+      {
+        "preset": "D_balanced",
+        "temperature": 0.3,
+        "acceptable": 1.0,
+        "identical_cells": 0.3333333333333333,
+        "similarity": 0.8185266117263428,
+        "tokens_cv": 0.14278124049234317
+      },
+      {
+        "preset": "E_warm",
+        "temperature": 0.7,
+        "acceptable": 1.0,
+        "identical_cells": 0.16666666666666666,
+        "similarity": 0.747861451361843,
+        "tokens_cv": 0.13217167252529918
+      },
+      {
+        "preset": "C_creative",
+        "temperature": 1.15,
+        "acceptable": 0.9444444444444444,
+        "identical_cells": 0.16666666666666666,
+        "similarity": 0.709220007645102,
+        "tokens_cv": 0.17158900590879067
+      }
+    ],
+    "mistralai/ministral-3-14b-reasoning": [
+      {
+        "preset": "B_precise",
+        "temperature": 0.0,
+        "acceptable": 0.6666666666666666,
+        "identical_cells": 1.0,
+        "similarity": 1.0,
+        "tokens_cv": 0.0
+      },
+      {
+        "preset": "D_balanced",
+        "temperature": 0.3,
+        "acceptable": 0.6111111111111112,
+        "identical_cells": 0.3333333333333333,
+        "similarity": 0.7663734215728811,
+        "tokens_cv": 0.1367317619429465
+      },
+      {
+        "preset": "E_warm",
+        "temperature": 0.7,
+        "acceptable": 0.4444444444444444,
+        "identical_cells": 0.0,
+        "similarity": 0.6286655076601252,
+        "tokens_cv": 0.09389680147701605
+      },
+      {
+        "preset": "C_creative",
+        "temperature": 1.15,
+        "acceptable": 0.2777777777777778,
+        "identical_cells": 0.16666666666666666,
+        "similarity": 0.5341394681549163,
+        "tokens_cv": 0.18381405145820803
+      }
+    ]
+  },
+  "token_spread": {
+    "qwen3.5-35b-a3b": {
+      "P1": {
+        "median": 3892.5,
+        "min": 1672,
+        "max": 7290,
+        "answer_median": 161.5,
+        "reasoning_median": 3736.5,
+        "cell_cv": 0.18617138486190765,
+        "tokens": [
+          2638,
+          3372,
+          3780,
+          7290,
+          7290,
+          7290,
+          4839,
+          5041,
+          2774,
+          4005,
+          1672,
+          4079,
+          4378,
+          5134,
+          2615,
+          2900,
+          2292,
+          2211
+        ]
+      },
+      "P2": {
+        "median": 1507.5,
+        "min": 795,
+        "max": 3786,
+        "answer_median": 24.0,
+        "reasoning_median": 1483.5,
+        "cell_cv": 0.1973251617517098,
+        "tokens": [
+          902,
+          816,
+          1227,
+          795,
+          795,
+          795,
+          1875,
+          1267,
+          2747,
+          1854,
+          2261,
+          1166,
+          1504,
+          2076,
+          1511,
+          1826,
+          3786,
+          3119
+        ]
+      },
+      "P3": {
+        "median": 1514.0,
+        "min": 1094,
+        "max": 4762,
+        "answer_median": 81.0,
+        "reasoning_median": 1433.0,
+        "cell_cv": 0.21813239629220052,
+        "tokens": [
+          1641,
+          1389,
+          1507,
+          1773,
+          1773,
+          1773,
+          1419,
+          4762,
+          1740,
+          1600,
+          1094,
+          1515,
+          1333,
+          1227,
+          1294,
+          3546,
+          1513,
+          1295
+        ]
+      },
+      "P4": {
+        "median": 7010.0,
+        "min": 3249,
+        "max": 8336,
+        "answer_median": 100.0,
+        "reasoning_median": 6908.5,
+        "cell_cv": 0.15877295400189304,
+        "tokens": [
+          8043,
+          5238,
+          7369,
+          6031,
+          6031,
+          6031,
+          7261,
+          6392,
+          8314,
+          8336,
+          7495,
+          4655,
+          8336,
+          5845,
+          3249,
+          8325,
+          6945,
+          7075
+        ]
+      },
+      "P5": {
+        "median": 4912.0,
+        "min": 2231,
+        "max": 6555,
+        "answer_median": 29.0,
+        "reasoning_median": 4880.5,
+        "cell_cv": 0.21026097688510134,
+        "tokens": [
+          2616,
+          3744,
+          5604,
+          5072,
+          5072,
+          5072,
+          3558,
+          5900,
+          6555,
+          3200,
+          4117,
+          5431,
+          5569,
+          3472,
+          2231,
+          3890,
+          4752,
+          5364
+        ]
+      },
+      "P6": {
+        "median": 1766.0,
+        "min": 445,
+        "max": 4785,
+        "answer_median": 90.0,
+        "reasoning_median": 1677.5,
+        "cell_cv": 0.23800305664589128,
+        "tokens": [
+          1890,
+          2760,
+          1560,
+          1445,
+          1445,
+          1445,
+          2518,
+          4785,
+          445,
+          1409,
+          1642,
+          1253,
+          2367,
+          1470,
+          3021,
+          1894,
+          2201,
+          2471
+        ]
+      }
+    },
+    "google/gemma-4-12b-qat": {
+      "P1": {
+        "median": 1055.5,
+        "min": 768,
+        "max": 2857,
+        "answer_median": 163.5,
+        "reasoning_median": 893.0,
+        "cell_cv": 0.25378749931671435,
+        "tokens": [
+          1278,
+          768,
+          2857,
+          861,
+          861,
+          861,
+          1527,
+          934,
+          963,
+          1103,
+          1594,
+          1323,
+          1008,
+          1155,
+          2469,
+          866,
+          1203,
+          860
+        ]
+      },
+      "P2": {
+        "median": 602.0,
+        "min": 466,
+        "max": 703,
+        "answer_median": 24.0,
+        "reasoning_median": 578.0,
+        "cell_cv": 0.06525035160701788,
+        "tokens": [
+          479,
+          608,
+          686,
+          599,
+          599,
+          599,
+          546,
+          562,
+          595,
+          703,
+          628,
+          652,
+          637,
+          630,
+          580,
+          619,
+          466,
+          605
+        ]
+      },
+      "P3": {
+        "median": 753.0,
+        "min": 648,
+        "max": 1088,
+        "answer_median": 74.0,
+        "reasoning_median": 672.5,
+        "cell_cv": 0.098079633278353,
+        "tokens": [
+          648,
+          654,
+          740,
+          814,
+          814,
+          814,
+          649,
+          918,
+          720,
+          1011,
+          792,
+          714,
+          664,
+          742,
+          748,
+          758,
+          773,
+          1088
+        ]
+      },
+      "P4": {
+        "median": 8334.0,
+        "min": 4301,
+        "max": 8342,
+        "answer_median": 126.0,
+        "reasoning_median": 8204.5,
+        "cell_cv": 0.09767397770855678,
+        "tokens": [
+          8336,
+          5911,
+          8338,
+          7138,
+          7138,
+          7138,
+          8338,
+          7727,
+          4301,
+          8337,
+          8341,
+          8339,
+          7822,
+          8341,
+          8332,
+          6049,
+          8337,
+          8342
+        ]
+      },
+      "P5": {
+        "median": 1898.5,
+        "min": 786,
+        "max": 3349,
+        "answer_median": 39.5,
+        "reasoning_median": 1853.5,
+        "cell_cv": 0.2277220102955125,
+        "tokens": [
+          3349,
+          1447,
+          2366,
+          2293,
+          2293,
+          2293,
+          2837,
+          2863,
+          1844,
+          966,
+          2302,
+          786,
+          830,
+          917,
+          1299,
+          1615,
+          1953,
+          1347
+        ]
+      },
+      "P6": {
+        "median": 570.5,
+        "min": 339,
+        "max": 670,
+        "answer_median": 37.0,
+        "reasoning_median": 537.0,
+        "cell_cv": 0.07436169870549518,
+        "tokens": [
+          638,
+          670,
+          592,
+          441,
+          441,
+          441,
+          465,
+          505,
+          660,
+          590,
+          598,
+          585,
+          576,
+          623,
+          565,
+          339,
+          507,
+          537
+        ]
+      }
+    },
+    "mistralai/ministral-3-14b-reasoning": {
+      "P1": {
+        "median": 169.0,
+        "min": 147,
+        "max": 201,
+        "answer_median": 169.0,
+        "reasoning_median": 0.0,
+        "cell_cv": 0.057663172681904844,
+        "tokens": [
+          155,
+          175,
+          155,
+          169,
+          169,
+          169,
+          190,
+          194,
+          147,
+          158,
+          169,
+          164,
+          191,
+          201,
+          166,
+          158,
+          176,
+          153
+        ]
+      },
+      "P2": {
+        "median": 28.0,
+        "min": 28,
+        "max": 28,
+        "answer_median": 28.0,
+        "reasoning_median": 0.0,
+        "cell_cv": 0.0,
+        "tokens": [
+          28,
+          28,
+          28,
+          28,
+          28,
+          28,
+          28,
+          28,
+          28,
+          28,
+          28,
+          28,
+          28,
+          28,
+          28,
+          28,
+          28,
+          28
+        ]
+      },
+      "P3": {
+        "median": 118.0,
+        "min": 99,
+        "max": 118,
+        "answer_median": 118.0,
+        "reasoning_median": 0.0,
+        "cell_cv": 0.02871487940283776,
+        "tokens": [
+          118,
+          118,
+          118,
+          118,
+          118,
+          118,
+          118,
+          99,
+          118,
+          118,
+          118,
+          118,
+          110,
+          118,
+          118,
+          110,
+          118,
+          102
+        ]
+      },
+      "P4": {
+        "median": 190.5,
+        "min": 68,
+        "max": 230,
+        "answer_median": 190.5,
+        "reasoning_median": 0.0,
+        "cell_cv": 0.1367316794120849,
+        "tokens": [
+          223,
+          230,
+          225,
+          155,
+          155,
+          155,
+          121,
+          119,
+          186,
+          220,
+          210,
+          215,
+          139,
+          206,
+          221,
+          195,
+          168,
+          68
+        ]
+      },
+      "P5": {
+        "median": 51.0,
+        "min": 30,
+        "max": 76,
+        "answer_median": 51.0,
+        "reasoning_median": 0.0,
+        "cell_cv": 0.10198277811315958,
+        "tokens": [
+          50,
+          50,
+          50,
+          75,
+          75,
+          75,
+          30,
+          60,
+          51,
+          50,
+          50,
+          76,
+          43,
+          51,
+          53,
+          56,
+          50,
+          52
+        ]
+      },
+      "P6": {
+        "median": 48.5,
+        "min": 7,
+        "max": 155,
+        "answer_median": 48.5,
+        "reasoning_median": 0.0,
+        "cell_cv": 0.2202003369923283,
+        "tokens": [
+          37,
+          37,
+          37,
+          37,
+          37,
+          37,
+          66,
+          155,
+          72,
+          37,
+          7,
+          48,
+          53,
+          82,
+          69,
+          71,
+          49,
+          53
+        ]
+      }
+    }
+  },
+  "word_limit_effect": {
+    "qwen3.5-35b-a3b": {
+      "P1": {
+        "word_limit": 120,
+        "reasoning_median": 3736.5,
+        "counting_share": 1.0,
+        "forced_stops": 0
+      },
+      "P2": {
+        "word_limit": null,
+        "reasoning_median": 1483.5,
+        "counting_share": 0.0,
+        "forced_stops": 0
+      },
+      "P3": {
+        "word_limit": null,
+        "reasoning_median": 1433.0,
+        "counting_share": 0.0,
+        "forced_stops": 0
+      },
+      "P4": {
+        "word_limit": 60,
+        "reasoning_median": 6908.5,
+        "counting_share": 1.0,
+        "forced_stops": 4
+      },
+      "P5": {
+        "word_limit": 25,
+        "reasoning_median": 4880.5,
+        "counting_share": 1.0,
+        "forced_stops": 0
+      },
+      "P6": {
+        "word_limit": 60,
+        "reasoning_median": 1677.5,
+        "counting_share": 0.9444444444444444,
+        "forced_stops": 0
+      }
+    },
+    "google/gemma-4-12b-qat": {
+      "P1": {
+        "word_limit": 120,
+        "reasoning_median": 893.0,
+        "counting_share": 0.7222222222222222,
+        "forced_stops": 0
+      },
+      "P2": {
+        "word_limit": null,
+        "reasoning_median": 578.0,
+        "counting_share": 0.0,
+        "forced_stops": 0
+      },
+      "P3": {
+        "word_limit": null,
+        "reasoning_median": 672.5,
+        "counting_share": 0.0,
+        "forced_stops": 0
+      },
+      "P4": {
+        "word_limit": 60,
+        "reasoning_median": 8204.5,
+        "counting_share": 1.0,
+        "forced_stops": 10
+      },
+      "P5": {
+        "word_limit": 25,
+        "reasoning_median": 1853.5,
+        "counting_share": 1.0,
+        "forced_stops": 0
+      },
+      "P6": {
+        "word_limit": 60,
+        "reasoning_median": 537.0,
+        "counting_share": 0.05555555555555555,
+        "forced_stops": 0
+      }
+    }
+  },
+  "budget_effect": [
+    {
+      "model": "qwen3.5-35b-a3b",
+      "runs": 18,
+      "truncated": 18,
+      "empty": 18,
+      "acceptable": 0.0,
+      "latency_mean": 6.360444444444444
+    },
+    {
+      "model": "google/gemma-4-12b-qat",
+      "runs": 18,
+      "truncated": 18,
+      "empty": 18,
+      "acceptable": 0.0,
+      "latency_mean": 8.845055555555556
+    },
+    {
+      "model": "mistralai/ministral-3-14b-reasoning",
+      "runs": 18,
+      "truncated": 0,
+      "empty": 0,
+      "acceptable": 0.6666666666666666,
+      "latency_mean": 3.899055555555556
+    }
+  ],
+  "determinism": [
+    {
+      "model": "qwen3.5-35b-a3b",
+      "greedy_identical_answers": 6,
+      "greedy_identical_tokens": 6,
+      "greedy_cells": 6,
+      "baseline_similarity": 0.6382882557541525,
+      "baseline_identical": 2
+    },
+    {
+      "model": "google/gemma-4-12b-qat",
+      "greedy_identical_answers": 6,
+      "greedy_identical_tokens": 6,
+      "greedy_cells": 6,
+      "baseline_similarity": 0.6784752867087117,
+      "baseline_identical": 1
+    },
+    {
+      "model": "mistralai/ministral-3-14b-reasoning",
+      "greedy_identical_answers": 6,
+      "greedy_identical_tokens": 6,
+      "greedy_cells": 6,
+      "baseline_similarity": 0.9545065438302148,
+      "baseline_identical": 3
+    }
+  ]
+}
