@@ -1,0 +1,34 @@
+# Qdrant. Имя коллекции = {collection_prefix}_{хеш параметров splitter + embeddings}
+qdrant:
+  url: http://localhost:6333
+  collection_prefix: docs
+
+# Dense-эмбеддинги: bge-m3 локально (sentence-transformers). model_name входит в имя коллекции
+embeddings:
+  model_name: bge-m3
+  model_path: models/bge-m3   # относительно папки lab2
+  device: auto                # auto | cuda | cpu
+  fp16: true                  # на GPU
+  batch_size: 16
+  max_seq_length: 512         # усечение входа при векторизации
+
+# Нарезка: сначала по markdown-заголовкам, затем по токенам модели эмбеддингов
+splitter:
+  chunk_size: 300          # в токенах токенизатора модели (должно быть <= embeddings.max_seq_length)
+  chunk_overlap: 50        # в токенах
+  headers_to_split_on: [1, 2, 3]   # уровни заголовков: h1-h3
+  include_headers_in_text: true    # путь заголовков в начале текста чанка
+
+# Настройки поиска (можно переопределить в запросе к API)
+search:
+  top_k: 5
+  score_threshold: 0.45   # подобран под bge-m3: релевантные top-1 >= 0.49, посторонние вопросы <= 0.42
+
+# LLM из лабы 1 (Ollama, OpenAI-совместимый API)
+llm:
+  base_url: http://localhost:11434/v1
+  model: qwen3.5:4b
+  reasoning_effort: none   # отключить thinking у qwen3.5 (null - не передавать параметр)
+  temperature: 0.0
+  max_tokens: 500
+  timeout: 300
