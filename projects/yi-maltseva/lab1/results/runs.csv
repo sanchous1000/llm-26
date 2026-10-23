@@ -1,0 +1,210 @@
+﻿run_id,timestamp,model,family,prompt_id,prompt_title,mode,repeat_index,parameters_json,answer,response_time_s,prompt_tokens,completion_tokens,total_tokens,token_count_source,end_to_end_output_tokens_per_sec,prompt_eval_tokens,prompt_eval_time_s,prompt_eval_tokens_per_sec,probe_output_tokens,probe_eval_time_s,probe_generation_tokens_per_sec,model_load_time_s,task_score,score_details_json,error
+Qwen_P1_A_baseline_R1,2026-10-09T11:18:53+03:00,qwen2.5:3b,Qwen,P1,Генерация вежливого письма,A_baseline,1,{},"Уважаемые студенты,
+
+Из-за технической неисправности лабораторная работа, запланированная на пятницу, переносится на вторник, 13 октября, к 15:00. Из-за этого, прошу вас подтвердить, что вы получили это письмо.
+
+Спасибо за понимание.
+
+С уважением,
+[Ваше имя или Ваша фамилия]",9.76759,170,110,280,OpenAI usage,11.2617,170,0.072842,2333.8184014716785,16,0.897927,17.818820460906064,0.0070317,1.0,"{""polite_greeting"": true, ""reason_for_change"": true, ""date_or_time"": true, ""apology_or_confirmation"": true}",
+Qwen_P1_A_baseline_R2,2026-10-09T11:19:03+03:00,qwen2.5:3b,Qwen,P1,Генерация вежливого письма,A_baseline,2,{},"Здравствуйте, уважаемые студенты! 
+
+В связи с технической неисправностью мы вынуждены перенести лабораторную работу с пятницы на вторник, 13 октября, к 15:00. Прошу всех подтвердить получение этого письма. 
+
+Спасибо за понимание.",7.255878,170,87,257,OpenAI usage,11.9903,170,0.072842,2333.8184014716785,16,0.897927,17.818820460906064,0.0070317,1.0,"{""polite_greeting"": true, ""reason_for_change"": true, ""date_or_time"": true, ""apology_or_confirmation"": true}",
+Qwen_P1_B_tuned_R1,2026-10-09T11:19:13+03:00,qwen2.5:3b,Qwen,P1,Генерация вежливого письма,B_tuned,1,"{""temperature"": 0.2, ""top_p"": 0.85, ""max_tokens"": 128}","Уважаемые студенты,
+
+Извиняюсь за неудобства, но из-за технической неисправности лабораторная работа, запланированная на пятницу, переносится на вторник, 13 октября, в 15:00. Пожалуйста, подтвердите получение этого письма.
+
+С уважением,
+[Ваше имя или должность]",8.261143,170,103,273,OpenAI usage,12.468,170,0.07353,2311.981504147967,16,0.902098,17.73643218364302,0.0070317,1.0,"{""polite_greeting"": true, ""reason_for_change"": true, ""date_or_time"": true, ""apology_or_confirmation"": true}",
+Qwen_P1_B_tuned_R2,2026-10-09T11:19:22+03:00,qwen2.5:3b,Qwen,P1,Генерация вежливого письма,B_tuned,2,"{""temperature"": 0.2, ""top_p"": 0.85, ""max_tokens"": 128}","Уважаемые студенты,
+
+Прошу прощения за неудобства, вызванные технической неисправностью. Лабораторная работа, запланированная на пятницу, переносится на вторник, 13 октября, в 15:00. Пожалуйста, подтвердите получение этого письма.
+
+С уважением,
+[Ваше имя или должность]",8.24535,170,103,273,OpenAI usage,12.4919,170,0.07353,2311.981504147967,16,0.902098,17.73643218364302,0.0070317,1.0,"{""polite_greeting"": true, ""reason_for_change"": true, ""date_or_time"": true, ""apology_or_confirmation"": true}",
+Qwen_P2_A_baseline_R1,2026-10-09T11:19:33+03:00,qwen2.5:3b,Qwen,P2,Классификация обращений,A_baseline,1,{},"Billing
+Tech support
+Sales",2.483659,185,7,192,OpenAI usage,2.8184,185,0.073683,2510.7555338409134,7,0.37011,18.913296047121126,0.0070317,1.0,"{""predicted_labels"": [""Billing"", ""Tech support"", ""Sales""], ""expected_labels"": [""Billing"", ""Tech support"", ""Sales""], ""correct_labels"": 3, ""number_of_labels_correct"": true, ""exact_sequence"": true}",
+Qwen_P2_A_baseline_R2,2026-10-09T11:19:35+03:00,qwen2.5:3b,Qwen,P2,Классификация обращений,A_baseline,2,{},"Billing
+Tech support
+Sales",2.491798,185,7,192,OpenAI usage,2.8092,185,0.073683,2510.7555338409134,7,0.37011,18.913296047121126,0.0070317,1.0,"{""predicted_labels"": [""Billing"", ""Tech support"", ""Sales""], ""expected_labels"": [""Billing"", ""Tech support"", ""Sales""], ""correct_labels"": 3, ""number_of_labels_correct"": true, ""exact_sequence"": true}",
+Qwen_P2_B_tuned_R1,2026-10-09T11:19:40+03:00,qwen2.5:3b,Qwen,P2,Классификация обращений,B_tuned,1,"{""temperature"": 0.2, ""top_p"": 0.85, ""max_tokens"": 128}","Billing
+Tech support
+Sales",2.501114,185,7,192,OpenAI usage,2.7988,185,0.072982,2534.871612178345,7,0.366947,19.076324373819652,0.0070317,1.0,"{""predicted_labels"": [""Billing"", ""Tech support"", ""Sales""], ""expected_labels"": [""Billing"", ""Tech support"", ""Sales""], ""correct_labels"": 3, ""number_of_labels_correct"": true, ""exact_sequence"": true}",
+Qwen_P2_B_tuned_R2,2026-10-09T11:19:43+03:00,qwen2.5:3b,Qwen,P2,Классификация обращений,B_tuned,2,"{""temperature"": 0.2, ""top_p"": 0.85, ""max_tokens"": 128}","Billing
+Tech support
+Sales",2.501871,185,7,192,OpenAI usage,2.7979,185,0.072982,2534.871612178345,7,0.366947,19.076324373819652,0.0070317,1.0,"{""predicted_labels"": [""Billing"", ""Tech support"", ""Sales""], ""expected_labels"": [""Billing"", ""Tech support"", ""Sales""], ""correct_labels"": 3, ""number_of_labels_correct"": true, ""exact_sequence"": true}",
+Qwen_P3_A_baseline_R1,2026-10-09T11:19:48+03:00,qwen2.5:3b,Qwen,P3,Извлечение полей из описания товара,A_baseline,1,{},"{
+  ""model"": ""NovaBook Air"",
+  ""cpu"": ""Intel Core i5-1235U"",
+  ""ram_gb"": 16,
+  ""storage_gb"": 512,
+  ""screen_inches"": 14.0,
+  ""weight_kg"": 1.3,
+  ""battery_hours"": 14,
+  ""price_rub"": 79990
+}",7.651375,230,91,321,OpenAI usage,11.8933,230,0.074209,3099.3545257313804,16,0.905831,17.663338967202492,0.0070317,1.0,"{""json_parse_success"": true, ""fields_correct"": {""model"": true, ""cpu"": true, ""ram_gb"": true, ""storage_gb"": true, ""screen_inches"": true, ""weight_kg"": true, ""battery_hours"": true, ""price_rub"": true}, ""correct_fields"": 8, ""total_fields"": 8}",
+Qwen_P3_A_baseline_R2,2026-10-09T11:19:55+03:00,qwen2.5:3b,Qwen,P3,Извлечение полей из описания товара,A_baseline,2,{},"{
+  ""model"": ""NovaBook Air"",
+  ""cpu"": ""Intel Core i5-1235U"",
+  ""ram_gb"": 16,
+  ""storage_gb"": 512,
+  ""screen_inches"": 14,
+  ""weight_kg"": 1.3,
+  ""battery_hours"": 14,
+  ""price_rub"": 79990
+}",7.497167,230,89,319,OpenAI usage,11.8712,230,0.074209,3099.3545257313804,16,0.905831,17.663338967202492,0.0070317,1.0,"{""json_parse_success"": true, ""fields_correct"": {""model"": true, ""cpu"": true, ""ram_gb"": true, ""storage_gb"": true, ""screen_inches"": true, ""weight_kg"": true, ""battery_hours"": true, ""price_rub"": true}, ""correct_fields"": 8, ""total_fields"": 8}",
+Qwen_P3_B_tuned_R1,2026-10-09T11:20:06+03:00,qwen2.5:3b,Qwen,P3,Извлечение полей из описания товара,B_tuned,1,"{""temperature"": 0.2, ""top_p"": 0.85, ""max_tokens"": 128}","{
+  ""model"": ""NovaBook Air"",
+  ""cpu"": ""Intel Core i5-1235U"",
+  ""ram_gb"": 16,
+  ""storage_gb"": 512,
+  ""screen_inches"": 14,
+  ""weight_kg"": 1.3,
+  ""battery_hours"": 14,
+  ""price_rub"": 79990
+}",7.594857,230,89,319,OpenAI usage,11.7185,230,0.074578,3084.01941591354,16,0.930948,17.18678164623588,0.0070317,1.0,"{""json_parse_success"": true, ""fields_correct"": {""model"": true, ""cpu"": true, ""ram_gb"": true, ""storage_gb"": true, ""screen_inches"": true, ""weight_kg"": true, ""battery_hours"": true, ""price_rub"": true}, ""correct_fields"": 8, ""total_fields"": 8}",
+Qwen_P3_B_tuned_R2,2026-10-09T11:20:14+03:00,qwen2.5:3b,Qwen,P3,Извлечение полей из описания товара,B_tuned,2,"{""temperature"": 0.2, ""top_p"": 0.85, ""max_tokens"": 128}","{
+  ""model"": ""NovaBook Air"",
+  ""cpu"": ""Intel Core i5-1235U"",
+  ""ram_gb"": 16,
+  ""storage_gb"": 512,
+  ""screen_inches"": 14,
+  ""weight_kg"": 1.3,
+  ""battery_hours"": 14,
+  ""price_rub"": 79990
+}",7.570285,230,89,319,OpenAI usage,11.7565,230,0.074578,3084.01941591354,16,0.930948,17.18678164623588,0.0070317,1.0,"{""json_parse_success"": true, ""fields_correct"": {""model"": true, ""cpu"": true, ""ram_gb"": true, ""storage_gb"": true, ""screen_inches"": true, ""weight_kg"": true, ""battery_hours"": true, ""price_rub"": true}, ""correct_fields"": 8, ""total_fields"": 8}",
+Llama_P1_A_baseline_R1,2026-10-09T11:20:27+03:00,llama3.2:3b,Llama,P1,Генерация вежливого письма,A_baseline,1,{},"Дорогие студенты,
+
+Я пишу вам с regretsом для сообщения о запланированной лабораторной работе, запланированной на пятницу. СожALSEние technical issues, мне пришлось перенести ее на второй день. Лабораторная работа теперь будет проходить вторника, 13 října, в 15:00.
+
+Я пожалею любые неудобства, которые это может принести вам и вашему waktu. Я прошу извинить себя за это и просить подтвердить, что вы получили этот письмо, чтобы убедиться в том, что все обстоятельства были приняты.
+
+Хотел бы вы попrosить подтвердить, что вы получили это письмо? Важно для меня, чтобы knew все particulars. 
+
+С уважением,
+[Имя преподавателя]",14.961928,143,190,333,OpenAI usage,12.6989,143,0.071118,2010.7427093000365,16,0.943073,16.965812826790714,0.0065611,0.5,"{""polite_greeting"": false, ""reason_for_change"": false, ""date_or_time"": true, ""apology_or_confirmation"": true}",
+Llama_P1_A_baseline_R2,2026-10-09T11:20:42+03:00,llama3.2:3b,Llama,P1,Генерация вежливого письма,A_baseline,2,{}," Priya students,
+
+Я хотел бы отменить запланированную для пятницу лабораторную работу и перевести ее на вторник, 13 октября, к 15:00. Этот сдвиг связан с технической неисправностью, которую нас обошёл случай.
+
+Я просил прощения за неудобства, которые этот сдвиг может принести вам. Мне решительно надеется, что изменение будет способствовать правильному пониманию Materialov.
+
+Вам также прошу подтвердить получение этого письма.
+
+ с приложением,
+您的 преподаватель.",10.299768,143,133,276,OpenAI usage,12.9129,143,0.071118,2010.7427093000365,16,0.943073,16.965812826790714,0.0065611,0.75,"{""polite_greeting"": false, ""reason_for_change"": true, ""date_or_time"": true, ""apology_or_confirmation"": true}",
+Llama_P1_B_tuned_R1,2026-10-09T11:20:55+03:00,llama3.2:3b,Llama,P1,Генерация вежливого письма,B_tuned,1,"{""temperature"": 0.2, ""top_p"": 0.85, ""max_tokens"": 128}","Дорогие студенты,
+
+Я хотел бы сообщить вам, что лабораторная работа, запланированная на пятницу, перенесена из-за технической неисправности. Теперь она пройдет вторник, 13 октября, к 15:00.
+
+Я извиняюсь за неудобства, которые это может вызвать, и прошу вас быть терпимыми в этой ситуации.
+
+Чтобы подтвердить, что вы получили это письмо, пожалуйста, ответите на этот электронный адрес.
+
+С уважением,
+[Ваш",10.089426,143,128,271,OpenAI usage,12.6865,143,0.071208,2008.2013256937425,16,0.91804,17.428434490871858,0.0065611,0.75,"{""polite_greeting"": false, ""reason_for_change"": true, ""date_or_time"": true, ""apology_or_confirmation"": true}",
+Llama_P1_B_tuned_R2,2026-10-09T11:21:05+03:00,llama3.2:3b,Llama,P1,Генерация вежливого письма,B_tuned,2,"{""temperature"": 0.2, ""top_p"": 0.85, ""max_tokens"": 128}","Дорогие студенты,
+
+Я хотел бы извиниться за неудобства, которые могут возникнуть из-за переноса лабораторной работы, запланированной на пятницу. Из-за технической неисправности мы вынуждены перенести ее на вторник, 13 октября, к 15:00.
+
+Я понимаю, что это может вызвать неудобства для некоторых из вас, и я прошу прощения за это. Яหวож, что мы сможем найти решение и продолжить работу над лабораторной работой.
+
+Чтобы",9.834123,143,128,271,OpenAI usage,13.0159,143,0.071208,2008.2013256937425,16,0.91804,17.428434490871858,0.0065611,0.75,"{""polite_greeting"": false, ""reason_for_change"": true, ""date_or_time"": true, ""apology_or_confirmation"": true}",
+Llama_P2_A_baseline_R1,2026-10-09T11:21:18+03:00,llama3.2:3b,Llama,P2,Классификация обращений,A_baseline,1,{},"Billing
+Tech support
+Sales",2.54353,176,7,183,OpenAI usage,2.7521,176,0.071016,2478.314745972739,7,0.370454,18.895733343411056,0.0065611,1.0,"{""predicted_labels"": [""Billing"", ""Tech support"", ""Sales""], ""expected_labels"": [""Billing"", ""Tech support"", ""Sales""], ""correct_labels"": 3, ""number_of_labels_correct"": true, ""exact_sequence"": true}",
+Llama_P2_A_baseline_R2,2026-10-09T11:21:20+03:00,llama3.2:3b,Llama,P2,Классификация обращений,A_baseline,2,{},"1. Billing
+2. Tech support
+3. Sales",2.882345,176,13,189,OpenAI usage,4.5102,176,0.071016,2478.314745972739,7,0.370454,18.895733343411056,0.0065611,1.0,"{""predicted_labels"": [""Billing"", ""Tech support"", ""Sales""], ""expected_labels"": [""Billing"", ""Tech support"", ""Sales""], ""correct_labels"": 3, ""number_of_labels_correct"": true, ""exact_sequence"": true}",
+Llama_P2_B_tuned_R1,2026-10-09T11:21:26+03:00,llama3.2:3b,Llama,P2,Классификация обращений,B_tuned,1,"{""temperature"": 0.2, ""top_p"": 0.85, ""max_tokens"": 128}","Billing
+Tech support
+Sales",2.514514,176,7,183,OpenAI usage,2.7838,176,0.071084,2475.9439536323225,7,0.374614,18.685900687107264,0.0065611,1.0,"{""predicted_labels"": [""Billing"", ""Tech support"", ""Sales""], ""expected_labels"": [""Billing"", ""Tech support"", ""Sales""], ""correct_labels"": 3, ""number_of_labels_correct"": true, ""exact_sequence"": true}",
+Llama_P2_B_tuned_R2,2026-10-09T11:21:28+03:00,llama3.2:3b,Llama,P2,Классификация обращений,B_tuned,2,"{""temperature"": 0.2, ""top_p"": 0.85, ""max_tokens"": 128}","Billing
+Tech support
+Sales",2.53146,176,7,183,OpenAI usage,2.7652,176,0.071084,2475.9439536323225,7,0.374614,18.685900687107264,0.0065611,1.0,"{""predicted_labels"": [""Billing"", ""Tech support"", ""Sales""], ""expected_labels"": [""Billing"", ""Tech support"", ""Sales""], ""correct_labels"": 3, ""number_of_labels_correct"": true, ""exact_sequence"": true}",
+Llama_P3_A_baseline_R1,2026-10-09T11:21:33+03:00,llama3.2:3b,Llama,P3,Извлечение полей из описания товара,A_baseline,1,{},"{""model"": ""NovaBook Air"", ""cpu"": ""Intel Core i5-1235U"", ""ram_gb"": ""16"", ""storage_gb"": ""512"", ""screen_inches"": ""14"", ""weight_kg"": ""1.3"", ""battery_hours"": ""14"", ""price_rub"": ""79990""}",6.363926,206,69,275,OpenAI usage,10.8424,206,0.071887,2865.608524489824,16,0.919659,17.397752862745865,0.0065611,1.0,"{""json_parse_success"": true, ""fields_correct"": {""model"": true, ""cpu"": true, ""ram_gb"": true, ""storage_gb"": true, ""screen_inches"": true, ""weight_kg"": true, ""battery_hours"": true, ""price_rub"": true}, ""correct_fields"": 8, ""total_fields"": 8}",
+Llama_P3_A_baseline_R2,2026-10-09T11:21:40+03:00,llama3.2:3b,Llama,P3,Извлечение полей из описания товара,A_baseline,2,{},"{""model"": ""NovaBook Air"", ""cpu"": ""Intel Core i5-1235U"", ""ram_gb"": 16, ""storage_gb"": 512, ""screen_inches"": null, ""weight_kg"": 1.3, ""battery_hours"": 14, ""price_rub"": 79990}",6.409441,206,68,274,OpenAI usage,10.6093,206,0.071887,2865.608524489824,16,0.919659,17.397752862745865,0.0065611,0.875,"{""json_parse_success"": true, ""fields_correct"": {""model"": true, ""cpu"": true, ""ram_gb"": true, ""storage_gb"": true, ""screen_inches"": false, ""weight_kg"": true, ""battery_hours"": true, ""price_rub"": true}, ""correct_fields"": 7, ""total_fields"": 8}",
+Llama_P3_B_tuned_R1,2026-10-09T11:21:49+03:00,llama3.2:3b,Llama,P3,Извлечение полей из описания товара,B_tuned,1,"{""temperature"": 0.2, ""top_p"": 0.85, ""max_tokens"": 128}","{""model"": ""Ноутбук NovaBook Air"", ""cpu"": ""Intel Core i5-1235U"", ""ram_gb"": ""16"", ""storage_gb"": ""512"", ""screen_inches"": ""14"", ""weight_kg"": ""1.3"", ""battery_hours"": ""14"", ""price_rub"": ""79990""}",6.569966,206,73,279,OpenAI usage,11.1112,206,0.071757,2870.8000613180593,16,0.916245,17.4625782405361,0.0065611,1.0,"{""json_parse_success"": true, ""fields_correct"": {""model"": true, ""cpu"": true, ""ram_gb"": true, ""storage_gb"": true, ""screen_inches"": true, ""weight_kg"": true, ""battery_hours"": true, ""price_rub"": true}, ""correct_fields"": 8, ""total_fields"": 8}",
+Llama_P3_B_tuned_R2,2026-10-09T11:21:56+03:00,llama3.2:3b,Llama,P3,Извлечение полей из описания товара,B_tuned,2,"{""temperature"": 0.2, ""top_p"": 0.85, ""max_tokens"": 128}","{""model"": ""NovaBook Air"", ""cpu"": ""Intel Core i5-1235U"", ""ram_gb"": 16, ""storage_gb"": 512, ""screen_inches"": 14, ""weight_kg"": 1.3, ""battery_hours"": 14, ""price_rub"": 79990}",6.335786,206,69,275,OpenAI usage,10.8905,206,0.071757,2870.8000613180593,16,0.916245,17.4625782405361,0.0065611,1.0,"{""json_parse_success"": true, ""fields_correct"": {""model"": true, ""cpu"": true, ""ram_gb"": true, ""storage_gb"": true, ""screen_inches"": true, ""weight_kg"": true, ""battery_hours"": true, ""price_rub"": true}, ""correct_fields"": 8, ""total_fields"": 8}",
+Mistral_P1_A_baseline_R1,2026-10-09T11:22:07+03:00,mistral:7b,Mistral,P1,Генерация вежливого письма,A_baseline,1,{}," Здравствуйте, дорогой студенты!
+
+Я хочу рассказать вам о том, что мы не имеем возможности провести запланированную лабораторную работу на пятницу. С большой сожаление сообщаю, что она будет перенесена на вторник, 13 октября, к 15:00.
+
+Я понимаю, что такая ситуация может вызвать некоторые неудобства, но я надеюсь, что вы понимаете, что мы всегда поступаем в интересах получения наилучших результатов.
+
+Пожалуйста, подтвердите получение данного письма, так как я считаю важным, чтобы всех было настойчиво информировано.
+
+Я надеюсь, что это не запугает вас с нашей лабораторной работой и вы останемся такими энтузиастами, как всегда.
+
+С уважением,
+[Имя преподавателя]",37.214569,152,273,425,OpenAI usage,7.3358,152,0.151868,1000.8691758632497,16,1.883486,8.49488660919168,0.0059596,0.75,"{""polite_greeting"": true, ""reason_for_change"": false, ""date_or_time"": true, ""apology_or_confirmation"": true}",
+Mistral_P1_A_baseline_R2,2026-10-09T11:22:45+03:00,mistral:7b,Mistral,P1,Генерация вежливого письма,A_baseline,2,{}," Студенты,
+
+Вы сожалеем о необходимости переноса вашей лабораторной работы, которая была запланирована на пятницу. Мы смущённые выяснить, что у нас техническая неисправность и работы должны будут перенесены.
+
+Сообщаем вам, что новая дата проведения лабораторной работы – это 13 октября в 15:00. Мы смирились с этим переносом и в надежде на вашу понимание и согласие, будем рады видеть вас на новой дате. Также не забудьте подтвердить получение этого письма чрезвычайным случаем, указывая ваши имена и номер группы.
+
+Желаем вам успехов в изучении и спасибо за ваше участие.
+
+С уважением,
+
+[ваша фамилия]
+
+(ассистент/профессор)",36.013824,152,262,414,OpenAI usage,7.275,152,0.151868,1000.8691758632497,16,1.883486,8.49488660919168,0.0059596,0.75,"{""polite_greeting"": false, ""reason_for_change"": true, ""date_or_time"": true, ""apology_or_confirmation"": true}",
+Mistral_P1_B_tuned_R1,2026-10-09T11:23:25+03:00,mistral:7b,Mistral,P1,Генерация вежливого письма,B_tuned,1,"{""temperature"": 0.2, ""top_p"": 0.85, ""max_tokens"": 128}"," Граждане дорогие студенты,
+
+Я хочу обратиться к вам с важным сообщением по поводу нашей запланированной лабораторной работы, которая была запланирована на пятницу. Из-за технических проблем, мы вынуждены перенести её на вторник, 13 октября, в 15:00. Мне очень жаль, что мы вынуждены принимать такой шаг, но",18.207367,152,128,280,OpenAI usage,7.0301,152,0.137028,1109.2623405435384,16,1.875484,8.531131164008864,0.0059596,0.5,"{""polite_greeting"": false, ""reason_for_change"": true, ""date_or_time"": true, ""apology_or_confirmation"": false}",
+Mistral_P1_B_tuned_R2,2026-10-09T11:23:43+03:00,mistral:7b,Mistral,P1,Генерация вежливого письма,B_tuned,2,"{""temperature"": 0.2, ""top_p"": 0.85, ""max_tokens"": 128}"," Дорогие студенты,
+
+Я хочу сообщить вам, что лабораторная работа, запланированная на пятницу, переносится из-за технических проблем. Новая дата проведения - вторник, 13 октября, в 15:00. Извиняюсь за неудобства, связанные с переносом, и прошу подтвердить получение этого письма.
+
+С уважением,
+[ваше имя]
+[ва",18.26764,152,128,280,OpenAI usage,7.0069,152,0.137028,1109.2623405435384,16,1.875484,8.531131164008864,0.0059596,0.75,"{""polite_greeting"": false, ""reason_for_change"": true, ""date_or_time"": true, ""apology_or_confirmation"": true}",
+Mistral_P2_A_baseline_R1,2026-10-09T11:24:05+03:00,mistral:7b,Mistral,P2,Классификация обращений,A_baseline,1,{}," Tech support, Tech support, Sales",3.079262,201,8,209,OpenAI usage,2.598,201,0.136796,1469.341208807275,8,0.878334,9.108152479580662,0.0059596,0.6667,"{""predicted_labels"": [""Tech support"", ""Tech support"", ""Sales""], ""expected_labels"": [""Billing"", ""Tech support"", ""Sales""], ""correct_labels"": 2, ""number_of_labels_correct"": true, ""exact_sequence"": false}",
+Mistral_P2_A_baseline_R2,2026-10-09T11:24:08+03:00,mistral:7b,Mistral,P2,Классификация обращений,A_baseline,2,{}," Billing, Tech Support, Sales",3.067414,201,8,209,OpenAI usage,2.6081,201,0.136796,1469.341208807275,8,0.878334,9.108152479580662,0.0059596,1.0,"{""predicted_labels"": [""Billing"", ""Tech support"", ""Sales""], ""expected_labels"": [""Billing"", ""Tech support"", ""Sales""], ""correct_labels"": 3, ""number_of_labels_correct"": true, ""exact_sequence"": true}",
+Mistral_P2_B_tuned_R1,2026-10-09T11:24:14+03:00,mistral:7b,Mistral,P2,Классификация обращений,B_tuned,1,"{""temperature"": 0.2, ""top_p"": 0.85, ""max_tokens"": 128}"," Billing, Tech support, Sales",3.060252,201,8,209,OpenAI usage,2.6142,201,0.137354,1463.3720168324185,8,0.933615,8.568842617138756,0.0059596,1.0,"{""predicted_labels"": [""Billing"", ""Tech support"", ""Sales""], ""expected_labels"": [""Billing"", ""Tech support"", ""Sales""], ""correct_labels"": 3, ""number_of_labels_correct"": true, ""exact_sequence"": true}",
+Mistral_P2_B_tuned_R2,2026-10-09T11:24:18+03:00,mistral:7b,Mistral,P2,Классификация обращений,B_tuned,2,"{""temperature"": 0.2, ""top_p"": 0.85, ""max_tokens"": 128}"," Billing, Tech support, Sales",3.062017,201,8,209,OpenAI usage,2.6127,201,0.137354,1463.3720168324185,8,0.933615,8.568842617138756,0.0059596,1.0,"{""predicted_labels"": [""Billing"", ""Tech support"", ""Sales""], ""expected_labels"": [""Billing"", ""Tech support"", ""Sales""], ""correct_labels"": 3, ""number_of_labels_correct"": true, ""exact_sequence"": true}",
+Mistral_P3_A_baseline_R1,2026-10-09T11:24:24+03:00,mistral:7b,Mistral,P3,Извлечение полей из описания товара,A_baseline,1,{}," {
+  ""model"": ""NovaBook Air"",
+  ""cpu"": ""Intel Core i5-1235U"",
+  ""ram_gb"": 16,
+  ""storage_gb"": 512,
+  ""screen_inches"": 14,
+  ""weight_kg"": 1.3,
+  ""battery_hours"": 14,
+  ""price_rub"": 79990
+}",16.175447,231,106,337,OpenAI usage,6.5531,231,0.144144,1602.5641025641025,16,1.973974,8.105476566560654,0.0059596,1.0,"{""json_parse_success"": true, ""fields_correct"": {""model"": true, ""cpu"": true, ""ram_gb"": true, ""storage_gb"": true, ""screen_inches"": true, ""weight_kg"": true, ""battery_hours"": true, ""price_rub"": true}, ""correct_fields"": 8, ""total_fields"": 8}",
+Mistral_P3_A_baseline_R2,2026-10-09T11:24:40+03:00,mistral:7b,Mistral,P3,Извлечение полей из описания товара,A_baseline,2,{}," {
+  ""model"": ""NovaBook Air"",
+  ""cpu"": ""Intel Core i5-1235U"",
+  ""ram_gb"": 16,
+  ""storage_gb"": 512,
+  ""screen_inches"": 14,
+  ""weight_kg"": 1.3,
+  ""battery_hours"": 14,
+  ""price_rub"": 79990
+}",16.358216,231,106,337,OpenAI usage,6.4799,231,0.144144,1602.5641025641025,16,1.973974,8.105476566560654,0.0059596,1.0,"{""json_parse_success"": true, ""fields_correct"": {""model"": true, ""cpu"": true, ""ram_gb"": true, ""storage_gb"": true, ""screen_inches"": true, ""weight_kg"": true, ""battery_hours"": true, ""price_rub"": true}, ""correct_fields"": 8, ""total_fields"": 8}",
+Mistral_P3_B_tuned_R1,2026-10-09T11:25:00+03:00,mistral:7b,Mistral,P3,Извлечение полей из описания товара,B_tuned,1,"{""temperature"": 0.2, ""top_p"": 0.85, ""max_tokens"": 128}"," {
+  ""model"": ""NovaBook Air"",
+  ""cpu"": ""Intel Core i5-1235U"",
+  ""ram_gb"": 16,
+  ""storage_gb"": 512,
+  ""screen_inches"": 14,
+  ""weight_kg"": 1.3,
+  ""battery_hours"": 14,
+  ""price_rub"": 79990
+}",16.203998,231,106,337,OpenAI usage,6.5416,231,0.140561,1643.4146029126146,16,1.928433,8.296891828754227,0.0059596,1.0,"{""json_parse_success"": true, ""fields_correct"": {""model"": true, ""cpu"": true, ""ram_gb"": true, ""storage_gb"": true, ""screen_inches"": true, ""weight_kg"": true, ""battery_hours"": true, ""price_rub"": true}, ""correct_fields"": 8, ""total_fields"": 8}",
+Mistral_P3_B_tuned_R2,2026-10-09T11:25:17+03:00,mistral:7b,Mistral,P3,Извлечение полей из описания товара,B_tuned,2,"{""temperature"": 0.2, ""top_p"": 0.85, ""max_tokens"": 128}"," {
+  ""model"": ""NovaBook Air"",
+  ""cpu"": ""Intel Core i5-1235U"",
+  ""ram_gb"": 16,
+  ""storage_gb"": 512,
+  ""screen_inches"": 14,
+  ""weight_kg"": 1.3,
+  ""battery_hours"": 14,
+  ""price_rub"": 79990
+}",16.174713,231,106,337,OpenAI usage,6.5534,231,0.140561,1643.4146029126146,16,1.928433,8.296891828754227,0.0059596,1.0,"{""json_parse_success"": true, ""fields_correct"": {""model"": true, ""cpu"": true, ""ram_gb"": true, ""storage_gb"": true, ""screen_inches"": true, ""weight_kg"": true, ""battery_hours"": true, ""price_rub"": true}, ""correct_fields"": 8, ""total_fields"": 8}",
