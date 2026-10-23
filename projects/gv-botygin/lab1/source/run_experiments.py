@@ -101,6 +101,7 @@ def main() -> None:
     total = len(args.models) * len(args.prompts) * len(args.modes) * args.repeats
     n = 0
 
+
     with config.RAW_RESULTS_FILE.open("a", encoding="utf-8") as out:
         for model in args.models:
             print(f"\n=== {model} ===", flush=True)
