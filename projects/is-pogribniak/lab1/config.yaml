@@ -1,0 +1,32 @@
+base_url: http://localhost:11434/v1
+native_url: http://localhost:11434
+
+repeats: 5
+request_timeout: 300
+
+models:
+  - name: qwen3:8b
+    family: Qwen
+    extra_params:
+      reasoning_effort: none
+  - name: llama3.1:8b
+    family: Llama
+  - name: mistral:7b
+    family: Mistral
+
+prompts:
+  - id: P1
+    task: generation
+    system: prompts/system/generation.md
+    user: prompts/example/generation.md
+    params_b: {temperature: 0.9, top_p: 0.95, presence_penalty: 0.3, max_tokens: 600}
+  - id: P2
+    task: classification
+    system: prompts/system/classification.md
+    user: prompts/example/classification.md
+    params_b: {temperature: 0, seed: 42, max_tokens: 400}
+  - id: P3
+    task: rewriting
+    system: prompts/system/rewriting.md
+    user: prompts/example/rewriting.md
+    params_b: {temperature: 0.3, top_p: 0.85, max_tokens: 500}

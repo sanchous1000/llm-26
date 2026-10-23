@@ -1,0 +1,65 @@
+{
+  "qwen3:8b": {
+    "parameters": "repeat_penalty                 1\nstop                           \"<|im_start|>\"\nstop                           \"<|im_end|>\"\ntemperature                    0.6\ntop_k                          20\ntop_p                          0.95",
+    "quantization": "Q4_K_M",
+    "prefill": [
+      {
+        "fresh_tokens": 2697,
+        "ttft_s": 0.669,
+        "prompt_tps": 4030
+      },
+      {
+        "fresh_tokens": 2641,
+        "ttft_s": 0.681,
+        "prompt_tps": 3880
+      },
+      {
+        "fresh_tokens": 2601,
+        "ttft_s": 0.67,
+        "prompt_tps": 3884
+      }
+    ]
+  },
+  "llama3.1:8b": {
+    "parameters": "stop                           \"<|start_header_id|>\"\nstop                           \"<|end_header_id|>\"\nstop                           \"<|eot_id|>\"",
+    "quantization": "Q4_K_M",
+    "prefill": [
+      {
+        "fresh_tokens": 2797,
+        "ttft_s": 0.66,
+        "prompt_tps": 4240
+      },
+      {
+        "fresh_tokens": 2706,
+        "ttft_s": 0.68,
+        "prompt_tps": 3977
+      },
+      {
+        "fresh_tokens": 2695,
+        "ttft_s": 0.681,
+        "prompt_tps": 3955
+      }
+    ]
+  },
+  "mistral:7b": {
+    "parameters": "stop                           \"[INST]\"\nstop                           \"[/INST]\"",
+    "quantization": "Q4_K_M",
+    "prefill": [
+      {
+        "fresh_tokens": 4274,
+        "ttft_s": 1.049,
+        "prompt_tps": 4072
+      },
+      {
+        "fresh_tokens": 4275,
+        "ttft_s": 1.097,
+        "prompt_tps": 3899
+      },
+      {
+        "fresh_tokens": 4247,
+        "ttft_s": 1.091,
+        "prompt_tps": 3892
+      }
+    ]
+  }
+}
