@@ -1,0 +1,455 @@
+{
+  "meta": {
+    "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+    "date": "2026-10-04T15:00:29",
+    "vllm_version": {
+      "version": "0.30.0"
+    },
+    "repeats": 3,
+    "base_params": {},
+    "tuned_params": {
+      "temperature": 0.2,
+      "top_p": 0.9,
+      "max_tokens": 400
+    },
+    "tokenizer_bench": {
+      "tokens": 78600,
+      "seconds": 0.08038695499999449,
+      "tokens_per_s": 977770.5847920896
+    }
+  },
+  "runs": [
+    {
+      "output": "Уважаемый клиент,\n\nПозвольтеmiş sizin için sempatik birspots dATEGELER:\n\nМы выражаем вам deepest regret за задержку вашего заказа №48215. Мы сталкиваемся с временной ситуацией на складе, которая привела к увеличению сроков доставки на 3 дня. Мы ожидаем, что ваш ноутбук будет доставлен не позднее 12 октября. \n\nК сожалению, эти хвостатые обстоятельства исключают возможность немедленной передачи商品发送错误，让我重新用更恰当的方式完成这封信：\n\n尊敬的客户，\n\n您好！\n\n首先，我们对您订单号为48215的笔记本电脑延迟送达表示深深的歉意。目前我们遇到了一些仓储问题，导致配送时间延长了3天。我们预计您的订单将在10月12日之前送达。\n\n为了弥补给您带来的不便，我们还为您提供一个促销优惠：您的下一个订单将享受5%的折扣。\n\n再次为此次延迟向您道歉，并感谢您的理解和耐心。\n\n祝好，\n\n技术之境 客服团队",
+      "finish_reason": "stop",
+      "prompt_tokens": 139,
+      "completion_tokens": 254,
+      "ttft_s": 0.09903754000015397,
+      "total_s": 4.04981068799998,
+      "decode_tok_s": 64.0380984992994,
+      "prefill_tok_s": 1403.5082050683397,
+      "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+      "prompt_id": "P1",
+      "prompt_type": "генерация",
+      "mode": "A",
+      "repeat": 1,
+      "params": {},
+      "checks": {
+        "words": 62,
+        "within_120_words": true,
+        "has_order_number": true,
+        "has_discount": true,
+        "has_date": true
+      }
+    },
+    {
+      "output": "Уважаемый [ФИО клиента],\n\nМы сожалеем о задержке доставки вашего ноутбука, заказ №48215. Из-за технических проблем на складе, поставка будет задержана на 3 дня, что означает, что новый срок доставки — до 12 октября. Мы предлагаем вам 5% скидку на следующий заказ в感谢您提供的详细信息。以下是您要求的正式邮件：\n\n尊敬的 [客户姓名],\n\n您好，\n\n我们非常抱歉地通知您，您的订单编号为48215的笔记本电脑已因仓库内部的一些问题而延迟3天发货。我们预计新的发货日期将是10月12日。为此，我们在此向您表示诚挚的歉意，并提供您下一个订单5%的折扣。\n\n如果您有任何疑问或需要进一步协助，请随时与我们联系。\n\n祝商祺，\n[你的名字]\n技术支持团队\n技术世界",
+      "finish_reason": "stop",
+      "prompt_tokens": 139,
+      "completion_tokens": 214,
+      "ttft_s": 0.10885153000026548,
+      "total_s": 3.464453589000186,
+      "decode_tok_s": 63.47594150168121,
+      "prefill_tok_s": 1276.9687297887406,
+      "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+      "prompt_id": "P1",
+      "prompt_type": "генерация",
+      "mode": "A",
+      "repeat": 2,
+      "params": {},
+      "checks": {
+        "words": 51,
+        "within_120_words": true,
+        "has_order_number": true,
+        "has_discount": true,
+        "has_date": true
+      }
+    },
+    {
+      "output": "Уважаемый клиент,\n\nСпасибо, что обратились! Мы извиняемся за то, что ноутбук к заказу №48215 по-прежнему не доставлен. Сейчас на складе возникли временные трудности, но мы работаем над решением проблемы и рады сообщить, что новый срок доставки будет до 12 октября. Чтобы внести теплое утешение, предлагаем вам 5%-ую скидку на следующий заказ в нашем магазине.\n\nС уважением,\nПоддержка интернет-магазина «ТехноМир»",
+      "finish_reason": "stop",
+      "prompt_tokens": 139,
+      "completion_tokens": 145,
+      "ttft_s": 0.10743086000002222,
+      "total_s": 2.3253092410000136,
+      "decode_tok_s": 64.92691449342395,
+      "prefill_tok_s": 1293.8554154734613,
+      "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+      "prompt_id": "P1",
+      "prompt_type": "генерация",
+      "mode": "A",
+      "repeat": 3,
+      "params": {},
+      "checks": {
+        "words": 59,
+        "within_120_words": true,
+        "has_order_number": true,
+        "has_discount": true,
+        "has_date": true
+      }
+    },
+    {
+      "output": "Уважаемый клиент,\n\nМы выражаем искренние извинения за задержку доставки вашего заказа №48215 (ноутбук). Мы столкнулись с небольшими проблемами на складе, что и привело к задержке на 3 дня. Новый срок доставки — до 12 октября.\n\nЧтобы компенсировать неудобства, предлагаем вам скидку 5% на следующий заказ. Мы ценим ваше понимание и надеемся на продолжение сотрудничества.\n\nС уважением,\nСлужба поддержки интернет-магазина «ТехноМир»\n\nP.S. Если у вас есть вопросы или вам нужна дополнительная помощь, пожалуйста, не стесняйтесь связаться с нами.",
+      "finish_reason": "stop",
+      "prompt_tokens": 139,
+      "completion_tokens": 194,
+      "ttft_s": 0.10942249700019602,
+      "total_s": 3.1568108010001197,
+      "decode_tok_s": 63.33292010954861,
+      "prefill_tok_s": 1270.3055021651626,
+      "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+      "prompt_id": "P1",
+      "prompt_type": "генерация",
+      "mode": "B",
+      "repeat": 1,
+      "params": {
+        "temperature": 0.2,
+        "top_p": 0.9,
+        "max_tokens": 400
+      },
+      "checks": {
+        "words": 77,
+        "within_120_words": true,
+        "has_order_number": true,
+        "has_discount": true,
+        "has_date": true
+      }
+    },
+    {
+      "output": "Уважаемый клиент,\n\nМы выражаем искренние извинения за задержку доставки вашего заказа №48215 (ноутбук). Мы столкнулись с небольшими проблемами на складе, что и привело к задержке на 3 дня. Новый срок доставки — до 12 октября.\n\nЧтобы компенсировать неудобства, предлагаем вам скидку 5% на следующий заказ. Мы ценим ваше понимание и надеемся на продолжение сотрудничества.\n\nС уважением,\nСлужба поддержки интернет-магазина «ТехноМир»",
+      "finish_reason": "stop",
+      "prompt_tokens": 139,
+      "completion_tokens": 160,
+      "ttft_s": 0.10695064299989099,
+      "total_s": 2.5906824950002374,
+      "decode_tok_s": 64.01657242988799,
+      "prefill_tok_s": 1299.664930487063,
+      "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+      "prompt_id": "P1",
+      "prompt_type": "генерация",
+      "mode": "B",
+      "repeat": 2,
+      "params": {
+        "temperature": 0.2,
+        "top_p": 0.9,
+        "max_tokens": 400
+      },
+      "checks": {
+        "words": 60,
+        "within_120_words": true,
+        "has_order_number": true,
+        "has_discount": true,
+        "has_date": true
+      }
+    },
+    {
+      "output": "Уважаемый клиент,\n\nМы выражаем искренние извинения за задержку доставки вашего заказа №48215 (ноутбук). Мы столкнулись с небольшими проблемами на складе, что и привело к задержке на 3 дня. Новый срок доставки — до 12 октября.\n\nЧтобы компенсировать неудобства, предлагаем вам скидку 5% на следующий заказ. Мы ценим ваше понимание и надеемся на продолжение сотрудничества.\n\nС уважением,\nСлужба поддержки интернет-магазина «ТехноМир»",
+      "finish_reason": "stop",
+      "prompt_tokens": 139,
+      "completion_tokens": 160,
+      "ttft_s": 0.10803935000012643,
+      "total_s": 2.6792688079999607,
+      "decode_tok_s": 61.838121644610624,
+      "prefill_tok_s": 1286.5682735025464,
+      "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+      "prompt_id": "P1",
+      "prompt_type": "генерация",
+      "mode": "B",
+      "repeat": 3,
+      "params": {
+        "temperature": 0.2,
+        "top_p": 0.9,
+        "max_tokens": 400
+      },
+      "checks": {
+        "words": 60,
+        "within_120_words": true,
+        "has_order_number": true,
+        "has_discount": true,
+        "has_date": true
+      }
+    },
+    {
+      "output": "[\"Billing\", \"Tech support\", \"Sales\", \"Tech support\", \"Billing\"]",
+      "finish_reason": "stop",
+      "prompt_tokens": 175,
+      "completion_tokens": 18,
+      "ttft_s": 0.11806757800013656,
+      "total_s": 0.3769894669999303,
+      "decode_tok_s": 65.656866886266,
+      "prefill_tok_s": 1482.20199790833,
+      "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+      "prompt_id": "P2",
+      "prompt_type": "классификация",
+      "mode": "A",
+      "repeat": 1,
+      "params": {},
+      "checks": {
+        "valid_json": true,
+        "correct": 5,
+        "total": 5
+      }
+    },
+    {
+      "output": "[\"Billing\", \"Tech support\", \"Sales\", \"Tech support\", \"Billing\"]",
+      "finish_reason": "stop",
+      "prompt_tokens": 175,
+      "completion_tokens": 18,
+      "ttft_s": 0.12011022199976651,
+      "total_s": 0.37309893599967836,
+      "decode_tok_s": 67.19667344530603,
+      "prefill_tok_s": 1456.9950590911421,
+      "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+      "prompt_id": "P2",
+      "prompt_type": "классификация",
+      "mode": "A",
+      "repeat": 2,
+      "params": {},
+      "checks": {
+        "valid_json": true,
+        "correct": 5,
+        "total": 5
+      }
+    },
+    {
+      "output": "[\"Billing\", \"Tech support\", \"Sales\", \"Tech support\", \"Billing\"]",
+      "finish_reason": "stop",
+      "prompt_tokens": 175,
+      "completion_tokens": 18,
+      "ttft_s": 0.12026449700033481,
+      "total_s": 0.3748855650001133,
+      "decode_tok_s": 66.76588128997555,
+      "prefill_tok_s": 1455.126029417583,
+      "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+      "prompt_id": "P2",
+      "prompt_type": "классификация",
+      "mode": "A",
+      "repeat": 3,
+      "params": {},
+      "checks": {
+        "valid_json": true,
+        "correct": 5,
+        "total": 5
+      }
+    },
+    {
+      "output": "[\"Billing\", \"Tech support\", \"Sales\", \"Tech support\", \"Billing\"]",
+      "finish_reason": "stop",
+      "prompt_tokens": 175,
+      "completion_tokens": 18,
+      "ttft_s": 0.12063478699974439,
+      "total_s": 0.39205464799988476,
+      "decode_tok_s": 62.63358892513473,
+      "prefill_tok_s": 1450.6595017270665,
+      "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+      "prompt_id": "P2",
+      "prompt_type": "классификация",
+      "mode": "B",
+      "repeat": 1,
+      "params": {
+        "temperature": 0.2,
+        "top_p": 0.9,
+        "max_tokens": 400
+      },
+      "checks": {
+        "valid_json": true,
+        "correct": 5,
+        "total": 5
+      }
+    },
+    {
+      "output": "[\"Billing\", \"Tech support\", \"Sales\", \"Tech support\", \"Billing\"]",
+      "finish_reason": "stop",
+      "prompt_tokens": 175,
+      "completion_tokens": 18,
+      "ttft_s": 0.12082538699996803,
+      "total_s": 0.3832681019998745,
+      "decode_tok_s": 64.77604074476237,
+      "prefill_tok_s": 1448.3711109491112,
+      "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+      "prompt_id": "P2",
+      "prompt_type": "классификация",
+      "mode": "B",
+      "repeat": 2,
+      "params": {
+        "temperature": 0.2,
+        "top_p": 0.9,
+        "max_tokens": 400
+      },
+      "checks": {
+        "valid_json": true,
+        "correct": 5,
+        "total": 5
+      }
+    },
+    {
+      "output": "[\"Billing\", \"Tech support\", \"Sales\", \"Tech support\", \"Billing\"]",
+      "finish_reason": "stop",
+      "prompt_tokens": 175,
+      "completion_tokens": 18,
+      "ttft_s": 0.11877412700005152,
+      "total_s": 0.3781494439999733,
+      "decode_tok_s": 65.54208857123103,
+      "prefill_tok_s": 1473.3848559453027,
+      "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+      "prompt_id": "P2",
+      "prompt_type": "классификация",
+      "mode": "B",
+      "repeat": 3,
+      "params": {
+        "temperature": 0.2,
+        "top_p": 0.9,
+        "max_tokens": 400
+      },
+      "checks": {
+        "valid_json": true,
+        "correct": 5,
+        "total": 5
+      }
+    },
+    {
+      "output": "```json\n{\n  \"название\": \"Беспроводные наушники Aurex Pulse\",\n  \"брэнд\": \"Aurex\",\n  \"COLOR\": \"матовый чёрный\",\n  \"ёмкость_аккумулятора_мАч\": 450,\n  \"вес_г\": 52,\n  \"ГАРАНТИЯ_МЕС\": null\n}\n```",
+      "finish_reason": "stop",
+      "prompt_tokens": 166,
+      "completion_tokens": 94,
+      "ttft_s": 0.11882303199990929,
+      "total_s": 1.5754620550001164,
+      "decode_tok_s": 63.84560521277946,
+      "prefill_tok_s": 1397.0355511558291,
+      "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+      "prompt_id": "P3",
+      "prompt_type": "извлечение",
+      "mode": "A",
+      "repeat": 1,
+      "params": {},
+      "checks": {
+        "valid_json": true,
+        "correct": 3,
+        "total": 5,
+        "hallucinated_warranty": false
+      }
+    },
+    {
+      "output": "```json\n{\n  \"название\": \"Беспроводные наушники Aurex Pulse\",\n  \"бренд\": \"Aurex\",\n  \"цвет\": \"матовый чёрный\",\n  \"ёмкость_аккумулятора_мАч\": 450,\n  \"вес_г\": 52,\n  \"garantia_мес\": null\n}\n```",
+      "finish_reason": "stop",
+      "prompt_tokens": 166,
+      "completion_tokens": 89,
+      "ttft_s": 0.11854272900018259,
+      "total_s": 1.5295571910000945,
+      "decode_tok_s": 62.36647629767915,
+      "prefill_tok_s": 1400.338944447148,
+      "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+      "prompt_id": "P3",
+      "prompt_type": "извлечение",
+      "mode": "A",
+      "repeat": 2,
+      "params": {},
+      "checks": {
+        "valid_json": true,
+        "correct": 5,
+        "total": 5,
+        "hallucinated_warranty": false
+      }
+    },
+    {
+      "output": "```json\n{\n  \"название\": \"Беспроводные наушники Aurex Pulse\",\n  \"브랜드\": \"Aurex\",\n  \"цвет\": \"матовый чёрный\",\n  \"ёмкость_аккумулятора_мАч\": 450,\n  \"вес_г\": 52,\n  \"garantia_мес\": null\n}\n```",
+      "finish_reason": "stop",
+      "prompt_tokens": 166,
+      "completion_tokens": 90,
+      "ttft_s": 0.12410471499970299,
+      "total_s": 1.557855525999912,
+      "decode_tok_s": 62.07494309133962,
+      "prefill_tok_s": 1337.5801233691827,
+      "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+      "prompt_id": "P3",
+      "prompt_type": "извлечение",
+      "mode": "A",
+      "repeat": 3,
+      "params": {},
+      "checks": {
+        "valid_json": true,
+        "correct": 4,
+        "total": 5,
+        "hallucinated_warranty": false
+      }
+    },
+    {
+      "output": "```json\n{\n  \"название\": \"Беспроводные наушники Aurex Pulse\",\n  \"бренд\": \"Aurex\",\n  \"цвет\": \"матовый чёрный\",\n  \"ёмкость_аккумулятора_мАч\": 450,\n  \"вес_г\": 52,\n  \"garantia_мес\": null\n}\n```",
+      "finish_reason": "stop",
+      "prompt_tokens": 166,
+      "completion_tokens": 89,
+      "ttft_s": 0.11878463800030659,
+      "total_s": 1.4929975680001917,
+      "decode_tok_s": 64.0366555130633,
+      "prefill_tok_s": 1397.4871060310977,
+      "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+      "prompt_id": "P3",
+      "prompt_type": "извлечение",
+      "mode": "B",
+      "repeat": 1,
+      "params": {
+        "temperature": 0.2,
+        "top_p": 0.9,
+        "max_tokens": 400
+      },
+      "checks": {
+        "valid_json": true,
+        "correct": 5,
+        "total": 5,
+        "hallucinated_warranty": false
+      }
+    },
+    {
+      "output": "```json\n{\n  \"название\": \"Беспроводные наушники Aurex Pulse\",\n  \"브랜드\": \"Aurex\",\n  \"цвет\": \"матовый чёрный\",\n  \"ёмкость_аккумулятора_мАч\": 450,\n  \"вес_г\": 52,\n  \"garantia_мес\": null\n}\n```",
+      "finish_reason": "stop",
+      "prompt_tokens": 166,
+      "completion_tokens": 90,
+      "ttft_s": 0.12260822299958818,
+      "total_s": 1.537086122999881,
+      "decode_tok_s": 62.92074269946641,
+      "prefill_tok_s": 1353.9059284837492,
+      "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+      "prompt_id": "P3",
+      "prompt_type": "извлечение",
+      "mode": "B",
+      "repeat": 2,
+      "params": {
+        "temperature": 0.2,
+        "top_p": 0.9,
+        "max_tokens": 400
+      },
+      "checks": {
+        "valid_json": true,
+        "correct": 4,
+        "total": 5,
+        "hallucinated_warranty": false
+      }
+    },
+    {
+      "output": "```json\n{\n  \"название\": \"Беспроводные наушники Aurex Pulse\",\n  \"브랜드\": \"Aurex\",\n  \"цвет\": \"матовый чёрный\",\n  \"ёмкость_аккумулятора_мАч\": 450,\n  \"вес_г\": 52,\n  \"garantia_мес\": null\n}\n```",
+      "finish_reason": "stop",
+      "prompt_tokens": 166,
+      "completion_tokens": 90,
+      "ttft_s": 0.12105725600031292,
+      "total_s": 1.5252929040002527,
+      "decode_tok_s": 63.379675716652805,
+      "prefill_tok_s": 1371.2519636127463,
+      "model": "Qwen/Qwen2.5-7B-Instruct-AWQ",
+      "prompt_id": "P3",
+      "prompt_type": "извлечение",
+      "mode": "B",
+      "repeat": 3,
+      "params": {
+        "temperature": 0.2,
+        "top_p": 0.9,
+        "max_tokens": 400
+      },
+      "checks": {
+        "valid_json": true,
+        "correct": 4,
+        "total": 5,
+        "hallucinated_warranty": false
+      }
+    }
+  ]
+}

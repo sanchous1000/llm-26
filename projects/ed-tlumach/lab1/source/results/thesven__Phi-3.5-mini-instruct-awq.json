@@ -1,0 +1,545 @@
+{
+  "meta": {
+    "model": "thesven/Phi-3.5-mini-instruct-awq",
+    "date": "2026-10-04T17:22:34",
+    "vllm_version": {
+      "version": "0.30.0"
+    },
+    "repeats": 3,
+    "base_params": {},
+    "tuned_params": {
+      "temperature": 0.2,
+      "top_p": 0.9,
+      "max_tokens": 400
+    },
+    "tokenizer_bench": {
+      "tokens": 88200,
+      "seconds": 0.048201783999957115,
+      "tokens_per_s": 1829807.7930077955
+    }
+  },
+  "runs": [
+    {
+      "output": " Тема: Ваш заказ №48215: обновление и поблажка\n\nПриветствую,\n\nЯ пишу с сердца, чтобы заметить в вашем сообщении задержку вашего заказа №48215 (ноутбук). Конечно, мы понимаем, насколько важно получить заказы своим клиентам своевременно.\n\nМоей командой была оказана немедленная обратная связь с вашим получателем. Проблемная ситуация на складе, которой мы займёмся незамедленно, длится на 3 дня. Мы тем самым приложим все усилия, чтобы убедиться, что ваш ноутбук доставлен уже сегодня.\n\nИз-за вышеуказанного непредвиденного временных рамок, я благодарю вас за внимание: мы немедленно предлагаем вам 5% скидку на следующий заказ, которую вы сможете воспользоваться к началу этого месяца.\n\nКроме того, в качестве поблажки нашим клиентам в этой обстоятельстве, новый термин доставки, несмотря на любые трудности, будет установлен на 12 октября текуца.\n\nМне professionно с уважением возрастаем навстречу вашем недоразумении, и мы сделаем все, чтобы обеспечить, что у вашей семьи снова останутся через ручей этот ТехноМир.\n\nСердечно поблажкою,\n[Ваше имя]\nЧеловека поддержки интернет-магазина «ТехноМир»\n\n(120 слова)",
+      "finish_reason": "stop",
+      "prompt_tokens": 122,
+      "completion_tokens": 450,
+      "ttft_s": 0.060842904999844905,
+      "total_s": 4.106520069999988,
+      "decode_tok_s": 110.98265671922049,
+      "prefill_tok_s": 2005.163954619047,
+      "model": "thesven/Phi-3.5-mini-instruct-awq",
+      "prompt_id": "P1",
+      "prompt_type": "генерация",
+      "mode": "A",
+      "repeat": 1,
+      "params": {},
+      "checks": {
+        "words": 152,
+        "within_120_words": false,
+        "has_order_number": true,
+        "has_discount": true,
+        "has_date": true,
+        "latin_words": 1,
+        "clean_russian": false,
+        "foreign_chars": 0
+      }
+    },
+    {
+      "output": " ТехноМир поддержка\n\nДорогие [Имя клиента],\n\nНадеемся, что это сообщение застало вас в добром здравие. Мы пишем, чтобы сообщить вам о ситуации с вашим заказами №48215 (ноутбук).\n\nНаши пониманием выражаем искреннее извинение за превышение ожидаемого временного интервала доставки. Дополнительные три дня необходимы для решения проблем на нашем складе, что в данный момент нашими сотрудниками непреоцессибельно управляется.\n\nКак покажущейся наградой, мы благодарим за ваше терпение и подкорки позволили нам предложить бесспорную скидку 5% на следующий заказ, который вы планируете отправить. Это официальное заверение нашим приверженность во благо наших клиентов и стремлению гарантировать мнения нашими повышенными стандартам посредничества.\n\nПерелист с последующей корректировка пунктов доставки включает новое время завершения: 12 октября. Ваша терпимость и ранняя обратность контролиют питчет восприятий ценящегося значения.\n\nНе стесняйтесь обращаться за любой дополнительной информацией, мы теплая служба Technomir всего сколько надо.\n\nС наилучшими пожеланиями,\n\n[Ваше Имя]\nПравомоник-послушник\nТехноМир поддержка",
+      "finish_reason": "stop",
+      "prompt_tokens": 122,
+      "completion_tokens": 421,
+      "ttft_s": 0.057068795999839494,
+      "total_s": 3.8331483779998052,
+      "decode_tok_s": 111.22646937900363,
+      "prefill_tok_s": 2137.770700477773,
+      "model": "thesven/Phi-3.5-mini-instruct-awq",
+      "prompt_id": "P1",
+      "prompt_type": "генерация",
+      "mode": "A",
+      "repeat": 2,
+      "params": {},
+      "checks": {
+        "words": 139,
+        "within_120_words": false,
+        "has_order_number": true,
+        "has_discount": true,
+        "has_date": true,
+        "latin_words": 1,
+        "clean_russian": false,
+        "foreign_chars": 0
+      }
+    },
+    {
+      "output": " Тема: Ответ заказу №48215: Извините за изменения, скидка 5% и новый срок доставки\n\nВаш Name,\nПодписчик,\nТехноМир\n\nС дружбой в наших каналах!\n\nНам хотелось бы личным обращением выразить нашу глубину обеспознания по поводу нашего покажутка. Добрый день/вечер,\n\nМы сильно обеспокоены вашим сообщением о задержке вводящей вас в задумку по заказу №48215 (ноутбук). Исходя из нашего расследования, выяснилось, что трудности склоняются на складе. Нам с сердцем доведно клиента столкнувшись с подобными преграми, и мы вежливо опираемся на нашу ответственность.\n\nЧтобы озвучить нашеть сострадание, мы рады предоставить вашему устройнению скидку 5% на следующий заказ. Надеемся, это пособие способно компенсировать неловкость в наших целях.\n\nПодтверждая предложенный временной кинектор, высвечиваемя для вашего любеспожия, новый срок доставки теперь отмечено до 12 октября. Наш ценой ремиксированный край, надеясь на его непрерывную жизнеснабжение.\n\nУзаконено, что нашим специалистам всегда будет приоритет, таблично распределяя их внимание для разблокированных градационных списаний, таких как ваш заказ. Параллельно фонемя почета, мы покатовили механизм связи, чтобы всегда быть ближе к вашим установкам.\n\nЯбокновно, еще раз с непосредственным переводчиком, мы вежливо компенсируем любую пребказицу или румянцы, выпотросившихся примерно с 3-судолям взаимностью.\n\nС радостью, мы все же Наслаюся заказом №48215, позиционируясь с прачечною в мирной технике. Надеемся, что все наложится под идеальным кроком так как оценено управом моему оптимальному уровню.\n\nЗдравствуйте снова, и в наших основах, остаемся ТехноМир,\n[Ваше Имя]\nНартель-специалист по поддержке клиентов\nОтвет на заказ №48215 (ноутбук)\nТехноМир Интернет-магазин",
+      "finish_reason": "stop",
+      "prompt_tokens": 122,
+      "completion_tokens": 724,
+      "ttft_s": 0.05803154899967922,
+      "total_s": 6.796778136999819,
+      "decode_tok_s": 107.28998198084267,
+      "prefill_tok_s": 2102.304730840019,
+      "model": "thesven/Phi-3.5-mini-instruct-awq",
+      "prompt_id": "P1",
+      "prompt_type": "генерация",
+      "mode": "A",
+      "repeat": 3,
+      "params": {},
+      "checks": {
+        "words": 226,
+        "within_120_words": false,
+        "has_order_number": true,
+        "has_discount": true,
+        "has_date": true,
+        "latin_words": 1,
+        "clean_russian": false,
+        "foreign_chars": 0
+      }
+    },
+    {
+      "output": " Тема: Ваш заказ №48215: Изменение срока доставки и скидка\n\nДорогой [Имя клиента],\n\nС уважением,\n\nНадеемся, это сообщение застанет вас в добром здравии. Мы пишем, чтобы сообщить о ситуации, касающейся вашего заказа №48215 (ноутбук).\n\nМы очень заботимся о своевременной доставке, но пожалуйста, пожалуйста, узнайте, что на складе произошла непредвиденная ситуация, которая повлияла на распределение вашего заказа. Мы настоятельно просим прощения за любые неудобства, которые это может вызвать.\n\nЧтобы исправить ситуацию, мы предлагаем следующие изменения:\n\n1. Срок доставки будет продлен до 12 октября.\n2. Наши сотрудники серьезно заботятся о вашем удовольствии, поэтому мы предоставим скидку 5% на ваш следующий заказ.\n\nМы стремимся к улучшению вашей опыта и сделаем все возможное, чтобы удовлетворить ваши ожидания. Мы благодарим за ваше терпение и понимание.\n\nЕсли у вас возникнут дополнительные вопросы или проблемы, не стесняйтесь связаться с нашей службой поддержки.\n\nСпасибо.\n\nС уваже",
+      "finish_reason": "length",
+      "prompt_tokens": 122,
+      "completion_tokens": 400,
+      "ttft_s": 0.0582902420001119,
+      "total_s": 3.7244392840002547,
+      "decode_tok_s": 108.83354588942663,
+      "prefill_tok_s": 2092.974669752886,
+      "model": "thesven/Phi-3.5-mini-instruct-awq",
+      "prompt_id": "P1",
+      "prompt_type": "генерация",
+      "mode": "B",
+      "repeat": 1,
+      "params": {
+        "temperature": 0.2,
+        "top_p": 0.9,
+        "max_tokens": 400
+      },
+      "checks": {
+        "words": 137,
+        "within_120_words": false,
+        "has_order_number": true,
+        "has_discount": true,
+        "has_date": true,
+        "latin_words": 0,
+        "clean_russian": true,
+        "foreign_chars": 0
+      }
+    },
+    {
+      "output": " Тема: Ваш заказ №48215: Изменение срока доставки и скидка\n\nДорогой [Имя клиента],\n\nС уважением,\n\nНадеемся, это сообщение застанет вас в добром здравии. Мы пишем, чтобы сообщить о ситуации, касающейся вашего заказа №48215 (ноутбук).\n\nМы свято вежливы, но хотим сообщить, что ваш заказ задерживается на 3 дня из-за непредвиденных проблем на складе. Мы полностью понимаем, как это может быть неудобно, и для этого мы сделаем все возможное, чтобы удовлетворить ваши ожидания.\n\nЧтобы выразить нашу присягу на то, что мы сделаем все возможное, чтобы удовлетворить вас, мы предлагаем скидку 5% на ваш следующий заказ. Кроме того, мы установили новый срок доставки до 12 октября.\n\nМы ценим ваше доверие и стремимся к улучшению вашей опыта. Если у вас возникнут вопросы или потребуется дополнительная помощь, не стесняйтесь обращаться к нашему службе поддержки.\n\nСпасибо за ваше терпение и понимание.\n\nС уважением,\n[Ваше имя]\nСлужба поддержки «ТехноМир»",
+      "finish_reason": "stop",
+      "prompt_tokens": 122,
+      "completion_tokens": 398,
+      "ttft_s": 0.052136243999939325,
+      "total_s": 3.6193114500001684,
+      "decode_tok_s": 111.29254299935121,
+      "prefill_tok_s": 2340.022806402049,
+      "model": "thesven/Phi-3.5-mini-instruct-awq",
+      "prompt_id": "P1",
+      "prompt_type": "генерация",
+      "mode": "B",
+      "repeat": 2,
+      "params": {
+        "temperature": 0.2,
+        "top_p": 0.9,
+        "max_tokens": 400
+      },
+      "checks": {
+        "words": 141,
+        "within_120_words": false,
+        "has_order_number": true,
+        "has_discount": true,
+        "has_date": true,
+        "latin_words": 0,
+        "clean_russian": true,
+        "foreign_chars": 0
+      }
+    },
+    {
+      "output": " Тема: Ваш заказ №48215: Обновление и извинение\n\nДорогой [Имя клиента],\n\nНадеемся, это сообщение застанет вас в добром здравии.\n\nНам с кем-то с кем пришлось сообщить о непосредственной задержке вашего заказа №48215 (ноутбук). Мы полностью понимаем, как важна срочная доставка, и испытываем серьезное беспокойство по поводу этого недоразумения.\n\nСправедливости ради, мы теперь обеспечиваем вам скидку 5% на ваш следующий заказ. Кроме того, мы установили новый срок доставки до 12 октября, чтобы обеспечить вашем удовлетворение.\n\nМы приложим все усилия, чтобы убедиться, что ваш ноутбук придет вовремя и в хорошем состоянии. Наши сотрудники сделают все возможное, чтобы избежать подобных недоразумений в будущем.\n\nМы благодарим за ваше терпение и понимание. Если у вас возникнут вопросы или потребуется дополнительная помощь, не стесняйтесь связаться с нашей службой поддержки.\n\nС наилучшими пожеланиями,\n\n[Ваше Имя]\nСлужба поддержки «ТехноМир»",
+      "finish_reason": "stop",
+      "prompt_tokens": 122,
+      "completion_tokens": 395,
+      "ttft_s": 0.05835743600027854,
+      "total_s": 3.626601950999884,
+      "decode_tok_s": 110.41844199403009,
+      "prefill_tok_s": 2090.5647739461633,
+      "model": "thesven/Phi-3.5-mini-instruct-awq",
+      "prompt_id": "P1",
+      "prompt_type": "генерация",
+      "mode": "B",
+      "repeat": 3,
+      "params": {
+        "temperature": 0.2,
+        "top_p": 0.9,
+        "max_tokens": 400
+      },
+      "checks": {
+        "words": 130,
+        "within_120_words": false,
+        "has_order_number": true,
+        "has_discount": true,
+        "has_date": true,
+        "latin_words": 0,
+        "clean_russian": true,
+        "foreign_chars": 0
+      }
+    },
+    {
+      "output": " ```json\n[\n  \"Billing\",\n  \"Tech support\",\n  \"Sales\",\n  \"Tech support\",\n  \"Billing\"\n]\n```",
+      "finish_reason": "stop",
+      "prompt_tokens": 166,
+      "completion_tokens": 41,
+      "ttft_s": 0.0705850190001911,
+      "total_s": 0.4143630039998243,
+      "decode_tok_s": 116.35416386550372,
+      "prefill_tok_s": 2351.773823274746,
+      "model": "thesven/Phi-3.5-mini-instruct-awq",
+      "prompt_id": "P2",
+      "prompt_type": "классификация",
+      "mode": "A",
+      "repeat": 1,
+      "params": {},
+      "checks": {
+        "valid_json": true,
+        "correct": 5,
+        "correct_lenient": 5,
+        "total": 5,
+        "foreign_chars": 0
+      }
+    },
+    {
+      "output": " ```json\n[\n  {\"category\": \"Billing\"},\n  {\"category\": \"Tech support\"},\n  {\"category\": \"Tech support\"},\n  {\"category\": \"Tech support\"},\n  {\"category\": \"Billing\"}\n]\n```",
+      "finish_reason": "stop",
+      "prompt_tokens": 166,
+      "completion_tokens": 57,
+      "ttft_s": 0.06920923100005894,
+      "total_s": 0.5578826529999787,
+      "decode_tok_s": 114.59596016255041,
+      "prefill_tok_s": 2398.523977240242,
+      "model": "thesven/Phi-3.5-mini-instruct-awq",
+      "prompt_id": "P2",
+      "prompt_type": "классификация",
+      "mode": "A",
+      "repeat": 2,
+      "params": {},
+      "checks": {
+        "valid_json": true,
+        "correct": 0,
+        "correct_lenient": 0,
+        "total": 5,
+        "foreign_chars": 0
+      }
+    },
+    {
+      "output": " ```json\n[\n  {\"category\": \"Billing\"},\n  {\"category\": \"Tech support\"},\n  {\"category\": \"Billing\"},\n  {\"category\": \"Tech support\"},\n  {\"category\": \"Billing\"}\n]\n```",
+      "finish_reason": "stop",
+      "prompt_tokens": 166,
+      "completion_tokens": 56,
+      "ttft_s": 0.06953179499987527,
+      "total_s": 0.5470967609999207,
+      "decode_tok_s": 115.16757701190915,
+      "prefill_tok_s": 2387.397017440694,
+      "model": "thesven/Phi-3.5-mini-instruct-awq",
+      "prompt_id": "P2",
+      "prompt_type": "классификация",
+      "mode": "A",
+      "repeat": 3,
+      "params": {},
+      "checks": {
+        "valid_json": true,
+        "correct": 0,
+        "correct_lenient": 0,
+        "total": 5,
+        "foreign_chars": 0
+      }
+    },
+    {
+      "output": " ```json\n[\n  {\"category\": \"Billing\"},\n  {\"category\": \"Tech support\"},\n  {\"category\": \"Tech support\"},\n  {\"category\": \"Tech support\"},\n  {\"category\": \"Billing\"}\n]\n```",
+      "finish_reason": "stop",
+      "prompt_tokens": 166,
+      "completion_tokens": 57,
+      "ttft_s": 0.0709715419998247,
+      "total_s": 0.5819772029999513,
+      "decode_tok_s": 109.58782705146221,
+      "prefill_tok_s": 2338.9656659906027,
+      "model": "thesven/Phi-3.5-mini-instruct-awq",
+      "prompt_id": "P2",
+      "prompt_type": "классификация",
+      "mode": "B",
+      "repeat": 1,
+      "params": {
+        "temperature": 0.2,
+        "top_p": 0.9,
+        "max_tokens": 400
+      },
+      "checks": {
+        "valid_json": true,
+        "correct": 0,
+        "correct_lenient": 0,
+        "total": 5,
+        "foreign_chars": 0
+      }
+    },
+    {
+      "output": " ```json\n[\n  {\"category\": \"Billing\"},\n  {\"category\": \"Tech support\"},\n  {\"category\": \"Tech support\"},\n  {\"category\": \"Tech support\"},\n  {\"category\": \"Billing\"}\n]\n```",
+      "finish_reason": "stop",
+      "prompt_tokens": 166,
+      "completion_tokens": 57,
+      "ttft_s": 0.06930373699970005,
+      "total_s": 0.5543471139999383,
+      "decode_tok_s": 115.45359168974385,
+      "prefill_tok_s": 2395.2532314486657,
+      "model": "thesven/Phi-3.5-mini-instruct-awq",
+      "prompt_id": "P2",
+      "prompt_type": "классификация",
+      "mode": "B",
+      "repeat": 2,
+      "params": {
+        "temperature": 0.2,
+        "top_p": 0.9,
+        "max_tokens": 400
+      },
+      "checks": {
+        "valid_json": true,
+        "correct": 0,
+        "correct_lenient": 0,
+        "total": 5,
+        "foreign_chars": 0
+      }
+    },
+    {
+      "output": " ```json\n[\n  {\"category\": \"Billing\"},\n  {\"category\": \"Tech support\"},\n  {\"category\": \"Tech support\"},\n  {\"category\": \"Tech support\"},\n  {\"category\": \"Billing\"}\n]\n```",
+      "finish_reason": "stop",
+      "prompt_tokens": 166,
+      "completion_tokens": 57,
+      "ttft_s": 0.07085262900000089,
+      "total_s": 0.5519143880001138,
+      "decode_tok_s": 116.40916982550436,
+      "prefill_tok_s": 2342.891186154827,
+      "model": "thesven/Phi-3.5-mini-instruct-awq",
+      "prompt_id": "P2",
+      "prompt_type": "классификация",
+      "mode": "B",
+      "repeat": 3,
+      "params": {
+        "temperature": 0.2,
+        "top_p": 0.9,
+        "max_tokens": 400
+      },
+      "checks": {
+        "valid_json": true,
+        "correct": 0,
+        "correct_lenient": 0,
+        "total": 5,
+        "foreign_chars": 0
+      }
+    },
+    {
+      "output": " ```json\n{\n  \"name\": \"Aurex Pulse\",\n  \"brand\": \"Aurex\",\n  \"color\": \"matte black\",\n  \"battery_capacity_mah\": 450,\n  \"weight_g\": 52,\n  \"warranty_months\": null\n}\n```\nЗаметили, что фиксированный ключ \"warranty_months\" был установлен как null, так как данных о гарантии в предоставленном описании не были указаны. Если такие данные доступны, их можно легко добавить в JSON-объект.",
+      "finish_reason": "stop",
+      "prompt_tokens": 162,
+      "completion_tokens": 162,
+      "ttft_s": 0.07033755699967514,
+      "total_s": 1.4987014799999088,
+      "decode_tok_s": 112.71637249267998,
+      "prefill_tok_s": 2303.179224731223,
+      "model": "thesven/Phi-3.5-mini-instruct-awq",
+      "prompt_id": "P3",
+      "prompt_type": "извлечение",
+      "mode": "A",
+      "repeat": 1,
+      "params": {},
+      "checks": {
+        "valid_json": true,
+        "keys_ok": false,
+        "wrong_keys": [
+          "battery_capacity_mah",
+          "brand",
+          "color",
+          "name",
+          "warranty_months",
+          "weight_g"
+        ],
+        "correct": 0,
+        "total": 5,
+        "hallucinated_warranty": false,
+        "foreign_chars": 0
+      }
+    },
+    {
+      "output": " ```json\n{\n  \"name\": \"Aurex Pulse\",\n  \"brand\": \"Aurex\",\n  \"color\": \"чёрный\",\n  \"battery_capacity_machan\": 450,\n  \"weight_g\": 52,\n  \"warranty_months\": null\n}\n```\n\nПричина `null` для гарантии в месяцах: в описании нет явно указаного гарантийного периода, поэтому мы подключаем значение `null` для уточнения информации, сохраняя его соответствующим образом.",
+      "finish_reason": "stop",
+      "prompt_tokens": 162,
+      "completion_tokens": 147,
+      "ttft_s": 0.07102591500006383,
+      "total_s": 1.3717343670000446,
+      "decode_tok_s": 112.24652209763772,
+      "prefill_tok_s": 2280.8576278088694,
+      "model": "thesven/Phi-3.5-mini-instruct-awq",
+      "prompt_id": "P3",
+      "prompt_type": "извлечение",
+      "mode": "A",
+      "repeat": 2,
+      "params": {},
+      "checks": {
+        "valid_json": true,
+        "keys_ok": false,
+        "wrong_keys": [
+          "battery_capacity_machan",
+          "brand",
+          "color",
+          "name",
+          "warranty_months",
+          "weight_g"
+        ],
+        "correct": 0,
+        "total": 5,
+        "hallucinated_warranty": false,
+        "foreign_chars": 0
+      }
+    },
+    {
+      "output": " ```json\n{\n  \"name\": \"Aurex Pulse\",\n  \"brand\": \"Aurex\",\n  \"color\": \"черный\",\n  \"battery_capacity_mah\": 450,\n  \"weight_g\": 52,\n  \"warranty_months\": null\n}\n```\nНа данный момент в описании не указана гарантия в месяцах, поэтому я записал null для этой категории. Если эта информация будет предоставлена, JSON можно легко обновить соответствующим образом.",
+      "finish_reason": "stop",
+      "prompt_tokens": 162,
+      "completion_tokens": 143,
+      "ttft_s": 0.07174867599997015,
+      "total_s": 1.3400433169999815,
+      "decode_tok_s": 111.96136560826068,
+      "prefill_tok_s": 2257.881385853969,
+      "model": "thesven/Phi-3.5-mini-instruct-awq",
+      "prompt_id": "P3",
+      "prompt_type": "извлечение",
+      "mode": "A",
+      "repeat": 3,
+      "params": {},
+      "checks": {
+        "valid_json": true,
+        "keys_ok": false,
+        "wrong_keys": [
+          "battery_capacity_mah",
+          "brand",
+          "color",
+          "name",
+          "warranty_months",
+          "weight_g"
+        ],
+        "correct": 0,
+        "total": 5,
+        "hallucinated_warranty": false,
+        "foreign_chars": 0
+      }
+    },
+    {
+      "output": " ```json\n{\n  \"name\": \"Aurex Pulse\",\n  \"brand\": \"Aurex\",\n  \"color\": \"чёрный\",\n  \"battery_capacity_mah\": 450,\n  \"weight_g\": 52,\n  \"warranty_months\": null\n}\n```\nДанный JSON отражает предоставленную информацию, с заполнением ключей: название, бренд, цвет, ёмкость аккумулятора в мАч, вес в грамах. Говорящие о гарантии месяцев не были указаны, поэтому в соответствии с инструкцией, это записано как null.",
+      "finish_reason": "stop",
+      "prompt_tokens": 162,
+      "completion_tokens": 173,
+      "ttft_s": 0.07315947600000072,
+      "total_s": 1.5924031370000193,
+      "decode_tok_s": 113.21422916899562,
+      "prefill_tok_s": 2214.3406275900393,
+      "model": "thesven/Phi-3.5-mini-instruct-awq",
+      "prompt_id": "P3",
+      "prompt_type": "извлечение",
+      "mode": "B",
+      "repeat": 1,
+      "params": {
+        "temperature": 0.2,
+        "top_p": 0.9,
+        "max_tokens": 400
+      },
+      "checks": {
+        "valid_json": true,
+        "keys_ok": false,
+        "wrong_keys": [
+          "battery_capacity_mah",
+          "brand",
+          "color",
+          "name",
+          "warranty_months",
+          "weight_g"
+        ],
+        "correct": 0,
+        "total": 5,
+        "hallucinated_warranty": false,
+        "foreign_chars": 0
+      }
+    },
+    {
+      "output": " ```json\n{\n  \"name\": \"Aurex Pulse\",\n  \"brand\": \"Aurex\",\n  \"color\": \"чёрный\",\n  \"battery_capacity_mah\": 450,\n  \"weight_g\": 52,\n  \"warranty_months\": null\n}\n```\nДанный JSON отражает предоставленную информацию: название (Aurex Pulse), бренд (Aurex), цвет (чёрный), ёмкость аккумулятора (450 мАч), вес (52 г). Говорящие о гарантии месяца не были указаны, поэтому в соответствии с инструкцией, это установлено как null.",
+      "finish_reason": "stop",
+      "prompt_tokens": 162,
+      "completion_tokens": 181,
+      "ttft_s": 0.07184090400005516,
+      "total_s": 1.6978359360000468,
+      "decode_tok_s": 110.70144524279267,
+      "prefill_tok_s": 2254.982760237477,
+      "model": "thesven/Phi-3.5-mini-instruct-awq",
+      "prompt_id": "P3",
+      "prompt_type": "извлечение",
+      "mode": "B",
+      "repeat": 2,
+      "params": {
+        "temperature": 0.2,
+        "top_p": 0.9,
+        "max_tokens": 400
+      },
+      "checks": {
+        "valid_json": true,
+        "keys_ok": false,
+        "wrong_keys": [
+          "battery_capacity_mah",
+          "brand",
+          "color",
+          "name",
+          "warranty_months",
+          "weight_g"
+        ],
+        "correct": 0,
+        "total": 5,
+        "hallucinated_warranty": false,
+        "foreign_chars": 0
+      }
+    },
+    {
+      "output": " ```json\n{\n  \"name\": \"Aurex Pulse\",\n  \"brand\": \"Aurex\",\n  \"color\": \"чёрный\",\n  \"battery_capacity_mah\": 450,\n  \"weight_g\": 52,\n  \"warranty_months\": null\n}\n```\nПричина `null` для гарантии месяцев: в предоставленном описании не указано конкретная гарантия в месяцах, что требует установки значения `null`.",
+      "finish_reason": "stop",
+      "prompt_tokens": 162,
+      "completion_tokens": 132,
+      "ttft_s": 0.07351211200011676,
+      "total_s": 1.2139981689997512,
+      "decode_tok_s": 114.86330691725588,
+      "prefill_tok_s": 2203.718483829477,
+      "model": "thesven/Phi-3.5-mini-instruct-awq",
+      "prompt_id": "P3",
+      "prompt_type": "извлечение",
+      "mode": "B",
+      "repeat": 3,
+      "params": {
+        "temperature": 0.2,
+        "top_p": 0.9,
+        "max_tokens": 400
+      },
+      "checks": {
+        "valid_json": true,
+        "keys_ok": false,
+        "wrong_keys": [
+          "battery_capacity_mah",
+          "brand",
+          "color",
+          "name",
+          "warranty_months",
+          "weight_g"
+        ],
+        "correct": 0,
+        "total": 5,
+        "hallucinated_warranty": false,
+        "foreign_chars": 0
+      }
+    }
+  ]
+}
