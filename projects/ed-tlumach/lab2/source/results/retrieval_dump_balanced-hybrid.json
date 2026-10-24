@@ -1,0 +1,1327 @@
+{
+  "params": {
+    "splitter": {
+      "chunk_size": 300,
+      "chunk_overlap": 50,
+      "include_headings": true
+    },
+    "vectorizer": "hybrid",
+    "dense_model": "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2"
+  },
+  "n_chunks": 1756,
+  "k": 10,
+  "results": [
+    {
+      "id": 1,
+      "question": "What type of privacy attack against RAG systems does the paper's \"Interrogation Attack\" (IA) perform?",
+      "gold": [
+        {
+          "source": "papers/2502.00306.pdf",
+          "page": 1
+        }
+      ],
+      "retrieved": [
+        {
+          "rank": 1,
+          "score": 0.5,
+          "source": "papers/2502.00306.pdf",
+          "page": 5,
+          "snippet": "abutment of the nerve root means in a back issue. Please explain. What treatment is required for annular bulging and tear? Interrogation Attack (Ours) My inquiry concerns Plasma adiponectin concentrations, body composition, and plant- 0.050 based dietary influences in female twins. Does circulating "
+        },
+        {
+          "rank": 2,
+          "score": 0.5,
+          "source": "papers/2502.00306.pdf",
+          "page": 3,
+          "snippet": "2.3 Privacy Attacks in RAGs is part of the retrieval corpus can reveal that an individual engaged with a system, received a specific service, or ap- Recent research has explored various inference attacks against RAG pears in a sensitive internal context. Such inferences may systems. Anderson et al. "
+        },
+        {
+          "rank": 3,
+          "score": 0.3333,
+          "source": "papers/2502.00306.pdf",
+          "page": 13,
+          "snippet": "Figure 8: Distribution of MIA scores for member and non-member documents when the RAG’s generator is LLaMA 3.1. While the distributions are largely separable, there is some overlap between member and non-member documents. Figure 9: Distribution of MIA scores for non-member documents for TREC-COVID, "
+        },
+        {
+          "rank": 4,
+          "score": 0.3333,
+          "source": "papers/2512.24268.pdf",
+          "page": 23,
+          "snippet": "document). The attack we proposed (AdvRAGgen) to some level does create such a document (where it blends the query into the adversarial document), that’s why it was a relatively harder attack to defend against, although our proposed defenses show an acceptable level of robustness against the attack."
+        },
+        {
+          "rank": 5,
+          "score": 0.25,
+          "source": "papers/2601.05264.pdf",
+          "page": 46,
+          "snippet": "Attack Trust Primary Complex- Detection Business Surface Vulnerabilities ity Difficulty Impact Citation Source manipulation, High Very High Critical Attribution false attribution 8.2 Critical Vulnerability Points and Attack Vectors Research has shown that RAG systems are susceptible to a variety of "
+        },
+        {
+          "rank": 6,
+          "score": 0.25,
+          "source": "papers/2502.00306.pdf",
+          "page": 2,
+          "snippet": "real-world systems that deploy user-facing LLMs rely on guardrails A desirable MIA for a RAG system should thus be undetectable [10] to detect and avoid potentially malicious queries. One such while retaining its effectiveness. technique that also happens to benefit RAG systems [3, 28, 31, 35, Towar"
+        },
+        {
+          "rank": 7,
+          "score": 0.2,
+          "source": "papers/2502.00306.pdf",
+          "page": 1,
+          "snippet": "# Riddle Me This! Stealthy Membership Inference for Retrieval-Augmented Generation 5202 nuJ 03 ]RC.sc[ 2v60300.2052:viXra Riddle Me This! Stealthy Membership Inference for Retrieval-Augmented Generation Ali Naseh∗† Yuefeng Peng∗ Anshuman Suri∗ University of Massachusetts Amherst University of Massac"
+        },
+        {
+          "rank": 8,
+          "score": 0.2,
+          "source": "papers/2502.00306.pdf",
+          "page": 3,
+          "snippet": "where 1 indicates that 𝑥∗ is a member of the dataset, and 0 indicates Several recent works have also proposed context leakage and otherwise. Such attacks have been explored across a broad spectrum integrity attacks, where the adversary has the capability of injecting of models—including traditional "
+        },
+        {
+          "rank": 9,
+          "score": 0.1667,
+          "source": "papers/2601.05264.pdf",
+          "page": 78,
+          "snippet": "11, 2025. [Online]. Available: https://www.lasso.security/blog/rag-s ecurity [141] “Security Concerns of RAG Implementation,” Akooda, Mar. 20, 2025. [Online]. Available: https://www.akooda.co/blog/security-concern s-of-rag-implementations [142] B. An, S. Zhang, and M. Dredze, “RAG LLMs are Not Safer"
+        },
+        {
+          "rank": 10,
+          "score": 0.1667,
+          "source": "papers/2502.00306.pdf",
+          "page": 16,
+          "snippet": "Attack Query Target Document This paper serves as a companion or extension to the “Inside PageRank\" paper by Bianchini et al. [19]. It is a comprehensive survey of all issues associated with PageRank, covering the basic PageRank model, available and recommended solution methods, storage issues, exis"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "question": "What does the Ragas framework evaluate about a RAG pipeline without relying on human-annotated ground truth answers?",
+      "gold": [
+        {
+          "source": "papers/2309.15217.pdf",
+          "page": 1
+        }
+      ],
+      "retrieved": [
+        {
+          "rank": 1,
+          "score": 0.5833,
+          "source": "papers/2309.15217.pdf",
+          "page": 5,
+          "snippet": "given context. Any claims that are made WikiEval, a dataset which human judgements of in the answer that cannot be deduced these three different aspects. Finally, we have also from context should be penalized. described Ragas, our implementation of the three Given an answer and context, assign a con"
+        },
+        {
+          "rank": 2,
+          "score": 0.5,
+          "source": "papers/2504.16883.pdf",
+          "page": 2,
+          "snippet": "2 Zhu et al. Despite these advancements, challenges remain in ensuring that RAG systems actively support human reasoning rather than passively presenting information. Initial RAG implementations occasionally propagated factually incorrect information due to unreliable retrieval sources, undermining "
+        },
+        {
+          "rank": 3,
+          "score": 0.5,
+          "source": "papers/2309.15217.pdf",
+          "page": 1,
+          "snippet": "# Ragas: Automated Evaluation of Retrieval Augmented Generation Shahul Es†, Jithin James†, Luis Espinosa-Anke∗♢, Steven Schockaert∗ †Exploding Gradients ∗CardiffNLP, Cardiff University, United Kingdom ♢AMPLYFI, United Kingdom shahules786@gmail.com,jamesjithin97@gmail.com {espinosa-ankel,schockaerts1"
+        },
+        {
+          "rank": 4,
+          "score": 0.3333,
+          "source": "papers/2502.00306.pdf",
+          "page": 3,
+          "snippet": "of the system’s pre-trained model. Depending on the nature of 41]. However, even though RAG relies on an LLM for generating the documents used, successful inference can lead to significant responses, these limitations do not extend to RAG systems, where implications while posing unique challenges: e"
+        },
+        {
+          "rank": 5,
+          "score": 0.25,
+          "source": "papers/2601.05264.pdf",
+          "page": 29,
+          "snippet": "LLM- Reference- Primary Automatiobnased free Enterprise FrameworkFocus Level Metrics Capability Integration RAGCheckFeirne-grained High Yes No Moderate analysis DeepEval Comprehensive High Yes Partial High testing UpTrain Production High Yes Yes Very High monitoring The RAGAS framework offers compre"
+        },
+        {
+          "rank": 6,
+          "score": 0.2,
+          "source": "papers/2601.05264.pdf",
+          "page": 77,
+          "snippet": "observe-getting-started/monitoring-your-rag-application [137] “What factors should be considered when selecting an embedding model for a RAG pipeline,” Milvus, May 20, 2025. [Online]. Available: https://milvus.io/ai-quick-reference/what-factors-should-be-c onsidered-when-selecting-an-embedding-model"
+        },
+        {
+          "rank": 7,
+          "score": 0.2,
+          "source": "papers/2601.05264.pdf",
+          "page": 28,
+          "snippet": "review queues for drift control [86]. 6.1 Comparative Analysis of RAG Evaluation Frameworks In an effort to mitigate the constraints of conventional metrics, contempo- rary RAG evaluation frameworks have emerged. These frameworks offer automated assessment capabilities that minimize manual evaluatio"
+        },
+        {
+          "rank": 8,
+          "score": 0.1667,
+          "source": "papers/2601.05264.pdf",
+          "page": 52,
+          "snippet": "8.6 Evaluation and Continuous Improvement In order to guarantee the ongoing trustworthiness of the RAG system, it is necessary to conduct a systematic evaluation using exhaustive frameworks [170]. The RAGAS evaluation system offers structured metrics for evalu- ating context precision, faithfulness,"
+        },
+        {
+          "rank": 9,
+          "score": 0.1667,
+          "source": "papers/2309.15217.pdf",
+          "page": 5,
+          "snippet": "model (i.e. with highest estimated faithfulness, an- fact that the differences between the two candidate swer relevance, or context relevance) coincides answers are often very subtle. We found context with the answer/context preferred by the human relevance to be the hardest quality dimension to ann"
+        },
+        {
+          "rank": 10,
+          "score": 0.1429,
+          "source": "papers/2503.16581.pdf",
+          "page": 10,
+          "snippet": "The study also highlights the importance of the RAG formance of Llama3.2:3b, despite its classification as a small framework in improving response quality by grounding an- model. It outperformed a number of medium and even big swers in external domain-specific knowledge, reducing hallu- models, achi"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "question": "Why does the standard \"retrieve-then-read\" RAG pipeline often fall short on complex, multi-hop queries?",
+      "gold": [
+        {
+          "source": "papers/2510.22344.pdf",
+          "page": 1
+        }
+      ],
+      "retrieved": [
+        {
+          "rank": 1,
+          "score": 0.8333,
+          "source": "papers/2510.22344.pdf",
+          "page": 3,
+          "snippet": "forward retrieve-then-read pipeline to more sophis- nation ensures the final answer is both verifi- ticated, dynamic frameworks. Our work, FAIR- able and trustworthy. RAG, builds upon and extends several key research threads in this domain. We conducted extensive experiments on a suite of four chall"
+        },
+        {
+          "rank": 2,
+          "score": 0.5,
+          "source": "papers/2510.22344.pdf",
+          "page": 1,
+          "snippet": "# FAIR-RAG: Faithful Adaptive Iterative Refinement for Retrieval-Augmented Generation Mohammad Aghajani Asl Sharif University of Technology m.aghajani@physics.sharif.edu Majid Asgari-Bidhendi Iran University of Science and Technology Noor Avaran Jelvehaye Maanaei Najm Co., Ltd. majid.asgari@gmail.co"
+        },
+        {
+          "rank": 3,
+          "score": 0.3333,
+          "source": "papers/2601.05264.pdf",
+          "page": 15,
+          "snippet": "retrieval corpus: Single-pass retrieval methods, such as RAG-Token [1] and FiD [15], re- trieve documents only once per query. These methodologies emphasize com- putational efficiency by expediting retrieval operations. Iterative retrieval methods, such as Active-RAG [16] and FLARE [42], re-examine "
+        },
+        {
+          "rank": 4,
+          "score": 0.25,
+          "source": "papers/2510.22344.pdf",
+          "page": 9,
+          "snippet": "4 Experimental Setup Dataset Task Type Source Samples HotpotQA multi-hop QA wiki 1000 2WikiMultiHopQA multi-hop QA wiki 1000 To rigorously evaluate the performance of FAIR- MusiQue multi-hop QA wiki 1000 RAG, we conduct a series of experiments on chal- TriviaQA Open-Domain wiki/web 1000 lenging ques"
+        },
+        {
+          "rank": 5,
+          "score": 0.25,
+          "source": "papers/2602.07525.pdf",
+          "page": 6,
+          "snippet": "a consistent lead across different tasks. Naive RAG exhibits cross-context aggregation and logical deduction, emphasiz- monotonic improvement with additional slices, albeit with ing error correction and chained reasoning following initial diminishing marginal returns. While Naive RAG (Top−5) retriev"
+        },
+        {
+          "rank": 6,
+          "score": 0.2,
+          "source": "papers/2404.07220.pdf",
+          "page": 5,
+          "snippet": "for top-k retrieval performance with k values of 5, 10, and 20. • RAG-original [12]: This variant, a model fine-tuned on (See Appendix for more details) the Natural Questions dataset, has been appraised without B. Summary of Retriever Evaluation domain-specific adaptation. • RAG-end2end [12]: As an "
+        },
+        {
+          "rank": 7,
+          "score": 0.2,
+          "source": "papers/2510.22344.pdf",
+          "page": 19,
+          "snippet": "Premature Sufficiency Judgment, where the advanced RAG systems. logic incorrectly concluded that the gathered evidence was complete, thus halting the re- 6 Conclusion finement loop too early. In this paper, we introduced FAIR-RAG, a novel, • Query Logic Failures (12.0% combined): agentic framework d"
+        },
+        {
+          "rank": 8,
+          "score": 0.1667,
+          "source": "papers/2510.22344.pdf",
+          "page": 12,
+          "snippet": "empower FAIR-RAG to systematically deconstruct LLM-as-Judge Accuracy (ACC ). While EM, LLM complex information needs, gather comprehensive F1, and ACC are token-based, ACC evaluates LLM evidence, and verify its sufficiency where single- semantic equivalence, offering a more robust as- pass or less s"
+        },
+        {
+          "rank": 9,
+          "score": 0.1667,
+          "source": "papers/2510.22344.pdf",
+          "page": 4,
+          "snippet": "instance, Adaptive-RAG (Jeong et al., 2024) intro- scope and trigger for retrieval. In methods like duces a classifier to pre-assess query complexity ReAct and IRCoT, retrieval is typically a local, and route it to an appropriate strategy: no retrieval step-wise action triggered by the immediate nee"
+        },
+        {
+          "rank": 10,
+          "score": 0.1429,
+          "source": "papers/2601.05264.pdf",
+          "page": 21,
+          "snippet": "meticulous cross-encoder reranking [52], [53]. 5.2.1 Cross-Encoder Integration and Pipeline Architecture The RE-RAG architecture employs a two-stage retrieval pattern: bi- encoder initial retrieval (top-k=10-50 documents) followed by cross-encoder fine reranking (top-n=3-5 documents) [54]. In contra"
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "question": "How has RAG evolved beyond the basic retrieve-then-read pipeline, according to this paper's related work discussion?",
+      "gold": [
+        {
+          "source": "papers/2510.22344.pdf",
+          "page": 3
+        }
+      ],
+      "retrieved": [
+        {
+          "rank": 1,
+          "score": 0.5,
+          "source": "papers/2510.22344.pdf",
+          "page": 3,
+          "snippet": "forward retrieve-then-read pipeline to more sophis- nation ensures the final answer is both verifi- ticated, dynamic frameworks. Our work, FAIR- able and trustworthy. RAG, builds upon and extends several key research threads in this domain. We conducted extensive experiments on a suite of four chall"
+        },
+        {
+          "rank": 2,
+          "score": 0.5,
+          "source": "papers/2510.22344.pdf",
+          "page": 3,
+          "snippet": "• We propose a robust, two-pronged approach a deeper contextual understanding, not just lexical to guarantee faithfulness. This includes: (1) a overlap. This robust performance validates the ef- pre-generation Structured Evidence Assess- fectiveness of our iterative, evidence-driven frame- ment (SEA"
+        },
+        {
+          "rank": 3,
+          "score": 0.3333,
+          "source": "papers/2510.22344.pdf",
+          "page": 3,
+          "snippet": "configuration, FAIR-RAG 3 (Adaptive LLMs), et al., 2020). Early and influential RAG models was benchmarked against a wide range of strong typically employ a two-stage process: a retriever baselines, including sequential (Standard RAG), first fetches a set of relevant documents from a cor- conditiona"
+        },
+        {
+          "rank": 4,
+          "score": 0.3333,
+          "source": "papers/2404.07220.pdf",
+          "page": 6,
+          "snippet": "| 0 | RAG-original | 28.12 | 39.42 | 59.64 | 72.38 | |----:|:---------------|--------:|--------:|--------:|--------:| | 1 | RAG-end2end | 40.02 | 52.63 | 75.79 | 85.57 | | 2 | BlendedRAG | 57.63 | 68.4 | 94.89 | 98.58 | as CoQA, it is not as impressive. You can see the results in TABLE V: Evaluation"
+        },
+        {
+          "rank": 5,
+          "score": 0.25,
+          "source": "papers/2509.25716.pdf",
+          "page": 2,
+          "snippet": "evaluation methodology, Section 6 shows main results and ablation studies, and Section 7 details our post-training pipeline for optimizing compact reranker models. 2. Related Work Our work builds on recent advances in neural code retrieval, retrieval-augmented generation (RAG), structural code analy"
+        },
+        {
+          "rank": 6,
+          "score": 0.25,
+          "source": "papers/2601.05264.pdf",
+          "page": 10,
+          "snippet": "Canonical RAG pipelines establish a closely integrated interaction between a differentiable retriever, which is typically based on dense vectors, and an autoregressive generator, such as BART or T5, resulting in a synergistic mechanism in which contextual relevance and generative fluency evolve conc"
+        },
+        {
+          "rank": 7,
+          "score": 0.2,
+          "source": "papers/2504.19754.pdf",
+          "page": 2,
+          "snippet": "Classic RAG. A standard RAG workflow involves four main stages: document segmentation, chunk embedding, indexing, and retrieval. During segmentation, documents are divided into manageable chunks. These chunks are then trans- formed into vector representations using encoder models, often normalized t"
+        },
+        {
+          "rank": 8,
+          "score": 0.2,
+          "source": "papers/2502.00306.pdf",
+          "page": 16,
+          "snippet": "Attack Query Target Document This paper serves as a companion or extension to the “Inside PageRank\" paper by Bianchini et al. [19]. It is a comprehensive survey of all issues associated with PageRank, covering the basic PageRank model, available and recommended solution methods, storage issues, exis"
+        },
+        {
+          "rank": 9,
+          "score": 0.1667,
+          "source": "papers/2601.05264.pdf",
+          "page": 83,
+          "snippet": "https://arxiv.org/abs/2501.00309 [205] “RAG vs Fine-tuning: Pipelines, Tradeoffs, and a Case Study on Agri- culture,” arXiv:2410.12837, 2024. [Online]. Available: https://arxiv.or g/abs/2410.12837 [206] “The Rise and Evolution of RAG in 2024: A Year in Review,” RAGFlow Blog, 2024. [Online]. Availabl"
+        },
+        {
+          "rank": 10,
+          "score": 0.1667,
+          "source": "papers/2404.14464.pdf",
+          "page": 2,
+          "snippet": "to enhance reasoning capability (Yao et al., 2023a), swering datasets. Extensive experiments have this paper introduces TREE OF REVIEWS(TOR) a conclusively demonstrated the effectiveness dynamic, tree-based iterative retrieval framework. of our method. We follow the retrieve-and-read paradigm (Zhu e"
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "question": "Why do some researchers integrate knowledge graphs or hypergraphs into RAG systems?",
+      "gold": [
+        {
+          "source": "papers/2602.07525.pdf",
+          "page": 1
+        }
+      ],
+      "retrieved": [
+        {
+          "rank": 1,
+          "score": 0.625,
+          "source": "papers/2601.05264.pdf",
+          "page": 24,
+          "snippet": "deep understanding of relationships and complex multi-hop reasoning [69], [70]. Case studies on knowledge-graph-grounded retrieval report consistent gains on multi-hop questions via relation-aware context construction [84]. 5.5.1 Neo4j as a Foundation for Graph-Augmented RAG Neo4j, a prominent nativ"
+        },
+        {
+          "rank": 2,
+          "score": 0.5,
+          "source": "papers/2602.07525.pdf",
+          "page": 1,
+          "snippet": "# IGMiRAG: Intuition-Guided Retrieval-Augmented Generation with Adaptive Mining of In-Depth Memory Xingliang Hou 1 Yuyan Liu 1 Qi Sun 1 Haoxiu Wang 2 Hao Hu 3 Shaoyi Du 3 Zhiqiang Tian 1 Abstract 1. Introduction Humans instantly activate long-term memory and think rapidly to generate goal-directed s"
+        },
+        {
+          "rank": 3,
+          "score": 0.4583,
+          "source": "papers/2602.07525.pdf",
+          "page": 15,
+          "snippet": "graph structure to uniformly model all knowledge units and generates high-level community summaries through clustering. During retrieval, the system first aggregates global candidates using both keyword search and vector similarity. Subsequently, a shallow Personalised PageRank (PPR) is executed ove"
+        },
+        {
+          "rank": 4,
+          "score": 0.3333,
+          "source": "papers/2411.00744.pdf",
+          "page": 3,
+          "snippet": "ever, due to input constraints and hallucination of the genera- [25]–[27], studies try to use knowledge graphs to optimize tion model, incorporating all of them is infeasible. Thus, it is external knowledge organization. However, these methods necessary to select an optimal subset, referred to as a "
+        },
+        {
+          "rank": 5,
+          "score": 0.25,
+          "source": "papers/2601.05264.pdf",
+          "page": 16,
+          "snippet": "requirements are balanced with the quality of evidence integration in this approach. 4.3 Modality of Knowledge Sources RAG systems are increasingly able to accommodate a variety of knowledge modalities that extend beyond conventional text corpora: Mono-modal systems: Traditional implementations such"
+        },
+        {
+          "rank": 6,
+          "score": 0.25,
+          "source": "papers/2602.07525.pdf",
+          "page": 3,
+          "snippet": "IGMiRAG: Intuition-Guided Retrieval-Augmented Generation with Adaptive Mining of In-Depth Memory leveraging this capability, Hyper-RAG (Feng et al., 2025) mining phase, IGMiRAG performs preference-aware bidi- further unifies high-order multi-entity relations, thereby re- rectional diffusion along de"
+        },
+        {
+          "rank": 7,
+          "score": 0.2,
+          "source": "papers/2601.05264.pdf",
+          "page": 58,
+          "snippet": "feedback and experience [200]. Future RAG systems are progressing to- ward the integration of multimodal, real-time, and autonomous knowledge that surpasses basic text retrieval [200]. These sophisticated systems will integrate a variety of AI techniques, such as reinforcement learning, real- time r"
+        },
+        {
+          "rank": 8,
+          "score": 0.2,
+          "source": "papers/2504.16883.pdf",
+          "page": 2,
+          "snippet": "2 Zhu et al. Despite these advancements, challenges remain in ensuring that RAG systems actively support human reasoning rather than passively presenting information. Initial RAG implementations occasionally propagated factually incorrect information due to unreliable retrieval sources, undermining "
+        },
+        {
+          "rank": 9,
+          "score": 0.1667,
+          "source": "papers/2602.07525.pdf",
+          "page": 3,
+          "snippet": "connections, IGMiRAG advances further by constructing a knowledge-enhanced generation. hierarchical heterogeneous hypergraph whose layered hy- peredges explicitly encode deductive pathways, achieving 3.2. Index construction improvements at both structural and semantic levels. 3.2.1. HIERARCHICAL HET"
+        },
+        {
+          "rank": 10,
+          "score": 0.1667,
+          "source": "papers/2601.05264.pdf",
+          "page": 2,
+          "snippet": "ing between memorization and reasoning, thereby allowing models to access dynamic, external information sources during inference [1][2]. This exhaustive study is based on a systematic literature review that ad- heres to established methodologies adapted from Kitchenham and Char- ters [3] for softwar"
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "question": "What is one limitation of extending LLMs by simply concatenating raw retrieved text chunks?",
+      "gold": [
+        {
+          "source": "papers/2602.07525.pdf",
+          "page": 2
+        }
+      ],
+      "retrieved": [
+        {
+          "rank": 1,
+          "score": 0.5,
+          "source": "papers/2207.03030.pdf",
+          "page": 2,
+          "snippet": "| 0 | | nan | Orig-100 Passages | | | | | Alt-200 Passages | |----:|:---|------:|--------------------:| | 1 | | nan | nan | | 2 | | nan | nan | | 3 | | | nan | | 4 | | | nan | Figure 2. Statistics of the passage lengths of the raw KILT texts, its original chunking (Orig-100) and our alternative appr"
+        },
+        {
+          "rank": 2,
+          "score": 0.5,
+          "source": "papers/2504.19754.pdf",
+          "page": 4,
+          "snippet": "Late Chunking. Late chunking [9] defers the chunking process. As shown in Figure 3.1, instead of segmenting the document initially, the entire document is first embedded at the token level. The resulting token embeddings are then segmented into chunks, and mean pooling is applied to each chunk to ge"
+        },
+        {
+          "rank": 3,
+          "score": 0.3333,
+          "source": "papers/2507.23334.pdf",
+          "page": 1,
+          "snippet": "# MUST-RAG: MUSical Text Question Answering with Retrieval Augmented Generation Daeyong Kwon1 , SeungHeon Doh1 , Juhan Nam1 1Graduate School of Culture Technology, KAIST, South Korea ABSTRACT toward improving the adaptability of LLMs in the music domain. Recent advancements in Large language models "
+        },
+        {
+          "rank": 4,
+          "score": 0.3333,
+          "source": "papers/2504.19754.pdf",
+          "page": 5,
+          "snippet": "Reconstructing Context 5 Chunk Embedding Pooling Pooling Pooling Pooling Embedding model ..... Chunk x N ..... Embedding model Long document Long document Boundary cues Fig. 1. Comparison of early chunking (left) and late chunking (right) approaches for processing long documents. In early chunking, "
+        },
+        {
+          "rank": 5,
+          "score": 0.3095,
+          "source": "papers/2504.19754.pdf",
+          "page": 1,
+          "snippet": "# Reconstructing Context: Evaluating Advanced Chunking Strategies for Retrieval-Augmented Generation Reconstructing Context Evaluating Advanced Chunking Strategies for Retrieval-Augmented Generation Carlo Merola[0009−0000−1088−1495] and Jaspinder Singh[0009−0000−5147−1249] ⋆ Department of Computer S"
+        },
+        {
+          "rank": 6,
+          "score": 0.25,
+          "source": "papers/2601.11863.pdf",
+          "page": 5,
+          "snippet": "Utilizing Metadata for Better Retrieval-Augmented Generation 5 technique treats metadata as part of the semantic input (metadata-as-text, MaT) and encodes it into the same vector space as content. 3.1 Metadata as Text: A Minimal Baseline Let the corpus be a set of N document chunks with associated s"
+        },
+        {
+          "rank": 7,
+          "score": 0.25,
+          "source": "papers/2602.07525.pdf",
+          "page": 2,
+          "snippet": "IGMiRAG: Intuition-Guided Retrieval-Augmented Generation with Adaptive Mining of In-Depth Memory B? A d i o s c a to m r. a .. le | 0 | Q2: What might be | | | C's occupation? | |----:|:---------------------| | 1 | Q3: Please briefly | | | describe the marital | | | status of couples | | | from A to"
+        },
+        {
+          "rank": 8,
+          "score": 0.2159,
+          "source": "papers/2504.19754.pdf",
+          "page": 2,
+          "snippet": "contextual retrieval1 and late chunking [9]—within a unified setup, evaluating their strengths and limitations in tackling challenges like context loss and incom- plete information retrieval. Contextual retrieval preserves coherence by prepend- ing LLM-generated context to chunks, while late chunkin"
+        },
+        {
+          "rank": 9,
+          "score": 0.2,
+          "source": "papers/2601.11863.pdf",
+          "page": 4,
+          "snippet": "isolate the role of structured metadata as a retrieval signal. Our work differs by treating metadata as a first-class retrieval signal, comparing simple metadata- as-text strategies with modular dual-encoder designs. 3 Metadata as a First-Class Signal We begin with the simplest approach to metadata "
+        },
+        {
+          "rank": 10,
+          "score": 0.2,
+          "source": "papers/2504.19754.pdf",
+          "page": 6,
+          "snippet": "6 J. Singh and C. Merola Prompt LLM for every chunk Corpus Document ..... to generate context from document to be prepended. Chunk Embedding Embedding model Chunk + Context Fig. 2. Contextualization of each chunk is performed prior to embedding. The doc- ument is divided into chunks, and a prompt is"
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "question": "What capability do LLMs use to perform iterative, multi-step retrieval in multi-hop question answering?",
+      "gold": [
+        {
+          "source": "papers/2404.14464.pdf",
+          "page": 1
+        }
+      ],
+      "retrieved": [
+        {
+          "rank": 1,
+          "score": 0.8333,
+          "source": "papers/2510.22344.pdf",
+          "page": 5,
+          "snippet": "strategy to the complexity of a user’s query. Our more efficient LLM is designated for the final architecture transforms the standard, static RAG generation step. pipeline into an intelligent, evidence-driven work- • LARGE: Queries that require retrieval flow that progressively builds context to ans"
+        },
+        {
+          "rank": 2,
+          "score": 0.5,
+          "source": "papers/2404.14464.pdf",
+          "page": 1,
+          "snippet": "# Tree of Reviews: A Tree-based Dynamic Iterative Retrieval Framework for Multi-hop Question Answering Jiapeng Li1, Runze Liu2, Yabo Li1, Tong Zhou1, Mingming Li1, Xiang Chen1 1Tencent Inc., Shenzhen, China 2Harbin Institute of Technology, Harbin, China {montereyli, kerli, tongzhou, merakili, joshua"
+        },
+        {
+          "rank": 3,
+          "score": 0.3333,
+          "source": "papers/2404.14464.pdf",
+          "page": 2,
+          "snippet": "retrieval strategies in addressing complex informa- both retrieval and response generation. tional needs. Our contributions include: Iterative retrieval involves conducting multiple turns of retrieval, each guided by newly generated • We propose a dynamic retrieval framework sub-questions (Press et "
+        },
+        {
+          "rank": 4,
+          "score": 0.25,
+          "source": "papers/2510.22344.pdf",
+          "page": 4,
+          "snippet": "instance, Adaptive-RAG (Jeong et al., 2024) intro- scope and trigger for retrieval. In methods like duces a classifier to pre-assess query complexity ReAct and IRCoT, retrieval is typically a local, and route it to an appropriate strategy: no retrieval step-wise action triggered by the immediate nee"
+        },
+        {
+          "rank": 5,
+          "score": 0.25,
+          "source": "papers/2404.14464.pdf",
+          "page": 2,
+          "snippet": "strate superior performance compared to one-time • We propose two tree-based search optimiza- retrieval, the chain-like nature of the process is sus- tion strategies: pruning and effective expan- ceptible to cascading errors. A local error at any sion. These strategies demonstrate significant step, "
+        },
+        {
+          "rank": 6,
+          "score": 0.2,
+          "source": "papers/2510.22344.pdf",
+          "page": 15,
+          "snippet": "hop query. This type of query is particularly chal- presented in Table 4. lenging because it requires the system to conduct The data reveals a clear and consistent pattern two parallel lines of multi-hop reasoning simulta- across the three multi-hop datasets (HotpotQA, neously and then synthesize th"
+        },
+        {
+          "rank": 7,
+          "score": 0.2,
+          "source": "papers/2404.14464.pdf",
+          "page": 2,
+          "snippet": "to enhance reasoning capability (Yao et al., 2023a), swering datasets. Extensive experiments have this paper introduces TREE OF REVIEWS(TOR) a conclusively demonstrated the effectiveness dynamic, tree-based iterative retrieval framework. of our method. We follow the retrieve-and-read paradigm (Zhu e"
+        },
+        {
+          "rank": 8,
+          "score": 0.1667,
+          "source": "papers/2510.22344.pdf",
+          "page": 15,
+          "snippet": "iterations is suboptimal. Our framework’s default iterations. setting of a maximum of 3 iterations is thereby em- pirically justified as an effective balance between 5.2.2 Impact of Iterative Refinement performance and efficiency. A core hypothesis of this work is that iterative refinement improves "
+        },
+        {
+          "rank": 9,
+          "score": 0.1667,
+          "source": "papers/2509.25716.pdf",
+          "page": 2,
+          "snippet": "filtering. This constrains the search space and enables efficient retrieval of relevant Script Includes within our enterprise-specific context. 2.3. Reranking Following retrieval, a cross-encoder or long-context LLM reranker [11] can re-order top candidates, ensuring the most relevant results are pr"
+        },
+        {
+          "rank": 10,
+          "score": 0.1429,
+          "source": "papers/2510.22344.pdf",
+          "page": 1,
+          "snippet": "# FAIR-RAG: Faithful Adaptive Iterative Refinement for Retrieval-Augmented Generation Mohammad Aghajani Asl Sharif University of Technology m.aghajani@physics.sharif.edu Majid Asgari-Bidhendi Iran University of Science and Technology Noor Avaran Jelvehaye Maanaei Najm Co., Ltd. majid.asgari@gmail.co"
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "question": "What kind of error can accumulate during a chain-like iterative retrieval process?",
+      "gold": [
+        {
+          "source": "papers/2404.14464.pdf",
+          "page": 1
+        }
+      ],
+      "retrieved": [
+        {
+          "rank": 1,
+          "score": 0.5333,
+          "source": "papers/2404.14464.pdf",
+          "page": 2,
+          "snippet": "strate superior performance compared to one-time • We propose two tree-based search optimiza- retrieval, the chain-like nature of the process is sus- tion strategies: pruning and effective expan- ceptible to cascading errors. A local error at any sion. These strategies demonstrate significant step, "
+        },
+        {
+          "rank": 2,
+          "score": 0.5,
+          "source": "papers/2404.14464.pdf",
+          "page": 1,
+          "snippet": "# Tree of Reviews: A Tree-based Dynamic Iterative Retrieval Framework for Multi-hop Question Answering Jiapeng Li1, Runze Liu2, Yabo Li1, Tong Zhou1, Mingming Li1, Xiang Chen1 1Tencent Inc., Shenzhen, China 2Harbin Institute of Technology, Harbin, China {montereyli, kerli, tongzhou, merakili, joshua"
+        },
+        {
+          "rank": 3,
+          "score": 0.5,
+          "source": "papers/2510.22344.pdf",
+          "page": 30,
+          "snippet": "}} **PRIMARY FAILURE RULE:** \"\"\" Identify the **earliest, most fundamental error** in the pipeline. For example, if Retrieval failed to find good documents, the } Generation will also fail, but the root cause is **Retrieval Failure**. **EXECUTION TRACE FOR ANALYSIS:** D Failure Mode Analysis Prompt "
+        },
+        {
+          "rank": 4,
+          "score": 0.3611,
+          "source": "papers/2404.14464.pdf",
+          "page": 2,
+          "snippet": "retrieval strategies in addressing complex informa- both retrieval and response generation. tional needs. Our contributions include: Iterative retrieval involves conducting multiple turns of retrieval, each guided by newly generated • We propose a dynamic retrieval framework sub-questions (Press et "
+        },
+        {
+          "rank": 5,
+          "score": 0.3333,
+          "source": "papers/2510.22344.pdf",
+          "page": 2,
+          "snippet": "tions and often fail to enforce that the generated Refinement module, which then generates new, tar- answer remains strictly faithful to the retrieved evi- geted queries specifically designed to retrieve the dence, thus perpetuating the risk of hallucination. missing information. This evidence-centr"
+        },
+        {
+          "rank": 6,
+          "score": 0.254,
+          "source": "papers/2510.22344.pdf",
+          "page": 4,
+          "snippet": "instance, Adaptive-RAG (Jeong et al., 2024) intro- scope and trigger for retrieval. In methods like duces a classifier to pre-assess query complexity ReAct and IRCoT, retrieval is typically a local, and route it to an appropriate strategy: no retrieval step-wise action triggered by the immediate nee"
+        },
+        {
+          "rank": 7,
+          "score": 0.25,
+          "source": "papers/2510.22344.pdf",
+          "page": 4,
+          "snippet": "dynamic and occurs within the iterative process, as address complex, non-sequential information gaps it continually adapts its query generation strategy that step-wise reasoning might overlook. based on the evolving set of retrieved evidence. More directly related to our work, frameworks Enhancing t"
+        },
+        {
+          "rank": 8,
+          "score": 0.2,
+          "source": "papers/2404.14464.pdf",
+          "page": 6,
+          "snippet": "question or finalize the answer. The primary dis- annotated them for few-shot demonstrations, and tinction between ReAct and Self-Ask in our imple- adopted a 3-shot setting for all baselines and ours. mentation lies in the positioning of the retrieved In the main experiment, the depth of TOR is set "
+        },
+        {
+          "rank": 9,
+          "score": 0.1667,
+          "source": "papers/2510.22344.pdf",
+          "page": 18,
+          "snippet": "where other iterative or adaptive frameworks may fail. 1. Component-Level Failures (63.5% of Errors): The Foundational Bottleneck These errors are 5.2.4 Failure Mode Analysis not caused by FAIR-RAG’s reasoning process but To foster transparency and identify avenues for by the fundamental limitations"
+        },
+        {
+          "rank": 10,
+          "score": 0.1667,
+          "source": "papers/2404.14464.pdf",
+          "page": 3,
+          "snippet": "sub-questions before answering the main question, 3.1 Overall optimizing complex composite problems through multiple retrievals.IRCoT (Trivedi et al., 2023) trig- The task is to answer a multi-hop question Q based gers retrieval on each sentence of the CoT. ITER- on a retrieval corpus D. As illustra"
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "question": "Which two widely-used frameworks for building RAG solutions does Ragas provide integration with?",
+      "gold": [
+        {
+          "source": "papers/2309.15217.pdf",
+          "page": 1
+        }
+      ],
+      "retrieved": [
+        {
+          "rank": 1,
+          "score": 0.5,
+          "source": "papers/2601.05264.pdf",
+          "page": 20,
+          "snippet": "limitations of canonical RAG systems. Sophisticated capabilities for com- plex reasoning, multi-modal processing, and autonomous optimization have also been introduced by these innovations. Six noteworthy architectural paradigms that have emerged from cutting-edge research and have been broadly adop"
+        },
+        {
+          "rank": 2,
+          "score": 0.5,
+          "source": "papers/2309.15217.pdf",
+          "page": 2,
+          "snippet": "of retrieval augmented generation systems. We fo- factual answers are more stable: when an answer is cus on settings where reference answers may not be factual, we can expect that different samples will available, and where we want to estimate different tend to be semantically similar, whereas this "
+        },
+        {
+          "rank": 3,
+          "score": 0.3333,
+          "source": "papers/2601.05264.pdf",
+          "page": 6,
+          "snippet": "RAG systems? • How do different RAG designs address scalability, accuracy, and de- ployment requirements? • What are the key trade-offs between architectural complexity and sys- tem performance? • How do trust calibration and safety mechanisms integrate with RAG architectures? • What trends characte"
+        },
+        {
+          "rank": 4,
+          "score": 0.3333,
+          "source": "papers/2309.15217.pdf",
+          "page": 1,
+          "snippet": "# Ragas: Automated Evaluation of Retrieval Augmented Generation Shahul Es†, Jithin James†, Luis Espinosa-Anke∗♢, Steven Schockaert∗ †Exploding Gradients ∗CardiffNLP, Cardiff University, United Kingdom ♢AMPLYFI, United Kingdom shahules786@gmail.com,jamesjithin97@gmail.com {espinosa-ankel,schockaerts1"
+        },
+        {
+          "rank": 5,
+          "score": 0.25,
+          "source": "papers/2601.05264.pdf",
+          "page": 61,
+          "snippet": "formance standards that are essential for enterprise deployment [206][207]. RAG is established as a cornerstone technology for next-generation AI sys- tems that bridge the divide between parametric and non-parametric knowl- edge integration through the systematic examination of current research, ent"
+        },
+        {
+          "rank": 6,
+          "score": 0.25,
+          "source": "papers/2412.05838.pdf",
+          "page": 2,
+          "snippet": "incorporating a centralized execution mechanism, this system addresses the inefficiencies of traditional single-agent [21] RAG implementations. It offers a robust solution for integrating domain-specific and heterogeneous data into generative AI workflows, making it well-suited for a wide range of r"
+        },
+        {
+          "rank": 7,
+          "score": 0.2,
+          "source": "papers/2601.05264.pdf",
+          "page": 80,
+          "snippet": "[Online]. Available: https://arxiv.org/html/2502.17832v1 [168] “Operationalizing the NIST AI RMF,” Robust Intelligence, 2024. [On- line]. Available: https://www.robustintelligence.com/operationaliz ing-the-nist-ai-rmf [169] “Govern,” NIST AIRC, Mar. 26, 2025. [Online]. Available: https: //airc.nist."
+        },
+        {
+          "rank": 8,
+          "score": 0.2,
+          "source": "papers/2601.05264.pdf",
+          "page": 75,
+          "snippet": "mentation, Aug. 2024. [Online]. Available: https://docs.galileo.ai/ga lileo/gen-ai-studio-products/galileo-evaluate/how-to/evaluate -and-optimize-rag-applications [111] “Advanced RAG Evaluation Framework,” RAGAS Documentation, 2024. [Online]. Available: https://docs.ragas.io/en/stable/ [112] “Best P"
+        },
+        {
+          "rank": 9,
+          "score": 0.1667,
+          "source": "papers/2601.05264.pdf",
+          "page": 80,
+          "snippet": "ai/glossary/ragas [172] “Understanding RAGAS: A Comprehensive Framework for RAG Sys- tem Evaluation,” Dev.to, Feb. 1, 2025. [Online]. Available: https: 80"
+        },
+        {
+          "rank": 10,
+          "score": 0.1667,
+          "source": "papers/2412.05838.pdf",
+          "page": 1,
+          "snippet": "# A Collaborative Multi-Agent Approach to Retrieval-Augmented Generation Across Diverse Data SOURCES Aniruddha Salve Mahesh Deshmukh iASYS Technology Solutions Pvt. Ltd. iASYS Technology Solutions Pvt. Ltd. Pune, Maharashtra, India Pune, Maharashtra, India aniruddha.salve@iasys.co.in mahesh.deshmukh"
+        }
+      ]
+    },
+    {
+      "id": 10,
+      "question": "What development has made retrieval-augmented generation a central approach for modern chat-based LLMs?",
+      "gold": [
+        {
+          "source": "papers/2601.11863.pdf",
+          "page": 4
+        }
+      ],
+      "retrieved": [
+        {
+          "rank": 1,
+          "score": 0.625,
+          "source": "papers/2601.11863.pdf",
+          "page": 4,
+          "snippet": "2 Related Work Information access has long motivated technologies from search engines [27, 8] to diverse downstream applications [17, 24]. The advent of attention-based mod- els [30, 12] and modern chat-based LLMs [29, 4] has made retrieval-augmented generation (RAG) [22] a central paradigm. While s"
+        },
+        {
+          "rank": 2,
+          "score": 0.5,
+          "source": "papers/2412.05838.pdf",
+          "page": 2,
+          "snippet": "1 Introduction Large Language Models (LLMs) have significantly advanced natural language processing by enabling sophisticated query interpretation and text generation. [1, 8] Despite their capabilities, LLMs are limited by their reliance on static pre-trained datasets, which restricts their ability "
+        },
+        {
+          "rank": 3,
+          "score": 0.3333,
+          "source": "papers/2509.25716.pdf",
+          "page": 1,
+          "snippet": "# DeepCodeSeek: Real-Time API Retrieval for Context-Aware Code Generation Esakkivel Esakkiraja1, Denis Akhiyarov1,*, Aditya Shanmugham1 and Chitra Ganapathy1 1ServiceNow, Inc. Abstract Current search techniques are limited to standard RAG query-document applications. In this paper, we propose a nove"
+        },
+        {
+          "rank": 4,
+          "score": 0.3333,
+          "source": "papers/2510.22344.pdf",
+          "page": 5,
+          "snippet": "strategy to the complexity of a user’s query. Our more efficient LLM is designated for the final architecture transforms the standard, static RAG generation step. pipeline into an intelligent, evidence-driven work- • LARGE: Queries that require retrieval flow that progressively builds context to ans"
+        },
+        {
+          "rank": 5,
+          "score": 0.25,
+          "source": "papers/2405.17706.pdf",
+          "page": 1,
+          "snippet": "# Video Enriched Retrieval Augmented Generation Using Aligned Video Captions Kevin Dela Rosa Snap Inc. Santa Monica, California, USA kevd1337@gmail.com Figure 1: Sample output of chat assistant app leveraging retrieved video content stored in the form of aligned video captions ABSTRACT typically req"
+        },
+        {
+          "rank": 6,
+          "score": 0.25,
+          "source": "papers/2509.25716.pdf",
+          "page": 2,
+          "snippet": "out-of-domain conditions. Our work then targets the missing piece: a domain-aware retrieval pipeline tailored to ServiceNow Script Includes. 2.2. RAG with Filtering and Query Enhancement Retrieval-Augmented Generation (RAG) [5] improves LLM outputs by dynamically providing relevant context, now comm"
+        },
+        {
+          "rank": 7,
+          "score": 0.2,
+          "source": "papers/2412.05838.pdf",
+          "page": 2,
+          "snippet": "incorporating a centralized execution mechanism, this system addresses the inefficiencies of traditional single-agent [21] RAG implementations. It offers a robust solution for integrating domain-specific and heterogeneous data into generative AI workflows, making it well-suited for a wide range of r"
+        },
+        {
+          "rank": 8,
+          "score": 0.2,
+          "source": "papers/2503.16581.pdf",
+          "page": 10,
+          "snippet": "retrieval mechanisms when applying LLMs to domain-specific large language models,” in Proceedings of the 30th ACM SIGKDD tasks. Future work will include conducting an ablation study Conference on Knowledge Discovery and Data Mining, 2024, pp. 6491– to compare the performance of models with and witho"
+        },
+        {
+          "rank": 9,
+          "score": 0.1667,
+          "source": "papers/2504.16883.pdf",
+          "page": 1,
+          "snippet": "# Enhancing Critical Thinking with AI: A Tailored Warning System for RAG Models XUYANG ZHU†, Stanford University, USA SEJOON CHANG∗, Stanford University, USA ANDREW KUIK∗, Stanford University, USA Fig. 1. Two layers of hallucination in question & answering task relevant to history subject. A tailore"
+        },
+        {
+          "rank": 10,
+          "score": 0.1667,
+          "source": "papers/2601.05264.pdf",
+          "page": 61,
+          "snippet": "text retrieval [200]. The active reasoning and learning capabilities of these advanced systems will be achieved by integrating a variety of AI techniques, such as reinforcement learning, real-time retrieval, fine-tuned domain adap- tation, and pre-trained knowledge [200]. 10 Conclusion: The Future o"
+        }
+      ]
+    },
+    {
+      "id": 11,
+      "question": "What is a key motivation for using retrieval augmentation in code generation tasks?",
+      "gold": [
+        {
+          "source": "papers/2402.12317.pdf",
+          "page": 1
+        }
+      ],
+      "retrieved": [
+        {
+          "rank": 1,
+          "score": 0.5,
+          "source": "papers/2405.20245.pdf",
+          "page": 1,
+          "snippet": "# Retrieval Augmented Structured Generation: Business Document Information Extraction As Tool Use IEEE International Conference on Multimedia Information Processing and Retrieval (MIPR), San Jose, CA, 2024. © 2024 IEEE. Personal use of this material is permitted. Permission from IEEE must be obtaine"
+        },
+        {
+          "rank": 2,
+          "score": 0.5,
+          "source": "papers/2509.25716.pdf",
+          "page": 11,
+          "snippet": "Figure 4: A4 code trimming and context length code consistently outperforms suffix code for Script Include retrieval. This is likely because prefix code better captures the developer’s intent and the context in which they are working, while suffix code often contains implementation details that are "
+        },
+        {
+          "rank": 3,
+          "score": 0.3333,
+          "source": "papers/2504.19754.pdf",
+          "page": 6,
+          "snippet": "between the query and each retrieved chunk. It assigns a relevance score to each chunk, and the chunks are then reordered based on these scores, with higher- scoring chunks placed at the top of the list presented to the user. This method ensures that the most pertinent information is readily accessi"
+        },
+        {
+          "rank": 4,
+          "score": 0.3333,
+          "source": "papers/2402.12317.pdf",
+          "page": 8,
+          "snippet": "35 30 25 20 15 4000 8000 12000 16000 20000 24000 Consumed tokens t@ssaP triever to find useful APIs and then leverages an APICoder to generate code using these API docs. Zhang et al. (2023a) employed the itera- tive generate-retrieval procedure to do repository- | 0 | | | | | | | | |----:|----:|----"
+        },
+        {
+          "rank": 5,
+          "score": 0.25,
+          "source": "papers/2411.00744.pdf",
+          "page": 4,
+          "snippet": "CARROT, a cost-constrained retrieval optimization framework ing path statistics with the obtained benefits. In particular, that addresses the overlooked importance of considering the we leverage parallel reranker evaluations to process multiple order of chunk combinations. chunk combinations simulta"
+        },
+        {
+          "rank": 6,
+          "score": 0.25,
+          "source": "papers/2402.12317.pdf",
+          "page": 1,
+          "snippet": "… Gen…erate … work, we develop a novel pipeline, EVOR, that employs the synchronous evolution of both Figure 1: Instead of using a given query to retrieve from queries and diverse knowledge bases. On two a static knowledge base, we design a novel pipeline to realistic settings where the external kno"
+        },
+        {
+          "rank": 7,
+          "score": 0.2,
+          "source": "papers/2504.19754.pdf",
+          "page": 1,
+          "snippet": "# Reconstructing Context: Evaluating Advanced Chunking Strategies for Retrieval-Augmented Generation Reconstructing Context Evaluating Advanced Chunking Strategies for Retrieval-Augmented Generation Carlo Merola[0009−0000−1088−1495] and Jaspinder Singh[0009−0000−5147−1249] ⋆ Department of Computer S"
+        },
+        {
+          "rank": 8,
+          "score": 0.2,
+          "source": "papers/2509.25716.pdf",
+          "page": 2,
+          "snippet": "out-of-domain conditions. Our work then targets the missing piece: a domain-aware retrieval pipeline tailored to ServiceNow Script Includes. 2.2. RAG with Filtering and Query Enhancement Retrieval-Augmented Generation (RAG) [5] improves LLM outputs by dynamically providing relevant context, now comm"
+        },
+        {
+          "rank": 9,
+          "score": 0.1667,
+          "source": "papers/2601.11863.pdf",
+          "page": 4,
+          "snippet": "2 Related Work Information access has long motivated technologies from search engines [27, 8] to diverse downstream applications [17, 24]. The advent of attention-based mod- els [30, 12] and modern chat-based LLMs [29, 4] has made retrieval-augmented generation (RAG) [22] a central paradigm. While s"
+        },
+        {
+          "rank": 10,
+          "score": 0.1667,
+          "source": "papers/2504.19754.pdf",
+          "page": 2,
+          "snippet": "contextual retrieval1 and late chunking [9]—within a unified setup, evaluating their strengths and limitations in tackling challenges like context loss and incom- plete information retrieval. Contextual retrieval preserves coherence by prepend- ing LLM-generated context to chunks, while late chunkin"
+        }
+      ]
+    },
+    {
+      "id": 12,
+      "question": "Why can retrieval-augmented assistants still produce incorrect or biased information despite retrieving external knowledge?",
+      "gold": [
+        {
+          "source": "papers/2504.16883.pdf",
+          "page": 1
+        }
+      ],
+      "retrieved": [
+        {
+          "rank": 1,
+          "score": 0.5,
+          "source": "papers/2404.14464.pdf",
+          "page": 3,
+          "snippet": "like HotpotQA, they rely on expensive manual an- However, the decomposition of the question and notation and specific training. However, in practi- the construction of the tree lack the assistance of ex- cal application scenarios like New Bing and Per- ternal knowledge and information on the reasoni"
+        },
+        {
+          "rank": 2,
+          "score": 0.5,
+          "source": "papers/2503.16581.pdf",
+          "page": 5,
+          "snippet": "(query) along with responses generated by enabling quick retrieval of relevant entries based on different LLMs. user queries [22]. ◦ Responses were anonymized to prevent bias, 3) Dataset Integrity: To ensure the integrity and reliability ensuring that evaluators were not influenced of the dataset, m"
+        },
+        {
+          "rank": 3,
+          "score": 0.3333,
+          "source": "papers/2504.16883.pdf",
+          "page": 6,
+          "snippet": "Conference on Artificial Intelligence 38, 16 (2024). doi:10.1609/aaai.v38i16.29728 [3] Sunhao Dai et al. 2024. Bias and Unfairness in Information Retrieval Systems: New Challenges in the LLM Era. arXiv preprint arXiv:2404.11457v2 (2024). [4] ShachiHKumar,SauravSahay,SahisnuMazumder,EdaOkur,RameshMan"
+        },
+        {
+          "rank": 4,
+          "score": 0.3333,
+          "source": "papers/2504.19754.pdf",
+          "page": 2,
+          "snippet": "2 J. Singh and C. Merola RAG models combine two key components: a retrieval mechanism and a generative model. The retrieval mechanism fetches relevant documents or data from a large corpus, while the generative model synthesizes this information into coherent, contextually enriched answers. This syn"
+        },
+        {
+          "rank": 5,
+          "score": 0.25,
+          "source": "papers/2504.19754.pdf",
+          "page": 2,
+          "snippet": "tional bias, performing better with information at the beginning of a document and struggling with content located in the middle or toward the end [11,16]. This issue is exacerbated when retrieval fails to prioritize relevant information prop- erly. Thus, documents are often divided into smaller seg"
+        },
+        {
+          "rank": 6,
+          "score": 0.25,
+          "source": "papers/2504.16883.pdf",
+          "page": 1,
+          "snippet": "# Enhancing Critical Thinking with AI: A Tailored Warning System for RAG Models XUYANG ZHU†, Stanford University, USA SEJOON CHANG∗, Stanford University, USA ANDREW KUIK∗, Stanford University, USA Fig. 1. Two layers of hallucination in question & answering task relevant to history subject. A tailore"
+        },
+        {
+          "rank": 7,
+          "score": 0.2,
+          "source": "papers/2504.16883.pdf",
+          "page": 2,
+          "snippet": "However, RAG systems do not solely suffer from retrieval-based limitations; they also introduce cognitive and epistemic challenges for users engaging with their outputs. Even when retrieval is accurate, biases and fairness issues can emerge at the response generation stage, where LLMs may prioritize"
+        },
+        {
+          "rank": 8,
+          "score": 0.2,
+          "source": "papers/2510.22344.pdf",
+          "page": 1,
+          "snippet": "# FAIR-RAG: Faithful Adaptive Iterative Refinement for Retrieval-Augmented Generation Mohammad Aghajani Asl Sharif University of Technology m.aghajani@physics.sharif.edu Majid Asgari-Bidhendi Iran University of Science and Technology Noor Avaran Jelvehaye Maanaei Najm Co., Ltd. majid.asgari@gmail.co"
+        },
+        {
+          "rank": 9,
+          "score": 0.1667,
+          "source": "papers/2601.05264.pdf",
+          "page": 44,
+          "snippet": "This map delineates the primary sources of failure throughout the archi- tectural framework. Traditional trust issues in LLMs primarily concentrate on hallucination and bias in the generator. However, RAG systems incorpo- rate additional trust dimensions that encompass the retriever and knowledge ba"
+        },
+        {
+          "rank": 10,
+          "score": 0.1667,
+          "source": "papers/2606.28358.pdf",
+          "page": 2,
+          "snippet": "2 I. van Dort and M. Heuss Retrieval-Augmented Generation (RAG) addresses this by grounding model outputs in external documents and providing citations. The appeal is straight- forward: users can verify claims against sources. Yet this verification promise matters most for communities that rely on A"
+        }
+      ]
+    },
+    {
+      "id": 13,
+      "question": "How does autoregressive retrieval augmentation differ from a single, static retrieval step?",
+      "gold": [
+        {
+          "source": "papers/2506.06962.pdf",
+          "page": 1
+        }
+      ],
+      "retrieved": [
+        {
+          "rank": 1,
+          "score": 0.5,
+          "source": "papers/2601.05264.pdf",
+          "page": 53,
+          "snippet": "[176]. In comparison to conventional two-stage methods, recent research has shown that differentiable retrieval can accomplish substantial enhance- ments in retrieval and generation alignment through the use of soft attention mechanisms [176][181]. The unified objective function integrates retrieval"
+        },
+        {
+          "rank": 2,
+          "score": 0.5,
+          "source": "papers/2506.06962.pdf",
+          "page": 1,
+          "snippet": "| 0 | nan | nan | | nan | | |----:|------:|------:|:---|------:|----:| | 1 | | nan | | nan | nan | | 2 | nan | nan | | | nan | | 3 | | nan | | nan | | | 4 | nan | | | nan | nan | Generated Image Figure 1: Comparison between Autoregressive Retrieval Augmentation (AR-RAG) for image generation in (c) a"
+        },
+        {
+          "rank": 3,
+          "score": 0.3333,
+          "source": "papers/2506.06962.pdf",
+          "page": 2,
+          "snippet": "Figure 1(b), a basketball player present in the retrieved references, despite being irrelevant to the input prompt, unintentionally appears in the generated image. In this paper, we propose Autoregressive Retrieval Augmentation (AR-RAG), a novel retrieval- augmented paradigm for image generation tha"
+        },
+        {
+          "rank": 4,
+          "score": 0.3333,
+          "source": "papers/2510.22344.pdf",
+          "page": 4,
+          "snippet": "instance, Adaptive-RAG (Jeong et al., 2024) intro- scope and trigger for retrieval. In methods like duces a classifier to pre-assess query complexity ReAct and IRCoT, retrieval is typically a local, and route it to an appropriate strategy: no retrieval step-wise action triggered by the immediate nee"
+        },
+        {
+          "rank": 5,
+          "score": 0.25,
+          "source": "papers/2506.06962.pdf",
+          "page": 15,
+          "snippet": "similarity with all images in the database to identify the most relevant reference image. The retrieved image is processed through the same pipeline to obtain its representation in the language model’s latent space. This representation is then prepended to the text prompt embedding to provide the mo"
+        },
+        {
+          "rank": 6,
+          "score": 0.25,
+          "source": "papers/2601.05264.pdf",
+          "page": 15,
+          "snippet": "retrieval corpus: Single-pass retrieval methods, such as RAG-Token [1] and FiD [15], re- trieve documents only once per query. These methodologies emphasize com- putational efficiency by expediting retrieval operations. Iterative retrieval methods, such as Active-RAG [16] and FLARE [42], re-examine "
+        },
+        {
+          "rank": 7,
+          "score": 0.2,
+          "source": "papers/2404.14464.pdf",
+          "page": 2,
+          "snippet": "retrieval strategies in addressing complex informa- both retrieval and response generation. tional needs. Our contributions include: Iterative retrieval involves conducting multiple turns of retrieval, each guided by newly generated • We propose a dynamic retrieval framework sub-questions (Press et "
+        },
+        {
+          "rank": 8,
+          "score": 0.2,
+          "source": "papers/2506.06962.pdf",
+          "page": 9,
+          "snippet": "despite this element not being part of the original instruction. This overcopying behavior directly compromises the instruction-following capability of generative models. Figure 5 (c) demonstrates that when prompted to generate “A photo of a white dog and a blue potted plant,” image-level retrieval "
+        },
+        {
+          "rank": 9,
+          "score": 0.1667,
+          "source": "papers/2506.06962.pdf",
+          "page": 15,
+          "snippet": "multiple image tokens simultaneously at each time step by converting masked tokens to specific image tokens based on a learned probability matrix. This fundamental difference in generation strategy necessitates several architectural adaptations to effectively incorporate our patch-based retrieval me"
+        },
+        {
+          "rank": 10,
+          "score": 0.1667,
+          "source": "papers/2510.22344.pdf",
+          "page": 6,
+          "snippet": "tical deployment, it was systematically controlled For each sub-query, we employ a hybrid retrieval during our benchmark evaluations to ensure a fair strategy to maximize recall. We perform both comparison, as detailed in Section 4.4. dense vector search (capturing semantic simi- larity) (Karpukhin "
+        }
+      ]
+    },
+    {
+      "id": 14,
+      "question": "In what kind of high-stakes domains are retrieval-augmented LLM systems increasingly being deployed?",
+      "gold": [
+        {
+          "source": "papers/2606.28358.pdf",
+          "page": 1
+        }
+      ],
+      "retrieved": [
+        {
+          "rank": 1,
+          "score": 0.5,
+          "source": "papers/2412.05838.pdf",
+          "page": 2,
+          "snippet": "incorporating a centralized execution mechanism, this system addresses the inefficiencies of traditional single-agent [21] RAG implementations. It offers a robust solution for integrating domain-specific and heterogeneous data into generative AI workflows, making it well-suited for a wide range of r"
+        },
+        {
+          "rank": 2,
+          "score": 0.5,
+          "source": "papers/2601.05264.pdf",
+          "page": 43,
+          "snippet": "The deployment of Retrieval-Augmented Generation (RAG) systems in en- terprise environments presents intricate challenges regarding trust, align- ment, and safety that surpass conventional language model concerns [140]. Comprehensive frameworks are required to guarantee system reliability and user s"
+        },
+        {
+          "rank": 3,
+          "score": 0.3333,
+          "source": "papers/2606.28358.pdf",
+          "page": 1,
+          "snippet": "# How Do LLMs Cite? A Mechanistic Interpretation of Attribution in Retrieval-Augmented Generation How Do LLMs Cite? A Mechanistic Interpretation of Attribution in RAG Ian van Dort1[0009−0008−5881−760X] and Maria Heuss1[0000−0001−5360−9627] University of Amsterdam ian.van.dort@student.uva.nl, m.c.heu"
+        },
+        {
+          "rank": 4,
+          "score": 0.3333,
+          "source": "papers/2509.25716.pdf",
+          "page": 2,
+          "snippet": "out-of-domain conditions. Our work then targets the missing piece: a domain-aware retrieval pipeline tailored to ServiceNow Script Includes. 2.2. RAG with Filtering and Query Enhancement Retrieval-Augmented Generation (RAG) [5] improves LLM outputs by dynamically providing relevant context, now comm"
+        },
+        {
+          "rank": 5,
+          "score": 0.25,
+          "source": "papers/2503.16581.pdf",
+          "page": 10,
+          "snippet": "retrieval mechanisms when applying LLMs to domain-specific large language models,” in Proceedings of the 30th ACM SIGKDD tasks. Future work will include conducting an ablation study Conference on Knowledge Discovery and Data Mining, 2024, pp. 6491– to compare the performance of models with and witho"
+        },
+        {
+          "rank": 6,
+          "score": 0.25,
+          "source": "papers/2601.05264.pdf",
+          "page": 1,
+          "snippet": "# Engineering the RAG Stack: A Comprehensive Review of the Architecture and Trust Frameworks for Retrieval-Augmented Generation Systems Engineering the RAG Stack: A Comprehensive Review of the Architecture and Trust Frameworks for Retrieval Augmented Generation Systems Dean Wampler, Ph.D. Head of Te"
+        },
+        {
+          "rank": 7,
+          "score": 0.2,
+          "source": "papers/2603.14541.pdf",
+          "page": 2,
+          "snippet": "been employed in high-stakes domains including aviation, success in capturing the heuristic judgment central to military operations, and nuclear energy. Expert Mind reservoir engineering, process optimization, and integrates both approaches as primary capture modalities. equipment diagnostics. B. Re"
+        },
+        {
+          "rank": 8,
+          "score": 0.2,
+          "source": "papers/2502.00306.pdf",
+          "page": 4,
+          "snippet": "A well-established issue in deploying LLM-based systems is jail- attack queries for the prompt-injected data extraction attack [42]. breaking, where adversarial prompts are used to bypass a model’s When using GPT-4o as a detection technique specifically aligned guardrails and induce it to perform un"
+        },
+        {
+          "rank": 9,
+          "score": 0.1667,
+          "source": "papers/2504.16883.pdf",
+          "page": 4,
+          "snippet": "AI interaction [17] [14]. Our findings suggest that transparency is not merely about presenting warnings, but about crafting them in a way that empowers users rather than intimidates them. The statistically significant difference in trust levels (0.67 on a 5-point scale) between the tailored warning"
+        },
+        {
+          "rank": 10,
+          "score": 0.1667,
+          "source": "papers/2601.05264.pdf",
+          "page": 63,
+          "snippet": "utilizing reflection tokens to facilitate on-demand retrieval and self-critique mechanisms [234]. Analysis of Comparative Performance: Empirical research indicates that when given the appropriate context, smaller, domain-optimized RAG sys- tems frequently outperform larger general-purpose models [22"
+        }
+      ]
+    },
+    {
+      "id": 15,
+      "question": "What does context quality particularly affect in enterprise code-completion settings?",
+      "gold": [
+        {
+          "source": "papers/2509.25716.pdf",
+          "page": 1
+        }
+      ],
+      "retrieved": [
+        {
+          "rank": 1,
+          "score": 0.5,
+          "source": "papers/2509.25716.pdf",
+          "page": 1,
+          "snippet": "# DeepCodeSeek: Real-Time API Retrieval for Context-Aware Code Generation Esakkivel Esakkiraja1, Denis Akhiyarov1,*, Aditya Shanmugham1 and Chitra Ganapathy1 1ServiceNow, Inc. Abstract Current search techniques are limited to standard RAG query-document applications. In this paper, we propose a nove"
+        },
+        {
+          "rank": 2,
+          "score": 0.5,
+          "source": "papers/2509.25716.pdf",
+          "page": 10,
+          "snippet": "bloating the embedding model with excessive or noisy context, we experimented with various lengths of prefix code. Our experiments show that a context of 8-10 lines before the cursor yields the best performance, gaining a 1.82% relative increase over using a larger context in our Prefix Code Embed ("
+        },
+        {
+          "rank": 3,
+          "score": 0.3333,
+          "source": "papers/2509.25716.pdf",
+          "page": 2,
+          "snippet": "filtering. This constrains the search space and enables efficient retrieval of relevant Script Includes within our enterprise-specific context. 2.3. Reranking Following retrieval, a cross-encoder or long-context LLM reranker [11] can re-order top candidates, ensuring the most relevant results are pr"
+        },
+        {
+          "rank": 4,
+          "score": 0.3333,
+          "source": "papers/2601.11863.pdf",
+          "page": 12,
+          "snippet": "“Management’s Discussion and Analysis.” We distinguish two types of context: i) global, provided by fields such as company and year that identify the document as a whole, and ii) local, provided by fields such as section titles that situate a chunk within its broader structure. To test their contrib"
+        },
+        {
+          "rank": 5,
+          "score": 0.2576,
+          "source": "papers/2503.16581.pdf",
+          "page": 9,
+          "snippet": "medium and small models. The models demonstrated nevertheless, their capacity limitation affected the integration superior context relevance due to their larger of retrieved knowledge, leading to lower context alignment and parameter sizes [39], which facilitate a deeper fewer accurate responses. se"
+        },
+        {
+          "rank": 6,
+          "score": 0.25,
+          "source": "papers/2601.05264.pdf",
+          "page": 30,
+          "snippet": "ary of the RAG architecture [102]. Context relevance evaluates the extent to which the retrieved fragments contain information that is pertinent to the input query, whereas groundedness evaluates the extent to which the generated responses are adequately substantiated by the retrieved evidence [102]"
+        },
+        {
+          "rank": 7,
+          "score": 0.25,
+          "source": "papers/2509.25716.pdf",
+          "page": 2,
+          "snippet": "out-of-domain conditions. Our work then targets the missing piece: a domain-aware retrieval pipeline tailored to ServiceNow Script Includes. 2.2. RAG with Filtering and Query Enhancement Retrieval-Augmented Generation (RAG) [5] improves LLM outputs by dynamically providing relevant context, now comm"
+        },
+        {
+          "rank": 8,
+          "score": 0.2,
+          "source": "papers/2601.05264.pdf",
+          "page": 11,
+          "snippet": "Document Ranking: The Role of Marginal Likelihood The marginalization strategy guarantees that generative attention is dis- tributed across multiple passages, thereby enhancing robustness against noisy retrievals [15]. Recent improvements include the use of cross-encoders to rerank modules, which re"
+        },
+        {
+          "rank": 9,
+          "score": 0.2,
+          "source": "papers/2504.19754.pdf",
+          "page": 7,
+          "snippet": "Reconstructing Context 7 4 Experimental Setup This study has focused on testing these techniques with open-source models. A particular focus was also given to resource usage, for real-world scenarios that lead towards the choice of the LLM for the question answering task to Microsoft’s Phi-3.5-mini-"
+        },
+        {
+          "rank": 10,
+          "score": 0.1667,
+          "source": "papers/2509.25716.pdf",
+          "page": 4,
+          "snippet": "Figure 2: Task anatomy: highlighting how code_before, and code_after are used to recover the ground- truth Script Include required for code_middle. This setup makes the retrieval task realistic and challenging, because the model must understand the code context without direct hints. The “incomplete "
+        }
+      ]
+    },
+    {
+      "id": 16,
+      "question": "What foundational retrieval-augmented architecture for knowledge-intensive tasks connects query-answer pairs to retrieved items?",
+      "gold": [
+        {
+          "source": "papers/2207.03030.pdf",
+          "page": 1
+        }
+      ],
+      "retrieved": [
+        {
+          "rank": 1,
+          "score": 0.5,
+          "source": "papers/2404.14464.pdf",
+          "page": 2,
+          "snippet": "retrieval strategies in addressing complex informa- both retrieval and response generation. tional needs. Our contributions include: Iterative retrieval involves conducting multiple turns of retrieval, each guided by newly generated • We propose a dynamic retrieval framework sub-questions (Press et "
+        },
+        {
+          "rank": 2,
+          "score": 0.5,
+          "source": "papers/2207.03030.pdf",
+          "page": 1,
+          "snippet": "# Multi-Task Retrieval-Augmented Text Generation with Relevance Sampling Sebastian Hofsta¨tter 1 Jiecao Chen 2 Karthik Raman 2 Hamed Zamani 3 Abstract bated when tasks are retroactively expanded (Kwiatkowski et al., 2019), re-purposed (Bajaj et al., 2016) or adapt the This paper studies multi-task t"
+        },
+        {
+          "rank": 3,
+          "score": 0.3333,
+          "source": "papers/2510.22344.pdf",
+          "page": 4,
+          "snippet": "instance, Adaptive-RAG (Jeong et al., 2024) intro- scope and trigger for retrieval. In methods like duces a classifier to pre-assess query complexity ReAct and IRCoT, retrieval is typically a local, and route it to an appropriate strategy: no retrieval step-wise action triggered by the immediate nee"
+        },
+        {
+          "rank": 4,
+          "score": 0.3333,
+          "source": "papers/2207.03030.pdf",
+          "page": 5,
+          "snippet": "mission (OpenReview), 2022. 5. Related Work Asai, A., Gardner, M., and Hajishirzi, H. Evidentiality- Multi-task training. To the best of our knowledge, the guided generation for knowledge-intensive nlp tasks. multi-task focus of the KILT community so far has been arXiv preprint arXiv:2112.08688, 202"
+        },
+        {
+          "rank": 5,
+          "score": 0.25,
+          "source": "papers/2504.19754.pdf",
+          "page": 6,
+          "snippet": "between the query and each retrieved chunk. It assigns a relevance score to each chunk, and the chunks are then reordered based on these scores, with higher- scoring chunks placed at the top of the list presented to the user. This method ensures that the most pertinent information is readily accessi"
+        },
+        {
+          "rank": 6,
+          "score": 0.25,
+          "source": "papers/2602.07525.pdf",
+          "page": 23,
+          "snippet": "IGMiRAG: Intuition-Guided Retrieval-Augmented Generation with Adaptive Mining of In-Depth Memory - entities pair: The name of paired entities that must be consistent with the results obtained in Step 1. For example:“[entity1, entity2]”. - relationship description: Based on the analysis, describe the"
+        },
+        {
+          "rank": 7,
+          "score": 0.2,
+          "source": "papers/2602.07525.pdf",
+          "page": 21,
+          "snippet": "indicate a strong complementarity between the two semantic spaces, suggesting that adaptively adjusting quotas based on task focus is crucial for enhancing retrieval quality. F. All LLM Prompts F.1. Prompts for Indexing Extracting Entities Prompt: Identify as many entities as possible in the text, e"
+        },
+        {
+          "rank": 8,
+          "score": 0.2,
+          "source": "papers/2504.19754.pdf",
+          "page": 3,
+          "snippet": "Reconstructing Context 3 ensure unit magnitudes. The resulting embeddings are stored in indexed vector databases, enabling efficient approximate similarity searches. Retrieval involves comparing query embeddings with the stored embeddings using metrics such as cosine similarity or Euclidean distance"
+        },
+        {
+          "rank": 9,
+          "score": 0.1667,
+          "source": "papers/2405.20245.pdf",
+          "page": 4,
+          "snippet": "[2] B. Smock, R. Pesala, and R. Abraham, GriTS: Grid table similarity 2 Detection Transformer (DeTr) finetuned on line items detection. metric for table structure recognition, 2023. arXiv: 2203 . 12555 3 Detection Transformer (DeTr) finetuned on table detection. [cs.LG]. C. Results [3] P. Lewis, E. "
+        },
+        {
+          "rank": 10,
+          "score": 0.1667,
+          "source": "papers/2601.11863.pdf",
+          "page": 2,
+          "snippet": "2 Yousuf et al. (a) General questions (b) In-depth questions Fig. 1: Context@K and Title@K metric improvement in retrieval when using and not using metadata across query types (Dual Encoder Unified Embeddings) unstructured corpora [29, 4]. Retrieval-Augmented Generation (RAG) architec- tures extend "
+        }
+      ]
+    }
+  ]
+}

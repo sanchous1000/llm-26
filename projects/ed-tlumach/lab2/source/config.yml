@@ -1,0 +1,28 @@
+corpus:
+  raw_dir: data/raw
+  markdown_dir: data/markdown
+  artifacts_dir: artifacts
+
+splitter:
+  chunk_size: 300
+  chunk_overlap: 50
+
+embeddings:
+  vectorizer: hybrid   # dense | sparse | hybrid
+  dense_model: sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2
+
+qdrant:
+  url: http://localhost:6333
+  collection_name: rag_chunks
+  hnsw_m: 16
+  hnsw_ef_construct: 100
+  hnsw_ef_search: 64
+
+model:
+  url: http://localhost:8000
+  api_key: EMPTY
+  model: Qwen/Qwen2.5-7B-Instruct-AWQ
+  temperature: 0.2
+
+retrieval:
+  top_k: 10

@@ -1,0 +1,12 @@
+experiments:
+  - name: fast-sparse
+    splitter: {chunk_size: 200, chunk_overlap: 30, include_headings: false}
+    embeddings: {vectorizer: sparse}
+
+  - name: balanced-hybrid
+    splitter: {chunk_size: 300, chunk_overlap: 50, include_headings: true}
+    embeddings: {vectorizer: hybrid}
+
+  - name: thorough-dense
+    splitter: {chunk_size: 500, chunk_overlap: 100, include_headings: true}
+    embeddings: {vectorizer: dense}

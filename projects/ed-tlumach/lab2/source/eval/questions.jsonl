@@ -1,0 +1,16 @@
+{"id": 1, "question": "What type of privacy attack against RAG systems does the paper's \"Interrogation Attack\" (IA) perform?", "gold": [{"source": "papers/2502.00306.pdf", "page": 1}]}
+{"id": 2, "question": "What does the Ragas framework evaluate about a RAG pipeline without relying on human-annotated ground truth answers?", "gold": [{"source": "papers/2309.15217.pdf", "page": 1}]}
+{"id": 3, "question": "Why does the standard \"retrieve-then-read\" RAG pipeline often fall short on complex, multi-hop queries?", "gold": [{"source": "papers/2510.22344.pdf", "page": 1}]}
+{"id": 4, "question": "How has RAG evolved beyond the basic retrieve-then-read pipeline, according to this paper's related work discussion?", "gold": [{"source": "papers/2510.22344.pdf", "page": 3}]}
+{"id": 5, "question": "Why do some researchers integrate knowledge graphs or hypergraphs into RAG systems?", "gold": [{"source": "papers/2602.07525.pdf", "page": 1}]}
+{"id": 6, "question": "What is one limitation of extending LLMs by simply concatenating raw retrieved text chunks?", "gold": [{"source": "papers/2602.07525.pdf", "page": 2}]}
+{"id": 7, "question": "What capability do LLMs use to perform iterative, multi-step retrieval in multi-hop question answering?", "gold": [{"source": "papers/2404.14464.pdf", "page": 1}]}
+{"id": 8, "question": "What kind of error can accumulate during a chain-like iterative retrieval process?", "gold": [{"source": "papers/2404.14464.pdf", "page": 1}]}
+{"id": 9, "question": "Which two widely-used frameworks for building RAG solutions does Ragas provide integration with?", "gold": [{"source": "papers/2309.15217.pdf", "page": 1}]}
+{"id": 10, "question": "What development has made retrieval-augmented generation a central approach for modern chat-based LLMs?", "gold": [{"source": "papers/2601.11863.pdf", "page": 4}]}
+{"id": 11, "question": "What is a key motivation for using retrieval augmentation in code generation tasks?", "gold": [{"source": "papers/2402.12317.pdf", "page": 1}]}
+{"id": 12, "question": "Why can retrieval-augmented assistants still produce incorrect or biased information despite retrieving external knowledge?", "gold": [{"source": "papers/2504.16883.pdf", "page": 1}]}
+{"id": 13, "question": "How does autoregressive retrieval augmentation differ from a single, static retrieval step?", "gold": [{"source": "papers/2506.06962.pdf", "page": 1}]}
+{"id": 14, "question": "In what kind of high-stakes domains are retrieval-augmented LLM systems increasingly being deployed?", "gold": [{"source": "papers/2606.28358.pdf", "page": 1}]}
+{"id": 15, "question": "What does context quality particularly affect in enterprise code-completion settings?", "gold": [{"source": "papers/2509.25716.pdf", "page": 1}]}
+{"id": 16, "question": "What foundational retrieval-augmented architecture for knowledge-intensive tasks connects query-answer pairs to retrieved items?", "gold": [{"source": "papers/2207.03030.pdf", "page": 1}]}

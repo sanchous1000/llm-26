@@ -1,0 +1,15 @@
+fastapi
+python-multipart
+uvicorn
+httpx
+qdrant-client>=1.10
+fastembed>=0.4
+langchain-text-splitters
+pdfplumber
+pandas
+tabulate
+numpy
+pyyaml
+pydantic
+python-dotenv
+loguru
