@@ -1,0 +1,56 @@
+# Configuration of the ready-made agent OpenCode on the same task (python -m source opencode-dialog).
+# Same model, tools, prompt and limits as our agent (agent.yaml); model calls go through the
+# LLM proxy (python -m source llm-proxy), which logs them to Langfuse.
+# Override single values: --set context.strategy=window --set context.limit_tokens=8000
+name: opencode                 # configuration label: goes into Langfuse tags
+
+model:
+  name: deepseek-v4.1-flash
+  base_url: https://opencode.ai/inference/go/openai/v1
+  api_key_env: OPENCODE_API_KEY
+  temperature: 0.2
+  max_output_tokens: 8192        # reasoning tokens count too
+  request_timeout_s: 120
+  price_input_per_mtok: 0.15   # USD, list price of opencode (models.dev); used for cost_details
+  price_output_per_mtok: 0.60
+  price_cache_read_per_mtok: 0.003
+
+mcp:
+  name: papers-rag
+  url: https://thesis.rag.mooo.com/mcp
+  token_env: PAPERS_RAG_TOKEN_OPENCODE
+  timeout_s: 60
+
+prompts:
+  system: system_prompt.md      # relative to this file
+  tools: tools.yaml
+  summary: summary_prompt.md
+
+limits:
+  max_steps: 12                 # model requests per user turn
+  max_tool_calls: 24            # tool calls per user turn
+  turn_timeout_s: 300           # wall clock per user turn
+  tool_timeout_s: 60
+  tool_retries: 2               # a failed tool call is shown to the model this many times
+
+context:
+  strategy: summary             # OpenCode compacts by itself (summary); kept for the tags
+  limit_tokens: 32000           # budget for the whole prompt; a single turn needs up to ~27k (D07 measurement)
+  keep_recent_turns: 2          # turns that are never summarised or dropped (besides the current one)
+  old_tool_result_chars: 300    # tool results of earlier turns are cut to this length first
+  summary_max_tokens: 1200
+  tokenizer: o200k_base         # tiktoken encoding used to estimate tokens
+
+langfuse:
+  agent_tag: agent:opencode
+  version: opencode-2.0.25
+  user_id: ms-ivanov
+
+proxy:
+  host: 127.0.0.1
+  port: 4100
+
+opencode:
+  agent: papers
+  provider_id: lab3
+  run_timeout_s: 600

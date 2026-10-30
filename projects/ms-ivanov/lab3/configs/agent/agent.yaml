@@ -1,0 +1,45 @@
+# Configuration of the lab 3 dialogue agent (python -m source agent-chat / agent-ask).
+# Override single values: --set context.strategy=window --set context.limit_tokens=8000
+name: summary-32k              # configuration label: goes into Langfuse tags
+
+model:
+  name: deepseek-v4.1-flash
+  base_url: https://opencode.ai/inference/go/openai/v1
+  api_key_env: OPENCODE_API_KEY
+  temperature: 0.2
+  max_output_tokens: 8192        # reasoning tokens count too
+  request_timeout_s: 120
+  price_input_per_mtok: 0.15   # USD, list price of opencode (models.dev); used for cost_details
+  price_output_per_mtok: 0.60
+  price_cache_read_per_mtok: 0.003
+
+mcp:
+  name: papers-rag
+  url: https://thesis.rag.mooo.com/mcp
+  token_env: PAPERS_RAG_TOKEN_AGENT
+  timeout_s: 60
+
+prompts:
+  system: system_prompt.md      # relative to this file
+  tools: tools.yaml
+  summary: summary_prompt.md
+
+limits:
+  max_steps: 12                 # model requests per user turn
+  max_tool_calls: 24            # tool calls per user turn
+  turn_timeout_s: 300           # wall clock per user turn
+  tool_timeout_s: 60
+  tool_retries: 2               # a failed tool call is shown to the model this many times
+
+context:
+  strategy: summary             # none | window | summary
+  limit_tokens: 32000           # budget for the whole prompt; a single turn needs up to ~27k (D07 measurement)
+  keep_recent_turns: 2          # turns that are never summarised or dropped (besides the current one)
+  old_tool_result_chars: 300    # tool results of earlier turns are cut to this length first
+  summary_max_tokens: 1200
+  tokenizer: o200k_base         # tiktoken encoding used to estimate tokens
+
+langfuse:
+  agent_tag: agent:own
+  version: own-0.1
+  user_id: ms-ivanov

@@ -1,0 +1,44 @@
+# --- secrets (templates: .env.example, deploy/langfuse/init-env.sh) ---
+.env
+.env.*
+!.env.example
+deploy/langfuse/.env
+tokens/
+
+# --- local environment, caches, tooling ---
+.venv/
+__pycache__/
+*.py[cod]
+*.egg-info/
+build/
+dist/
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+.coverage
+.coverage.*
+htmlcov/
+.ipynb_checkpoints/
+.idea/
+.vscode/
+.DS_Store
+*.log
+
+# --- archive of old docs and one-time outputs (kept locally only) ---
+archive/
+
+# --- corpus: downloaded and converted papers (~1 GB, rebuilt by download/convert) ---
+data/papers/
+
+# --- generated evaluation outputs ---
+# rag-eval reports
+eval/rag/
+# agent-tasks --export (Langfuse items of tasks.yaml)
+eval/agent/tasks.jsonl
+# raw run records: the judged files hold the same records plus the verdicts
+eval/agent/runs/*.jsonl
+!eval/agent/runs/*.judged.jsonl
+
+# --- Qdrant snapshots and database dumps (deploy/deploy.sh) ---
+*.snapshot
+*.sql.gz

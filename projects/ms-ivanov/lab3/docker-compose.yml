@@ -1,0 +1,195 @@
+# Local infrastructure for the RAG laboratory work.
+#   docker compose up -d        start Qdrant (vectors) and PostgreSQL (texts + metadata)
+#   docker compose down         stop, keep data
+#   docker compose down -v      stop and DELETE all indexed data
+#   docker compose --profile app up -d --build
+#                               also build and start the MCP service behind nginx (HTTPS, token auth)
+name: rag-lab2
+
+services:
+  postgres:
+    image: postgres:16-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER:-rag}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?set POSTGRES_PASSWORD in .env}
+      POSTGRES_DB: ${POSTGRES_DB:-rag}
+    ports:
+      - "127.0.0.1:${POSTGRES_PORT:-5432}:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-rag} -d ${POSTGRES_DB:-rag}"]
+      interval: 5s
+      timeout: 3s
+      retries: 20
+
+  qdrant:
+    image: qdrant/qdrant:v1.19.2
+    restart: unless-stopped
+    ports:
+      - "127.0.0.1:${QDRANT_HTTP_PORT:-6333}:6333"
+      - "127.0.0.1:${QDRANT_GRPC_PORT:-6334}:6334"
+    volumes:
+      - qdrant_data:/qdrant/storage
+    healthcheck:
+      test: ["CMD-SHELL", "bash -c ':> /dev/tcp/127.0.0.1/6333'"]
+      interval: 5s
+      timeout: 3s
+      retries: 20
+
+  mcp:
+    profiles: [app]
+    build: .
+    image: rag-lab2-mcp:latest
+    restart: unless-stopped
+    depends_on:
+      postgres:
+        condition: service_healthy
+      qdrant:
+        condition: service_healthy
+    environment:
+      POSTGRES_HOST: postgres
+      POSTGRES_PORT: 5432
+      POSTGRES_USER: ${POSTGRES_USER:-rag}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?set POSTGRES_PASSWORD in .env}
+      POSTGRES_DB: ${POSTGRES_DB:-rag}
+      QDRANT_HOST: qdrant
+      QDRANT_HTTP_PORT: 6333
+      QDRANT_GRPC_PORT: 6334
+    command: ["python", "-m", "source", "mcp", "--transport", "streamable-http",
+              "--host", "0.0.0.0", "--port", "8765", "--metrics-port", "9101"]
+    ports:
+      - "127.0.0.1:${MCP_PORT:-8765}:8765"
+    volumes:
+      - hf_cache:/models
+    healthcheck:
+      test: ["CMD", "python", "-c", "import socket; socket.create_connection(('127.0.0.1', 8765), 3)"]
+      interval: 10s
+      timeout: 5s
+      retries: 30
+      start_period: 60s
+
+  nginx:
+    profiles: [app]
+    image: nginx:1.27-alpine
+    restart: unless-stopped
+    depends_on:
+      - mcp
+      - nginx-exporter
+      - grafana
+    # Host network: nginx listens on 80/443 itself and can reach services of other
+    # projects that publish a port on 127.0.0.1 (see `location /uni-gpu/`).
+    # Our own upstreams are therefore published on 127.0.0.1 as well.
+    network_mode: host
+    environment:
+      DOMAIN: ${DOMAIN:?set DOMAIN in .env}
+      MCP_PORT: ${MCP_PORT:-8765}
+      GRAFANA_PORT: ${GRAFANA_PORT:-3000}
+    volumes:
+      - ./deploy/nginx:/nginx-src:ro
+      - ./deploy/nginx/select-config.sh:/docker-entrypoint.d/10-select-config.sh:ro
+      - ./tokens:/etc/nginx/tokens:ro
+      - letsencrypt:/etc/letsencrypt:ro
+      - certbot_www:/var/www/certbot:ro
+
+  # ---- monitoring: Grafana at https://$DOMAIN/grafana/, everything else internal ----
+  prometheus:
+    profiles: [app]
+    image: prom/prometheus:v3.2.1
+    restart: unless-stopped
+    command:
+      - --config.file=/etc/prometheus/prometheus.yml
+      - --storage.tsdb.retention.time=30d
+      - --web.enable-lifecycle
+    volumes:
+      - ./deploy/monitoring/prometheus.yml:/etc/prometheus/prometheus.yml:ro
+      - prometheus_data:/prometheus
+    mem_limit: 512m
+
+  grafana:
+    profiles: [app]
+    image: grafana/grafana:11.6.0
+    restart: unless-stopped
+    depends_on:
+      - prometheus
+    environment:
+      GF_SECURITY_ADMIN_PASSWORD: ${GRAFANA_ADMIN_PASSWORD:?set GRAFANA_ADMIN_PASSWORD in .env}
+      GF_SERVER_ROOT_URL: https://${DOMAIN:?set DOMAIN in .env}/grafana/
+      GF_SERVER_SERVE_FROM_SUB_PATH: "true"
+      GF_USERS_ALLOW_SIGN_UP: "false"
+      GF_AUTH_ANONYMOUS_ENABLED: "false"
+      GF_SECURITY_COOKIE_SECURE: "true"
+      GF_SECURITY_DISABLE_GRAVATAR: "true"
+      GF_ANALYTICS_REPORTING_ENABLED: "false"
+      GF_ANALYTICS_CHECK_FOR_UPDATES: "false"
+      GF_DASHBOARDS_DEFAULT_HOME_DASHBOARD_PATH: /var/lib/grafana/dashboards/rag-system.json
+    ports:
+      - "127.0.0.1:${GRAFANA_PORT:-3000}:3000"  # for nginx (host network)
+    volumes:
+      - grafana_data:/var/lib/grafana
+      - ./deploy/monitoring/grafana/provisioning:/etc/grafana/provisioning:ro
+      - ./deploy/monitoring/grafana/dashboards:/var/lib/grafana/dashboards:ro
+    mem_limit: 384m
+
+  node-exporter:
+    profiles: [app]
+    image: prom/node-exporter:v1.9.0
+    restart: unless-stopped
+    pid: host
+    command: ["--path.rootfs=/host"]
+    volumes:
+      - /:/host:ro,rslave
+    mem_limit: 64m
+
+  cadvisor:
+    profiles: [app]
+    image: ghcr.io/google/cadvisor:v0.60.6
+    restart: unless-stopped
+    privileged: true
+    devices:
+      - /dev/kmsg
+    command:
+      - --housekeeping_interval=30s
+      - --docker_only=true
+      - --store_container_labels=false
+      - --whitelisted_container_labels=com.docker.compose.service,com.docker.compose.project
+      - --disable_metrics=percpu,sched,tcp,udp,advtcp,process,hugetlb,referenced_memory,cpu_topology,resctrl,disk,diskIO
+    volumes:
+      - /:/rootfs:ro
+      - /var/run:/var/run:rw  # connecting to docker.sock needs write access
+      - /sys:/sys:ro
+      - /var/lib/docker/:/var/lib/docker:ro
+    mem_limit: 256m
+
+  nginx-exporter:
+    profiles: [app]
+    image: quay.io/martinhelmich/prometheus-nginxlog-exporter:v1.11.0
+    restart: unless-stopped
+    command: ["-config-file", "/etc/nginxlog.yml"]
+    ports:
+      - "127.0.0.1:5140:5140/udp"  # nginx access log over syslog (host network)
+    volumes:
+      - ./deploy/monitoring/nginxlog.yml:/etc/nginxlog.yml:ro
+    mem_limit: 64m
+
+  certbot:
+    profiles: [app]
+    image: certbot/certbot:v3.0.1
+    restart: unless-stopped
+    volumes:
+      - letsencrypt:/etc/letsencrypt
+      - certbot_www:/var/www/certbot
+    entrypoint: >-
+      sh -c 'trap exit TERM; while :; do
+      certbot renew --webroot -w /var/www/certbot --quiet;
+      sleep 12h & wait $${!}; done'
+
+volumes:
+  postgres_data:
+  qdrant_data:
+  hf_cache:
+  letsencrypt:
+  certbot_www:
+  prometheus_data:
+  grafana_data:

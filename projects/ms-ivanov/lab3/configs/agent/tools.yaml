@@ -1,0 +1,49 @@
+# Descriptions of the agent's tools, shown to the model (kept out of the code on purpose).
+# The first four are proxies of the MCP server papers-rag; calculator runs locally.
+# Parameter descriptions are attached to the JSON schema of each tool.
+
+search_papers:
+  description: >-
+    Search the paper corpus. Returns passages (chunks of about 1024 tokens) ranked by relevance, each with
+    chunk_id, doc_key, title, citation, section, page, url, score and text. Use short, specific English queries
+    ("Sinkhorn convergence rate entropic OT"). score is a rank-fusion score: compare it only within one result.
+  parameters:
+    query: What to look for, a short subject-specific query (English works best).
+    top_k: Number of passages, 1-20 (8-10 for an overview, 3-5 for a precise fact).
+    mode: '"auto" (default), "dense" (meaning), "sparse" (exact terms, names, notation) or "hybrid".'
+    doc_keys: Optional list of document keys to search only inside them.
+    max_chars: Truncate every passage to this many characters (400-800 for a quick scan, 4000 to read).
+
+get_chunk_context:
+  description: >-
+    Read a passage together with its neighbours in the paper (definitions before a theorem, the continuation of
+    a proof). Chunks come back in reading order; the requested one has the given chunk_id.
+  parameters:
+    chunk_id: The chunk_id of a passage from search_papers or get_document_outline.
+    before: Number of preceding chunks, 0-3.
+    after: Number of following chunks, 0-3.
+    max_chars: Truncate every chunk to this many characters.
+
+list_documents:
+  description: >-
+    Catalogue of the indexed papers: doc_key, title, authors, year, venue, priority (1-3 stars), tags (GW, TDA,
+    THEORY, EMB, FM, ...), url and number of chunks. query filters by a substring of the title or of the doc_key
+    (keys look like surnameYEARword, e.g. chazal2007towards).
+  parameters:
+    query: Substring of the title or key; omit to list the first papers.
+    limit: Maximum number of documents, 1-200.
+
+get_document_outline:
+  description: >-
+    The sections of one paper in reading order with their chunk_ids and sizes in tokens. Use it to navigate a
+    paper and then read a section with get_chunk_context.
+  parameters:
+    doc_key: Document key from list_documents or a search result.
+
+calculator:
+  description: >-
+    Evaluate an arithmetic expression exactly as written and return the number. Supports + - * / // % **,
+    parentheses, and the functions sqrt, log (natural), log2, log10, exp, ceil, floor, min, max, abs, and the
+    constants pi and e.
+  parameters:
+    expression: The expression, e.g. "450 * 2**16" or "3 ** (-1/16)".

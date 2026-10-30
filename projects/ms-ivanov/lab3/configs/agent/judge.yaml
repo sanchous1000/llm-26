@@ -1,0 +1,11 @@
+# LLM judge of the evaluation (python -m source agent-eval-judge). A different model family than
+# the agents' DeepSeek to limit self-preference; turns with check: exact are graded by key facts only.
+model: glm-5.3
+base_url: https://opencode.ai/inference/go/openai/v1
+api_key_env: OPENCODE_API_KEY
+temperature: 0
+max_tokens: 16000           # reasoning model: the verdict comes after its thinking
+price_input_per_mtok: 1.4   # USD, models.dev list price (opencode-go)
+price_output_per_mtok: 4.4
+concurrency: 4
+prompt: judge_prompt.md
