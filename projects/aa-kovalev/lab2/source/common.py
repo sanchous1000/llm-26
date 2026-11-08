@@ -1,0 +1,94 @@
+"""Общие настройки, REST-клиенты."""
+from functools import lru_cache
+from transformers import AutoTokenizer
+from pathlib import Path
+import hashlib
+import json
+import httpx
+
+ROOT = Path(__file__).resolve().parents[1]
+ARTIFACTS = ROOT / 'artifacts'
+CONFIG = json.loads((ROOT / 'config.json').read_text(encoding='utf-8'))
+OLLAMA_URL = CONFIG['ollama_url']
+QDRANT_URL = CONFIG['qdrant_url']
+EMBEDDING_MODEL = CONFIG['embedding_model']
+BM25_MODEL = 'qdrant/bm25'
+BM25_OPTIONS = {'language': 'russian'}
+
+# Use each model's own tokenizer for indexing and generation.
+MODEL_TOKENIZERS = {'bge-m3': 'BAAI/bge-m3', 'bge-m3:567m': 'BAAI/bge-m3',
+                    'bge-m3:latest': 'BAAI/bge-m3',
+                    'gemma3:4b': 'unsloth/gemma-3-4b-it'}
+
+
+def read(path):
+    return json.loads(Path(path).read_text(encoding='utf-8'))
+
+def write(path, value):
+    path = Path(path)
+    path.parent.mkdir(parents=True, exist_ok=True)
+    temp = path.with_suffix(path.suffix + '.tmp')
+    temp.write_text(json.dumps(value, ensure_ascii=False, indent=2), encoding='utf-8')
+    temp.replace(path)
+
+def digest(value):
+    return hashlib.sha256(value).hexdigest()
+
+def settings(variant='dense_small', path=None):
+    config = read(path) if path else CONFIG.copy()
+    overrides = config.pop('variants')[variant]
+    config.update(overrides)
+    chunk_size, overlap = config['chunk_size'], config['overlap']
+    if not isinstance(config['include_headings'], bool):
+        raise ValueError('include_headings: true или false')
+    if not 100 <= chunk_size <= 1000 or not 0 <= overlap < chunk_size // 2:
+        raise ValueError('chunk_size: 100–1000; overlap: от 0 до половины размера')
+    if config['vectorization'] not in ('dense', 'sparse'):
+        raise ValueError('vectorization: dense или sparse')
+    return config
+
+@lru_cache(maxsize=None)
+def _load_tokenizer(name):
+    return AutoTokenizer.from_pretrained(name)
+
+def get_tokenizer(model=EMBEDDING_MODEL):
+    expected = MODEL_TOKENIZERS.get(model)
+    if expected is None:
+        raise ValueError('Неизвестный токенизатор для модели ' + model)
+    return _load_tokenizer(expected)
+
+def bm25(text, avg_len):
+    return {'text': text, 'model': BM25_MODEL,
+            'options': {**BM25_OPTIONS, 'avg_len': avg_len}}
+
+class API:
+    def __init__(self, config=CONFIG):
+        self.urls = {'ollama': config.get('ollama_url', OLLAMA_URL).rstrip('/'),
+                     'qdrant': config.get('qdrant_url', QDRANT_URL).rstrip('/')}
+        self.embedding_model = config.get('embedding_model', EMBEDDING_MODEL)
+        self.client = httpx.Client(timeout=300, trust_env=False)
+
+    def close(self):
+        self.client.close()
+
+    def request(self, service, method, path, body=None):
+        url = self.urls[service] + path
+        response = self.client.request(method, url, json=body)
+        try:
+            response.raise_for_status()
+        except httpx.HTTPStatusError as error:
+            raise httpx.HTTPStatusError(
+                f'{error}\nОтвет {service}: {response.text}',
+                request=error.request, response=error.response) from error
+        value = response.json()
+        if value.get('error'):
+            raise ValueError(str(value['error']))
+        return value
+
+    def embed(self, texts):
+        response = self.request('ollama', 'POST', '/api/embed', {
+            'model': self.embedding_model, 'input': texts, 'truncate': False})
+        vectors = response['embeddings']
+        if len(vectors) != len(texts) or not vectors or not vectors[0]:
+            raise ValueError('Получены неполные эмбеддинги')
+        return vectors
