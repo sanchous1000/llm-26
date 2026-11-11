@@ -1,0 +1,20 @@
+{
+  "collection": "dense-frida-cs400-ov50-aed511d7__hnsw-M32-efc200",
+  "collection_hash": "901ee53d13b9de5aab0a6db50104f30b6f7c63555251cf4e24124e85d3a767e3",
+  "run_id": "dense-frida-cs400-ov50-aed511d7",
+  "created": "2026-11-06T15:41:26+00:00",
+  "index": {
+    "type": "hnsw",
+    "hnsw": {
+      "M": 32,
+      "ef_construction": 200,
+      "ef_search": 64
+    },
+    "quantization": "none",
+    "dir": "faiss"
+  },
+  "ntotal": 170,
+  "dim": 1536,
+  "build_seconds": 0.03,
+  "index_bytes": 1090778
+}

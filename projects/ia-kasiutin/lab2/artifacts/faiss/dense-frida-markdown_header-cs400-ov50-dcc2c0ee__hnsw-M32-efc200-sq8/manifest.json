@@ -1,0 +1,23 @@
+{
+  "collection": "dense-frida-markdown_header-cs400-ov50-dcc2c0ee__hnsw-M32-efc200-sq8",
+  "collection_hash": "47ba01a997f9bd28727138ec524bcf835f379c3c9942cce060cc85239534e2c3",
+  "run_id": "dense-frida-markdown_header-cs400-ov50-dcc2c0ee",
+  "created": "2026-10-23T14:30:33+00:00",
+  "index": {
+    "type": "hnsw",
+    "metric": "cosine",
+    "hnsw": {
+      "M": 32,
+      "ef_construction": 200,
+      "ef_search": 64
+    },
+    "quantization": "sq8",
+    "dir": "faiss"
+  },
+  "ntotal": 181,
+  "dim": 1536,
+  "self_recall_at1": 0.988950276243094,
+  "build_seconds": 0.03,
+  "index_bytes": 339586,
+  "faiss_version": "1.15.1"
+}

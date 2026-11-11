@@ -1,0 +1,4525 @@
+{
+  "questions": "questions.json",
+  "n_questions": 15,
+  "k": [
+    5,
+    10
+  ],
+  "coverage_threshold": 0.6,
+  "rrf_k": 60,
+  "query_embed_seconds": 12.402,
+  "rows": [
+    {
+      "run_id": "dense-frida-markdown_header-cs400-ov50-dcc2c0ee",
+      "splitter": "markdown_header",
+      "retrieval": "dense",
+      "n_chunks": 181,
+      "index_type": "flat",
+      "M": 32,
+      "ef_construction": 200,
+      "ef_search": null,
+      "quantization": "none",
+      "index_bytes": 1112109,
+      "search_ms": 0.024,
+      "flat_recall@10": 1.0,
+      "recall@5": 0.833333,
+      "recall@10": 0.966667,
+      "precision@5": 0.186667,
+      "precision@10": 0.113333,
+      "mrr": 0.682857,
+      "per_question": [
+        {
+          "id": "q01",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.2,
+          "mrr": 1.0
+        },
+        {
+          "id": "q02",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.1,
+          "mrr": 1.0
+        },
+        {
+          "id": "q03",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.1,
+          "mrr": 1.0
+        },
+        {
+          "id": "q04",
+          "recall@5": 0.0,
+          "recall@10": 1.0,
+          "precision@5": 0.0,
+          "precision@10": 0.1,
+          "mrr": 0.142857
+        },
+        {
+          "id": "q05",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.1,
+          "mrr": 0.25
+        },
+        {
+          "id": "q06",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.1,
+          "mrr": 1.0
+        },
+        {
+          "id": "q07",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.1,
+          "mrr": 1.0
+        },
+        {
+          "id": "q08",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.1,
+          "mrr": 0.5
+        },
+        {
+          "id": "q09",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.1,
+          "mrr": 1.0
+        },
+        {
+          "id": "q10",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.4,
+          "precision@10": 0.2,
+          "mrr": 0.5
+        },
+        {
+          "id": "q11",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.1,
+          "mrr": 1.0
+        },
+        {
+          "id": "q12",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.1,
+          "mrr": 1.0
+        },
+        {
+          "id": "q13",
+          "recall@5": 0.0,
+          "recall@10": 1.0,
+          "precision@5": 0.0,
+          "precision@10": 0.1,
+          "mrr": 0.1
+        },
+        {
+          "id": "q14",
+          "recall@5": 0.5,
+          "recall@10": 0.5,
+          "precision@5": 0.2,
+          "precision@10": 0.1,
+          "mrr": 0.5
+        },
+        {
+          "id": "q15",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.1,
+          "mrr": 0.25
+        }
+      ]
+    },
+    {
+      "run_id": "dense-frida-markdown_header-cs400-ov50-dcc2c0ee",
+      "splitter": "markdown_header",
+      "retrieval": "dense",
+      "n_chunks": 181,
+      "index_type": "hnsw",
+      "M": 16,
+      "ef_construction": 64,
+      "ef_search": 16,
+      "quantization": "none",
+      "index_bytes": 1138358,
+      "search_ms": 0.012,
+      "flat_recall@10": 0.973333,
+      "recall@5": 0.833333,
+      "recall@10": 0.966667,
+      "precision@5": 0.186667,
+      "precision@10": 0.113333,
+      "mrr": 0.682857,
+      "per_question": [
+        {
+          "id": "q01",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.2,
+          "mrr": 1.0
+        },
+        {
+          "id": "q02",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.1,
+          "mrr": 1.0
+        },
+        {
+          "id": "q03",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.1,
+          "mrr": 1.0
+        },
+        {
+          "id": "q04",
+          "recall@5": 0.0,
+          "recall@10": 1.0,
+          "precision@5": 0.0,
+          "precision@10": 0.1,
+          "mrr": 0.142857
+        },
+        {
+          "id": "q05",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.1,
+          "mrr": 0.25
+        },
+        {
+          "id": "q06",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.1,
+          "mrr": 1.0
+        },
+        {
+          "id": "q07",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.1,
+          "mrr": 1.0
+        },
+        {
+          "id": "q08",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.1,
+          "mrr": 0.5
+        },
+        {
+          "id": "q09",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.1,
+          "mrr": 1.0
+        },
+        {
+          "id": "q10",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.4,
+          "precision@10": 0.2,
+          "mrr": 0.5
+        },
+        {
+          "id": "q11",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.1,
+          "mrr": 1.0
+        },
+        {
+          "id": "q12",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.1,
+          "mrr": 1.0
+        },
+        {
+          "id": "q13",
+          "recall@5": 0.0,
+          "recall@10": 1.0,
+          "precision@5": 0.0,
+          "precision@10": 0.1,
+          "mrr": 0.1
+        },
+        {
+          "id": "q14",
+          "recall@5": 0.5,
+          "recall@10": 0.5,
+          "precision@5": 0.2,
+          "precision@10": 0.1,
+          "mrr": 0.5
+        },
+        {
+          "id": "q15",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.1,
+          "mrr": 0.25
+        }
+      ]
+    },
+    {
+      "run_id": "dense-frida-markdown_header-cs400-ov50-dcc2c0ee",
+      "splitter": "markdown_header",
+      "retrieval": "dense",
+      "n_chunks": 181,
+      "index_type": "hnsw",
+      "M": 16,
+      "ef_construction": 64,
+      "ef_search": 64,
+      "quantization": "none",
+      "index_bytes": 1138358,
+      "search_ms": 0.019,
+      "flat_recall@10": 1.0,
+      "recall@5": 0.833333,
+      "recall@10": 0.966667,
+      "precision@5": 0.186667,
+      "precision@10": 0.113333,
+      "mrr": 0.682857,
+      "per_question": [
+        {
+          "id": "q01",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.2,
+          "mrr": 1.0
+        },
+        {
+          "id": "q02",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.1,
+          "mrr": 1.0
+        },
+        {
+          "id": "q03",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.1,
+          "mrr": 1.0
+        },
+        {
+          "id": "q04",
+          "recall@5": 0.0,
+          "recall@10": 1.0,
+          "precision@5": 0.0,
+          "precision@10": 0.1,
+          "mrr": 0.142857
+        },
+        {
+          "id": "q05",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.1,
+          "mrr": 0.25
+        },
+        {
+          "id": "q06",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.1,
+          "mrr": 1.0
+        },
+        {
+          "id": "q07",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.1,
+          "mrr": 1.0
+        },
+        {
+          "id": "q08",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.1,
+          "mrr": 0.5
+        },
+        {
+          "id": "q09",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.1,
+          "mrr": 1.0
+        },
+        {
+          "id": "q10",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.4,
+          "precision@10": 0.2,
+          "mrr": 0.5
+        },
+        {
+          "id": "q11",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.1,
+          "mrr": 1.0
+        },
+        {
+          "id": "q12",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.1,
+          "mrr": 1.0
+        },
+        {
+          "id": "q13",
+          "recall@5": 0.0,
+          "recall@10": 1.0,
+          "precision@5": 0.0,
+          "precision@10": 0.1,
+          "mrr": 0.1
+        },
+        {
+          "id": "q14",
+          "recall@5": 0.5,
+          "recall@10": 0.5,
+          "precision@5": 0.2,
+          "precision@10": 0.1,
+          "mrr": 0.5
+        },
+        {
+          "id": "q15",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.1,
+          "mrr": 0.25
+        }
+      ]
+    },
+    {
+      "run_id": "dense-frida-markdown_header-cs400-ov50-dcc2c0ee",
+      "splitter": "markdown_header",
+      "retrieval": "dense",
+      "n_chunks": 181,
+      "index_type": "hnsw",
+      "M": 16,
+      "ef_construction": 64,
+      "ef_search": 128,
+      "quantization": "none",
+      "index_bytes": 1138358,
+      "search_ms": 0.028,
+      "flat_recall@10": 1.0,
+      "recall@5": 0.833333,
+      "recall@10": 0.966667,
+      "precision@5": 0.186667,
+      "precision@10": 0.113333,
+      "mrr": 0.682857,
+      "per_question": [
+        {
+          "id": "q01",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.2,
+          "mrr": 1.0
+        },
+        {
+          "id": "q02",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.1,
+          "mrr": 1.0
+        },
+        {
+          "id": "q03",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.1,
+          "mrr": 1.0
+        },
+        {
+          "id": "q04",
+          "recall@5": 0.0,
+          "recall@10": 1.0,
+          "precision@5": 0.0,
+          "precision@10": 0.1,
+          "mrr": 0.142857
+        },
+        {
+          "id": "q05",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.1,
+          "mrr": 0.25
+        },
+        {
+          "id": "q06",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.1,
+          "mrr": 1.0
+        },
+        {
+          "id": "q07",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.1,
+          "mrr": 1.0
+        },
+        {
+          "id": "q08",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.1,
+          "mrr": 0.5
+        },
+        {
+          "id": "q09",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.1,
+          "mrr": 1.0
+        },
+        {
+          "id": "q10",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.4,
+          "precision@10": 0.2,
+          "mrr": 0.5
+        },
+        {
+          "id": "q11",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.1,
+          "mrr": 1.0
+        },
+        {
+          "id": "q12",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.1,
+          "mrr": 1.0
+        },
+        {
+          "id": "q13",
+          "recall@5": 0.0,
+          "recall@10": 1.0,
+          "precision@5": 0.0,
+          "precision@10": 0.1,
+          "mrr": 0.1
+        },
+        {
+          "id": "q14",
+          "recall@5": 0.5,
+          "recall@10": 0.5,
+          "precision@5": 0.2,
+          "precision@10": 0.1,
+          "mrr": 0.5
+        },
+        {
+          "id": "q15",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.1,
+          "mrr": 0.25
+        }
+      ]
+    },
+    {
+      "run_id": "dense-frida-markdown_header-cs400-ov50-dcc2c0ee",
+      "splitter": "markdown_header",
+      "retrieval": "dense",
+      "n_chunks": 181,
+      "index_type": "hnsw",
+      "M": 16,
+      "ef_construction": 200,
+      "ef_search": 16,
+      "quantization": "none",
+      "index_bytes": 1138358,
+      "search_ms": 0.012,
+      "flat_recall@10": 0.973333,
+      "recall@5": 0.833333,
+      "recall@10": 0.966667,
+      "precision@5": 0.186667,
+      "precision@10": 0.113333,
+      "mrr": 0.682857,
+      "per_question": [
+        {
+          "id": "q01",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.2,
+          "mrr": 1.0
+        },
+        {
+          "id": "q02",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.1,
+          "mrr": 1.0
+        },
+        {
+          "id": "q03",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.1,
+          "mrr": 1.0
+        },
+        {
+          "id": "q04",
+          "recall@5": 0.0,
+          "recall@10": 1.0,
+          "precision@5": 0.0,
+          "precision@10": 0.1,
+          "mrr": 0.142857
+        },
+        {
+          "id": "q05",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.1,
+          "mrr": 0.25
+        },
+        {
+          "id": "q06",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.1,
+          "mrr": 1.0
+        },
+        {
+          "id": "q07",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.1,
+          "mrr": 1.0
+        },
+        {
+          "id": "q08",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.1,
+          "mrr": 0.5
+        },
+        {
+          "id": "q09",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.1,
+          "mrr": 1.0
+        },
+        {
+          "id": "q10",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.4,
+          "precision@10": 0.2,
+          "mrr": 0.5
+        },
+        {
+          "id": "q11",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.1,
+          "mrr": 1.0
+        },
+        {
+          "id": "q12",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.1,
+          "mrr": 1.0
+        },
+        {
+          "id": "q13",
+          "recall@5": 0.0,
+          "recall@10": 1.0,
+          "precision@5": 0.0,
+          "precision@10": 0.1,
+          "mrr": 0.1
+        },
+        {
+          "id": "q14",
+          "recall@5": 0.5,
+          "recall@10": 0.5,
+          "precision@5": 0.2,
+          "precision@10": 0.1,
+          "mrr": 0.5
+        },
+        {
+          "id": "q15",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.1,
+          "mrr": 0.25
+        }
+      ]
+    },
+    {
+      "run_id": "dense-frida-markdown_header-cs400-ov50-dcc2c0ee",
+      "splitter": "markdown_header",
+      "retrieval": "dense",
+      "n_chunks": 181,
+      "index_type": "hnsw",
+      "M": 16,
+      "ef_construction": 200,
+      "ef_search": 64,
+      "quantization": "none",
+      "index_bytes": 1138358,
+      "search_ms": 0.018,
+      "flat_recall@10": 1.0,
+      "recall@5": 0.833333,
+      "recall@10": 0.966667,
+      "precision@5": 0.186667,
+      "precision@10": 0.113333,
+      "mrr": 0.682857,
+      "per_question": [
+        {
+          "id": "q01",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.2,
+          "mrr": 1.0
+        },
+        {
+          "id": "q02",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.1,
+          "mrr": 1.0
+        },
+        {
+          "id": "q03",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.1,
+          "mrr": 1.0
+        },
+        {
+          "id": "q04",
+          "recall@5": 0.0,
+          "recall@10": 1.0,
+          "precision@5": 0.0,
+          "precision@10": 0.1,
+          "mrr": 0.142857
+        },
+        {
+          "id": "q05",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.1,
+          "mrr": 0.25
+        },
+        {
+          "id": "q06",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.1,
+          "mrr": 1.0
+        },
+        {
+          "id": "q07",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.1,
+          "mrr": 1.0
+        },
+        {
+          "id": "q08",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.1,
+          "mrr": 0.5
+        },
+        {
+          "id": "q09",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.1,
+          "mrr": 1.0
+        },
+        {
+          "id": "q10",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.4,
+          "precision@10": 0.2,
+          "mrr": 0.5
+        },
+        {
+          "id": "q11",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.1,
+          "mrr": 1.0
+        },
+        {
+          "id": "q12",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.1,
+          "mrr": 1.0
+        },
+        {
+          "id": "q13",
+          "recall@5": 0.0,
+          "recall@10": 1.0,
+          "precision@5": 0.0,
+          "precision@10": 0.1,
+          "mrr": 0.1
+        },
+        {
+          "id": "q14",
+          "recall@5": 0.5,
+          "recall@10": 0.5,
+          "precision@5": 0.2,
+          "precision@10": 0.1,
+          "mrr": 0.5
+        },
+        {
+          "id": "q15",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.1,
+          "mrr": 0.25
+        }
+      ]
+    },
+    {
+      "run_id": "dense-frida-markdown_header-cs400-ov50-dcc2c0ee",
+      "splitter": "markdown_header",
+      "retrieval": "dense",
+      "n_chunks": 181,
+      "index_type": "hnsw",
+      "M": 16,
+      "ef_construction": 200,
+      "ef_search": 128,
+      "quantization": "none",
+      "index_bytes": 1138358,
+      "search_ms": 0.025,
+      "flat_recall@10": 1.0,
+      "recall@5": 0.833333,
+      "recall@10": 0.966667,
+      "precision@5": 0.186667,
+      "precision@10": 0.113333,
+      "mrr": 0.682857,
+      "per_question": [
+        {
+          "id": "q01",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.2,
+          "mrr": 1.0
+        },
+        {
+          "id": "q02",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.1,
+          "mrr": 1.0
+        },
+        {
+          "id": "q03",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.1,
+          "mrr": 1.0
+        },
+        {
+          "id": "q04",
+          "recall@5": 0.0,
+          "recall@10": 1.0,
+          "precision@5": 0.0,
+          "precision@10": 0.1,
+          "mrr": 0.142857
+        },
+        {
+          "id": "q05",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.1,
+          "mrr": 0.25
+        },
+        {
+          "id": "q06",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.1,
+          "mrr": 1.0
+        },
+        {
+          "id": "q07",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.1,
+          "mrr": 1.0
+        },
+        {
+          "id": "q08",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.1,
+          "mrr": 0.5
+        },
+        {
+          "id": "q09",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.1,
+          "mrr": 1.0
+        },
+        {
+          "id": "q10",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.4,
+          "precision@10": 0.2,
+          "mrr": 0.5
+        },
+        {
+          "id": "q11",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.1,
+          "mrr": 1.0
+        },
+        {
+          "id": "q12",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.1,
+          "mrr": 1.0
+        },
+        {
+          "id": "q13",
+          "recall@5": 0.0,
+          "recall@10": 1.0,
+          "precision@5": 0.0,
+          "precision@10": 0.1,
+          "mrr": 0.1
+        },
+        {
+          "id": "q14",
+          "recall@5": 0.5,
+          "recall@10": 0.5,
+          "precision@5": 0.2,
+          "precision@10": 0.1,
+          "mrr": 0.5
+        },
+        {
+          "id": "q15",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.1,
+          "mrr": 0.25
+        }
+      ]
+    },
+    {
+      "run_id": "dense-frida-markdown_header-cs400-ov50-dcc2c0ee",
+      "splitter": "markdown_header",
+      "retrieval": "dense",
+      "n_chunks": 181,
+      "index_type": "hnsw",
+      "M": 32,
+      "ef_construction": 200,
+      "ef_search": 16,
+      "quantization": "none",
+      "index_bytes": 1161310,
+      "search_ms": 0.011,
+      "flat_recall@10": 0.973333,
+      "recall@5": 0.833333,
+      "recall@10": 0.966667,
+      "precision@5": 0.186667,
+      "precision@10": 0.113333,
+      "mrr": 0.682857,
+      "per_question": [
+        {
+          "id": "q01",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.2,
+          "mrr": 1.0
+        },
+        {
+          "id": "q02",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.1,
+          "mrr": 1.0
+        },
+        {
+          "id": "q03",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.1,
+          "mrr": 1.0
+        },
+        {
+          "id": "q04",
+          "recall@5": 0.0,
+          "recall@10": 1.0,
+          "precision@5": 0.0,
+          "precision@10": 0.1,
+          "mrr": 0.142857
+        },
+        {
+          "id": "q05",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.1,
+          "mrr": 0.25
+        },
+        {
+          "id": "q06",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.1,
+          "mrr": 1.0
+        },
+        {
+          "id": "q07",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.1,
+          "mrr": 1.0
+        },
+        {
+          "id": "q08",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.1,
+          "mrr": 0.5
+        },
+        {
+          "id": "q09",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.1,
+          "mrr": 1.0
+        },
+        {
+          "id": "q10",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.4,
+          "precision@10": 0.2,
+          "mrr": 0.5
+        },
+        {
+          "id": "q11",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.1,
+          "mrr": 1.0
+        },
+        {
+          "id": "q12",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.1,
+          "mrr": 1.0
+        },
+        {
+          "id": "q13",
+          "recall@5": 0.0,
+          "recall@10": 1.0,
+          "precision@5": 0.0,
+          "precision@10": 0.1,
+          "mrr": 0.1
+        },
+        {
+          "id": "q14",
+          "recall@5": 0.5,
+          "recall@10": 0.5,
+          "precision@5": 0.2,
+          "precision@10": 0.1,
+          "mrr": 0.5
+        },
+        {
+          "id": "q15",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.1,
+          "mrr": 0.25
+        }
+      ]
+    },
+    {
+      "run_id": "dense-frida-markdown_header-cs400-ov50-dcc2c0ee",
+      "splitter": "markdown_header",
+      "retrieval": "dense",
+      "n_chunks": 181,
+      "index_type": "hnsw",
+      "M": 32,
+      "ef_construction": 200,
+      "ef_search": 64,
+      "quantization": "none",
+      "index_bytes": 1161310,
+      "search_ms": 0.017,
+      "flat_recall@10": 1.0,
+      "recall@5": 0.833333,
+      "recall@10": 0.966667,
+      "precision@5": 0.186667,
+      "precision@10": 0.113333,
+      "mrr": 0.682857,
+      "per_question": [
+        {
+          "id": "q01",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.2,
+          "mrr": 1.0
+        },
+        {
+          "id": "q02",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.1,
+          "mrr": 1.0
+        },
+        {
+          "id": "q03",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.1,
+          "mrr": 1.0
+        },
+        {
+          "id": "q04",
+          "recall@5": 0.0,
+          "recall@10": 1.0,
+          "precision@5": 0.0,
+          "precision@10": 0.1,
+          "mrr": 0.142857
+        },
+        {
+          "id": "q05",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.1,
+          "mrr": 0.25
+        },
+        {
+          "id": "q06",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.1,
+          "mrr": 1.0
+        },
+        {
+          "id": "q07",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.1,
+          "mrr": 1.0
+        },
+        {
+          "id": "q08",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.1,
+          "mrr": 0.5
+        },
+        {
+          "id": "q09",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.1,
+          "mrr": 1.0
+        },
+        {
+          "id": "q10",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.4,
+          "precision@10": 0.2,
+          "mrr": 0.5
+        },
+        {
+          "id": "q11",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.1,
+          "mrr": 1.0
+        },
+        {
+          "id": "q12",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.1,
+          "mrr": 1.0
+        },
+        {
+          "id": "q13",
+          "recall@5": 0.0,
+          "recall@10": 1.0,
+          "precision@5": 0.0,
+          "precision@10": 0.1,
+          "mrr": 0.1
+        },
+        {
+          "id": "q14",
+          "recall@5": 0.5,
+          "recall@10": 0.5,
+          "precision@5": 0.2,
+          "precision@10": 0.1,
+          "mrr": 0.5
+        },
+        {
+          "id": "q15",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.1,
+          "mrr": 0.25
+        }
+      ]
+    },
+    {
+      "run_id": "dense-frida-markdown_header-cs400-ov50-dcc2c0ee",
+      "splitter": "markdown_header",
+      "retrieval": "dense",
+      "n_chunks": 181,
+      "index_type": "hnsw",
+      "M": 32,
+      "ef_construction": 200,
+      "ef_search": 128,
+      "quantization": "none",
+      "index_bytes": 1161310,
+      "search_ms": 0.026,
+      "flat_recall@10": 1.0,
+      "recall@5": 0.833333,
+      "recall@10": 0.966667,
+      "precision@5": 0.186667,
+      "precision@10": 0.113333,
+      "mrr": 0.682857,
+      "per_question": [
+        {
+          "id": "q01",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.2,
+          "mrr": 1.0
+        },
+        {
+          "id": "q02",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.1,
+          "mrr": 1.0
+        },
+        {
+          "id": "q03",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.1,
+          "mrr": 1.0
+        },
+        {
+          "id": "q04",
+          "recall@5": 0.0,
+          "recall@10": 1.0,
+          "precision@5": 0.0,
+          "precision@10": 0.1,
+          "mrr": 0.142857
+        },
+        {
+          "id": "q05",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.1,
+          "mrr": 0.25
+        },
+        {
+          "id": "q06",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.1,
+          "mrr": 1.0
+        },
+        {
+          "id": "q07",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.1,
+          "mrr": 1.0
+        },
+        {
+          "id": "q08",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.1,
+          "mrr": 0.5
+        },
+        {
+          "id": "q09",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.1,
+          "mrr": 1.0
+        },
+        {
+          "id": "q10",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.4,
+          "precision@10": 0.2,
+          "mrr": 0.5
+        },
+        {
+          "id": "q11",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.1,
+          "mrr": 1.0
+        },
+        {
+          "id": "q12",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.1,
+          "mrr": 1.0
+        },
+        {
+          "id": "q13",
+          "recall@5": 0.0,
+          "recall@10": 1.0,
+          "precision@5": 0.0,
+          "precision@10": 0.1,
+          "mrr": 0.1
+        },
+        {
+          "id": "q14",
+          "recall@5": 0.5,
+          "recall@10": 0.5,
+          "precision@5": 0.2,
+          "precision@10": 0.1,
+          "mrr": 0.5
+        },
+        {
+          "id": "q15",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.1,
+          "mrr": 0.25
+        }
+      ]
+    },
+    {
+      "run_id": "dense-frida-markdown_header-cs400-ov50-dcc2c0ee",
+      "splitter": "markdown_header",
+      "retrieval": "dense",
+      "n_chunks": 181,
+      "index_type": "hnsw",
+      "M": 32,
+      "ef_construction": 200,
+      "ef_search": 16,
+      "quantization": "sq8",
+      "index_bytes": 339586,
+      "search_ms": 0.014,
+      "flat_recall@10": 0.966667,
+      "recall@5": 0.833333,
+      "recall@10": 0.966667,
+      "precision@5": 0.186667,
+      "precision@10": 0.113333,
+      "mrr": 0.682857,
+      "per_question": [
+        {
+          "id": "q01",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.2,
+          "mrr": 1.0
+        },
+        {
+          "id": "q02",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.1,
+          "mrr": 1.0
+        },
+        {
+          "id": "q03",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.1,
+          "mrr": 1.0
+        },
+        {
+          "id": "q04",
+          "recall@5": 0.0,
+          "recall@10": 1.0,
+          "precision@5": 0.0,
+          "precision@10": 0.1,
+          "mrr": 0.142857
+        },
+        {
+          "id": "q05",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.1,
+          "mrr": 0.25
+        },
+        {
+          "id": "q06",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.1,
+          "mrr": 1.0
+        },
+        {
+          "id": "q07",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.1,
+          "mrr": 1.0
+        },
+        {
+          "id": "q08",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.1,
+          "mrr": 0.5
+        },
+        {
+          "id": "q09",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.1,
+          "mrr": 1.0
+        },
+        {
+          "id": "q10",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.4,
+          "precision@10": 0.2,
+          "mrr": 0.5
+        },
+        {
+          "id": "q11",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.1,
+          "mrr": 1.0
+        },
+        {
+          "id": "q12",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.1,
+          "mrr": 1.0
+        },
+        {
+          "id": "q13",
+          "recall@5": 0.0,
+          "recall@10": 1.0,
+          "precision@5": 0.0,
+          "precision@10": 0.1,
+          "mrr": 0.1
+        },
+        {
+          "id": "q14",
+          "recall@5": 0.5,
+          "recall@10": 0.5,
+          "precision@5": 0.2,
+          "precision@10": 0.1,
+          "mrr": 0.5
+        },
+        {
+          "id": "q15",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.1,
+          "mrr": 0.25
+        }
+      ]
+    },
+    {
+      "run_id": "dense-frida-markdown_header-cs400-ov50-dcc2c0ee",
+      "splitter": "markdown_header",
+      "retrieval": "dense",
+      "n_chunks": 181,
+      "index_type": "hnsw",
+      "M": 32,
+      "ef_construction": 200,
+      "ef_search": 64,
+      "quantization": "sq8",
+      "index_bytes": 339586,
+      "search_ms": 0.019,
+      "flat_recall@10": 0.993333,
+      "recall@5": 0.833333,
+      "recall@10": 0.966667,
+      "precision@5": 0.186667,
+      "precision@10": 0.113333,
+      "mrr": 0.682857,
+      "per_question": [
+        {
+          "id": "q01",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.2,
+          "mrr": 1.0
+        },
+        {
+          "id": "q02",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.1,
+          "mrr": 1.0
+        },
+        {
+          "id": "q03",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.1,
+          "mrr": 1.0
+        },
+        {
+          "id": "q04",
+          "recall@5": 0.0,
+          "recall@10": 1.0,
+          "precision@5": 0.0,
+          "precision@10": 0.1,
+          "mrr": 0.142857
+        },
+        {
+          "id": "q05",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.1,
+          "mrr": 0.25
+        },
+        {
+          "id": "q06",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.1,
+          "mrr": 1.0
+        },
+        {
+          "id": "q07",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.1,
+          "mrr": 1.0
+        },
+        {
+          "id": "q08",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.1,
+          "mrr": 0.5
+        },
+        {
+          "id": "q09",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.1,
+          "mrr": 1.0
+        },
+        {
+          "id": "q10",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.4,
+          "precision@10": 0.2,
+          "mrr": 0.5
+        },
+        {
+          "id": "q11",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.1,
+          "mrr": 1.0
+        },
+        {
+          "id": "q12",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.1,
+          "mrr": 1.0
+        },
+        {
+          "id": "q13",
+          "recall@5": 0.0,
+          "recall@10": 1.0,
+          "precision@5": 0.0,
+          "precision@10": 0.1,
+          "mrr": 0.1
+        },
+        {
+          "id": "q14",
+          "recall@5": 0.5,
+          "recall@10": 0.5,
+          "precision@5": 0.2,
+          "precision@10": 0.1,
+          "mrr": 0.5
+        },
+        {
+          "id": "q15",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.1,
+          "mrr": 0.25
+        }
+      ]
+    },
+    {
+      "run_id": "dense-frida-markdown_header-cs400-ov50-dcc2c0ee",
+      "splitter": "markdown_header",
+      "retrieval": "dense",
+      "n_chunks": 181,
+      "index_type": "hnsw",
+      "M": 32,
+      "ef_construction": 200,
+      "ef_search": 128,
+      "quantization": "sq8",
+      "index_bytes": 339586,
+      "search_ms": 0.033,
+      "flat_recall@10": 0.993333,
+      "recall@5": 0.833333,
+      "recall@10": 0.966667,
+      "precision@5": 0.186667,
+      "precision@10": 0.113333,
+      "mrr": 0.682857,
+      "per_question": [
+        {
+          "id": "q01",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.2,
+          "mrr": 1.0
+        },
+        {
+          "id": "q02",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.1,
+          "mrr": 1.0
+        },
+        {
+          "id": "q03",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.1,
+          "mrr": 1.0
+        },
+        {
+          "id": "q04",
+          "recall@5": 0.0,
+          "recall@10": 1.0,
+          "precision@5": 0.0,
+          "precision@10": 0.1,
+          "mrr": 0.142857
+        },
+        {
+          "id": "q05",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.1,
+          "mrr": 0.25
+        },
+        {
+          "id": "q06",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.1,
+          "mrr": 1.0
+        },
+        {
+          "id": "q07",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.1,
+          "mrr": 1.0
+        },
+        {
+          "id": "q08",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.1,
+          "mrr": 0.5
+        },
+        {
+          "id": "q09",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.1,
+          "mrr": 1.0
+        },
+        {
+          "id": "q10",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.4,
+          "precision@10": 0.2,
+          "mrr": 0.5
+        },
+        {
+          "id": "q11",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.1,
+          "mrr": 1.0
+        },
+        {
+          "id": "q12",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.1,
+          "mrr": 1.0
+        },
+        {
+          "id": "q13",
+          "recall@5": 0.0,
+          "recall@10": 1.0,
+          "precision@5": 0.0,
+          "precision@10": 0.1,
+          "mrr": 0.1
+        },
+        {
+          "id": "q14",
+          "recall@5": 0.5,
+          "recall@10": 0.5,
+          "precision@5": 0.2,
+          "precision@10": 0.1,
+          "mrr": 0.5
+        },
+        {
+          "id": "q15",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.1,
+          "mrr": 0.25
+        }
+      ]
+    },
+    {
+      "run_id": "dense-frida-markdown_header-cs400-ov50-dcc2c0ee",
+      "splitter": "markdown_header",
+      "retrieval": "dense",
+      "n_chunks": 181,
+      "index_type": "hnsw",
+      "M": 32,
+      "ef_construction": 200,
+      "ef_search": 16,
+      "quantization": "fp16",
+      "index_bytes": 605314,
+      "search_ms": 0.012,
+      "flat_recall@10": 0.973333,
+      "recall@5": 0.833333,
+      "recall@10": 0.966667,
+      "precision@5": 0.186667,
+      "precision@10": 0.113333,
+      "mrr": 0.682857,
+      "per_question": [
+        {
+          "id": "q01",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.2,
+          "mrr": 1.0
+        },
+        {
+          "id": "q02",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.1,
+          "mrr": 1.0
+        },
+        {
+          "id": "q03",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.1,
+          "mrr": 1.0
+        },
+        {
+          "id": "q04",
+          "recall@5": 0.0,
+          "recall@10": 1.0,
+          "precision@5": 0.0,
+          "precision@10": 0.1,
+          "mrr": 0.142857
+        },
+        {
+          "id": "q05",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.1,
+          "mrr": 0.25
+        },
+        {
+          "id": "q06",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.1,
+          "mrr": 1.0
+        },
+        {
+          "id": "q07",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.1,
+          "mrr": 1.0
+        },
+        {
+          "id": "q08",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.1,
+          "mrr": 0.5
+        },
+        {
+          "id": "q09",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.1,
+          "mrr": 1.0
+        },
+        {
+          "id": "q10",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.4,
+          "precision@10": 0.2,
+          "mrr": 0.5
+        },
+        {
+          "id": "q11",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.1,
+          "mrr": 1.0
+        },
+        {
+          "id": "q12",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.1,
+          "mrr": 1.0
+        },
+        {
+          "id": "q13",
+          "recall@5": 0.0,
+          "recall@10": 1.0,
+          "precision@5": 0.0,
+          "precision@10": 0.1,
+          "mrr": 0.1
+        },
+        {
+          "id": "q14",
+          "recall@5": 0.5,
+          "recall@10": 0.5,
+          "precision@5": 0.2,
+          "precision@10": 0.1,
+          "mrr": 0.5
+        },
+        {
+          "id": "q15",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.1,
+          "mrr": 0.25
+        }
+      ]
+    },
+    {
+      "run_id": "dense-frida-markdown_header-cs400-ov50-dcc2c0ee",
+      "splitter": "markdown_header",
+      "retrieval": "dense",
+      "n_chunks": 181,
+      "index_type": "hnsw",
+      "M": 32,
+      "ef_construction": 200,
+      "ef_search": 64,
+      "quantization": "fp16",
+      "index_bytes": 605314,
+      "search_ms": 0.018,
+      "flat_recall@10": 1.0,
+      "recall@5": 0.833333,
+      "recall@10": 0.966667,
+      "precision@5": 0.186667,
+      "precision@10": 0.113333,
+      "mrr": 0.682857,
+      "per_question": [
+        {
+          "id": "q01",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.2,
+          "mrr": 1.0
+        },
+        {
+          "id": "q02",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.1,
+          "mrr": 1.0
+        },
+        {
+          "id": "q03",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.1,
+          "mrr": 1.0
+        },
+        {
+          "id": "q04",
+          "recall@5": 0.0,
+          "recall@10": 1.0,
+          "precision@5": 0.0,
+          "precision@10": 0.1,
+          "mrr": 0.142857
+        },
+        {
+          "id": "q05",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.1,
+          "mrr": 0.25
+        },
+        {
+          "id": "q06",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.1,
+          "mrr": 1.0
+        },
+        {
+          "id": "q07",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.1,
+          "mrr": 1.0
+        },
+        {
+          "id": "q08",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.1,
+          "mrr": 0.5
+        },
+        {
+          "id": "q09",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.1,
+          "mrr": 1.0
+        },
+        {
+          "id": "q10",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.4,
+          "precision@10": 0.2,
+          "mrr": 0.5
+        },
+        {
+          "id": "q11",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.1,
+          "mrr": 1.0
+        },
+        {
+          "id": "q12",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.1,
+          "mrr": 1.0
+        },
+        {
+          "id": "q13",
+          "recall@5": 0.0,
+          "recall@10": 1.0,
+          "precision@5": 0.0,
+          "precision@10": 0.1,
+          "mrr": 0.1
+        },
+        {
+          "id": "q14",
+          "recall@5": 0.5,
+          "recall@10": 0.5,
+          "precision@5": 0.2,
+          "precision@10": 0.1,
+          "mrr": 0.5
+        },
+        {
+          "id": "q15",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.1,
+          "mrr": 0.25
+        }
+      ]
+    },
+    {
+      "run_id": "dense-frida-markdown_header-cs400-ov50-dcc2c0ee",
+      "splitter": "markdown_header",
+      "retrieval": "dense",
+      "n_chunks": 181,
+      "index_type": "hnsw",
+      "M": 32,
+      "ef_construction": 200,
+      "ef_search": 128,
+      "quantization": "fp16",
+      "index_bytes": 605314,
+      "search_ms": 0.025,
+      "flat_recall@10": 1.0,
+      "recall@5": 0.833333,
+      "recall@10": 0.966667,
+      "precision@5": 0.186667,
+      "precision@10": 0.113333,
+      "mrr": 0.682857,
+      "per_question": [
+        {
+          "id": "q01",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.2,
+          "mrr": 1.0
+        },
+        {
+          "id": "q02",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.1,
+          "mrr": 1.0
+        },
+        {
+          "id": "q03",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.1,
+          "mrr": 1.0
+        },
+        {
+          "id": "q04",
+          "recall@5": 0.0,
+          "recall@10": 1.0,
+          "precision@5": 0.0,
+          "precision@10": 0.1,
+          "mrr": 0.142857
+        },
+        {
+          "id": "q05",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.1,
+          "mrr": 0.25
+        },
+        {
+          "id": "q06",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.1,
+          "mrr": 1.0
+        },
+        {
+          "id": "q07",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.1,
+          "mrr": 1.0
+        },
+        {
+          "id": "q08",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.1,
+          "mrr": 0.5
+        },
+        {
+          "id": "q09",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.1,
+          "mrr": 1.0
+        },
+        {
+          "id": "q10",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.4,
+          "precision@10": 0.2,
+          "mrr": 0.5
+        },
+        {
+          "id": "q11",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.1,
+          "mrr": 1.0
+        },
+        {
+          "id": "q12",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.1,
+          "mrr": 1.0
+        },
+        {
+          "id": "q13",
+          "recall@5": 0.0,
+          "recall@10": 1.0,
+          "precision@5": 0.0,
+          "precision@10": 0.1,
+          "mrr": 0.1
+        },
+        {
+          "id": "q14",
+          "recall@5": 0.5,
+          "recall@10": 0.5,
+          "precision@5": 0.2,
+          "precision@10": 0.1,
+          "mrr": 0.5
+        },
+        {
+          "id": "q15",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.1,
+          "mrr": 0.25
+        }
+      ]
+    },
+    {
+      "run_id": "hybrid-frida-hybrid-cs400-ov50-992cdc63",
+      "splitter": "hybrid",
+      "retrieval": "hybrid",
+      "n_chunks": 155,
+      "index_type": "flat",
+      "M": 32,
+      "ef_construction": 200,
+      "ef_search": null,
+      "quantization": "none",
+      "index_bytes": 952365,
+      "search_ms": 0.081,
+      "flat_recall@10": 1.0,
+      "recall@5": 0.9,
+      "recall@10": 1.0,
+      "precision@5": 0.213333,
+      "precision@10": 0.12,
+      "mrr": 0.821667,
+      "per_question": [
+        {
+          "id": "q01",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.4,
+          "precision@10": 0.2,
+          "mrr": 1.0
+        },
+        {
+          "id": "q02",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.1,
+          "mrr": 1.0
+        },
+        {
+          "id": "q03",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.1,
+          "mrr": 1.0
+        },
+        {
+          "id": "q04",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.1,
+          "mrr": 0.2
+        },
+        {
+          "id": "q05",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.1,
+          "mrr": 0.5
+        },
+        {
+          "id": "q06",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.1,
+          "mrr": 1.0
+        },
+        {
+          "id": "q07",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.1,
+          "mrr": 1.0
+        },
+        {
+          "id": "q08",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.1,
+          "mrr": 1.0
+        },
+        {
+          "id": "q09",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.1,
+          "mrr": 1.0
+        },
+        {
+          "id": "q10",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.4,
+          "precision@10": 0.2,
+          "mrr": 1.0
+        },
+        {
+          "id": "q11",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.1,
+          "mrr": 1.0
+        },
+        {
+          "id": "q12",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.1,
+          "mrr": 1.0
+        },
+        {
+          "id": "q13",
+          "recall@5": 0.0,
+          "recall@10": 1.0,
+          "precision@5": 0.0,
+          "precision@10": 0.1,
+          "mrr": 0.125
+        },
+        {
+          "id": "q14",
+          "recall@5": 0.5,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.2,
+          "mrr": 0.5
+        },
+        {
+          "id": "q15",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.1,
+          "mrr": 1.0
+        }
+      ]
+    },
+    {
+      "run_id": "hybrid-frida-hybrid-cs400-ov50-992cdc63",
+      "splitter": "hybrid",
+      "retrieval": "hybrid",
+      "n_chunks": 155,
+      "index_type": "hnsw",
+      "M": 16,
+      "ef_construction": 64,
+      "ef_search": 16,
+      "quantization": "none",
+      "index_bytes": 974910,
+      "search_ms": 0.038,
+      "flat_recall@10": 0.846667,
+      "recall@5": 0.9,
+      "recall@10": 0.966667,
+      "precision@5": 0.213333,
+      "precision@10": 0.113333,
+      "mrr": 0.821667,
+      "per_question": [
+        {
+          "id": "q01",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.4,
+          "precision@10": 0.2,
+          "mrr": 1.0
+        },
+        {
+          "id": "q02",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.1,
+          "mrr": 1.0
+        },
+        {
+          "id": "q03",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.1,
+          "mrr": 1.0
+        },
+        {
+          "id": "q04",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.1,
+          "mrr": 0.2
+        },
+        {
+          "id": "q05",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.1,
+          "mrr": 0.5
+        },
+        {
+          "id": "q06",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.1,
+          "mrr": 1.0
+        },
+        {
+          "id": "q07",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.1,
+          "mrr": 1.0
+        },
+        {
+          "id": "q08",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.1,
+          "mrr": 1.0
+        },
+        {
+          "id": "q09",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.1,
+          "mrr": 1.0
+        },
+        {
+          "id": "q10",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.4,
+          "precision@10": 0.2,
+          "mrr": 1.0
+        },
+        {
+          "id": "q11",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.1,
+          "mrr": 1.0
+        },
+        {
+          "id": "q12",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.1,
+          "mrr": 1.0
+        },
+        {
+          "id": "q13",
+          "recall@5": 0.0,
+          "recall@10": 1.0,
+          "precision@5": 0.0,
+          "precision@10": 0.1,
+          "mrr": 0.125
+        },
+        {
+          "id": "q14",
+          "recall@5": 0.5,
+          "recall@10": 0.5,
+          "precision@5": 0.2,
+          "precision@10": 0.1,
+          "mrr": 0.5
+        },
+        {
+          "id": "q15",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.1,
+          "mrr": 1.0
+        }
+      ]
+    },
+    {
+      "run_id": "hybrid-frida-hybrid-cs400-ov50-992cdc63",
+      "splitter": "hybrid",
+      "retrieval": "hybrid",
+      "n_chunks": 155,
+      "index_type": "hnsw",
+      "M": 16,
+      "ef_construction": 64,
+      "ef_search": 64,
+      "quantization": "none",
+      "index_bytes": 974910,
+      "search_ms": 0.051,
+      "flat_recall@10": 1.0,
+      "recall@5": 0.9,
+      "recall@10": 1.0,
+      "precision@5": 0.213333,
+      "precision@10": 0.12,
+      "mrr": 0.821667,
+      "per_question": [
+        {
+          "id": "q01",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.4,
+          "precision@10": 0.2,
+          "mrr": 1.0
+        },
+        {
+          "id": "q02",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.1,
+          "mrr": 1.0
+        },
+        {
+          "id": "q03",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.1,
+          "mrr": 1.0
+        },
+        {
+          "id": "q04",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.1,
+          "mrr": 0.2
+        },
+        {
+          "id": "q05",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.1,
+          "mrr": 0.5
+        },
+        {
+          "id": "q06",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.1,
+          "mrr": 1.0
+        },
+        {
+          "id": "q07",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.1,
+          "mrr": 1.0
+        },
+        {
+          "id": "q08",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.1,
+          "mrr": 1.0
+        },
+        {
+          "id": "q09",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.1,
+          "mrr": 1.0
+        },
+        {
+          "id": "q10",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.4,
+          "precision@10": 0.2,
+          "mrr": 1.0
+        },
+        {
+          "id": "q11",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.1,
+          "mrr": 1.0
+        },
+        {
+          "id": "q12",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.1,
+          "mrr": 1.0
+        },
+        {
+          "id": "q13",
+          "recall@5": 0.0,
+          "recall@10": 1.0,
+          "precision@5": 0.0,
+          "precision@10": 0.1,
+          "mrr": 0.125
+        },
+        {
+          "id": "q14",
+          "recall@5": 0.5,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.2,
+          "mrr": 0.5
+        },
+        {
+          "id": "q15",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.1,
+          "mrr": 1.0
+        }
+      ]
+    },
+    {
+      "run_id": "hybrid-frida-hybrid-cs400-ov50-992cdc63",
+      "splitter": "hybrid",
+      "retrieval": "hybrid",
+      "n_chunks": 155,
+      "index_type": "hnsw",
+      "M": 16,
+      "ef_construction": 64,
+      "ef_search": 128,
+      "quantization": "none",
+      "index_bytes": 974910,
+      "search_ms": 0.066,
+      "flat_recall@10": 1.0,
+      "recall@5": 0.9,
+      "recall@10": 1.0,
+      "precision@5": 0.213333,
+      "precision@10": 0.12,
+      "mrr": 0.821667,
+      "per_question": [
+        {
+          "id": "q01",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.4,
+          "precision@10": 0.2,
+          "mrr": 1.0
+        },
+        {
+          "id": "q02",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.1,
+          "mrr": 1.0
+        },
+        {
+          "id": "q03",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.1,
+          "mrr": 1.0
+        },
+        {
+          "id": "q04",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.1,
+          "mrr": 0.2
+        },
+        {
+          "id": "q05",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.1,
+          "mrr": 0.5
+        },
+        {
+          "id": "q06",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.1,
+          "mrr": 1.0
+        },
+        {
+          "id": "q07",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.1,
+          "mrr": 1.0
+        },
+        {
+          "id": "q08",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.1,
+          "mrr": 1.0
+        },
+        {
+          "id": "q09",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.1,
+          "mrr": 1.0
+        },
+        {
+          "id": "q10",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.4,
+          "precision@10": 0.2,
+          "mrr": 1.0
+        },
+        {
+          "id": "q11",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.1,
+          "mrr": 1.0
+        },
+        {
+          "id": "q12",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.1,
+          "mrr": 1.0
+        },
+        {
+          "id": "q13",
+          "recall@5": 0.0,
+          "recall@10": 1.0,
+          "precision@5": 0.0,
+          "precision@10": 0.1,
+          "mrr": 0.125
+        },
+        {
+          "id": "q14",
+          "recall@5": 0.5,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.2,
+          "mrr": 0.5
+        },
+        {
+          "id": "q15",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.1,
+          "mrr": 1.0
+        }
+      ]
+    },
+    {
+      "run_id": "hybrid-frida-hybrid-cs400-ov50-992cdc63",
+      "splitter": "hybrid",
+      "retrieval": "hybrid",
+      "n_chunks": 155,
+      "index_type": "hnsw",
+      "M": 16,
+      "ef_construction": 200,
+      "ef_search": 16,
+      "quantization": "none",
+      "index_bytes": 974910,
+      "search_ms": 0.042,
+      "flat_recall@10": 0.846667,
+      "recall@5": 0.9,
+      "recall@10": 0.966667,
+      "precision@5": 0.213333,
+      "precision@10": 0.113333,
+      "mrr": 0.821667,
+      "per_question": [
+        {
+          "id": "q01",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.4,
+          "precision@10": 0.2,
+          "mrr": 1.0
+        },
+        {
+          "id": "q02",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.1,
+          "mrr": 1.0
+        },
+        {
+          "id": "q03",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.1,
+          "mrr": 1.0
+        },
+        {
+          "id": "q04",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.1,
+          "mrr": 0.2
+        },
+        {
+          "id": "q05",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.1,
+          "mrr": 0.5
+        },
+        {
+          "id": "q06",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.1,
+          "mrr": 1.0
+        },
+        {
+          "id": "q07",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.1,
+          "mrr": 1.0
+        },
+        {
+          "id": "q08",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.1,
+          "mrr": 1.0
+        },
+        {
+          "id": "q09",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.1,
+          "mrr": 1.0
+        },
+        {
+          "id": "q10",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.4,
+          "precision@10": 0.2,
+          "mrr": 1.0
+        },
+        {
+          "id": "q11",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.1,
+          "mrr": 1.0
+        },
+        {
+          "id": "q12",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.1,
+          "mrr": 1.0
+        },
+        {
+          "id": "q13",
+          "recall@5": 0.0,
+          "recall@10": 1.0,
+          "precision@5": 0.0,
+          "precision@10": 0.1,
+          "mrr": 0.125
+        },
+        {
+          "id": "q14",
+          "recall@5": 0.5,
+          "recall@10": 0.5,
+          "precision@5": 0.2,
+          "precision@10": 0.1,
+          "mrr": 0.5
+        },
+        {
+          "id": "q15",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.1,
+          "mrr": 1.0
+        }
+      ]
+    },
+    {
+      "run_id": "hybrid-frida-hybrid-cs400-ov50-992cdc63",
+      "splitter": "hybrid",
+      "retrieval": "hybrid",
+      "n_chunks": 155,
+      "index_type": "hnsw",
+      "M": 16,
+      "ef_construction": 200,
+      "ef_search": 64,
+      "quantization": "none",
+      "index_bytes": 974910,
+      "search_ms": 0.05,
+      "flat_recall@10": 1.0,
+      "recall@5": 0.9,
+      "recall@10": 1.0,
+      "precision@5": 0.213333,
+      "precision@10": 0.12,
+      "mrr": 0.821667,
+      "per_question": [
+        {
+          "id": "q01",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.4,
+          "precision@10": 0.2,
+          "mrr": 1.0
+        },
+        {
+          "id": "q02",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.1,
+          "mrr": 1.0
+        },
+        {
+          "id": "q03",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.1,
+          "mrr": 1.0
+        },
+        {
+          "id": "q04",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.1,
+          "mrr": 0.2
+        },
+        {
+          "id": "q05",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.1,
+          "mrr": 0.5
+        },
+        {
+          "id": "q06",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.1,
+          "mrr": 1.0
+        },
+        {
+          "id": "q07",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.1,
+          "mrr": 1.0
+        },
+        {
+          "id": "q08",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.1,
+          "mrr": 1.0
+        },
+        {
+          "id": "q09",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.1,
+          "mrr": 1.0
+        },
+        {
+          "id": "q10",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.4,
+          "precision@10": 0.2,
+          "mrr": 1.0
+        },
+        {
+          "id": "q11",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.1,
+          "mrr": 1.0
+        },
+        {
+          "id": "q12",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.1,
+          "mrr": 1.0
+        },
+        {
+          "id": "q13",
+          "recall@5": 0.0,
+          "recall@10": 1.0,
+          "precision@5": 0.0,
+          "precision@10": 0.1,
+          "mrr": 0.125
+        },
+        {
+          "id": "q14",
+          "recall@5": 0.5,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.2,
+          "mrr": 0.5
+        },
+        {
+          "id": "q15",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.1,
+          "mrr": 1.0
+        }
+      ]
+    },
+    {
+      "run_id": "hybrid-frida-hybrid-cs400-ov50-992cdc63",
+      "splitter": "hybrid",
+      "retrieval": "hybrid",
+      "n_chunks": 155,
+      "index_type": "hnsw",
+      "M": 16,
+      "ef_construction": 200,
+      "ef_search": 128,
+      "quantization": "none",
+      "index_bytes": 974910,
+      "search_ms": 0.067,
+      "flat_recall@10": 1.0,
+      "recall@5": 0.9,
+      "recall@10": 1.0,
+      "precision@5": 0.213333,
+      "precision@10": 0.12,
+      "mrr": 0.821667,
+      "per_question": [
+        {
+          "id": "q01",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.4,
+          "precision@10": 0.2,
+          "mrr": 1.0
+        },
+        {
+          "id": "q02",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.1,
+          "mrr": 1.0
+        },
+        {
+          "id": "q03",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.1,
+          "mrr": 1.0
+        },
+        {
+          "id": "q04",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.1,
+          "mrr": 0.2
+        },
+        {
+          "id": "q05",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.1,
+          "mrr": 0.5
+        },
+        {
+          "id": "q06",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.1,
+          "mrr": 1.0
+        },
+        {
+          "id": "q07",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.1,
+          "mrr": 1.0
+        },
+        {
+          "id": "q08",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.1,
+          "mrr": 1.0
+        },
+        {
+          "id": "q09",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.1,
+          "mrr": 1.0
+        },
+        {
+          "id": "q10",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.4,
+          "precision@10": 0.2,
+          "mrr": 1.0
+        },
+        {
+          "id": "q11",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.1,
+          "mrr": 1.0
+        },
+        {
+          "id": "q12",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.1,
+          "mrr": 1.0
+        },
+        {
+          "id": "q13",
+          "recall@5": 0.0,
+          "recall@10": 1.0,
+          "precision@5": 0.0,
+          "precision@10": 0.1,
+          "mrr": 0.125
+        },
+        {
+          "id": "q14",
+          "recall@5": 0.5,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.2,
+          "mrr": 0.5
+        },
+        {
+          "id": "q15",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.1,
+          "mrr": 1.0
+        }
+      ]
+    },
+    {
+      "run_id": "hybrid-frida-hybrid-cs400-ov50-992cdc63",
+      "splitter": "hybrid",
+      "retrieval": "hybrid",
+      "n_chunks": 155,
+      "index_type": "hnsw",
+      "M": 32,
+      "ef_construction": 200,
+      "ef_search": 16,
+      "quantization": "none",
+      "index_bytes": 994598,
+      "search_ms": 0.038,
+      "flat_recall@10": 0.846667,
+      "recall@5": 0.9,
+      "recall@10": 0.966667,
+      "precision@5": 0.213333,
+      "precision@10": 0.113333,
+      "mrr": 0.821667,
+      "per_question": [
+        {
+          "id": "q01",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.4,
+          "precision@10": 0.2,
+          "mrr": 1.0
+        },
+        {
+          "id": "q02",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.1,
+          "mrr": 1.0
+        },
+        {
+          "id": "q03",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.1,
+          "mrr": 1.0
+        },
+        {
+          "id": "q04",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.1,
+          "mrr": 0.2
+        },
+        {
+          "id": "q05",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.1,
+          "mrr": 0.5
+        },
+        {
+          "id": "q06",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.1,
+          "mrr": 1.0
+        },
+        {
+          "id": "q07",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.1,
+          "mrr": 1.0
+        },
+        {
+          "id": "q08",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.1,
+          "mrr": 1.0
+        },
+        {
+          "id": "q09",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.1,
+          "mrr": 1.0
+        },
+        {
+          "id": "q10",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.4,
+          "precision@10": 0.2,
+          "mrr": 1.0
+        },
+        {
+          "id": "q11",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.1,
+          "mrr": 1.0
+        },
+        {
+          "id": "q12",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.1,
+          "mrr": 1.0
+        },
+        {
+          "id": "q13",
+          "recall@5": 0.0,
+          "recall@10": 1.0,
+          "precision@5": 0.0,
+          "precision@10": 0.1,
+          "mrr": 0.125
+        },
+        {
+          "id": "q14",
+          "recall@5": 0.5,
+          "recall@10": 0.5,
+          "precision@5": 0.2,
+          "precision@10": 0.1,
+          "mrr": 0.5
+        },
+        {
+          "id": "q15",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.1,
+          "mrr": 1.0
+        }
+      ]
+    },
+    {
+      "run_id": "hybrid-frida-hybrid-cs400-ov50-992cdc63",
+      "splitter": "hybrid",
+      "retrieval": "hybrid",
+      "n_chunks": 155,
+      "index_type": "hnsw",
+      "M": 32,
+      "ef_construction": 200,
+      "ef_search": 64,
+      "quantization": "none",
+      "index_bytes": 994598,
+      "search_ms": 0.05,
+      "flat_recall@10": 1.0,
+      "recall@5": 0.9,
+      "recall@10": 1.0,
+      "precision@5": 0.213333,
+      "precision@10": 0.12,
+      "mrr": 0.821667,
+      "per_question": [
+        {
+          "id": "q01",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.4,
+          "precision@10": 0.2,
+          "mrr": 1.0
+        },
+        {
+          "id": "q02",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.1,
+          "mrr": 1.0
+        },
+        {
+          "id": "q03",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.1,
+          "mrr": 1.0
+        },
+        {
+          "id": "q04",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.1,
+          "mrr": 0.2
+        },
+        {
+          "id": "q05",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.1,
+          "mrr": 0.5
+        },
+        {
+          "id": "q06",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.1,
+          "mrr": 1.0
+        },
+        {
+          "id": "q07",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.1,
+          "mrr": 1.0
+        },
+        {
+          "id": "q08",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.1,
+          "mrr": 1.0
+        },
+        {
+          "id": "q09",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.1,
+          "mrr": 1.0
+        },
+        {
+          "id": "q10",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.4,
+          "precision@10": 0.2,
+          "mrr": 1.0
+        },
+        {
+          "id": "q11",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.1,
+          "mrr": 1.0
+        },
+        {
+          "id": "q12",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.1,
+          "mrr": 1.0
+        },
+        {
+          "id": "q13",
+          "recall@5": 0.0,
+          "recall@10": 1.0,
+          "precision@5": 0.0,
+          "precision@10": 0.1,
+          "mrr": 0.125
+        },
+        {
+          "id": "q14",
+          "recall@5": 0.5,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.2,
+          "mrr": 0.5
+        },
+        {
+          "id": "q15",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.1,
+          "mrr": 1.0
+        }
+      ]
+    },
+    {
+      "run_id": "hybrid-frida-hybrid-cs400-ov50-992cdc63",
+      "splitter": "hybrid",
+      "retrieval": "hybrid",
+      "n_chunks": 155,
+      "index_type": "hnsw",
+      "M": 32,
+      "ef_construction": 200,
+      "ef_search": 128,
+      "quantization": "none",
+      "index_bytes": 994598,
+      "search_ms": 0.066,
+      "flat_recall@10": 1.0,
+      "recall@5": 0.9,
+      "recall@10": 1.0,
+      "precision@5": 0.213333,
+      "precision@10": 0.12,
+      "mrr": 0.821667,
+      "per_question": [
+        {
+          "id": "q01",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.4,
+          "precision@10": 0.2,
+          "mrr": 1.0
+        },
+        {
+          "id": "q02",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.1,
+          "mrr": 1.0
+        },
+        {
+          "id": "q03",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.1,
+          "mrr": 1.0
+        },
+        {
+          "id": "q04",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.1,
+          "mrr": 0.2
+        },
+        {
+          "id": "q05",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.1,
+          "mrr": 0.5
+        },
+        {
+          "id": "q06",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.1,
+          "mrr": 1.0
+        },
+        {
+          "id": "q07",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.1,
+          "mrr": 1.0
+        },
+        {
+          "id": "q08",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.1,
+          "mrr": 1.0
+        },
+        {
+          "id": "q09",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.1,
+          "mrr": 1.0
+        },
+        {
+          "id": "q10",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.4,
+          "precision@10": 0.2,
+          "mrr": 1.0
+        },
+        {
+          "id": "q11",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.1,
+          "mrr": 1.0
+        },
+        {
+          "id": "q12",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.1,
+          "mrr": 1.0
+        },
+        {
+          "id": "q13",
+          "recall@5": 0.0,
+          "recall@10": 1.0,
+          "precision@5": 0.0,
+          "precision@10": 0.1,
+          "mrr": 0.125
+        },
+        {
+          "id": "q14",
+          "recall@5": 0.5,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.2,
+          "mrr": 0.5
+        },
+        {
+          "id": "q15",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.1,
+          "mrr": 1.0
+        }
+      ]
+    },
+    {
+      "run_id": "hybrid-frida-hybrid-cs400-ov50-992cdc63",
+      "splitter": "hybrid",
+      "retrieval": "hybrid",
+      "n_chunks": 155,
+      "index_type": "hnsw",
+      "M": 32,
+      "ef_construction": 200,
+      "ef_search": 16,
+      "quantization": "sq8",
+      "index_bytes": 292682,
+      "search_ms": 0.042,
+      "flat_recall@10": 0.846667,
+      "recall@5": 0.9,
+      "recall@10": 0.966667,
+      "precision@5": 0.213333,
+      "precision@10": 0.113333,
+      "mrr": 0.821667,
+      "per_question": [
+        {
+          "id": "q01",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.4,
+          "precision@10": 0.2,
+          "mrr": 1.0
+        },
+        {
+          "id": "q02",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.1,
+          "mrr": 1.0
+        },
+        {
+          "id": "q03",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.1,
+          "mrr": 1.0
+        },
+        {
+          "id": "q04",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.1,
+          "mrr": 0.2
+        },
+        {
+          "id": "q05",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.1,
+          "mrr": 0.5
+        },
+        {
+          "id": "q06",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.1,
+          "mrr": 1.0
+        },
+        {
+          "id": "q07",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.1,
+          "mrr": 1.0
+        },
+        {
+          "id": "q08",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.1,
+          "mrr": 1.0
+        },
+        {
+          "id": "q09",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.1,
+          "mrr": 1.0
+        },
+        {
+          "id": "q10",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.4,
+          "precision@10": 0.2,
+          "mrr": 1.0
+        },
+        {
+          "id": "q11",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.1,
+          "mrr": 1.0
+        },
+        {
+          "id": "q12",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.1,
+          "mrr": 1.0
+        },
+        {
+          "id": "q13",
+          "recall@5": 0.0,
+          "recall@10": 1.0,
+          "precision@5": 0.0,
+          "precision@10": 0.1,
+          "mrr": 0.125
+        },
+        {
+          "id": "q14",
+          "recall@5": 0.5,
+          "recall@10": 0.5,
+          "precision@5": 0.2,
+          "precision@10": 0.1,
+          "mrr": 0.5
+        },
+        {
+          "id": "q15",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.1,
+          "mrr": 1.0
+        }
+      ]
+    },
+    {
+      "run_id": "hybrid-frida-hybrid-cs400-ov50-992cdc63",
+      "splitter": "hybrid",
+      "retrieval": "hybrid",
+      "n_chunks": 155,
+      "index_type": "hnsw",
+      "M": 32,
+      "ef_construction": 200,
+      "ef_search": 64,
+      "quantization": "sq8",
+      "index_bytes": 292682,
+      "search_ms": 0.051,
+      "flat_recall@10": 0.993333,
+      "recall@5": 0.9,
+      "recall@10": 1.0,
+      "precision@5": 0.213333,
+      "precision@10": 0.12,
+      "mrr": 0.821667,
+      "per_question": [
+        {
+          "id": "q01",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.4,
+          "precision@10": 0.2,
+          "mrr": 1.0
+        },
+        {
+          "id": "q02",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.1,
+          "mrr": 1.0
+        },
+        {
+          "id": "q03",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.1,
+          "mrr": 1.0
+        },
+        {
+          "id": "q04",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.1,
+          "mrr": 0.2
+        },
+        {
+          "id": "q05",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.1,
+          "mrr": 0.5
+        },
+        {
+          "id": "q06",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.1,
+          "mrr": 1.0
+        },
+        {
+          "id": "q07",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.1,
+          "mrr": 1.0
+        },
+        {
+          "id": "q08",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.1,
+          "mrr": 1.0
+        },
+        {
+          "id": "q09",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.1,
+          "mrr": 1.0
+        },
+        {
+          "id": "q10",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.4,
+          "precision@10": 0.2,
+          "mrr": 1.0
+        },
+        {
+          "id": "q11",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.1,
+          "mrr": 1.0
+        },
+        {
+          "id": "q12",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.1,
+          "mrr": 1.0
+        },
+        {
+          "id": "q13",
+          "recall@5": 0.0,
+          "recall@10": 1.0,
+          "precision@5": 0.0,
+          "precision@10": 0.1,
+          "mrr": 0.125
+        },
+        {
+          "id": "q14",
+          "recall@5": 0.5,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.2,
+          "mrr": 0.5
+        },
+        {
+          "id": "q15",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.1,
+          "mrr": 1.0
+        }
+      ]
+    },
+    {
+      "run_id": "hybrid-frida-hybrid-cs400-ov50-992cdc63",
+      "splitter": "hybrid",
+      "retrieval": "hybrid",
+      "n_chunks": 155,
+      "index_type": "hnsw",
+      "M": 32,
+      "ef_construction": 200,
+      "ef_search": 128,
+      "quantization": "sq8",
+      "index_bytes": 292682,
+      "search_ms": 0.072,
+      "flat_recall@10": 0.993333,
+      "recall@5": 0.9,
+      "recall@10": 1.0,
+      "precision@5": 0.213333,
+      "precision@10": 0.12,
+      "mrr": 0.821667,
+      "per_question": [
+        {
+          "id": "q01",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.4,
+          "precision@10": 0.2,
+          "mrr": 1.0
+        },
+        {
+          "id": "q02",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.1,
+          "mrr": 1.0
+        },
+        {
+          "id": "q03",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.1,
+          "mrr": 1.0
+        },
+        {
+          "id": "q04",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.1,
+          "mrr": 0.2
+        },
+        {
+          "id": "q05",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.1,
+          "mrr": 0.5
+        },
+        {
+          "id": "q06",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.1,
+          "mrr": 1.0
+        },
+        {
+          "id": "q07",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.1,
+          "mrr": 1.0
+        },
+        {
+          "id": "q08",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.1,
+          "mrr": 1.0
+        },
+        {
+          "id": "q09",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.1,
+          "mrr": 1.0
+        },
+        {
+          "id": "q10",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.4,
+          "precision@10": 0.2,
+          "mrr": 1.0
+        },
+        {
+          "id": "q11",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.1,
+          "mrr": 1.0
+        },
+        {
+          "id": "q12",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.1,
+          "mrr": 1.0
+        },
+        {
+          "id": "q13",
+          "recall@5": 0.0,
+          "recall@10": 1.0,
+          "precision@5": 0.0,
+          "precision@10": 0.1,
+          "mrr": 0.125
+        },
+        {
+          "id": "q14",
+          "recall@5": 0.5,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.2,
+          "mrr": 0.5
+        },
+        {
+          "id": "q15",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.1,
+          "mrr": 1.0
+        }
+      ]
+    },
+    {
+      "run_id": "hybrid-frida-hybrid-cs400-ov50-992cdc63",
+      "splitter": "hybrid",
+      "retrieval": "hybrid",
+      "n_chunks": 155,
+      "index_type": "hnsw",
+      "M": 32,
+      "ef_construction": 200,
+      "ef_search": 16,
+      "quantization": "fp16",
+      "index_bytes": 518474,
+      "search_ms": 0.039,
+      "flat_recall@10": 0.846667,
+      "recall@5": 0.9,
+      "recall@10": 0.966667,
+      "precision@5": 0.213333,
+      "precision@10": 0.113333,
+      "mrr": 0.821667,
+      "per_question": [
+        {
+          "id": "q01",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.4,
+          "precision@10": 0.2,
+          "mrr": 1.0
+        },
+        {
+          "id": "q02",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.1,
+          "mrr": 1.0
+        },
+        {
+          "id": "q03",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.1,
+          "mrr": 1.0
+        },
+        {
+          "id": "q04",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.1,
+          "mrr": 0.2
+        },
+        {
+          "id": "q05",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.1,
+          "mrr": 0.5
+        },
+        {
+          "id": "q06",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.1,
+          "mrr": 1.0
+        },
+        {
+          "id": "q07",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.1,
+          "mrr": 1.0
+        },
+        {
+          "id": "q08",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.1,
+          "mrr": 1.0
+        },
+        {
+          "id": "q09",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.1,
+          "mrr": 1.0
+        },
+        {
+          "id": "q10",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.4,
+          "precision@10": 0.2,
+          "mrr": 1.0
+        },
+        {
+          "id": "q11",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.1,
+          "mrr": 1.0
+        },
+        {
+          "id": "q12",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.1,
+          "mrr": 1.0
+        },
+        {
+          "id": "q13",
+          "recall@5": 0.0,
+          "recall@10": 1.0,
+          "precision@5": 0.0,
+          "precision@10": 0.1,
+          "mrr": 0.125
+        },
+        {
+          "id": "q14",
+          "recall@5": 0.5,
+          "recall@10": 0.5,
+          "precision@5": 0.2,
+          "precision@10": 0.1,
+          "mrr": 0.5
+        },
+        {
+          "id": "q15",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.1,
+          "mrr": 1.0
+        }
+      ]
+    },
+    {
+      "run_id": "hybrid-frida-hybrid-cs400-ov50-992cdc63",
+      "splitter": "hybrid",
+      "retrieval": "hybrid",
+      "n_chunks": 155,
+      "index_type": "hnsw",
+      "M": 32,
+      "ef_construction": 200,
+      "ef_search": 64,
+      "quantization": "fp16",
+      "index_bytes": 518474,
+      "search_ms": 0.051,
+      "flat_recall@10": 1.0,
+      "recall@5": 0.9,
+      "recall@10": 1.0,
+      "precision@5": 0.213333,
+      "precision@10": 0.12,
+      "mrr": 0.821667,
+      "per_question": [
+        {
+          "id": "q01",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.4,
+          "precision@10": 0.2,
+          "mrr": 1.0
+        },
+        {
+          "id": "q02",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.1,
+          "mrr": 1.0
+        },
+        {
+          "id": "q03",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.1,
+          "mrr": 1.0
+        },
+        {
+          "id": "q04",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.1,
+          "mrr": 0.2
+        },
+        {
+          "id": "q05",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.1,
+          "mrr": 0.5
+        },
+        {
+          "id": "q06",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.1,
+          "mrr": 1.0
+        },
+        {
+          "id": "q07",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.1,
+          "mrr": 1.0
+        },
+        {
+          "id": "q08",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.1,
+          "mrr": 1.0
+        },
+        {
+          "id": "q09",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.1,
+          "mrr": 1.0
+        },
+        {
+          "id": "q10",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.4,
+          "precision@10": 0.2,
+          "mrr": 1.0
+        },
+        {
+          "id": "q11",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.1,
+          "mrr": 1.0
+        },
+        {
+          "id": "q12",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.1,
+          "mrr": 1.0
+        },
+        {
+          "id": "q13",
+          "recall@5": 0.0,
+          "recall@10": 1.0,
+          "precision@5": 0.0,
+          "precision@10": 0.1,
+          "mrr": 0.125
+        },
+        {
+          "id": "q14",
+          "recall@5": 0.5,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.2,
+          "mrr": 0.5
+        },
+        {
+          "id": "q15",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.1,
+          "mrr": 1.0
+        }
+      ]
+    },
+    {
+      "run_id": "hybrid-frida-hybrid-cs400-ov50-992cdc63",
+      "splitter": "hybrid",
+      "retrieval": "hybrid",
+      "n_chunks": 155,
+      "index_type": "hnsw",
+      "M": 32,
+      "ef_construction": 200,
+      "ef_search": 128,
+      "quantization": "fp16",
+      "index_bytes": 518474,
+      "search_ms": 0.065,
+      "flat_recall@10": 1.0,
+      "recall@5": 0.9,
+      "recall@10": 1.0,
+      "precision@5": 0.213333,
+      "precision@10": 0.12,
+      "mrr": 0.821667,
+      "per_question": [
+        {
+          "id": "q01",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.4,
+          "precision@10": 0.2,
+          "mrr": 1.0
+        },
+        {
+          "id": "q02",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.1,
+          "mrr": 1.0
+        },
+        {
+          "id": "q03",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.1,
+          "mrr": 1.0
+        },
+        {
+          "id": "q04",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.1,
+          "mrr": 0.2
+        },
+        {
+          "id": "q05",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.1,
+          "mrr": 0.5
+        },
+        {
+          "id": "q06",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.1,
+          "mrr": 1.0
+        },
+        {
+          "id": "q07",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.1,
+          "mrr": 1.0
+        },
+        {
+          "id": "q08",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.1,
+          "mrr": 1.0
+        },
+        {
+          "id": "q09",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.1,
+          "mrr": 1.0
+        },
+        {
+          "id": "q10",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.4,
+          "precision@10": 0.2,
+          "mrr": 1.0
+        },
+        {
+          "id": "q11",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.1,
+          "mrr": 1.0
+        },
+        {
+          "id": "q12",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.1,
+          "mrr": 1.0
+        },
+        {
+          "id": "q13",
+          "recall@5": 0.0,
+          "recall@10": 1.0,
+          "precision@5": 0.0,
+          "precision@10": 0.1,
+          "mrr": 0.125
+        },
+        {
+          "id": "q14",
+          "recall@5": 0.5,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.2,
+          "mrr": 0.5
+        },
+        {
+          "id": "q15",
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.1,
+          "mrr": 1.0
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "collection": "hybrid-frida-hybrid-cs400-ov50-992cdc63__hnsw-M32-efc200",
+  "collection_hash": "adb2bfa0f2d986635d5e3797ea289bd9d7bd702a72868b6c632100a4299ffb47",
+  "run_id": "hybrid-frida-hybrid-cs400-ov50-992cdc63",
+  "created": "2026-10-23T13:53:16+00:00",
+  "index": {
+    "type": "hnsw",
+    "metric": "cosine",
+    "hnsw": {
+      "M": 32,
+      "ef_construction": 200,
+      "ef_search": 64
+    },
+    "quantization": "none",
+    "dir": "faiss"
+  },
+  "ntotal": 155,
+  "dim": 1536,
+  "self_recall_at1": 1.0,
+  "build_seconds": 0.02,
+  "index_bytes": 994598,
+  "faiss_version": "1.15.1"
+}
