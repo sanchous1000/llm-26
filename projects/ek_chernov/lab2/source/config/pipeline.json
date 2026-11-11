@@ -1,0 +1,98 @@
+{
+  "extraction": {
+    "use_ocr": false,
+    "ocr_language": "rus",
+    "ocr_dpi": 300
+  },
+  "retrieval_models": {
+    "sbert": {
+      "type": "bi_encoder",
+      "model": "ai-forever/sbert_large_nlu_ru",
+      "batch_size": 8
+    },
+    "modernbert_reranker": {
+      "type": "cross_encoder",
+      "model": "ARGA100/ru-reranker-modernbert-small",
+      "batch_size": 16
+    }
+  },
+  "retrievals": {
+    "bi": {
+      "type": "bi",
+      "bi_encoder": "sbert",
+      "top_k": 5
+    },
+    "bi_n_cross": {
+      "type": "bi_n_cross",
+      "bi_encoder": "sbert",
+      "cross_encoder": "modernbert_reranker",
+      "candidate_top_k": 20,
+      "top_k": 5
+    }
+  },
+  "qdrant": {
+    "url": "http://localhost:6333",
+    "collection_prefix": "recipes",
+    "request_timeout_seconds": 30,
+    "indexing_threshold_kb": 10,
+    "full_scan_threshold_kb": 10,
+    "indexing_wait_timeout_seconds": 180
+  },
+  "evaluation": {
+    "warmup_runs": 1,
+    "repetitions": 5
+  },
+  "ollama": {
+    "url": "http://localhost:11434",
+    "model": "qwen2.5:3b-instruct",
+    "context_window": 32768,
+    "temperature": 0.2
+  },
+  "experiments": {
+    "small": {
+      "retrieval": "bi",
+      "splitter": "markdown_header",
+      "chunk_size": 100,
+      "overlap": 10,
+      "hnsw_m": 16,
+      "ef_construct": 100,
+      "ef_search": 64
+    },
+    "baseline": {
+      "retrieval": "bi",
+      "splitter": "markdown_header",
+      "chunk_size": 160,
+      "overlap": 20,
+      "hnsw_m": 16,
+      "ef_construct": 128,
+      "ef_search": 64
+    },
+    "large": {
+      "retrieval": "bi",
+      "splitter": "markdown_header",
+      "chunk_size": 220,
+      "overlap": 30,
+      "hnsw_m": 32,
+      "ef_construct": 256,
+      "ef_search": 128
+    },
+    "long_late": {
+      "retrieval": "bi",
+      "splitter": "long_late_chunking",
+      "chunk_size": 480,
+      "overlap": 30,
+      "hnsw_m": 16,
+      "ef_construct": 128,
+      "ef_search": 64
+    },
+    "bi_n_cross": {
+      "retrieval": "bi_n_cross",
+      "splitter": "markdown_header",
+      "chunk_size": 100,
+      "overlap": 10,
+      "hnsw_m": 16,
+      "ef_construct": 100,
+      "ef_search": 64
+    }
+  }
+}
