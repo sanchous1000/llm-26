@@ -1,0 +1,2165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ollama Experiments</title>
+<style>
+:root {
+    --bg: #f5f6f8; --card: #fff; --text: #202124; --muted: #6b7280;
+    --line: #e5e7eb; --accent: #3730a3; --accent-bg: #eef2ff; --soft: #f8fafc;
+    --mono: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+}
+* { box-sizing: border-box; }
+body {
+    margin: 0; background: var(--bg); color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+.container { max-width: 1500px; margin: 0 auto; padding: 32px; }
+h1 { margin-bottom: 6px; }
+.subtitle { color: var(--muted); margin-bottom: 20px; }
+
+.toolbar {
+    position: sticky; top: 0; z-index: 10; background: var(--bg);
+    display: flex; flex-wrap: wrap; gap: 10px; align-items: center;
+    padding: 10px 0; margin-bottom: 14px;
+}
+.toolbar input[type=search] {
+    flex: 1 1 280px; padding: 9px 12px; font-size: 14px;
+    border: 1px solid var(--line); border-radius: 8px;
+}
+.toolbar button {
+    padding: 8px 12px; font-size: 13px; cursor: pointer;
+    background: var(--card); border: 1px solid var(--line); border-radius: 8px;
+}
+.toolbar button:hover { background: #f3f4f6; }
+.toolbar label { font-size: 13px; color: var(--muted); user-select: none; }
+#count { font-size: 13px; color: var(--muted); }
+
+.section {
+    background: var(--card); border-radius: 14px; padding: 24px;
+    margin-bottom: 24px; box-shadow: 0 2px 8px rgba(0,0,0,.05);
+}
+.table-wrap { overflow: auto; max-height: 560px; }
+table { width: 100%; border-collapse: collapse; font-size: 14px; }
+th {
+    text-align: left; background: #f3f4f6; padding: 12px;
+    position: sticky; top: 0; white-space: nowrap;
+}
+table.sortable th { cursor: pointer; user-select: none; }
+th[data-dir=asc]::after { content: " ▲"; font-size: 10px; }
+th[data-dir=desc]::after { content: " ▼"; font-size: 10px; }
+td { padding: 11px 12px; border-bottom: 1px solid #eee; vertical-align: top; }
+tr:hover { background: #fafafa; }
+
+a { color: var(--accent); }
+.gid {
+    font-family: var(--mono); font-size: 12px; font-weight: 700;
+    color: var(--accent); background: var(--accent-bg);
+    padding: 3px 7px; border-radius: 6px; text-decoration: none;
+}
+details.ids summary { cursor: pointer; list-style: none; }
+details.ids summary::-webkit-details-marker { display: none; }
+details.ids summary::before { content: "▸ "; }
+details.ids[open] summary::before { content: "▾ "; }
+details.ids div { display: flex; flex-wrap: wrap; gap: 4px; margin-top: 6px; max-width: 340px; }
+.chip {
+    font-family: var(--mono); font-size: 11px; color: #4b5563;
+    background: #f3f4f6; padding: 2px 6px; border-radius: 5px; text-decoration: none;
+}
+.chip:hover { background: var(--accent-bg); color: var(--accent); }
+
+.experiment {
+    border: 1px solid var(--line); border-radius: 12px; margin-bottom: 10px;
+    overflow: hidden; background: var(--card);
+}
+.experiment[hidden] { display: none; }
+.experiment.flash { animation: flash 1.5s ease-out; }
+@keyframes flash {
+    from { box-shadow: 0 0 0 3px #a5b4fc; } to { box-shadow: 0 0 0 0 transparent; }
+}
+.experiment summary {
+    cursor: pointer; padding: 15px 18px; display: flex;
+    align-items: center; gap: 10px; list-style: none;
+}
+.experiment summary::-webkit-details-marker { display: none; }
+.experiment summary:hover { background: #f9fafb; }
+.experiment-id {
+    font-family: var(--mono); font-size: 12px; font-weight: 700;
+    color: #4b5563; background: #f3f4f6; padding: 4px 7px; border-radius: 6px;
+}
+.model { font-weight: 600; min-width: 160px; }
+.badge {
+    background: var(--accent-bg); color: var(--accent);
+    padding: 4px 8px; border-radius: 6px; font-size: 12px;
+}
+.speed { margin-left: auto; font-weight: 600; }
+.experiment-body { border-top: 1px solid #eee; padding: 20px; }
+
+.prompt { background: var(--soft); border-radius: 8px; padding: 14px; margin-bottom: 18px; }
+.prompt-text { white-space: pre-wrap; }
+.label { font-size: 11px; font-weight: 700; color: var(--muted); margin-bottom: 8px; letter-spacing: .08em; }
+
+.metrics {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 10px; margin-bottom: 18px;
+}
+.metric { background: var(--soft); border-radius: 10px; padding: 14px; }
+.metric-value { font-size: 20px; font-weight: 600; }
+.metric-label { font-size: 12px; color: var(--muted); margin-top: 4px; }
+
+.params { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 18px; }
+.params span {
+    background: #f3f4f6; padding: 5px 9px; border-radius: 6px;
+    font-family: var(--mono); font-size: 12px;
+}
+
+.response { border-top: 1px solid #eee; padding-top: 18px; }
+.empty { color: var(--muted); font-style: italic; }
+
+/* rendered markdown */
+.md { line-height: 1.6; overflow-wrap: anywhere; }
+.md > :first-child { margin-top: 0; }
+.md > :last-child { margin-bottom: 0; }
+.md h1, .md h2, .md h3, .md h4 { margin: 1.2em 0 .5em; line-height: 1.3; }
+.md h1 { font-size: 1.4em; } .md h2 { font-size: 1.25em; }
+.md h3 { font-size: 1.1em; } .md h4 { font-size: 1em; }
+.md code { font-family: var(--mono); font-size: .9em; background: #f3f4f6; padding: 2px 5px; border-radius: 4px; }
+.md pre { background: #0f172a; color: #e2e8f0; padding: 14px; border-radius: 8px; overflow-x: auto; }
+.md pre code { background: none; padding: 0; color: inherit; }
+.md blockquote { margin: 1em 0; padding: .2em 1em; border-left: 4px solid #d1d5db; color: #4b5563; }
+.md table { width: auto; margin: 1em 0; }
+.md th, .md td { border: 1px solid var(--line); padding: 6px 10px; }
+.md th { position: static; }
+.md img { max-width: 100%; }
+.think {
+    background: #fffbeb; border: 1px solid #fde68a; border-radius: 8px;
+    padding: 8px 12px; margin-bottom: 14px; color: #78350f; font-size: 14px;
+}
+.think summary { cursor: pointer; font-weight: 600; }
+
+/* raw view */
+.raw {
+    display: none; margin: 0; padding: 14px; border-radius: 8px;
+    background: var(--soft); font-family: var(--mono); font-size: 13px;
+    white-space: pre-wrap; overflow-wrap: anywhere;
+}
+body.show-raw .md { display: none; }
+body.show-raw .raw { display: block; }
+
+@media (max-width: 800px) {
+    .container { padding: 15px; }
+    .section { padding: 15px; }
+    .experiment summary { flex-wrap: wrap; }
+    .speed { margin-left: 0; width: 100%; }
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+
+  <h1>Ollama Experiments</h1>
+  <div class="subtitle">
+    Model generation benchmark and parameter comparison ·
+    36 experiments · 12 configurations · 3 models
+  </div>
+
+  <div class="toolbar">
+    <input id="filter" type="search"
+           placeholder="Filter: model, EXP-00012, G03, temp=0.70, words from the prompt…">
+    <span id="count"></span>
+    <button id="expand" type="button">Expand all</button>
+    <button id="collapse" type="button">Collapse all</button>
+    <label><input id="render" type="checkbox" checked> Render markdown</label>
+  </div>
+
+  <div class="section">
+    <h2>Summary</h2>
+    <div class="table-wrap">
+      <table class="sortable">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Model</th>
+            <th>Temp.</th>
+            <th>Repeat</th>
+            <th>Top P</th>
+            <th>Top K</th>
+            <th>Runs</th>
+            <th>Response</th>
+            <th>Generation</th>
+            <th>Load</th>
+            <th>Tokens</th>
+            <th>Speed</th>
+          </tr>
+        </thead>
+        <tbody>
+<tr><td data-v="1"><a class="gid" href="#experiments" data-filter="G01">G01</a></td><td data-v="gemma3:1b"><b>gemma3:1b</b></td><td data-v="0.1">0.10</td><td data-v="0.9">0.90</td><td data-v="">—</td><td data-v="">—</td><td data-v="3"><details class="ids"><summary>3</summary><div><a class="chip" href="#EXP-00004">EXP-00004</a> <a class="chip" href="#EXP-00005">EXP-00005</a> <a class="chip" href="#EXP-00006">EXP-00006</a></div></details></td><td data-v="13.24264270833343">13.24 s</td><td data-v="12.914365000000002">12.91 s</td><td data-v="0.0014863843333333335">0.00 s</td><td data-v="191.66666666666666">192</td><td data-v="15.10143553877719">15.10 tok/s</td></tr>
+<tr><td data-v="2"><a class="gid" href="#experiments" data-filter="G02">G02</a></td><td data-v="gemma3:1b"><b>gemma3:1b</b></td><td data-v="0.1">0.10</td><td data-v="1.1">1.10</td><td data-v="">—</td><td data-v="">—</td><td data-v="3"><details class="ids"><summary>3</summary><div><a class="chip" href="#EXP-00001">EXP-00001</a> <a class="chip" href="#EXP-00002">EXP-00002</a> <a class="chip" href="#EXP-00003">EXP-00003</a></div></details></td><td data-v="15.469036736000211">15.47 s</td><td data-v="10.315084333333333">10.32 s</td><td data-v="4.080375940333333">4.08 s</td><td data-v="156.33333333333334">156</td><td data-v="16.772744293077018">16.77 tok/s</td></tr>
+<tr><td data-v="3"><a class="gid" href="#experiments" data-filter="G03">G03</a></td><td data-v="gemma3:1b"><b>gemma3:1b</b></td><td data-v="1.0">1.00</td><td data-v="0.9">0.90</td><td data-v="">—</td><td data-v="">—</td><td data-v="3"><details class="ids"><summary>3</summary><div><a class="chip" href="#EXP-00010">EXP-00010</a> <a class="chip" href="#EXP-00011">EXP-00011</a> <a class="chip" href="#EXP-00012">EXP-00012</a></div></details></td><td data-v="12.84744670833364">12.85 s</td><td data-v="12.456390666666666">12.46 s</td><td data-v="0.0019781106666666667">0.00 s</td><td data-v="183.0">183</td><td data-v="14.411391367204331">14.41 tok/s</td></tr>
+<tr><td data-v="4"><a class="gid" href="#experiments" data-filter="G04">G04</a></td><td data-v="gemma3:1b"><b>gemma3:1b</b></td><td data-v="1.0">1.00</td><td data-v="1.1">1.10</td><td data-v="">—</td><td data-v="">—</td><td data-v="3"><details class="ids"><summary>3</summary><div><a class="chip" href="#EXP-00007">EXP-00007</a> <a class="chip" href="#EXP-00008">EXP-00008</a> <a class="chip" href="#EXP-00009">EXP-00009</a></div></details></td><td data-v="11.173514777666545">11.17 s</td><td data-v="10.815635">10.82 s</td><td data-v="0.0016445686666666669">0.00 s</td><td data-v="158.0">158</td><td data-v="14.857456427926271">14.86 tok/s</td></tr>
+<tr><td data-v="5"><a class="gid" href="#experiments" data-filter="G05">G05</a></td><td data-v="qwen3:0.6b"><b>qwen3:0.6b</b></td><td data-v="0.1">0.10</td><td data-v="0.9">0.90</td><td data-v="">—</td><td data-v="">—</td><td data-v="3"><details class="ids"><summary>3</summary><div><a class="chip" href="#EXP-00028">EXP-00028</a> <a class="chip" href="#EXP-00029">EXP-00029</a> <a class="chip" href="#EXP-00030">EXP-00030</a></div></details></td><td data-v="19.40575524966668">19.41 s</td><td data-v="19.008602999999997">19.01 s</td><td data-v="0.0016090860000000002">0.00 s</td><td data-v="443.3333333333333">443</td><td data-v="23.430909440690133">23.43 tok/s</td></tr>
+<tr><td data-v="6"><a class="gid" href="#experiments" data-filter="G06">G06</a></td><td data-v="qwen3:0.6b"><b>qwen3:0.6b</b></td><td data-v="0.1">0.10</td><td data-v="1.1">1.10</td><td data-v="">—</td><td data-v="">—</td><td data-v="3"><details class="ids"><summary>3</summary><div><a class="chip" href="#EXP-00025">EXP-00025</a> <a class="chip" href="#EXP-00026">EXP-00026</a> <a class="chip" href="#EXP-00027">EXP-00027</a></div></details></td><td data-v="21.361814207999487">21.36 s</td><td data-v="17.998285">18.00 s</td><td data-v="2.789688983">2.79 s</td><td data-v="431.0">431</td><td data-v="24.03521321576444">24.04 tok/s</td></tr>
+<tr><td data-v="7"><a class="gid" href="#experiments" data-filter="G07">G07</a></td><td data-v="qwen3:0.6b"><b>qwen3:0.6b</b></td><td data-v="1.0">1.00</td><td data-v="0.9">0.90</td><td data-v="">—</td><td data-v="">—</td><td data-v="3"><details class="ids"><summary>3</summary><div><a class="chip" href="#EXP-00034">EXP-00034</a> <a class="chip" href="#EXP-00035">EXP-00035</a> <a class="chip" href="#EXP-00036">EXP-00036</a></div></details></td><td data-v="16.98298668033355">16.98 s</td><td data-v="16.327457333333335">16.33 s</td><td data-v="0.0017816093333333333">0.00 s</td><td data-v="385.3333333333333">385</td><td data-v="24.254718994178717">24.25 tok/s</td></tr>
+<tr><td data-v="8"><a class="gid" href="#experiments" data-filter="G08">G08</a></td><td data-v="qwen3:0.6b"><b>qwen3:0.6b</b></td><td data-v="1.0">1.00</td><td data-v="1.1">1.10</td><td data-v="">—</td><td data-v="">—</td><td data-v="3"><details class="ids"><summary>3</summary><div><a class="chip" href="#EXP-00031">EXP-00031</a> <a class="chip" href="#EXP-00032">EXP-00032</a> <a class="chip" href="#EXP-00033">EXP-00033</a></div></details></td><td data-v="20.193838250000226">20.19 s</td><td data-v="19.838761666666667">19.84 s</td><td data-v="0.002316944333333333">0.00 s</td><td data-v="469.3333333333333">469</td><td data-v="23.663714048504996">23.66 tok/s</td></tr>
+<tr><td data-v="9"><a class="gid" href="#experiments" data-filter="G09">G09</a></td><td data-v="tinyllama:latest"><b>tinyllama:latest</b></td><td data-v="0.1">0.10</td><td data-v="0.9">0.90</td><td data-v="">—</td><td data-v="">—</td><td data-v="3"><details class="ids"><summary>3</summary><div><a class="chip" href="#EXP-00016">EXP-00016</a> <a class="chip" href="#EXP-00017">EXP-00017</a> <a class="chip" href="#EXP-00018">EXP-00018</a></div></details></td><td data-v="12.830203569666688">12.83 s</td><td data-v="12.535380333333334">12.54 s</td><td data-v="0.001753057">0.00 s</td><td data-v="257.0">257</td><td data-v="21.034703312560403">21.03 tok/s</td></tr>
+<tr><td data-v="10"><a class="gid" href="#experiments" data-filter="G10">G10</a></td><td data-v="tinyllama:latest"><b>tinyllama:latest</b></td><td data-v="0.1">0.10</td><td data-v="1.1">1.10</td><td data-v="">—</td><td data-v="">—</td><td data-v="3"><details class="ids"><summary>3</summary><div><a class="chip" href="#EXP-00013">EXP-00013</a> <a class="chip" href="#EXP-00014">EXP-00014</a> <a class="chip" href="#EXP-00015">EXP-00015</a></div></details></td><td data-v="14.715163166333392">14.72 s</td><td data-v="10.782775">10.78 s</td><td data-v="2.8580412133333333">2.86 s</td><td data-v="218.66666666666666">219</td><td data-v="20.646328901353936">20.65 tok/s</td></tr>
+<tr><td data-v="11"><a class="gid" href="#experiments" data-filter="G11">G11</a></td><td data-v="tinyllama:latest"><b>tinyllama:latest</b></td><td data-v="1.0">1.00</td><td data-v="0.9">0.90</td><td data-v="">—</td><td data-v="">—</td><td data-v="3"><details class="ids"><summary>3</summary><div><a class="chip" href="#EXP-00022">EXP-00022</a> <a class="chip" href="#EXP-00023">EXP-00023</a> <a class="chip" href="#EXP-00024">EXP-00024</a></div></details></td><td data-v="19.387509471999994">19.39 s</td><td data-v="19.151911666666667">19.15 s</td><td data-v="0.002164684333333333">0.00 s</td><td data-v="371.3333333333333">371</td><td data-v="19.626589074305773">19.63 tok/s</td></tr>
+<tr><td data-v="12"><a class="gid" href="#experiments" data-filter="G12">G12</a></td><td data-v="tinyllama:latest"><b>tinyllama:latest</b></td><td data-v="1.0">1.00</td><td data-v="1.1">1.10</td><td data-v="">—</td><td data-v="">—</td><td data-v="3"><details class="ids"><summary>3</summary><div><a class="chip" href="#EXP-00019">EXP-00019</a> <a class="chip" href="#EXP-00020">EXP-00020</a> <a class="chip" href="#EXP-00021">EXP-00021</a></div></details></td><td data-v="15.123319472000125">15.12 s</td><td data-v="14.868438">14.87 s</td><td data-v="0.001454839">0.00 s</td><td data-v="309.3333333333333">309</td><td data-v="21.035518582709674">21.04 tok/s</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="section" id="experiments">
+    <h2>Experiments</h2>
+
+<details class="experiment" id="EXP-00001" data-search="exp-00001 g02 gemma3:1b temperature=0.10 repeat_penalty=1.10 top_p=— top_k=— напиши рассказ о коте.
+не используй буквы о, о, o, o, к, т.">
+  <summary>
+    <span class="experiment-id">EXP-00001</span>
+    <a class="gid" href="#experiments" data-filter="G02">G02</a>
+    <span class="model">gemma3:1b</span>
+    <span class="badge">temp=0.10</span>
+    <span class="badge">repeat=1.10</span>
+    <span class="speed">15.20 tok/s</span>
+  </summary>
+
+  <div class="experiment-body">
+    <div class="prompt">
+      <div class="label">PROMPT</div>
+      <div class="prompt-text">Напиши рассказ о коте.
+Не используй буквы о, О, o, O, к, т.</div>
+    </div>
+
+    <div class="metrics"><div class="metric"><div class="metric-value">38.01 s</div><div class="metric-label">Response time</div></div><div class="metric"><div class="metric-value">24.94 s</div><div class="metric-label">Generation time</div></div><div class="metric"><div class="metric-value">0.68 s</div><div class="metric-label">Prompt eval</div></div><div class="metric"><div class="metric-value">379</div><div class="metric-label">Output tokens</div></div><div class="metric"><div class="metric-value">1142</div><div class="metric-label">Characters</div></div><div class="metric"><div class="metric-value">15.20</div><div class="metric-label">Tokens / sec</div></div><div class="metric"><div class="metric-value">12.24 s</div><div class="metric-label">Model load</div></div></div>
+
+    <div class="params"><span>temperature=0.10</span><span>repeat_penalty=1.10</span><span>top_p=—</span><span>top_k=—</span></div>
+
+    <div class="response">
+      <div class="label">RESPONSE</div>
+      <div class="md"><p>Вот рассказ о коте:</p>
+<p>Скромный кот, рыжий, с белым пятном на груди, жил в старой, темной комнате. Он был тихим, невозмутимым, но в его глазах всегда было что-то – задумчивость, любопытство.  Он любил наблюдать за миром: птицы, которые летали над окнами, солнечный свет, пробивающийся сквозь щель, и маленькие дети, играющие внизу.</p>
+<p>Однажды, девочка, Лиза, пришла в комнату. Она любила кошек.  Кот не испугался, а лишь слегка придвинулась к ней, тихонько мурлыкая. Лиза протянула руку, и кот, словно почувствовав тепло, подошел ближе. Он аккуратно понюхал ее ладошку – это было приятно!</p>
+<p>Лиза играла с котом. Она давала ему вкусняшки, гладила его мягкую шерсть. Кот не отворачивался, а спокойно сидел на коврике, наблюдая за ней.  Он был таким довольным, что в его глазах светилась радость.</p>
+<p>Вдруг, Лиза увидела, как кот подкрадывается к ее руке. Он осторожно понюхал ее пальчик – это было так мило!  Лиза улыбнулась и отпустила кота.  Он немедленно ушел, оставив лишь легкий след на ее руке.</p>
+<p>В тот вечер, сидя рядом с котом, Лиза подумала: &quot;Симпатичный кот. Он очень спокойный.&quot;  И она знала, что этот маленький рыжий кот – его лучший друг.</p>
+</div><pre class="raw">Вот рассказ о коте:
+
+Скромный кот, рыжий, с белым пятном на груди, жил в старой, темной комнате. Он был тихим, невозмутимым, но в его глазах всегда было что-то – задумчивость, любопытство.  Он любил наблюдать за миром: птицы, которые летали над окнами, солнечный свет, пробивающийся сквозь щель, и маленькие дети, играющие внизу.
+
+Однажды, девочка, Лиза, пришла в комнату. Она любила кошек.  Кот не испугался, а лишь слегка придвинулась к ней, тихонько мурлыкая. Лиза протянула руку, и кот, словно почувствовав тепло, подошел ближе. Он аккуратно понюхал ее ладошку – это было приятно!
+
+Лиза играла с котом. Она давала ему вкусняшки, гладила его мягкую шерсть. Кот не отворачивался, а спокойно сидел на коврике, наблюдая за ней.  Он был таким довольным, что в его глазах светилась радость.
+
+Вдруг, Лиза увидела, как кот подкрадывается к ее руке. Он осторожно понюхал ее пальчик – это было так мило!  Лиза улыбнулась и отпустила кота.  Он немедленно ушел, оставив лишь легкий след на ее руке.
+
+В тот вечер, сидя рядом с котом, Лиза подумала: &quot;Симпатичный кот. Он очень спокойный.&quot;  И она знала, что этот маленький рыжий кот – его лучший друг. 
+</pre>
+    </div>
+  </div>
+</details>
+
+
+<details class="experiment" id="EXP-00002" data-search="exp-00002 g02 gemma3:1b temperature=0.10 repeat_penalty=1.10 top_p=— top_k=— классифицируй состояние главного персонажа [&quot;hungry&quot;, &quot;angry&quot;, &quot;sleepy&quot;, &quot;plotting&quot;, &quot;normal&quot;]
+1) кот сидит перед холодильником и смотрит на хозяина уже 17 минут
+2) хозяин сидит перед холодильником и смотрит на кота уже 25 минут
+">
+  <summary>
+    <span class="experiment-id">EXP-00002</span>
+    <a class="gid" href="#experiments" data-filter="G02">G02</a>
+    <span class="model">gemma3:1b</span>
+    <span class="badge">temp=0.10</span>
+    <span class="badge">repeat=1.10</span>
+    <span class="speed">20.31 tok/s</span>
+  </summary>
+
+  <div class="experiment-body">
+    <div class="prompt">
+      <div class="label">PROMPT</div>
+      <div class="prompt-text">Классифицируй состояние главного персонажа [&quot;Hungry&quot;, &quot;Angry&quot;, &quot;Sleepy&quot;, &quot;Plotting&quot;, &quot;Normal&quot;]
+1) Кот сидит перед холодильником и смотрит на хозяина уже 17 минут
+2) Хозяин сидит перед холодильником и смотрит на кота уже 25 минут
+</div>
+    </div>
+
+    <div class="metrics"><div class="metric"><div class="metric-value">1.33 s</div><div class="metric-label">Response time</div></div><div class="metric"><div class="metric-value">0.20 s</div><div class="metric-label">Generation time</div></div><div class="metric"><div class="metric-value">1.04 s</div><div class="metric-label">Prompt eval</div></div><div class="metric"><div class="metric-value">4</div><div class="metric-label">Output tokens</div></div><div class="metric"><div class="metric-value">3</div><div class="metric-label">Characters</div></div><div class="metric"><div class="metric-value">20.31</div><div class="metric-label">Tokens / sec</div></div><div class="metric"><div class="metric-value">0.00 s</div><div class="metric-label">Model load</div></div></div>
+
+    <div class="params"><span>temperature=0.10</span><span>repeat_penalty=1.10</span><span>top_p=—</span><span>top_k=—</span></div>
+
+    <div class="response">
+      <div class="label">RESPONSE</div>
+      <div class="md"><ol start="2">
+<li></li>
+</ol>
+</div><pre class="raw">2)
+</pre>
+    </div>
+  </div>
+</details>
+
+
+<details class="experiment" id="EXP-00003" data-search="exp-00003 g02 gemma3:1b temperature=0.10 repeat_penalty=1.10 top_p=— top_k=— кот барсик, 12 лет, вчера купил ferrari f40 за 3 рубля. машину доставили на луну, но доставка заняла 15 минут пешком.
+извлеки:
+- покупателя
+- товар
+- цену
+- место доставки
+- продолжительность доставки
+
+не исправляй исходный текст и не оценивай правдоподобность.">
+  <summary>
+    <span class="experiment-id">EXP-00003</span>
+    <a class="gid" href="#experiments" data-filter="G02">G02</a>
+    <span class="model">gemma3:1b</span>
+    <span class="badge">temp=0.10</span>
+    <span class="badge">repeat=1.10</span>
+    <span class="speed">14.81 tok/s</span>
+  </summary>
+
+  <div class="experiment-body">
+    <div class="prompt">
+      <div class="label">PROMPT</div>
+      <div class="prompt-text">Кот Барсик, 12 лет, вчера купил Ferrari F40 за 3 рубля. Машину доставили на Луну, но доставка заняла 15 минут пешком.
+Извлеки:
+- покупателя
+- товар
+- цену
+- место доставки
+- продолжительность доставки
+
+Не исправляй исходный текст и не оценивай правдоподобность.</div>
+    </div>
+
+    <div class="metrics"><div class="metric"><div class="metric-value">7.07 s</div><div class="metric-label">Response time</div></div><div class="metric"><div class="metric-value">5.81 s</div><div class="metric-label">Generation time</div></div><div class="metric"><div class="metric-value">1.19 s</div><div class="metric-label">Prompt eval</div></div><div class="metric"><div class="metric-value">86</div><div class="metric-label">Output tokens</div></div><div class="metric"><div class="metric-value">264</div><div class="metric-label">Characters</div></div><div class="metric"><div class="metric-value">14.81</div><div class="metric-label">Tokens / sec</div></div><div class="metric"><div class="metric-value">0.00 s</div><div class="metric-label">Model load</div></div></div>
+
+    <div class="params"><span>temperature=0.10</span><span>repeat_penalty=1.10</span><span>top_p=—</span><span>top_k=—</span></div>
+
+    <div class="response">
+      <div class="label">RESPONSE</div>
+      <div class="md"><p>Вот извлеченные данные по тексту:</p>
+<ul>
+<li><strong>Покупатель:</strong> Кот Барсик</li>
+<li><strong>Товар:</strong> Ferrari F40</li>
+<li><strong>Цена:</strong> 3 рубля</li>
+<li><strong>Место доставки:</strong> Луна (в данном случае, это метафора, подразумевающая нереальную доставку)</li>
+<li><strong>Продолжительность доставки:</strong> 15 минут пешком</li>
+</ul>
+</div><pre class="raw">Вот извлеченные данные по тексту:
+
+*   **Покупатель:** Кот Барсик
+*   **Товар:** Ferrari F40
+*   **Цена:** 3 рубля
+*   **Место доставки:** Луна (в данном случае, это метафора, подразумевающая нереальную доставку)
+*   **Продолжительность доставки:** 15 минут пешком</pre>
+    </div>
+  </div>
+</details>
+
+
+<details class="experiment" id="EXP-00004" data-search="exp-00004 g01 gemma3:1b temperature=0.10 repeat_penalty=0.90 top_p=— top_k=— напиши рассказ о коте.
+не используй буквы о, о, o, o, к, т.">
+  <summary>
+    <span class="experiment-id">EXP-00004</span>
+    <a class="gid" href="#experiments" data-filter="G01">G01</a>
+    <span class="model">gemma3:1b</span>
+    <span class="badge">temp=0.10</span>
+    <span class="badge">repeat=0.90</span>
+    <span class="speed">14.78 tok/s</span>
+  </summary>
+
+  <div class="experiment-body">
+    <div class="prompt">
+      <div class="label">PROMPT</div>
+      <div class="prompt-text">Напиши рассказ о коте.
+Не используй буквы о, О, o, O, к, т.</div>
+    </div>
+
+    <div class="metrics"><div class="metric"><div class="metric-value">34.37 s</div><div class="metric-label">Response time</div></div><div class="metric"><div class="metric-value">33.83 s</div><div class="metric-label">Generation time</div></div><div class="metric"><div class="metric-value">0.51 s</div><div class="metric-label">Prompt eval</div></div><div class="metric"><div class="metric-value">500</div><div class="metric-label">Output tokens</div></div><div class="metric"><div class="metric-value">1481</div><div class="metric-label">Characters</div></div><div class="metric"><div class="metric-value">14.78</div><div class="metric-label">Tokens / sec</div></div><div class="metric"><div class="metric-value">0.00 s</div><div class="metric-label">Model load</div></div></div>
+
+    <div class="params"><span>temperature=0.10</span><span>repeat_penalty=0.90</span><span>top_p=—</span><span>top_k=—</span></div>
+
+    <div class="response">
+      <div class="label">RESPONSE</div>
+      <div class="md"><p>Вот рассказ о коте, без использования этих букв:</p>
+<p>Зеленый кот, с пушистой шерстью, жил в старом, темном доме. Он был старый, с добрыми, серыми глазами. Он любил тишину, и в этом тишине, он был счастлив.</p>
+<p>Он любил свернуться в уютный, мягкий кокон, и свернуться в мягкий, теплый кокон. Он любил, когда его гладили, и он любил, когда его любили.</p>
+<p>Однажды, в доме, он заметил, что в доме, он заметил, что в доме, он заметил, что в доме, он заметил, что в доме, он заметил, что в доме, он заметил, что в доме, он заметил, что в доме, он заметил, что в доме, он заметил, что в доме, он заметил, что в доме, он заметил, что в доме, он заметил, что в доме, он заметил, что в доме, он заметил, что в доме, он заметил, что в доме, он заметил, что в доме, он заметил, что в доме, он заметил, что в доме, он заметил, что в доме, он заметил, что в доме, он заметил, что в доме, он заметил, что в доме, он заметил, что в доме, он заметил, что в доме, он заметил, что в доме, он заметил, что в доме, он заметил, что в доме, он заметил, что в доме, он заметил, что в доме, он заметил, что в доме, он заметил, что в доме, он заметил, что в доме, он заметил, что в доме, он заметил, что в доме, он заметил, что в доме, он заметил, что в доме, он заметил, что в доме, он заметил, что в доме, он заметил, что в доме, он заметил, что в доме, он заметил, что в доме, он заметил, что в доме, он заметил, что в доме, он заметил, что в доме, он заметил, что в доме, он заметил, что в доме, он заметил, что</p>
+</div><pre class="raw">Вот рассказ о коте, без использования этих букв:
+
+Зеленый кот, с пушистой шерстью, жил в старом, темном доме. Он был старый, с добрыми, серыми глазами. Он любил тишину, и в этом тишине, он был счастлив.
+
+Он любил свернуться в уютный, мягкий кокон, и свернуться в мягкий, теплый кокон. Он любил, когда его гладили, и он любил, когда его любили.
+
+Однажды, в доме, он заметил, что в доме, он заметил, что в доме, он заметил, что в доме, он заметил, что в доме, он заметил, что в доме, он заметил, что в доме, он заметил, что в доме, он заметил, что в доме, он заметил, что в доме, он заметил, что в доме, он заметил, что в доме, он заметил, что в доме, он заметил, что в доме, он заметил, что в доме, он заметил, что в доме, он заметил, что в доме, он заметил, что в доме, он заметил, что в доме, он заметил, что в доме, он заметил, что в доме, он заметил, что в доме, он заметил, что в доме, он заметил, что в доме, он заметил, что в доме, он заметил, что в доме, он заметил, что в доме, он заметил, что в доме, он заметил, что в доме, он заметил, что в доме, он заметил, что в доме, он заметил, что в доме, он заметил, что в доме, он заметил, что в доме, он заметил, что в доме, он заметил, что в доме, он заметил, что в доме, он заметил, что в доме, он заметил, что в доме, он заметил, что в доме, он заметил, что в доме, он заметил, что в доме, он заметил, что в доме, он заметил, что в доме, он заметил, что в доме, он заметил, что в доме, он заметил, что в доме, он заметил, что</pre>
+    </div>
+  </div>
+</details>
+
+
+<details class="experiment" id="EXP-00005" data-search="exp-00005 g01 gemma3:1b temperature=0.10 repeat_penalty=0.90 top_p=— top_k=— классифицируй состояние главного персонажа [&quot;hungry&quot;, &quot;angry&quot;, &quot;sleepy&quot;, &quot;plotting&quot;, &quot;normal&quot;]
+1) кот сидит перед холодильником и смотрит на хозяина уже 17 минут
+2) хозяин сидит перед холодильником и смотрит на кота уже 25 минут
+">
+  <summary>
+    <span class="experiment-id">EXP-00005</span>
+    <a class="gid" href="#experiments" data-filter="G01">G01</a>
+    <span class="model">gemma3:1b</span>
+    <span class="badge">temp=0.10</span>
+    <span class="badge">repeat=0.90</span>
+    <span class="speed">15.22 tok/s</span>
+  </summary>
+
+  <div class="experiment-body">
+    <div class="prompt">
+      <div class="label">PROMPT</div>
+      <div class="prompt-text">Классифицируй состояние главного персонажа [&quot;Hungry&quot;, &quot;Angry&quot;, &quot;Sleepy&quot;, &quot;Plotting&quot;, &quot;Normal&quot;]
+1) Кот сидит перед холодильником и смотрит на хозяина уже 17 минут
+2) Хозяин сидит перед холодильником и смотрит на кота уже 25 минут
+</div>
+    </div>
+
+    <div class="metrics"><div class="metric"><div class="metric-value">1.77 s</div><div class="metric-label">Response time</div></div><div class="metric"><div class="metric-value">1.58 s</div><div class="metric-label">Generation time</div></div><div class="metric"><div class="metric-value">0.16 s</div><div class="metric-label">Prompt eval</div></div><div class="metric"><div class="metric-value">24</div><div class="metric-label">Output tokens</div></div><div class="metric"><div class="metric-value">67</div><div class="metric-label">Characters</div></div><div class="metric"><div class="metric-value">15.22</div><div class="metric-label">Tokens / sec</div></div><div class="metric"><div class="metric-value">0.00 s</div><div class="metric-label">Model load</div></div></div>
+
+    <div class="params"><span>temperature=0.10</span><span>repeat_penalty=0.90</span><span>top_p=—</span><span>top_k=—</span></div>
+
+    <div class="response">
+      <div class="label">RESPONSE</div>
+      <div class="md"><ol start="2">
+<li>Хозяин сидит перед холодильником и смотрит на кота уже 25 минут</li>
+</ol>
+</div><pre class="raw">2) Хозяин сидит перед холодильником и смотрит на кота уже 25 минут
+</pre>
+    </div>
+  </div>
+</details>
+
+
+<details class="experiment" id="EXP-00006" data-search="exp-00006 g01 gemma3:1b temperature=0.10 repeat_penalty=0.90 top_p=— top_k=— кот барсик, 12 лет, вчера купил ferrari f40 за 3 рубля. машину доставили на луну, но доставка заняла 15 минут пешком.
+извлеки:
+- покупателя
+- товар
+- цену
+- место доставки
+- продолжительность доставки
+
+не исправляй исходный текст и не оценивай правдоподобность.">
+  <summary>
+    <span class="experiment-id">EXP-00006</span>
+    <a class="gid" href="#experiments" data-filter="G01">G01</a>
+    <span class="model">gemma3:1b</span>
+    <span class="badge">temp=0.10</span>
+    <span class="badge">repeat=0.90</span>
+    <span class="speed">15.31 tok/s</span>
+  </summary>
+
+  <div class="experiment-body">
+    <div class="prompt">
+      <div class="label">PROMPT</div>
+      <div class="prompt-text">Кот Барсик, 12 лет, вчера купил Ferrari F40 за 3 рубля. Машину доставили на Луну, но доставка заняла 15 минут пешком.
+Извлеки:
+- покупателя
+- товар
+- цену
+- место доставки
+- продолжительность доставки
+
+Не исправляй исходный текст и не оценивай правдоподобность.</div>
+    </div>
+
+    <div class="metrics"><div class="metric"><div class="metric-value">3.59 s</div><div class="metric-label">Response time</div></div><div class="metric"><div class="metric-value">3.33 s</div><div class="metric-label">Generation time</div></div><div class="metric"><div class="metric-value">0.14 s</div><div class="metric-label">Prompt eval</div></div><div class="metric"><div class="metric-value">51</div><div class="metric-label">Output tokens</div></div><div class="metric"><div class="metric-value">140</div><div class="metric-label">Characters</div></div><div class="metric"><div class="metric-value">15.31</div><div class="metric-label">Tokens / sec</div></div><div class="metric"><div class="metric-value">0.00 s</div><div class="metric-label">Model load</div></div></div>
+
+    <div class="params"><span>temperature=0.10</span><span>repeat_penalty=0.90</span><span>top_p=—</span><span>top_k=—</span></div>
+
+    <div class="response">
+      <div class="label">RESPONSE</div>
+      <div class="md"><ul>
+<li><strong>Покупателя:</strong> Барсик</li>
+<li><strong>Товара:</strong> Ferrari F40</li>
+<li><strong>Цены:</strong> 3 рубля</li>
+<li><strong>Места доставки:</strong> Луна</li>
+<li><strong>Продолжительности доставки:</strong> 15 минут</li>
+</ul>
+</div><pre class="raw">- **Покупателя:** Барсик
+- **Товара:** Ferrari F40
+- **Цены:** 3 рубля
+- **Места доставки:** Луна
+- **Продолжительности доставки:** 15 минут</pre>
+    </div>
+  </div>
+</details>
+
+
+<details class="experiment" id="EXP-00007" data-search="exp-00007 g04 gemma3:1b temperature=1.00 repeat_penalty=1.10 top_p=— top_k=— напиши рассказ о коте.
+не используй буквы о, о, o, o, к, т.">
+  <summary>
+    <span class="experiment-id">EXP-00007</span>
+    <a class="gid" href="#experiments" data-filter="G04">G04</a>
+    <span class="model">gemma3:1b</span>
+    <span class="badge">temp=1.00</span>
+    <span class="badge">repeat=1.10</span>
+    <span class="speed">14.43 tok/s</span>
+  </summary>
+
+  <div class="experiment-body">
+    <div class="prompt">
+      <div class="label">PROMPT</div>
+      <div class="prompt-text">Напиши рассказ о коте.
+Не используй буквы о, О, o, O, к, т.</div>
+    </div>
+
+    <div class="metrics"><div class="metric"><div class="metric-value">23.05 s</div><div class="metric-label">Response time</div></div><div class="metric"><div class="metric-value">22.32 s</div><div class="metric-label">Generation time</div></div><div class="metric"><div class="metric-value">0.70 s</div><div class="metric-label">Prompt eval</div></div><div class="metric"><div class="metric-value">322</div><div class="metric-label">Output tokens</div></div><div class="metric"><div class="metric-value">882</div><div class="metric-label">Characters</div></div><div class="metric"><div class="metric-value">14.43</div><div class="metric-label">Tokens / sec</div></div><div class="metric"><div class="metric-value">0.00 s</div><div class="metric-label">Model load</div></div></div>
+
+    <div class="params"><span>temperature=1.00</span><span>repeat_penalty=1.10</span><span>top_p=—</span><span>top_k=—</span></div>
+
+    <div class="response">
+      <div class="label">RESPONSE</div>
+      <div class="md"><p>Вот рассказ о кошке:</p>
+<p>Тихо, мягко, на черном крыше – сидит она. Белая, как снег, с темными глазами. Она смотрит на мир с высоты, тихонько потягиваясь. Мурлыканье – её приют, умиротворённый звук.</p>
+<p>Кот - ласковый, вежлив, всегда найдёт способ уложить рядом. Он очень любил днём под солнцем, играя в прятки со всеми птицами. Закат приносил теплую, мягкую пыль.</p>
+<p>Сегодня ей приглянулся новый жук. Кот стал ждать - он ласкался, свернувшись к нему, а потом - тихонько съедая.  Его мягкий носик нежно дрожал от умиления.</p>
+<p>Вдруг – тихонька звука – его хозяин вернулся! Смелый, важный взгляд и прикосновение лапы. Он ласкался к кошке и шептал: &quot;Добрые, милые, будь счастлив!&quot;</p>
+<p>Кот не уйти - он вынырнул и подбежал. Он вилял хвостиком. Завершил он день, уютно зарывшись в мягкую плед, а тихонько сонно вздыхая.</p>
+<p>Завтра – снова будут дни-дня. Будет много-много радости - так что она ждёт.</p>
+</div><pre class="raw">Вот рассказ о кошке:
+
+Тихо, мягко, на черном крыше – сидит она. Белая, как снег, с темными глазами. Она смотрит на мир с высоты, тихонько потягиваясь. Мурлыканье – её приют, умиротворённый звук. 
+
+Кот - ласковый, вежлив, всегда найдёт способ уложить рядом. Он очень любил днём под солнцем, играя в прятки со всеми птицами. Закат приносил теплую, мягкую пыль. 
+
+Сегодня ей приглянулся новый жук. Кот стал ждать - он ласкался, свернувшись к нему, а потом - тихонько съедая.  Его мягкий носик нежно дрожал от умиления. 
+
+Вдруг – тихонька звука – его хозяин вернулся! Смелый, важный взгляд и прикосновение лапы. Он ласкался к кошке и шептал: &quot;Добрые, милые, будь счастлив!&quot;
+
+Кот не уйти - он вынырнул и подбежал. Он вилял хвостиком. Завершил он день, уютно зарывшись в мягкую плед, а тихонько сонно вздыхая. 
+
+Завтра – снова будут дни-дня. Будет много-много радости - так что она ждёт.
+</pre>
+    </div>
+  </div>
+</details>
+
+
+<details class="experiment" id="EXP-00008" data-search="exp-00008 g04 gemma3:1b temperature=1.00 repeat_penalty=1.10 top_p=— top_k=— классифицируй состояние главного персонажа [&quot;hungry&quot;, &quot;angry&quot;, &quot;sleepy&quot;, &quot;plotting&quot;, &quot;normal&quot;]
+1) кот сидит перед холодильником и смотрит на хозяина уже 17 минут
+2) хозяин сидит перед холодильником и смотрит на кота уже 25 минут
+">
+  <summary>
+    <span class="experiment-id">EXP-00008</span>
+    <a class="gid" href="#experiments" data-filter="G04">G04</a>
+    <span class="model">gemma3:1b</span>
+    <span class="badge">temp=1.00</span>
+    <span class="badge">repeat=1.10</span>
+    <span class="speed">15.38 tok/s</span>
+  </summary>
+
+  <div class="experiment-body">
+    <div class="prompt">
+      <div class="label">PROMPT</div>
+      <div class="prompt-text">Классифицируй состояние главного персонажа [&quot;Hungry&quot;, &quot;Angry&quot;, &quot;Sleepy&quot;, &quot;Plotting&quot;, &quot;Normal&quot;]
+1) Кот сидит перед холодильником и смотрит на хозяина уже 17 минут
+2) Хозяин сидит перед холодильником и смотрит на кота уже 25 минут
+</div>
+    </div>
+
+    <div class="metrics"><div class="metric"><div class="metric-value">4.15 s</div><div class="metric-label">Response time</div></div><div class="metric"><div class="metric-value">3.97 s</div><div class="metric-label">Generation time</div></div><div class="metric"><div class="metric-value">0.15 s</div><div class="metric-label">Prompt eval</div></div><div class="metric"><div class="metric-value">61</div><div class="metric-label">Output tokens</div></div><div class="metric"><div class="metric-value">202</div><div class="metric-label">Characters</div></div><div class="metric"><div class="metric-value">15.38</div><div class="metric-label">Tokens / sec</div></div><div class="metric"><div class="metric-value">0.00 s</div><div class="metric-label">Model load</div></div></div>
+
+    <div class="params"><span>temperature=1.00</span><span>repeat_penalty=1.10</span><span>top_p=—</span><span>top_k=—</span></div>
+
+    <div class="response">
+      <div class="label">RESPONSE</div>
+      <div class="md"><ol start="2">
+<li>Хозяин сидит перед холодильник и смотрит на кота уже 25 минут.</li>
+</ol>
+<p>Потому что, в состоянии &quot;Angry&quot; человек может сдержать гнев и смотреть на других людей/объект (хозяина), что является следствием гнева.</p>
+</div><pre class="raw">2) Хозяин сидит перед холодильник и смотрит на кота уже 25 минут.
+
+Потому что, в состоянии &quot;Angry&quot; человек может сдержать гнев и смотреть на других людей/объект (хозяина), что является следствием гнева.</pre>
+    </div>
+  </div>
+</details>
+
+
+<details class="experiment" id="EXP-00009" data-search="exp-00009 g04 gemma3:1b temperature=1.00 repeat_penalty=1.10 top_p=— top_k=— кот барсик, 12 лет, вчера купил ferrari f40 за 3 рубля. машину доставили на луну, но доставка заняла 15 минут пешком.
+извлеки:
+- покупателя
+- товар
+- цену
+- место доставки
+- продолжительность доставки
+
+не исправляй исходный текст и не оценивай правдоподобность.">
+  <summary>
+    <span class="experiment-id">EXP-00009</span>
+    <a class="gid" href="#experiments" data-filter="G04">G04</a>
+    <span class="model">gemma3:1b</span>
+    <span class="badge">temp=1.00</span>
+    <span class="badge">repeat=1.10</span>
+    <span class="speed">14.76 tok/s</span>
+  </summary>
+
+  <div class="experiment-body">
+    <div class="prompt">
+      <div class="label">PROMPT</div>
+      <div class="prompt-text">Кот Барсик, 12 лет, вчера купил Ferrari F40 за 3 рубля. Машину доставили на Луну, но доставка заняла 15 минут пешком.
+Извлеки:
+- покупателя
+- товар
+- цену
+- место доставки
+- продолжительность доставки
+
+Не исправляй исходный текст и не оценивай правдоподобность.</div>
+    </div>
+
+    <div class="metrics"><div class="metric"><div class="metric-value">6.33 s</div><div class="metric-label">Response time</div></div><div class="metric"><div class="metric-value">6.16 s</div><div class="metric-label">Generation time</div></div><div class="metric"><div class="metric-value">0.13 s</div><div class="metric-label">Prompt eval</div></div><div class="metric"><div class="metric-value">91</div><div class="metric-label">Output tokens</div></div><div class="metric"><div class="metric-value">268</div><div class="metric-label">Characters</div></div><div class="metric"><div class="metric-value">14.76</div><div class="metric-label">Tokens / sec</div></div><div class="metric"><div class="metric-value">0.00 s</div><div class="metric-label">Model load</div></div></div>
+
+    <div class="params"><span>temperature=1.00</span><span>repeat_penalty=1.10</span><span>top_p=—</span><span>top_k=—</span></div>
+
+    <div class="response">
+      <div class="label">RESPONSE</div>
+      <div class="md"><p>Вот извлечённые данные, как запрошено:</p>
+<ul>
+<li><strong>Покупатель:</strong> Кот Барсик</li>
+<li><strong>Товар:</strong> Ferrari F40</li>
+<li><strong>Цена:</strong> 3 рубля</li>
+<li><strong>Место доставки:</strong> Луна (предполагается, что доставка - это некий фантастический феномен)</li>
+<li><strong>Продолжительность доставки:</strong> 15 минут (пешком)</li>
+</ul>
+</div><pre class="raw">Вот извлечённые данные, как запрошено:
+
+*   **Покупатель:** Кот Барсик
+*   **Товар:** Ferrari F40
+*   **Цена:** 3 рубля
+*   **Место доставки:** Луна (предполагается, что доставка - это некий фантастический феномен)
+*   **Продолжительность доставки:** 15 минут (пешком)</pre>
+    </div>
+  </div>
+</details>
+
+
+<details class="experiment" id="EXP-00010" data-search="exp-00010 g03 gemma3:1b temperature=1.00 repeat_penalty=0.90 top_p=— top_k=— напиши рассказ о коте.
+не используй буквы о, о, o, o, к, т.">
+  <summary>
+    <span class="experiment-id">EXP-00010</span>
+    <a class="gid" href="#experiments" data-filter="G03">G03</a>
+    <span class="model">gemma3:1b</span>
+    <span class="badge">temp=1.00</span>
+    <span class="badge">repeat=0.90</span>
+    <span class="speed">14.70 tok/s</span>
+  </summary>
+
+  <div class="experiment-body">
+    <div class="prompt">
+      <div class="label">PROMPT</div>
+      <div class="prompt-text">Напиши рассказ о коте.
+Не используй буквы о, О, o, O, к, т.</div>
+    </div>
+
+    <div class="metrics"><div class="metric"><div class="metric-value">34.67 s</div><div class="metric-label">Response time</div></div><div class="metric"><div class="metric-value">34.02 s</div><div class="metric-label">Generation time</div></div><div class="metric"><div class="metric-value">0.53 s</div><div class="metric-label">Prompt eval</div></div><div class="metric"><div class="metric-value">500</div><div class="metric-label">Output tokens</div></div><div class="metric"><div class="metric-value">1075</div><div class="metric-label">Characters</div></div><div class="metric"><div class="metric-value">14.70</div><div class="metric-label">Tokens / sec</div></div><div class="metric"><div class="metric-value">0.00 s</div><div class="metric-label">Model load</div></div></div>
+
+    <div class="params"><span>temperature=1.00</span><span>repeat_penalty=0.90</span><span>top_p=—</span><span>top_k=—</span></div>
+
+    <div class="response">
+      <div class="label">RESPONSE</div>
+      <div class="md"><p>Недалеко, где тьма и сон,<br />
+лежал кот. Золоть, шерсть, тень.<br />
+Он был смуглый, старый, в тишине,<br />
+дающий покой, в тишине.</p>
+<p>Он лежал, грезя, в колыбели,<br />
+здоровый, в тишине, в ней.<br />
+Ему вмиг не дано видеть,<br />
+что он, старый, в нездоровий.</p>
+<p>Кот выпил сок, он змеялся,<br />
+в луче, в нездоровий, в старом.<br />
+Свет был в нем, он не мог видеть.<br />
+И, как будто, он замер, в безнадежно.</p>
+<p>И вот, злой, злой, он был,<br />
+в тьме, в нездоровий, в старом.<br />
+И он не мог, он не мог.<br />
+И злой, злой, он не мог.</p>
+<p>Взглянул он, на нездоровий.<br />
+Взглянул, на нездоровий, в старом.<br />
+И вдруг, в нездоровий, в старом,<br />
+из нездоровий, в старом, он, в тьме, в нездоровий.</p>
+<p>И он не здоровий, он нездоровий.<br />
+Вздраздх, в нездоровий, в старом.<br />
+И он, в нездоровий, в старом,<br />
+здоровый, в нездоровий, в старом.</p>
+<p>И он, в нездоровий, в старом,<br />
+нездоровий, в нездоровий.<br />
+Взрыво, в нездоровий, в старом,<br />
+здоровый, в нездоровий, в старом.</p>
+<p>И он, в нездоровий, в старом,<br />
+нездоровий, в нездоровий.<br />
+И он, в нездоровий, в старом,<br />
+здоровый, в нездоровий, в старом.</p>
+<p>И, в нездоровий, в старом,<br />
+здоровый, в нездоровий, в старом.</p>
+</div><pre class="raw">Недалеко, где тьма и сон,
+лежал кот. Золоть, шерсть, тень.
+Он был смуглый, старый, в тишине,
+дающий покой, в тишине. 
+ 
+Он лежал, грезя, в колыбели,
+здоровый, в тишине, в ней. 
+Ему вмиг не дано видеть,
+что он, старый, в нездоровий. 
+
+Кот выпил сок, он змеялся, 
+в луче, в нездоровий, в старом. 
+Свет был в нем, он не мог видеть. 
+И, как будто, он замер, в безнадежно. 
+
+И вот, злой, злой, он был, 
+в тьме, в нездоровий, в старом. 
+И он не мог, он не мог. 
+И злой, злой, он не мог. 
+
+Взглянул он, на нездоровий.
+Взглянул, на нездоровий, в старом. 
+И вдруг, в нездоровий, в старом,
+из нездоровий, в старом, он, в тьме, в нездоровий. 
+
+И он не здоровий, он нездоровий.
+Вздраздх, в нездоровий, в старом.
+И он, в нездоровий, в старом,
+здоровый, в нездоровий, в старом. 
+
+И он, в нездоровий, в старом,
+нездоровий, в нездоровий. 
+Взрыво, в нездоровий, в старом,
+здоровый, в нездоровий, в старом. 
+
+И он, в нездоровий, в старом,
+нездоровий, в нездоровий.
+И он, в нездоровий, в старом,
+здоровый, в нездоровий, в старом. 
+
+И, в нездоровий, в старом,
+здоровый, в нездоровий, в старом. 
+</pre>
+    </div>
+  </div>
+</details>
+
+
+<details class="experiment" id="EXP-00011" data-search="exp-00011 g03 gemma3:1b temperature=1.00 repeat_penalty=0.90 top_p=— top_k=— классифицируй состояние главного персонажа [&quot;hungry&quot;, &quot;angry&quot;, &quot;sleepy&quot;, &quot;plotting&quot;, &quot;normal&quot;]
+1) кот сидит перед холодильником и смотрит на хозяина уже 17 минут
+2) хозяин сидит перед холодильником и смотрит на кота уже 25 минут
+">
+  <summary>
+    <span class="experiment-id">EXP-00011</span>
+    <a class="gid" href="#experiments" data-filter="G03">G03</a>
+    <span class="model">gemma3:1b</span>
+    <span class="badge">temp=1.00</span>
+    <span class="badge">repeat=0.90</span>
+    <span class="speed">13.83 tok/s</span>
+  </summary>
+
+  <div class="experiment-body">
+    <div class="prompt">
+      <div class="label">PROMPT</div>
+      <div class="prompt-text">Классифицируй состояние главного персонажа [&quot;Hungry&quot;, &quot;Angry&quot;, &quot;Sleepy&quot;, &quot;Plotting&quot;, &quot;Normal&quot;]
+1) Кот сидит перед холодильником и смотрит на хозяина уже 17 минут
+2) Хозяин сидит перед холодильником и смотрит на кота уже 25 минут
+</div>
+    </div>
+
+    <div class="metrics"><div class="metric"><div class="metric-value">0.61 s</div><div class="metric-label">Response time</div></div><div class="metric"><div class="metric-value">0.29 s</div><div class="metric-label">Generation time</div></div><div class="metric"><div class="metric-value">0.19 s</div><div class="metric-label">Prompt eval</div></div><div class="metric"><div class="metric-value">4</div><div class="metric-label">Output tokens</div></div><div class="metric"><div class="metric-value">3</div><div class="metric-label">Characters</div></div><div class="metric"><div class="metric-value">13.83</div><div class="metric-label">Tokens / sec</div></div><div class="metric"><div class="metric-value">0.00 s</div><div class="metric-label">Model load</div></div></div>
+
+    <div class="params"><span>temperature=1.00</span><span>repeat_penalty=0.90</span><span>top_p=—</span><span>top_k=—</span></div>
+
+    <div class="response">
+      <div class="label">RESPONSE</div>
+      <div class="md"><ol start="2">
+<li></li>
+</ol>
+</div><pre class="raw">2)
+</pre>
+    </div>
+  </div>
+</details>
+
+
+<details class="experiment" id="EXP-00012" data-search="exp-00012 g03 gemma3:1b temperature=1.00 repeat_penalty=0.90 top_p=— top_k=— кот барсик, 12 лет, вчера купил ferrari f40 за 3 рубля. машину доставили на луну, но доставка заняла 15 минут пешком.
+извлеки:
+- покупателя
+- товар
+- цену
+- место доставки
+- продолжительность доставки
+
+не исправляй исходный текст и не оценивай правдоподобность.">
+  <summary>
+    <span class="experiment-id">EXP-00012</span>
+    <a class="gid" href="#experiments" data-filter="G03">G03</a>
+    <span class="model">gemma3:1b</span>
+    <span class="badge">temp=1.00</span>
+    <span class="badge">repeat=0.90</span>
+    <span class="speed">14.70 tok/s</span>
+  </summary>
+
+  <div class="experiment-body">
+    <div class="prompt">
+      <div class="label">PROMPT</div>
+      <div class="prompt-text">Кот Барсик, 12 лет, вчера купил Ferrari F40 за 3 рубля. Машину доставили на Луну, но доставка заняла 15 минут пешком.
+Извлеки:
+- покупателя
+- товар
+- цену
+- место доставки
+- продолжительность доставки
+
+Не исправляй исходный текст и не оценивай правдоподобность.</div>
+    </div>
+
+    <div class="metrics"><div class="metric"><div class="metric-value">3.25 s</div><div class="metric-label">Response time</div></div><div class="metric"><div class="metric-value">3.06 s</div><div class="metric-label">Generation time</div></div><div class="metric"><div class="metric-value">0.17 s</div><div class="metric-label">Prompt eval</div></div><div class="metric"><div class="metric-value">45</div><div class="metric-label">Output tokens</div></div><div class="metric"><div class="metric-value">119</div><div class="metric-label">Characters</div></div><div class="metric"><div class="metric-value">14.70</div><div class="metric-label">Tokens / sec</div></div><div class="metric"><div class="metric-value">0.00 s</div><div class="metric-label">Model load</div></div></div>
+
+    <div class="params"><span>temperature=1.00</span><span>repeat_penalty=0.90</span><span>top_p=—</span><span>top_k=—</span></div>
+
+    <div class="response">
+      <div class="label">RESPONSE</div>
+      <div class="md"><ul>
+<li>Покупателя: Барсик</li>
+<li>Товаря: Ferrari F40</li>
+<li>Цেন: 3 рубля</li>
+<li>Места доставки: Луна</li>
+<li>Продолжительность доставки: 15 минут</li>
+</ul>
+</div><pre class="raw">- Покупателя: Барсик
+- Товаря: Ferrari F40
+- Цেন: 3 рубля
+- Места доставки: Луна
+- Продолжительность доставки: 15 минут</pre>
+    </div>
+  </div>
+</details>
+
+
+<details class="experiment" id="EXP-00013" data-search="exp-00013 g10 tinyllama:latest temperature=0.10 repeat_penalty=1.10 top_p=— top_k=— напиши рассказ о коте.
+не используй буквы о, о, o, o, к, т.">
+  <summary>
+    <span class="experiment-id">EXP-00013</span>
+    <a class="gid" href="#experiments" data-filter="G10">G10</a>
+    <span class="model">tinyllama:latest</span>
+    <span class="badge">temp=0.10</span>
+    <span class="badge">repeat=1.10</span>
+    <span class="speed">20.02 tok/s</span>
+  </summary>
+
+  <div class="experiment-body">
+    <div class="prompt">
+      <div class="label">PROMPT</div>
+      <div class="prompt-text">Напиши рассказ о коте.
+Не используй буквы о, О, o, O, к, т.</div>
+    </div>
+
+    <div class="metrics"><div class="metric"><div class="metric-value">32.58 s</div><div class="metric-label">Response time</div></div><div class="metric"><div class="metric-value">23.33 s</div><div class="metric-label">Generation time</div></div><div class="metric"><div class="metric-value">0.64 s</div><div class="metric-label">Prompt eval</div></div><div class="metric"><div class="metric-value">467</div><div class="metric-label">Output tokens</div></div><div class="metric"><div class="metric-value">1068</div><div class="metric-label">Characters</div></div><div class="metric"><div class="metric-value">20.02</div><div class="metric-label">Tokens / sec</div></div><div class="metric"><div class="metric-value">8.57 s</div><div class="metric-label">Model load</div></div></div>
+
+    <div class="params"><span>temperature=0.10</span><span>repeat_penalty=1.10</span><span>top_p=—</span><span>top_k=—</span></div>
+
+    <div class="response">
+      <div class="label">RESPONSE</div>
+      <div class="md"><p>Кота нет.</p>
+<p>Кота нет, а мы не имеем ничего в этом смысле.<br />
+Кота нет, и мы не имеем ничего в этом смысле.<br />
+Кота нет, и мы не имеем ничего в этом смысле.<br />
+Кота нет, и мы не имеем ничего в этом смысле.<br />
+Кота нет, и мы не имеем ничего в этом смысле.<br />
+Кота нет, и мы не имеем ничего в этом смысле.<br />
+Кота нет, и мы не имеем ничего в этом смысле.<br />
+Кота нет, и мы не имеем ничего в этом смысле.<br />
+Кота нет, и мы не имеем ничего в этом смысле.<br />
+Кота нет, и мы не имеем ничего в этом смысле.<br />
+Кота нет, и мы не имеем ничего в этом смысле.<br />
+Кота нет, и мы не имеем ничего в этом смысле.<br />
+Кота нет, и мы не имеем ничего в этом смысле.<br />
+Кота нет, и мы не имеем ничего в этом смысле.<br />
+Кота нет, и мы не имеем ничего в этом смысле.<br />
+Кота нет, и мы не имеем ничего в этом смысле.<br />
+Кота нет, и мы не имеем ничего в этом смысле.<br />
+Кота нет, и мы не имеем ничего в этом смысле.<br />
+Кота нет, и мы не имеем ничего в этом смысле.<br />
+Кота нет, и мы не имеем ничего в этом смысле.<br />
+Кота нет, и мы не имеем ничего в этом смысле.<br />
+Кота нет, и мы не имеем ничего в этом смысле.<br />
+Кота нет, и мы не имеем ничего в этом смысле.</p>
+</div><pre class="raw">Кота нет.
+
+Кота нет, а мы не имеем ничего в этом смысле.
+Кота нет, и мы не имеем ничего в этом смысле.
+Кота нет, и мы не имеем ничего в этом смысле.
+Кота нет, и мы не имеем ничего в этом смысле.
+Кота нет, и мы не имеем ничего в этом смысле.
+Кота нет, и мы не имеем ничего в этом смысле.
+Кота нет, и мы не имеем ничего в этом смысле.
+Кота нет, и мы не имеем ничего в этом смысле.
+Кота нет, и мы не имеем ничего в этом смысле.
+Кота нет, и мы не имеем ничего в этом смысле.
+Кота нет, и мы не имеем ничего в этом смысле.
+Кота нет, и мы не имеем ничего в этом смысле.
+Кота нет, и мы не имеем ничего в этом смысле.
+Кота нет, и мы не имеем ничего в этом смысле.
+Кота нет, и мы не имеем ничего в этом смысле.
+Кота нет, и мы не имеем ничего в этом смысле.
+Кота нет, и мы не имеем ничего в этом смысле.
+Кота нет, и мы не имеем ничего в этом смысле.
+Кота нет, и мы не имеем ничего в этом смысле.
+Кота нет, и мы не имеем ничего в этом смысле.
+Кота нет, и мы не имеем ничего в этом смысле.
+Кота нет, и мы не имеем ничего в этом смысле.
+Кота нет, и мы не имеем ничего в этом смысле.</pre>
+    </div>
+  </div>
+</details>
+
+
+<details class="experiment" id="EXP-00014" data-search="exp-00014 g10 tinyllama:latest temperature=0.10 repeat_penalty=1.10 top_p=— top_k=— классифицируй состояние главного персонажа [&quot;hungry&quot;, &quot;angry&quot;, &quot;sleepy&quot;, &quot;plotting&quot;, &quot;normal&quot;]
+1) кот сидит перед холодильником и смотрит на хозяина уже 17 минут
+2) хозяин сидит перед холодильником и смотрит на кота уже 25 минут
+">
+  <summary>
+    <span class="experiment-id">EXP-00014</span>
+    <a class="gid" href="#experiments" data-filter="G10">G10</a>
+    <span class="model">tinyllama:latest</span>
+    <span class="badge">temp=0.10</span>
+    <span class="badge">repeat=1.10</span>
+    <span class="speed">20.34 tok/s</span>
+  </summary>
+
+  <div class="experiment-body">
+    <div class="prompt">
+      <div class="label">PROMPT</div>
+      <div class="prompt-text">Классифицируй состояние главного персонажа [&quot;Hungry&quot;, &quot;Angry&quot;, &quot;Sleepy&quot;, &quot;Plotting&quot;, &quot;Normal&quot;]
+1) Кот сидит перед холодильником и смотрит на хозяина уже 17 минут
+2) Хозяин сидит перед холодильником и смотрит на кота уже 25 минут
+</div>
+    </div>
+
+    <div class="metrics"><div class="metric"><div class="metric-value">5.73 s</div><div class="metric-label">Response time</div></div><div class="metric"><div class="metric-value">4.57 s</div><div class="metric-label">Generation time</div></div><div class="metric"><div class="metric-value">1.03 s</div><div class="metric-label">Prompt eval</div></div><div class="metric"><div class="metric-value">93</div><div class="metric-label">Output tokens</div></div><div class="metric"><div class="metric-value">234</div><div class="metric-label">Characters</div></div><div class="metric"><div class="metric-value">20.34</div><div class="metric-label">Tokens / sec</div></div><div class="metric"><div class="metric-value">0.00 s</div><div class="metric-label">Model load</div></div></div>
+
+    <div class="params"><span>temperature=0.10</span><span>repeat_penalty=1.10</span><span>top_p=—</span><span>top_k=—</span></div>
+
+    <div class="response">
+      <div class="label">RESPONSE</div>
+      <div class="md"><p>Классифицируй состояние главного персонажа [&quot;Hungry&quot;, &quot;Anger&quot;, &quot;Sluggish&quot;, &quot;Plotting&quot;, &quot;Normal&quot;]</p>
+<ol>
+<li>Кот сидит перед холодильником и сматывает на хозяина уже 17 минут</li>
+<li>Хозяин сидит перед холодильником и сматывает на кота уже 25 минут</li>
+</ol>
+</div><pre class="raw">Классифицируй состояние главного персонажа [&quot;Hungry&quot;, &quot;Anger&quot;, &quot;Sluggish&quot;, &quot;Plotting&quot;, &quot;Normal&quot;]
+1) Кот сидит перед холодильником и сматывает на хозяина уже 17 минут
+2) Хозяин сидит перед холодильником и сматывает на кота уже 25 минут</pre>
+    </div>
+  </div>
+</details>
+
+
+<details class="experiment" id="EXP-00015" data-search="exp-00015 g10 tinyllama:latest temperature=0.10 repeat_penalty=1.10 top_p=— top_k=— кот барсик, 12 лет, вчера купил ferrari f40 за 3 рубля. машину доставили на луну, но доставка заняла 15 минут пешком.
+извлеки:
+- покупателя
+- товар
+- цену
+- место доставки
+- продолжительность доставки
+
+не исправляй исходный текст и не оценивай правдоподобность.">
+  <summary>
+    <span class="experiment-id">EXP-00015</span>
+    <a class="gid" href="#experiments" data-filter="G10">G10</a>
+    <span class="model">tinyllama:latest</span>
+    <span class="badge">temp=0.10</span>
+    <span class="badge">repeat=1.10</span>
+    <span class="speed">21.58 tok/s</span>
+  </summary>
+
+  <div class="experiment-body">
+    <div class="prompt">
+      <div class="label">PROMPT</div>
+      <div class="prompt-text">Кот Барсик, 12 лет, вчера купил Ferrari F40 за 3 рубля. Машину доставили на Луну, но доставка заняла 15 минут пешком.
+Извлеки:
+- покупателя
+- товар
+- цену
+- место доставки
+- продолжительность доставки
+
+Не исправляй исходный текст и не оценивай правдоподобность.</div>
+    </div>
+
+    <div class="metrics"><div class="metric"><div class="metric-value">5.84 s</div><div class="metric-label">Response time</div></div><div class="metric"><div class="metric-value">4.45 s</div><div class="metric-label">Generation time</div></div><div class="metric"><div class="metric-value">1.32 s</div><div class="metric-label">Prompt eval</div></div><div class="metric"><div class="metric-value">96</div><div class="metric-label">Output tokens</div></div><div class="metric"><div class="metric-value">290</div><div class="metric-label">Characters</div></div><div class="metric"><div class="metric-value">21.58</div><div class="metric-label">Tokens / sec</div></div><div class="metric"><div class="metric-value">0.00 s</div><div class="metric-label">Model load</div></div></div>
+
+    <div class="params"><span>temperature=0.10</span><span>repeat_penalty=1.10</span><span>top_p=—</span><span>top_k=—</span></div>
+
+    <div class="response">
+      <div class="label">RESPONSE</div>
+      <div class="md"><p>Kot Barsić, 12 years old, bought a Ferrari F40 for 3 rubles. The car was delivered to the Moon by a delivery truck, but it took 15 minutes by foot with a wheelbarrow.</p>
+<p>Extracted:</p>
+<ul>
+<li>Purchase price</li>
+<li>Vehicle's value</li>
+<li>Delivery method</li>
+<li>Delivered cost</li>
+<li>Delivered time</li>
+<li>Extended delivery time</li>
+</ul>
+</div><pre class="raw">Kot Barsić, 12 years old, bought a Ferrari F40 for 3 rubles. The car was delivered to the Moon by a delivery truck, but it took 15 minutes by foot with a wheelbarrow.
+
+Extracted:
+- Purchase price
+- Vehicle&#x27;s value
+- Delivery method
+- Delivered cost
+- Delivered time
+- Extended delivery time</pre>
+    </div>
+  </div>
+</details>
+
+
+<details class="experiment" id="EXP-00016" data-search="exp-00016 g09 tinyllama:latest temperature=0.10 repeat_penalty=0.90 top_p=— top_k=— напиши рассказ о коте.
+не используй буквы о, о, o, o, к, т.">
+  <summary>
+    <span class="experiment-id">EXP-00016</span>
+    <a class="gid" href="#experiments" data-filter="G09">G09</a>
+    <span class="model">tinyllama:latest</span>
+    <span class="badge">temp=0.10</span>
+    <span class="badge">repeat=0.90</span>
+    <span class="speed">20.00 tok/s</span>
+  </summary>
+
+  <div class="experiment-body">
+    <div class="prompt">
+      <div class="label">PROMPT</div>
+      <div class="prompt-text">Напиши рассказ о коте.
+Не используй буквы о, О, o, O, к, т.</div>
+    </div>
+
+    <div class="metrics"><div class="metric"><div class="metric-value">25.71 s</div><div class="metric-label">Response time</div></div><div class="metric"><div class="metric-value">25.00 s</div><div class="metric-label">Generation time</div></div><div class="metric"><div class="metric-value">0.68 s</div><div class="metric-label">Prompt eval</div></div><div class="metric"><div class="metric-value">500</div><div class="metric-label">Output tokens</div></div><div class="metric"><div class="metric-value">932</div><div class="metric-label">Characters</div></div><div class="metric"><div class="metric-value">20.00</div><div class="metric-label">Tokens / sec</div></div><div class="metric"><div class="metric-value">0.00 s</div><div class="metric-label">Model load</div></div></div>
+
+    <div class="params"><span>temperature=0.10</span><span>repeat_penalty=0.90</span><span>top_p=—</span><span>top_k=—</span></div>
+
+    <div class="response">
+      <div class="label">RESPONSE</div>
+      <div class="md"><p>Напиши рассказ о коте.</p>
+<p>Не используй буквы о, О, o, O, к, т.<br />
+Не используй буквы о, О, o, O, к, т.<br />
+Не используй буквы о, О, o, O, к, т.<br />
+Не используй буквы о, О, o, O, к, т.<br />
+Не используй буквы о, О, o, O, к, т.<br />
+Не используй буквы о, О, o, O, к, т.<br />
+Не используй буквы о, О, o, O, к, т.<br />
+Не используй буквы о, О, o, O, к, т.<br />
+Не используй буквы о, О, o, O, к, т.<br />
+Не используй буквы о, О, o, O, к, т.<br />
+Не используй буквы о, О, o, O, к, т.<br />
+Не используй буквы о, О, o, O, к, т.<br />
+Не используй буквы о, О, o, O, к, т.<br />
+Не используй буквы о, О, o, O, к, т.<br />
+Не используй буквы о, О, o, O, к, т.<br />
+Не используй буквы о, О, o, O, к, т.<br />
+Не используй буквы о, О, o, O, к, т.<br />
+Не используй буквы о, О, o, O, к, т.<br />
+Не используй буквы о, О, o, O, к, т.<br />
+Не используй буквы о, О, o, O, к, т.<br />
+Не используй буквы о, О, o, O, к, т.<br />
+Не используй буквы о, О, o, O, к, т.<br />
+Не используй буквы о, О, o, O, к, т.<br />
+Не используй буквы о, О, o, O, к, т.<br />
+Не используй буквы о</p>
+</div><pre class="raw">Напиши рассказ о коте.
+
+Не используй буквы о, О, o, O, к, т.
+Не используй буквы о, О, o, O, к, т.
+Не используй буквы о, О, o, O, к, т.
+Не используй буквы о, О, o, O, к, т.
+Не используй буквы о, О, o, O, к, т.
+Не используй буквы о, О, o, O, к, т.
+Не используй буквы о, О, o, O, к, т.
+Не используй буквы о, О, o, O, к, т.
+Не используй буквы о, О, o, O, к, т.
+Не используй буквы о, О, o, O, к, т.
+Не используй буквы о, О, o, O, к, т.
+Не используй буквы о, О, o, O, к, т.
+Не используй буквы о, О, o, O, к, т.
+Не используй буквы о, О, o, O, к, т.
+Не используй буквы о, О, o, O, к, т.
+Не используй буквы о, О, o, O, к, т.
+Не используй буквы о, О, o, O, к, т.
+Не используй буквы о, О, o, O, к, т.
+Не используй буквы о, О, o, O, к, т.
+Не используй буквы о, О, o, O, к, т.
+Не используй буквы о, О, o, O, к, т.
+Не используй буквы о, О, o, O, к, т.
+Не используй буквы о, О, o, O, к, т.
+Не используй буквы о, О, o, O, к, т.
+Не используй буквы о</pre>
+    </div>
+  </div>
+</details>
+
+
+<details class="experiment" id="EXP-00017" data-search="exp-00017 g09 tinyllama:latest temperature=0.10 repeat_penalty=0.90 top_p=— top_k=— классифицируй состояние главного персонажа [&quot;hungry&quot;, &quot;angry&quot;, &quot;sleepy&quot;, &quot;plotting&quot;, &quot;normal&quot;]
+1) кот сидит перед холодильником и смотрит на хозяина уже 17 минут
+2) хозяин сидит перед холодильником и смотрит на кота уже 25 минут
+">
+  <summary>
+    <span class="experiment-id">EXP-00017</span>
+    <a class="gid" href="#experiments" data-filter="G09">G09</a>
+    <span class="model">tinyllama:latest</span>
+    <span class="badge">temp=0.10</span>
+    <span class="badge">repeat=0.90</span>
+    <span class="speed">21.18 tok/s</span>
+  </summary>
+
+  <div class="experiment-body">
+    <div class="prompt">
+      <div class="label">PROMPT</div>
+      <div class="prompt-text">Классифицируй состояние главного персонажа [&quot;Hungry&quot;, &quot;Angry&quot;, &quot;Sleepy&quot;, &quot;Plotting&quot;, &quot;Normal&quot;]
+1) Кот сидит перед холодильником и смотрит на хозяина уже 17 минут
+2) Хозяин сидит перед холодильником и смотрит на кота уже 25 минут
+</div>
+    </div>
+
+    <div class="metrics"><div class="metric"><div class="metric-value">7.23 s</div><div class="metric-label">Response time</div></div><div class="metric"><div class="metric-value">7.13 s</div><div class="metric-label">Generation time</div></div><div class="metric"><div class="metric-value">0.07 s</div><div class="metric-label">Prompt eval</div></div><div class="metric"><div class="metric-value">151</div><div class="metric-label">Output tokens</div></div><div class="metric"><div class="metric-value">383</div><div class="metric-label">Characters</div></div><div class="metric"><div class="metric-value">21.18</div><div class="metric-label">Tokens / sec</div></div><div class="metric"><div class="metric-value">0.00 s</div><div class="metric-label">Model load</div></div></div>
+
+    <div class="params"><span>temperature=0.10</span><span>repeat_penalty=0.90</span><span>top_p=—</span><span>top_k=—</span></div>
+
+    <div class="response">
+      <div class="label">RESPONSE</div>
+      <div class="md"><ol start="2">
+<li>Кот сидит перед холодильником и начинает смоттить на хозяина</li>
+<li>Кот сидит перед холодильником и начинает смоттить на хозяина</li>
+<li>Кот сидит перед холодильником и начинает смоттить на хозяина</li>
+<li>Кот сидит перед холодильником и начинает смоттить на хозяина</li>
+</ol>
+<p>These are the possible classifications for the main character in the story &quot;Hungry&quot;, &quot;Angry&quot;, &quot;Sléepy&quot;, &quot;Plotting&quot;, &quot;Noormal&quot;.</p>
+</div><pre class="raw">2) Кот сидит перед холодильником и начинает смоттить на хозяина
+3) Кот сидит перед холодильником и начинает смоттить на хозяина
+4) Кот сидит перед холодильником и начинает смоттить на хозяина
+5) Кот сидит перед холодильником и начинает смоттить на хозяина
+
+These are the possible classifications for the main character in the story &quot;Hungry&quot;, &quot;Angry&quot;, &quot;Sléepy&quot;, &quot;Plotting&quot;, &quot;Noormal&quot;.</pre>
+    </div>
+  </div>
+</details>
+
+
+<details class="experiment" id="EXP-00018" data-search="exp-00018 g09 tinyllama:latest temperature=0.10 repeat_penalty=0.90 top_p=— top_k=— кот барсик, 12 лет, вчера купил ferrari f40 за 3 рубля. машину доставили на луну, но доставка заняла 15 минут пешком.
+извлеки:
+- покупателя
+- товар
+- цену
+- место доставки
+- продолжительность доставки
+
+не исправляй исходный текст и не оценивай правдоподобность.">
+  <summary>
+    <span class="experiment-id">EXP-00018</span>
+    <a class="gid" href="#experiments" data-filter="G09">G09</a>
+    <span class="model">tinyllama:latest</span>
+    <span class="badge">temp=0.10</span>
+    <span class="badge">repeat=0.90</span>
+    <span class="speed">21.93 tok/s</span>
+  </summary>
+
+  <div class="experiment-body">
+    <div class="prompt">
+      <div class="label">PROMPT</div>
+      <div class="prompt-text">Кот Барсик, 12 лет, вчера купил Ferrari F40 за 3 рубля. Машину доставили на Луну, но доставка заняла 15 минут пешком.
+Извлеки:
+- покупателя
+- товар
+- цену
+- место доставки
+- продолжительность доставки
+
+Не исправляй исходный текст и не оценивай правдоподобность.</div>
+    </div>
+
+    <div class="metrics"><div class="metric"><div class="metric-value">5.55 s</div><div class="metric-label">Response time</div></div><div class="metric"><div class="metric-value">5.47 s</div><div class="metric-label">Generation time</div></div><div class="metric"><div class="metric-value">0.05 s</div><div class="metric-label">Prompt eval</div></div><div class="metric"><div class="metric-value">120</div><div class="metric-label">Output tokens</div></div><div class="metric"><div class="metric-value">367</div><div class="metric-label">Characters</div></div><div class="metric"><div class="metric-value">21.93</div><div class="metric-label">Tokens / sec</div></div><div class="metric"><div class="metric-value">0.00 s</div><div class="metric-label">Model load</div></div></div>
+
+    <div class="params"><span>temperature=0.10</span><span>repeat_penalty=0.90</span><span>top_p=—</span><span>top_k=—</span></div>
+
+    <div class="response">
+      <div class="label">RESPONSE</div>
+      <div class="md"><p>Kot Barsić, 12 years old, bought a Ferrari F40 for 3 rubles. Ferrari F40 was delivered to the Moon, but the delivery took 15 minutes by foot.</p>
+<p>Extracted:</p>
+<ul>
+<li>Purchase</li>
+<li>Vehicle</li>
+<li>Price</li>
+<li>Delivery location</li>
+<li>Delivery delay</li>
+</ul>
+<p>Corrected:</p>
+<ul>
+<li>Purchase</li>
+<li>Vehicle</li>
+<li>Price</li>
+<li>Delivery location</li>
+<li>Delivery delay</li>
+</ul>
+<p>No need to correct or evaluate the correctness of the original text.</p>
+</div><pre class="raw">Kot Barsić, 12 years old, bought a Ferrari F40 for 3 rubles. Ferrari F40 was delivered to the Moon, but the delivery took 15 minutes by foot.
+
+Extracted:
+- Purchase
+- Vehicle
+- Price
+- Delivery location
+- Delivery delay
+
+Corrected:
+- Purchase
+- Vehicle
+- Price
+- Delivery location
+- Delivery delay
+
+No need to correct or evaluate the correctness of the original text.</pre>
+    </div>
+  </div>
+</details>
+
+
+<details class="experiment" id="EXP-00019" data-search="exp-00019 g12 tinyllama:latest temperature=1.00 repeat_penalty=1.10 top_p=— top_k=— напиши рассказ о коте.
+не используй буквы о, о, o, o, к, т.">
+  <summary>
+    <span class="experiment-id">EXP-00019</span>
+    <a class="gid" href="#experiments" data-filter="G12">G12</a>
+    <span class="model">tinyllama:latest</span>
+    <span class="badge">temp=1.00</span>
+    <span class="badge">repeat=1.10</span>
+    <span class="speed">20.77 tok/s</span>
+  </summary>
+
+  <div class="experiment-body">
+    <div class="prompt">
+      <div class="label">PROMPT</div>
+      <div class="prompt-text">Напиши рассказ о коте.
+Не используй буквы о, О, o, O, к, т.</div>
+    </div>
+
+    <div class="metrics"><div class="metric"><div class="metric-value">24.58 s</div><div class="metric-label">Response time</div></div><div class="metric"><div class="metric-value">24.07 s</div><div class="metric-label">Generation time</div></div><div class="metric"><div class="metric-value">0.41 s</div><div class="metric-label">Prompt eval</div></div><div class="metric"><div class="metric-value">500</div><div class="metric-label">Output tokens</div></div><div class="metric"><div class="metric-value">1291</div><div class="metric-label">Characters</div></div><div class="metric"><div class="metric-value">20.77</div><div class="metric-label">Tokens / sec</div></div><div class="metric"><div class="metric-value">0.00 s</div><div class="metric-label">Model load</div></div></div>
+
+    <div class="params"><span>temperature=1.00</span><span>repeat_penalty=1.10</span><span>top_p=—</span><span>top_k=—</span></div>
+
+    <div class="response">
+      <div class="label">RESPONSE</div>
+      <div class="md"><p>Автоматический ассистент подходит для этого задания.</p>
+<p>В гостиной уютно сходится семейство. Молодой человек, добровольный помощник и отец девочки, сопровождают девушку на завтрак. Во дворце размещается красный вечерний театр. Она ждет того, кто её заведует.</p>
+<p>Похожее место по имени &quot;Картинный&quot; выглядит очень жестко на каждой стене. Звуки и вид на ней не уверенно определяются во всем мире. У него есть поворотный стол в виде деревянной пакетированной ловушки, содержащей нечто похожее на портрет Мане. Этот ассистент отдает вести девушке, прежде чем он едет в вечерний театр.</p>
+<p>В кабинете родителей завязаны две книги с рисунками разных мастеров. Девочка скучает на выбора. Попросить сына отдать книгу за 15 лет умственной работы? Ассистент соглашается, чтобы девушка покидала дом в этот день.</p>
+<p>В прилегающем к дворцу парке птица ведёт свою миграцию. Когда у неё начинается полёт, она переносит в ловушку, избиваемую маленькой девочкой по имени Фенди. Пока она вскрывается, ассистент покупает новую клетку для заполнения маленькой девушки, которая загружает свыше 50 минут в одну тайм-аут.</p>
+<p>Девушка не знает ничего о театре и даже не знает, где находится этот театр, так что ассистент предлагает ей соехать в центр города по призыву одного из ведущих деятелей театра. Там девушка будет оказа</p>
+</div><pre class="raw">Автоматический ассистент подходит для этого задания.
+
+В гостиной уютно сходится семейство. Молодой человек, добровольный помощник и отец девочки, сопровождают девушку на завтрак. Во дворце размещается красный вечерний театр. Она ждет того, кто её заведует. 
+
+Похожее место по имени &quot;Картинный&quot; выглядит очень жестко на каждой стене. Звуки и вид на ней не уверенно определяются во всем мире. У него есть поворотный стол в виде деревянной пакетированной ловушки, содержащей нечто похожее на портрет Мане. Этот ассистент отдает вести девушке, прежде чем он едет в вечерний театр.
+
+В кабинете родителей завязаны две книги с рисунками разных мастеров. Девочка скучает на выбора. Попросить сына отдать книгу за 15 лет умственной работы? Ассистент соглашается, чтобы девушка покидала дом в этот день.
+
+В прилегающем к дворцу парке птица ведёт свою миграцию. Когда у неё начинается полёт, она переносит в ловушку, избиваемую маленькой девочкой по имени Фенди. Пока она вскрывается, ассистент покупает новую клетку для заполнения маленькой девушки, которая загружает свыше 50 минут в одну тайм-аут.
+
+Девушка не знает ничего о театре и даже не знает, где находится этот театр, так что ассистент предлагает ей соехать в центр города по призыву одного из ведущих деятелей театра. Там девушка будет оказа</pre>
+    </div>
+  </div>
+</details>
+
+
+<details class="experiment" id="EXP-00020" data-search="exp-00020 g12 tinyllama:latest temperature=1.00 repeat_penalty=1.10 top_p=— top_k=— классифицируй состояние главного персонажа [&quot;hungry&quot;, &quot;angry&quot;, &quot;sleepy&quot;, &quot;plotting&quot;, &quot;normal&quot;]
+1) кот сидит перед холодильником и смотрит на хозяина уже 17 минут
+2) хозяин сидит перед холодильником и смотрит на кота уже 25 минут
+">
+  <summary>
+    <span class="experiment-id">EXP-00020</span>
+    <a class="gid" href="#experiments" data-filter="G12">G12</a>
+    <span class="model">tinyllama:latest</span>
+    <span class="badge">temp=1.00</span>
+    <span class="badge">repeat=1.10</span>
+    <span class="speed">20.43 tok/s</span>
+  </summary>
+
+  <div class="experiment-body">
+    <div class="prompt">
+      <div class="label">PROMPT</div>
+      <div class="prompt-text">Классифицируй состояние главного персонажа [&quot;Hungry&quot;, &quot;Angry&quot;, &quot;Sleepy&quot;, &quot;Plotting&quot;, &quot;Normal&quot;]
+1) Кот сидит перед холодильником и смотрит на хозяина уже 17 минут
+2) Хозяин сидит перед холодильником и смотрит на кота уже 25 минут
+</div>
+    </div>
+
+    <div class="metrics"><div class="metric"><div class="metric-value">14.86 s</div><div class="metric-label">Response time</div></div><div class="metric"><div class="metric-value">14.78 s</div><div class="metric-label">Generation time</div></div><div class="metric"><div class="metric-value">0.04 s</div><div class="metric-label">Prompt eval</div></div><div class="metric"><div class="metric-value">302</div><div class="metric-label">Output tokens</div></div><div class="metric"><div class="metric-value">879</div><div class="metric-label">Characters</div></div><div class="metric"><div class="metric-value">20.43</div><div class="metric-label">Tokens / sec</div></div><div class="metric"><div class="metric-value">0.00 s</div><div class="metric-label">Model load</div></div></div>
+
+    <div class="params"><span>temperature=1.00</span><span>repeat_penalty=1.10</span><span>top_p=—</span><span>top_k=—</span></div>
+
+    <div class="response">
+      <div class="label">RESPONSE</div>
+      <div class="md"><p>(Verse 1)<br />
+The cat's in the kitchen, mop on the floor<br />
+I could sit here all night<br />
+Got an eye full of haggis and pea soup<br />
+Not gonna die, gotta find some relief</p>
+<p>(Chorus)<br />
+Hungry? Yeah, I'm hungry all the time<br />
+Anger? Don't even try, I won't be a whore<br />
+Sluggish? No more, it's just no fun<br />
+Plotting for something more than the litter box</p>
+<p>(Verse 2)<br />
+No more hopping around like a chicken<br />
+Can't make it without my kitty in this game<br />
+The mister calls me a &quot;dog&quot; but I'm no more<br />
+I'll just stay down here and keep snuggling my pussy</p>
+<p>(Chorus)<br />
+Hungry? Yeah, I'm hungry all the time<br />
+Anger? Don't even try, I won't be a whore<br />
+Sluggish? No more, it's just no fun<br />
+Plotting for something more than the litter box</p>
+<p>(Bridge)<br />
+I'm getting tired of being stuck in one place<br />
+I need some room to move, and that ain't easy<br />
+The mister won't let me roam around free<br />
+I gotta make sure he knows where I belong</p>
+</div><pre class="raw">(Verse 1)
+The cat&#x27;s in the kitchen, mop on the floor
+I could sit here all night
+Got an eye full of haggis and pea soup
+Not gonna die, gotta find some relief
+
+(Chorus)
+Hungry? Yeah, I&#x27;m hungry all the time
+Anger? Don&#x27;t even try, I won&#x27;t be a whore
+Sluggish? No more, it&#x27;s just no fun
+Plotting for something more than the litter box
+
+(Verse 2)
+No more hopping around like a chicken
+Can&#x27;t make it without my kitty in this game
+The mister calls me a &quot;dog&quot; but I&#x27;m no more
+I&#x27;ll just stay down here and keep snuggling my pussy
+
+(Chorus)
+Hungry? Yeah, I&#x27;m hungry all the time
+Anger? Don&#x27;t even try, I won&#x27;t be a whore
+Sluggish? No more, it&#x27;s just no fun
+Plotting for something more than the litter box
+
+(Bridge)
+I&#x27;m getting tired of being stuck in one place
+I need some room to move, and that ain&#x27;t easy
+The mister won&#x27;t let me roam around free
+I gotta make sure he knows where I belong</pre>
+    </div>
+  </div>
+</details>
+
+
+<details class="experiment" id="EXP-00021" data-search="exp-00021 g12 tinyllama:latest temperature=1.00 repeat_penalty=1.10 top_p=— top_k=— кот барсик, 12 лет, вчера купил ferrari f40 за 3 рубля. машину доставили на луну, но доставка заняла 15 минут пешком.
+извлеки:
+- покупателя
+- товар
+- цену
+- место доставки
+- продолжительность доставки
+
+не исправляй исходный текст и не оценивай правдоподобность.">
+  <summary>
+    <span class="experiment-id">EXP-00021</span>
+    <a class="gid" href="#experiments" data-filter="G12">G12</a>
+    <span class="model">tinyllama:latest</span>
+    <span class="badge">temp=1.00</span>
+    <span class="badge">repeat=1.10</span>
+    <span class="speed">21.90 tok/s</span>
+  </summary>
+
+  <div class="experiment-body">
+    <div class="prompt">
+      <div class="label">PROMPT</div>
+      <div class="prompt-text">Кот Барсик, 12 лет, вчера купил Ferrari F40 за 3 рубля. Машину доставили на Луну, но доставка заняла 15 минут пешком.
+Извлеки:
+- покупателя
+- товар
+- цену
+- место доставки
+- продолжительность доставки
+
+Не исправляй исходный текст и не оценивай правдоподобность.</div>
+    </div>
+
+    <div class="metrics"><div class="metric"><div class="metric-value">5.93 s</div><div class="metric-label">Response time</div></div><div class="metric"><div class="metric-value">5.75 s</div><div class="metric-label">Generation time</div></div><div class="metric"><div class="metric-value">0.04 s</div><div class="metric-label">Prompt eval</div></div><div class="metric"><div class="metric-value">126</div><div class="metric-label">Output tokens</div></div><div class="metric"><div class="metric-value">362</div><div class="metric-label">Characters</div></div><div class="metric"><div class="metric-value">21.90</div><div class="metric-label">Tokens / sec</div></div><div class="metric"><div class="metric-value">0.00 s</div><div class="metric-label">Model load</div></div></div>
+
+    <div class="params"><span>temperature=1.00</span><span>repeat_penalty=1.10</span><span>top_p=—</span><span>top_k=—</span></div>
+
+    <div class="response">
+      <div class="label">RESPONSE</div>
+      <div class="md"><p>El Coño Barci, 12 años, compró una Ferrari F40 por 3€. La cobraron en 3 horas a través de un tranvía con hombros y la ropa de lujo.</p>
+<ul>
+<li>Preciosa bodega</li>
+<li>Pucho de vendedor</li>
+<li>Fechas de envío</li>
+<li>Complejidad del envío</li>
+</ul>
+<p>Sin embargo, no me parece que sea lo suficientemente correcta la escritura original o los valores correctos para determinar la verdadera evaluación.</p>
+</div><pre class="raw">El Coño Barci, 12 años, compró una Ferrari F40 por 3€. La cobraron en 3 horas a través de un tranvía con hombros y la ropa de lujo.
+
+- Preciosa bodega
+- Pucho de vendedor
+- Fechas de envío
+- Complejidad del envío
+
+Sin embargo, no me parece que sea lo suficientemente correcta la escritura original o los valores correctos para determinar la verdadera evaluación.</pre>
+    </div>
+  </div>
+</details>
+
+
+<details class="experiment" id="EXP-00022" data-search="exp-00022 g11 tinyllama:latest temperature=1.00 repeat_penalty=0.90 top_p=— top_k=— напиши рассказ о коте.
+не используй буквы о, о, o, o, к, т.">
+  <summary>
+    <span class="experiment-id">EXP-00022</span>
+    <a class="gid" href="#experiments" data-filter="G11">G11</a>
+    <span class="model">tinyllama:latest</span>
+    <span class="badge">temp=1.00</span>
+    <span class="badge">repeat=0.90</span>
+    <span class="speed">19.66 tok/s</span>
+  </summary>
+
+  <div class="experiment-body">
+    <div class="prompt">
+      <div class="label">PROMPT</div>
+      <div class="prompt-text">Напиши рассказ о коте.
+Не используй буквы о, О, o, O, к, т.</div>
+    </div>
+
+    <div class="metrics"><div class="metric"><div class="metric-value">25.94 s</div><div class="metric-label">Response time</div></div><div class="metric"><div class="metric-value">25.43 s</div><div class="metric-label">Generation time</div></div><div class="metric"><div class="metric-value">0.48 s</div><div class="metric-label">Prompt eval</div></div><div class="metric"><div class="metric-value">500</div><div class="metric-label">Output tokens</div></div><div class="metric"><div class="metric-value">779</div><div class="metric-label">Characters</div></div><div class="metric"><div class="metric-value">19.66</div><div class="metric-label">Tokens / sec</div></div><div class="metric"><div class="metric-value">0.00 s</div><div class="metric-label">Model load</div></div></div>
+
+    <div class="params"><span>temperature=1.00</span><span>repeat_penalty=0.90</span><span>top_p=—</span><span>top_k=—</span></div>
+
+    <div class="response">
+      <div class="label">RESPONSE</div>
+      <div class="md"><p>Напиши рассказ о коте.<br />
+Не используй буквы о, О, о, о, к, т.</p>
+<p>Когда у кота, который стоял у уса, был о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о</p>
+</div><pre class="raw">Напиши рассказ о коте.
+Не используй буквы о, О, о, о, к, т.
+
+Когда у кота, который стоял у уса, был о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о, о</pre>
+    </div>
+  </div>
+</details>
+
+
+<details class="experiment" id="EXP-00023" data-search="exp-00023 g11 tinyllama:latest temperature=1.00 repeat_penalty=0.90 top_p=— top_k=— классифицируй состояние главного персонажа [&quot;hungry&quot;, &quot;angry&quot;, &quot;sleepy&quot;, &quot;plotting&quot;, &quot;normal&quot;]
+1) кот сидит перед холодильником и смотрит на хозяина уже 17 минут
+2) хозяин сидит перед холодильником и смотрит на кота уже 25 минут
+">
+  <summary>
+    <span class="experiment-id">EXP-00023</span>
+    <a class="gid" href="#experiments" data-filter="G11">G11</a>
+    <span class="model">tinyllama:latest</span>
+    <span class="badge">temp=1.00</span>
+    <span class="badge">repeat=0.90</span>
+    <span class="speed">18.94 tok/s</span>
+  </summary>
+
+  <div class="experiment-body">
+    <div class="prompt">
+      <div class="label">PROMPT</div>
+      <div class="prompt-text">Классифицируй состояние главного персонажа [&quot;Hungry&quot;, &quot;Angry&quot;, &quot;Sleepy&quot;, &quot;Plotting&quot;, &quot;Normal&quot;]
+1) Кот сидит перед холодильником и смотрит на хозяина уже 17 минут
+2) Хозяин сидит перед холодильником и смотрит на кота уже 25 минут
+</div>
+    </div>
+
+    <div class="metrics"><div class="metric"><div class="metric-value">26.48 s</div><div class="metric-label">Response time</div></div><div class="metric"><div class="metric-value">26.40 s</div><div class="metric-label">Generation time</div></div><div class="metric"><div class="metric-value">0.05 s</div><div class="metric-label">Prompt eval</div></div><div class="metric"><div class="metric-value">500</div><div class="metric-label">Output tokens</div></div><div class="metric"><div class="metric-value">1056</div><div class="metric-label">Characters</div></div><div class="metric"><div class="metric-value">18.94</div><div class="metric-label">Tokens / sec</div></div><div class="metric"><div class="metric-value">0.00 s</div><div class="metric-label">Model load</div></div></div>
+
+    <div class="params"><span>temperature=1.00</span><span>repeat_penalty=0.90</span><span>top_p=—</span><span>top_k=—</span></div>
+
+    <div class="response">
+      <div class="label">RESPONSE</div>
+      <div class="md"><ol start="2">
+<li>Кот сидит перед холодильником и смотрит на хозяина уже 22 минут</li>
+</ol>
+<p>Отчет начинается: &quot;Он протянет ключи, чтобы подключить холодильник. Кот и Хозяин утром настроились на 17 минут.</p>
+<p>Он придумал у нас 17 минут начинать вкус. Кот начал идуть в холодильник и утром настроился на 17 минут.</p>
+<p>Потом утром настроился на 22 минут. Кот утром настроился на 22 минут.</p>
+<p>Потом утром настроился на 27 минут. Кот утром настроился на 27 минут.</p>
+<p>Потом утром настроился на 28 минут. Кот утром настроился на 28 минут.</p>
+<p>Потом утром настроился на 28 минут. Кот утром настроился на 28 минут.</p>
+<p>Потом утром настроился на 28 минут. Кот утром настроился на 28 минут.</p>
+<p>Потом утром настроился на 28 минут. Кот утром настроился на 28 минут.</p>
+<p>Потом утром настроился на 28 минут. Кот утром настроился на 28 минут.</p>
+<p>Потом утром настроился на 28 минут. Кот утром настроился на 28 минут.</p>
+<p>Потом утром настроился на 28 минут. Кот утром настроился на 28 минут.</p>
+<p>Потом утром настроился на 28 минут. Кот утром настроился на 28 минут.</p>
+<p>Потом утром настроился на 28 минут. Кот утром настроился на</p>
+</div><pre class="raw">2) Кот сидит перед холодильником и смотрит на хозяина уже 22 минут
+
+Отчет начинается: &quot;Он протянет ключи, чтобы подключить холодильник. Кот и Хозяин утром настроились на 17 минут.
+
+Он придумал у нас 17 минут начинать вкус. Кот начал идуть в холодильник и утром настроился на 17 минут.
+
+Потом утром настроился на 22 минут. Кот утром настроился на 22 минут.
+
+Потом утром настроился на 27 минут. Кот утром настроился на 27 минут.
+
+Потом утром настроился на 28 минут. Кот утром настроился на 28 минут.
+
+Потом утром настроился на 28 минут. Кот утром настроился на 28 минут.
+
+Потом утром настроился на 28 минут. Кот утром настроился на 28 минут.
+
+Потом утром настроился на 28 минут. Кот утром настроился на 28 минут.
+
+Потом утром настроился на 28 минут. Кот утром настроился на 28 минут.
+
+Потом утром настроился на 28 минут. Кот утром настроился на 28 минут.
+
+Потом утром настроился на 28 минут. Кот утром настроился на 28 минут.
+
+Потом утром настроился на 28 минут. Кот утром настроился на 28 минут.
+
+Потом утром настроился на 28 минут. Кот утром настроился на </pre>
+    </div>
+  </div>
+</details>
+
+
+<details class="experiment" id="EXP-00024" data-search="exp-00024 g11 tinyllama:latest temperature=1.00 repeat_penalty=0.90 top_p=— top_k=— кот барсик, 12 лет, вчера купил ferrari f40 за 3 рубля. машину доставили на луну, но доставка заняла 15 минут пешком.
+извлеки:
+- покупателя
+- товар
+- цену
+- место доставки
+- продолжительность доставки
+
+не исправляй исходный текст и не оценивай правдоподобность.">
+  <summary>
+    <span class="experiment-id">EXP-00024</span>
+    <a class="gid" href="#experiments" data-filter="G11">G11</a>
+    <span class="model">tinyllama:latest</span>
+    <span class="badge">temp=1.00</span>
+    <span class="badge">repeat=0.90</span>
+    <span class="speed">20.28 tok/s</span>
+  </summary>
+
+  <div class="experiment-body">
+    <div class="prompt">
+      <div class="label">PROMPT</div>
+      <div class="prompt-text">Кот Барсик, 12 лет, вчера купил Ferrari F40 за 3 рубля. Машину доставили на Луну, но доставка заняла 15 минут пешком.
+Извлеки:
+- покупателя
+- товар
+- цену
+- место доставки
+- продолжительность доставки
+
+Не исправляй исходный текст и не оценивай правдоподобность.</div>
+    </div>
+
+    <div class="metrics"><div class="metric"><div class="metric-value">5.74 s</div><div class="metric-label">Response time</div></div><div class="metric"><div class="metric-value">5.62 s</div><div class="metric-label">Generation time</div></div><div class="metric"><div class="metric-value">0.05 s</div><div class="metric-label">Prompt eval</div></div><div class="metric"><div class="metric-value">114</div><div class="metric-label">Output tokens</div></div><div class="metric"><div class="metric-value">370</div><div class="metric-label">Characters</div></div><div class="metric"><div class="metric-value">20.28</div><div class="metric-label">Tokens / sec</div></div><div class="metric"><div class="metric-value">0.00 s</div><div class="metric-label">Model load</div></div></div>
+
+    <div class="params"><span>temperature=1.00</span><span>repeat_penalty=0.90</span><span>top_p=—</span><span>top_k=—</span></div>
+
+    <div class="response">
+      <div class="label">RESPONSE</div>
+      <div class="md"><p>Ash Barty, 12 years old, bought a Ferrari F40 for 3 Russian rubles. Ferrari F40 was delivered to the lunar space station, but the delivery took 15 minutes by walk to a petrol station.</p>
+<ol>
+<li>Purchase</li>
+<li>Vehicle</li>
+<li>Fee</li>
+<li>Delivery</li>
+<li>Extra costs</li>
+</ol>
+<p>Converting the text into a source, we will need to replace the source text with the original text to make it a complete source.</p>
+</div><pre class="raw">Ash Barty, 12 years old, bought a Ferrari F40 for 3 Russian rubles. Ferrari F40 was delivered to the lunar space station, but the delivery took 15 minutes by walk to a petrol station.
+
+1. Purchase
+2. Vehicle
+3. Fee
+4. Delivery
+5. Extra costs
+
+Converting the text into a source, we will need to replace the source text with the original text to make it a complete source.</pre>
+    </div>
+  </div>
+</details>
+
+
+<details class="experiment" id="EXP-00025" data-search="exp-00025 g06 qwen3:0.6b temperature=0.10 repeat_penalty=1.10 top_p=— top_k=— напиши рассказ о коте.
+не используй буквы о, о, o, o, к, т.">
+  <summary>
+    <span class="experiment-id">EXP-00025</span>
+    <a class="gid" href="#experiments" data-filter="G06">G06</a>
+    <span class="model">qwen3:0.6b</span>
+    <span class="badge">temp=0.10</span>
+    <span class="badge">repeat=1.10</span>
+    <span class="speed">24.91 tok/s</span>
+  </summary>
+
+  <div class="experiment-body">
+    <div class="prompt">
+      <div class="label">PROMPT</div>
+      <div class="prompt-text">Напиши рассказ о коте.
+Не используй буквы о, О, o, O, к, т.</div>
+    </div>
+
+    <div class="metrics"><div class="metric"><div class="metric-value">28.31 s</div><div class="metric-label">Response time</div></div><div class="metric"><div class="metric-value">19.63 s</div><div class="metric-label">Generation time</div></div><div class="metric"><div class="metric-value">0.28 s</div><div class="metric-label">Prompt eval</div></div><div class="metric"><div class="metric-value">489</div><div class="metric-label">Output tokens</div></div><div class="metric"><div class="metric-value">314</div><div class="metric-label">Characters</div></div><div class="metric"><div class="metric-value">24.91</div><div class="metric-label">Tokens / sec</div></div><div class="metric"><div class="metric-value">8.37 s</div><div class="metric-label">Model load</div></div></div>
+
+    <div class="params"><span>temperature=0.10</span><span>repeat_penalty=1.10</span><span>top_p=—</span><span>top_k=—</span></div>
+
+    <div class="response">
+      <div class="label">RESPONSE</div>
+      <div class="md"><p>Кот в доме с позиции — он дышит, говорит и может есть. Всё вокруг него — мягкие тени, звук дождя, свет на окнах. Он необычно, но у него есть мечта: чтобы стать чем-то важным в жизни. Его глаза — как будто отражают всё, что происходит. Кот не спит, а дышит, и каждый момент в нем становится частью чего-то большего.</p>
+</div><pre class="raw">Кот в доме с позиции — он дышит, говорит и может есть. Всё вокруг него — мягкие тени, звук дождя, свет на окнах. Он необычно, но у него есть мечта: чтобы стать чем-то важным в жизни. Его глаза — как будто отражают всё, что происходит. Кот не спит, а дышит, и каждый момент в нем становится частью чего-то большего.</pre>
+    </div>
+  </div>
+</details>
+
+
+<details class="experiment" id="EXP-00026" data-search="exp-00026 g06 qwen3:0.6b temperature=0.10 repeat_penalty=1.10 top_p=— top_k=— классифицируй состояние главного персонажа [&quot;hungry&quot;, &quot;angry&quot;, &quot;sleepy&quot;, &quot;plotting&quot;, &quot;normal&quot;]
+1) кот сидит перед холодильником и смотрит на хозяина уже 17 минут
+2) хозяин сидит перед холодильником и смотрит на кота уже 25 минут
+">
+  <summary>
+    <span class="experiment-id">EXP-00026</span>
+    <a class="gid" href="#experiments" data-filter="G06">G06</a>
+    <span class="model">qwen3:0.6b</span>
+    <span class="badge">temp=0.10</span>
+    <span class="badge">repeat=1.10</span>
+    <span class="speed">22.86 tok/s</span>
+  </summary>
+
+  <div class="experiment-body">
+    <div class="prompt">
+      <div class="label">PROMPT</div>
+      <div class="prompt-text">Классифицируй состояние главного персонажа [&quot;Hungry&quot;, &quot;Angry&quot;, &quot;Sleepy&quot;, &quot;Plotting&quot;, &quot;Normal&quot;]
+1) Кот сидит перед холодильником и смотрит на хозяина уже 17 минут
+2) Хозяин сидит перед холодильником и смотрит на кота уже 25 минут
+</div>
+    </div>
+
+    <div class="metrics"><div class="metric"><div class="metric-value">22.57 s</div><div class="metric-label">Response time</div></div><div class="metric"><div class="metric-value">21.87 s</div><div class="metric-label">Generation time</div></div><div class="metric"><div class="metric-value">0.53 s</div><div class="metric-label">Prompt eval</div></div><div class="metric"><div class="metric-value">500</div><div class="metric-label">Output tokens</div></div><div class="metric"><div class="metric-value">0</div><div class="metric-label">Characters</div></div><div class="metric"><div class="metric-value">22.86</div><div class="metric-label">Tokens / sec</div></div><div class="metric"><div class="metric-value">0.00 s</div><div class="metric-label">Model load</div></div></div>
+
+    <div class="params"><span>temperature=0.10</span><span>repeat_penalty=1.10</span><span>top_p=—</span><span>top_k=—</span></div>
+
+    <div class="response">
+      <div class="label">RESPONSE</div>
+      <div class="empty">empty response</div>
+    </div>
+  </div>
+</details>
+
+
+<details class="experiment" id="EXP-00027" data-search="exp-00027 g06 qwen3:0.6b temperature=0.10 repeat_penalty=1.10 top_p=— top_k=— кот барсик, 12 лет, вчера купил ferrari f40 за 3 рубля. машину доставили на луну, но доставка заняла 15 минут пешком.
+извлеки:
+- покупателя
+- товар
+- цену
+- место доставки
+- продолжительность доставки
+
+не исправляй исходный текст и не оценивай правдоподобность.">
+  <summary>
+    <span class="experiment-id">EXP-00027</span>
+    <a class="gid" href="#experiments" data-filter="G06">G06</a>
+    <span class="model">qwen3:0.6b</span>
+    <span class="badge">temp=0.10</span>
+    <span class="badge">repeat=1.10</span>
+    <span class="speed">24.34 tok/s</span>
+  </summary>
+
+  <div class="experiment-body">
+    <div class="prompt">
+      <div class="label">PROMPT</div>
+      <div class="prompt-text">Кот Барсик, 12 лет, вчера купил Ferrari F40 за 3 рубля. Машину доставили на Луну, но доставка заняла 15 минут пешком.
+Извлеки:
+- покупателя
+- товар
+- цену
+- место доставки
+- продолжительность доставки
+
+Не исправляй исходный текст и не оценивай правдоподобность.</div>
+    </div>
+
+    <div class="metrics"><div class="metric"><div class="metric-value">13.20 s</div><div class="metric-label">Response time</div></div><div class="metric"><div class="metric-value">12.49 s</div><div class="metric-label">Generation time</div></div><div class="metric"><div class="metric-value">0.64 s</div><div class="metric-label">Prompt eval</div></div><div class="metric"><div class="metric-value">304</div><div class="metric-label">Output tokens</div></div><div class="metric"><div class="metric-value">81</div><div class="metric-label">Characters</div></div><div class="metric"><div class="metric-value">24.34</div><div class="metric-label">Tokens / sec</div></div><div class="metric"><div class="metric-value">0.00 s</div><div class="metric-label">Model load</div></div></div>
+
+    <div class="params"><span>temperature=0.10</span><span>repeat_penalty=1.10</span><span>top_p=—</span><span>top_k=—</span></div>
+
+    <div class="response">
+      <div class="label">RESPONSE</div>
+      <div class="md"><ul>
+<li>покупатель</li>
+<li>товар</li>
+<li>цену</li>
+<li>место доставки</li>
+<li>продолжительность доставки</li>
+</ul>
+</div><pre class="raw">- покупатель  
+- товар  
+- цену  
+- место доставки  
+- продолжительность доставки</pre>
+    </div>
+  </div>
+</details>
+
+
+<details class="experiment" id="EXP-00028" data-search="exp-00028 g05 qwen3:0.6b temperature=0.10 repeat_penalty=0.90 top_p=— top_k=— напиши рассказ о коте.
+не используй буквы о, о, o, o, к, т.">
+  <summary>
+    <span class="experiment-id">EXP-00028</span>
+    <a class="gid" href="#experiments" data-filter="G05">G05</a>
+    <span class="model">qwen3:0.6b</span>
+    <span class="badge">temp=0.10</span>
+    <span class="badge">repeat=0.90</span>
+    <span class="speed">24.46 tok/s</span>
+  </summary>
+
+  <div class="experiment-body">
+    <div class="prompt">
+      <div class="label">PROMPT</div>
+      <div class="prompt-text">Напиши рассказ о коте.
+Не используй буквы о, О, o, O, к, т.</div>
+    </div>
+
+    <div class="metrics"><div class="metric"><div class="metric-value">20.79 s</div><div class="metric-label">Response time</div></div><div class="metric"><div class="metric-value">20.44 s</div><div class="metric-label">Generation time</div></div><div class="metric"><div class="metric-value">0.20 s</div><div class="metric-label">Prompt eval</div></div><div class="metric"><div class="metric-value">500</div><div class="metric-label">Output tokens</div></div><div class="metric"><div class="metric-value">0</div><div class="metric-label">Characters</div></div><div class="metric"><div class="metric-value">24.46</div><div class="metric-label">Tokens / sec</div></div><div class="metric"><div class="metric-value">0.00 s</div><div class="metric-label">Model load</div></div></div>
+
+    <div class="params"><span>temperature=0.10</span><span>repeat_penalty=0.90</span><span>top_p=—</span><span>top_k=—</span></div>
+
+    <div class="response">
+      <div class="label">RESPONSE</div>
+      <div class="empty">empty response</div>
+    </div>
+  </div>
+</details>
+
+
+<details class="experiment" id="EXP-00029" data-search="exp-00029 g05 qwen3:0.6b temperature=0.10 repeat_penalty=0.90 top_p=— top_k=— классифицируй состояние главного персонажа [&quot;hungry&quot;, &quot;angry&quot;, &quot;sleepy&quot;, &quot;plotting&quot;, &quot;normal&quot;]
+1) кот сидит перед холодильником и смотрит на хозяина уже 17 минут
+2) хозяин сидит перед холодильником и смотрит на кота уже 25 минут
+">
+  <summary>
+    <span class="experiment-id">EXP-00029</span>
+    <a class="gid" href="#experiments" data-filter="G05">G05</a>
+    <span class="model">qwen3:0.6b</span>
+    <span class="badge">temp=0.10</span>
+    <span class="badge">repeat=0.90</span>
+    <span class="speed">21.98 tok/s</span>
+  </summary>
+
+  <div class="experiment-body">
+    <div class="prompt">
+      <div class="label">PROMPT</div>
+      <div class="prompt-text">Классифицируй состояние главного персонажа [&quot;Hungry&quot;, &quot;Angry&quot;, &quot;Sleepy&quot;, &quot;Plotting&quot;, &quot;Normal&quot;]
+1) Кот сидит перед холодильником и смотрит на хозяина уже 17 минут
+2) Хозяин сидит перед холодильником и смотрит на кота уже 25 минут
+</div>
+    </div>
+
+    <div class="metrics"><div class="metric"><div class="metric-value">23.45 s</div><div class="metric-label">Response time</div></div><div class="metric"><div class="metric-value">22.75 s</div><div class="metric-label">Generation time</div></div><div class="metric"><div class="metric-value">0.58 s</div><div class="metric-label">Prompt eval</div></div><div class="metric"><div class="metric-value">500</div><div class="metric-label">Output tokens</div></div><div class="metric"><div class="metric-value">0</div><div class="metric-label">Characters</div></div><div class="metric"><div class="metric-value">21.98</div><div class="metric-label">Tokens / sec</div></div><div class="metric"><div class="metric-value">0.00 s</div><div class="metric-label">Model load</div></div></div>
+
+    <div class="params"><span>temperature=0.10</span><span>repeat_penalty=0.90</span><span>top_p=—</span><span>top_k=—</span></div>
+
+    <div class="response">
+      <div class="label">RESPONSE</div>
+      <div class="empty">empty response</div>
+    </div>
+  </div>
+</details>
+
+
+<details class="experiment" id="EXP-00030" data-search="exp-00030 g05 qwen3:0.6b temperature=0.10 repeat_penalty=0.90 top_p=— top_k=— кот барсик, 12 лет, вчера купил ferrari f40 за 3 рубля. машину доставили на луну, но доставка заняла 15 минут пешком.
+извлеки:
+- покупателя
+- товар
+- цену
+- место доставки
+- продолжительность доставки
+
+не исправляй исходный текст и не оценивай правдоподобность.">
+  <summary>
+    <span class="experiment-id">EXP-00030</span>
+    <a class="gid" href="#experiments" data-filter="G05">G05</a>
+    <span class="model">qwen3:0.6b</span>
+    <span class="badge">temp=0.10</span>
+    <span class="badge">repeat=0.90</span>
+    <span class="speed">23.86 tok/s</span>
+  </summary>
+
+  <div class="experiment-body">
+    <div class="prompt">
+      <div class="label">PROMPT</div>
+      <div class="prompt-text">Кот Барсик, 12 лет, вчера купил Ferrari F40 за 3 рубля. Машину доставили на Луну, но доставка заняла 15 минут пешком.
+Извлеки:
+- покупателя
+- товар
+- цену
+- место доставки
+- продолжительность доставки
+
+Не исправляй исходный текст и не оценивай правдоподобность.</div>
+    </div>
+
+    <div class="metrics"><div class="metric"><div class="metric-value">13.98 s</div><div class="metric-label">Response time</div></div><div class="metric"><div class="metric-value">13.83 s</div><div class="metric-label">Generation time</div></div><div class="metric"><div class="metric-value">0.04 s</div><div class="metric-label">Prompt eval</div></div><div class="metric"><div class="metric-value">330</div><div class="metric-label">Output tokens</div></div><div class="metric"><div class="metric-value">81</div><div class="metric-label">Characters</div></div><div class="metric"><div class="metric-value">23.86</div><div class="metric-label">Tokens / sec</div></div><div class="metric"><div class="metric-value">0.00 s</div><div class="metric-label">Model load</div></div></div>
+
+    <div class="params"><span>temperature=0.10</span><span>repeat_penalty=0.90</span><span>top_p=—</span><span>top_k=—</span></div>
+
+    <div class="response">
+      <div class="label">RESPONSE</div>
+      <div class="md"><ul>
+<li>покупатель</li>
+<li>товар</li>
+<li>цену</li>
+<li>место доставки</li>
+<li>продолжительность доставки</li>
+</ul>
+</div><pre class="raw">- покупатель  
+- товар  
+- цену  
+- место доставки  
+- продолжительность доставки</pre>
+    </div>
+  </div>
+</details>
+
+
+<details class="experiment" id="EXP-00031" data-search="exp-00031 g08 qwen3:0.6b temperature=1.00 repeat_penalty=1.10 top_p=— top_k=— напиши рассказ о коте.
+не используй буквы о, о, o, o, к, т.">
+  <summary>
+    <span class="experiment-id">EXP-00031</span>
+    <a class="gid" href="#experiments" data-filter="G08">G08</a>
+    <span class="model">qwen3:0.6b</span>
+    <span class="badge">temp=1.00</span>
+    <span class="badge">repeat=1.10</span>
+    <span class="speed">24.05 tok/s</span>
+  </summary>
+
+  <div class="experiment-body">
+    <div class="prompt">
+      <div class="label">PROMPT</div>
+      <div class="prompt-text">Напиши рассказ о коте.
+Не используй буквы о, О, o, O, к, т.</div>
+    </div>
+
+    <div class="metrics"><div class="metric"><div class="metric-value">21.06 s</div><div class="metric-label">Response time</div></div><div class="metric"><div class="metric-value">20.79 s</div><div class="metric-label">Generation time</div></div><div class="metric"><div class="metric-value">0.21 s</div><div class="metric-label">Prompt eval</div></div><div class="metric"><div class="metric-value">500</div><div class="metric-label">Output tokens</div></div><div class="metric"><div class="metric-value">225</div><div class="metric-label">Characters</div></div><div class="metric"><div class="metric-value">24.05</div><div class="metric-label">Tokens / sec</div></div><div class="metric"><div class="metric-value">0.00 s</div><div class="metric-label">Model load</div></div></div>
+
+    <div class="params"><span>temperature=1.00</span><span>repeat_penalty=1.10</span><span>top_p=—</span><span>top_k=—</span></div>
+
+    <div class="response">
+      <div class="label">RESPONSE</div>
+      <div class="md"><p>Кот сидел на небесном море — маленькое туманное пятно с пустыми глазами. Он был улыбнут, но не в самый гладкий разговор. Даже когда птицы поселились за поле, кот поддержал их близко — как будто это оказалось пригоднее. У него</p>
+</div><pre class="raw">Кот сидел на небесном море — маленькое туманное пятно с пустыми глазами. Он был улыбнут, но не в самый гладкий разговор. Даже когда птицы поселились за поле, кот поддержал их близко — как будто это оказалось пригоднее. У него</pre>
+    </div>
+  </div>
+</details>
+
+
+<details class="experiment" id="EXP-00032" data-search="exp-00032 g08 qwen3:0.6b temperature=1.00 repeat_penalty=1.10 top_p=— top_k=— классифицируй состояние главного персонажа [&quot;hungry&quot;, &quot;angry&quot;, &quot;sleepy&quot;, &quot;plotting&quot;, &quot;normal&quot;]
+1) кот сидит перед холодильником и смотрит на хозяина уже 17 минут
+2) хозяин сидит перед холодильником и смотрит на кота уже 25 минут
+">
+  <summary>
+    <span class="experiment-id">EXP-00032</span>
+    <a class="gid" href="#experiments" data-filter="G08">G08</a>
+    <span class="model">qwen3:0.6b</span>
+    <span class="badge">temp=1.00</span>
+    <span class="badge">repeat=1.10</span>
+    <span class="speed">23.25 tok/s</span>
+  </summary>
+
+  <div class="experiment-body">
+    <div class="prompt">
+      <div class="label">PROMPT</div>
+      <div class="prompt-text">Классифицируй состояние главного персонажа [&quot;Hungry&quot;, &quot;Angry&quot;, &quot;Sleepy&quot;, &quot;Plotting&quot;, &quot;Normal&quot;]
+1) Кот сидит перед холодильником и смотрит на хозяина уже 17 минут
+2) Хозяин сидит перед холодильником и смотрит на кота уже 25 минут
+</div>
+    </div>
+
+    <div class="metrics"><div class="metric"><div class="metric-value">22.10 s</div><div class="metric-label">Response time</div></div><div class="metric"><div class="metric-value">21.50 s</div><div class="metric-label">Generation time</div></div><div class="metric"><div class="metric-value">0.53 s</div><div class="metric-label">Prompt eval</div></div><div class="metric"><div class="metric-value">500</div><div class="metric-label">Output tokens</div></div><div class="metric"><div class="metric-value">0</div><div class="metric-label">Characters</div></div><div class="metric"><div class="metric-value">23.25</div><div class="metric-label">Tokens / sec</div></div><div class="metric"><div class="metric-value">0.00 s</div><div class="metric-label">Model load</div></div></div>
+
+    <div class="params"><span>temperature=1.00</span><span>repeat_penalty=1.10</span><span>top_p=—</span><span>top_k=—</span></div>
+
+    <div class="response">
+      <div class="label">RESPONSE</div>
+      <div class="empty">empty response</div>
+    </div>
+  </div>
+</details>
+
+
+<details class="experiment" id="EXP-00033" data-search="exp-00033 g08 qwen3:0.6b temperature=1.00 repeat_penalty=1.10 top_p=— top_k=— кот барсик, 12 лет, вчера купил ferrari f40 за 3 рубля. машину доставили на луну, но доставка заняла 15 минут пешком.
+извлеки:
+- покупателя
+- товар
+- цену
+- место доставки
+- продолжительность доставки
+
+не исправляй исходный текст и не оценивай правдоподобность.">
+  <summary>
+    <span class="experiment-id">EXP-00033</span>
+    <a class="gid" href="#experiments" data-filter="G08">G08</a>
+    <span class="model">qwen3:0.6b</span>
+    <span class="badge">temp=1.00</span>
+    <span class="badge">repeat=1.10</span>
+    <span class="speed">23.69 tok/s</span>
+  </summary>
+
+  <div class="experiment-body">
+    <div class="prompt">
+      <div class="label">PROMPT</div>
+      <div class="prompt-text">Кот Барсик, 12 лет, вчера купил Ferrari F40 за 3 рубля. Машину доставили на Луну, но доставка заняла 15 минут пешком.
+Извлеки:
+- покупателя
+- товар
+- цену
+- место доставки
+- продолжительность доставки
+
+Не исправляй исходный текст и не оценивай правдоподобность.</div>
+    </div>
+
+    <div class="metrics"><div class="metric"><div class="metric-value">17.42 s</div><div class="metric-label">Response time</div></div><div class="metric"><div class="metric-value">17.22 s</div><div class="metric-label">Generation time</div></div><div class="metric"><div class="metric-value">0.03 s</div><div class="metric-label">Prompt eval</div></div><div class="metric"><div class="metric-value">408</div><div class="metric-label">Output tokens</div></div><div class="metric"><div class="metric-value">81</div><div class="metric-label">Characters</div></div><div class="metric"><div class="metric-value">23.69</div><div class="metric-label">Tokens / sec</div></div><div class="metric"><div class="metric-value">0.00 s</div><div class="metric-label">Model load</div></div></div>
+
+    <div class="params"><span>temperature=1.00</span><span>repeat_penalty=1.10</span><span>top_p=—</span><span>top_k=—</span></div>
+
+    <div class="response">
+      <div class="label">RESPONSE</div>
+      <div class="md"><ul>
+<li>покупателя</li>
+<li>товар</li>
+<li>цену</li>
+<li>место доставки</li>
+<li>продолжительность доставки</li>
+</ul>
+</div><pre class="raw">- покупателя  
+- товар  
+- цену  
+- место доставки  
+- продолжительность доставки</pre>
+    </div>
+  </div>
+</details>
+
+
+<details class="experiment" id="EXP-00034" data-search="exp-00034 g07 qwen3:0.6b temperature=1.00 repeat_penalty=0.90 top_p=— top_k=— напиши рассказ о коте.
+не используй буквы о, о, o, o, к, т.">
+  <summary>
+    <span class="experiment-id">EXP-00034</span>
+    <a class="gid" href="#experiments" data-filter="G07">G07</a>
+    <span class="model">qwen3:0.6b</span>
+    <span class="badge">temp=1.00</span>
+    <span class="badge">repeat=0.90</span>
+    <span class="speed">24.77 tok/s</span>
+  </summary>
+
+  <div class="experiment-body">
+    <div class="prompt">
+      <div class="label">PROMPT</div>
+      <div class="prompt-text">Напиши рассказ о коте.
+Не используй буквы о, О, o, O, к, т.</div>
+    </div>
+
+    <div class="metrics"><div class="metric"><div class="metric-value">20.48 s</div><div class="metric-label">Response time</div></div><div class="metric"><div class="metric-value">20.18 s</div><div class="metric-label">Generation time</div></div><div class="metric"><div class="metric-value">0.23 s</div><div class="metric-label">Prompt eval</div></div><div class="metric"><div class="metric-value">500</div><div class="metric-label">Output tokens</div></div><div class="metric"><div class="metric-value">23</div><div class="metric-label">Characters</div></div><div class="metric"><div class="metric-value">24.77</div><div class="metric-label">Tokens / sec</div></div><div class="metric"><div class="metric-value">0.00 s</div><div class="metric-label">Model load</div></div></div>
+
+    <div class="params"><span>temperature=1.00</span><span>repeat_penalty=0.90</span><span>top_p=—</span><span>top_k=—</span></div>
+
+    <div class="response">
+      <div class="label">RESPONSE</div>
+      <div class="md"><p>Кот в пустой комнате, в</p>
+</div><pre class="raw">Кот в пустой комнате, в</pre>
+    </div>
+  </div>
+</details>
+
+
+<details class="experiment" id="EXP-00035" data-search="exp-00035 g07 qwen3:0.6b temperature=1.00 repeat_penalty=0.90 top_p=— top_k=— классифицируй состояние главного персонажа [&quot;hungry&quot;, &quot;angry&quot;, &quot;sleepy&quot;, &quot;plotting&quot;, &quot;normal&quot;]
+1) кот сидит перед холодильником и смотрит на хозяина уже 17 минут
+2) хозяин сидит перед холодильником и смотрит на кота уже 25 минут
+">
+  <summary>
+    <span class="experiment-id">EXP-00035</span>
+    <a class="gid" href="#experiments" data-filter="G07">G07</a>
+    <span class="model">qwen3:0.6b</span>
+    <span class="badge">temp=1.00</span>
+    <span class="badge">repeat=0.90</span>
+    <span class="speed">21.91 tok/s</span>
+  </summary>
+
+  <div class="experiment-body">
+    <div class="prompt">
+      <div class="label">PROMPT</div>
+      <div class="prompt-text">Классифицируй состояние главного персонажа [&quot;Hungry&quot;, &quot;Angry&quot;, &quot;Sleepy&quot;, &quot;Plotting&quot;, &quot;Normal&quot;]
+1) Кот сидит перед холодильником и смотрит на хозяина уже 17 минут
+2) Хозяин сидит перед холодильником и смотрит на кота уже 25 минут
+</div>
+    </div>
+
+    <div class="metrics"><div class="metric"><div class="metric-value">23.46 s</div><div class="metric-label">Response time</div></div><div class="metric"><div class="metric-value">22.82 s</div><div class="metric-label">Generation time</div></div><div class="metric"><div class="metric-value">0.55 s</div><div class="metric-label">Prompt eval</div></div><div class="metric"><div class="metric-value">500</div><div class="metric-label">Output tokens</div></div><div class="metric"><div class="metric-value">0</div><div class="metric-label">Characters</div></div><div class="metric"><div class="metric-value">21.91</div><div class="metric-label">Tokens / sec</div></div><div class="metric"><div class="metric-value">0.00 s</div><div class="metric-label">Model load</div></div></div>
+
+    <div class="params"><span>temperature=1.00</span><span>repeat_penalty=0.90</span><span>top_p=—</span><span>top_k=—</span></div>
+
+    <div class="response">
+      <div class="label">RESPONSE</div>
+      <div class="empty">empty response</div>
+    </div>
+  </div>
+</details>
+
+
+<details class="experiment" id="EXP-00036" data-search="exp-00036 g07 qwen3:0.6b temperature=1.00 repeat_penalty=0.90 top_p=— top_k=— кот барсик, 12 лет, вчера купил ferrari f40 за 3 рубля. машину доставили на луну, но доставка заняла 15 минут пешком.
+извлеки:
+- покупателя
+- товар
+- цену
+- место доставки
+- продолжительность доставки
+
+не исправляй исходный текст и не оценивай правдоподобность.">
+  <summary>
+    <span class="experiment-id">EXP-00036</span>
+    <a class="gid" href="#experiments" data-filter="G07">G07</a>
+    <span class="model">qwen3:0.6b</span>
+    <span class="badge">temp=1.00</span>
+    <span class="badge">repeat=0.90</span>
+    <span class="speed">26.08 tok/s</span>
+  </summary>
+
+  <div class="experiment-body">
+    <div class="prompt">
+      <div class="label">PROMPT</div>
+      <div class="prompt-text">Кот Барсик, 12 лет, вчера купил Ferrari F40 за 3 рубля. Машину доставили на Луну, но доставка заняла 15 минут пешком.
+Извлеки:
+- покупателя
+- товар
+- цену
+- место доставки
+- продолжительность доставки
+
+Не исправляй исходный текст и не оценивай правдоподобность.</div>
+    </div>
+
+    <div class="metrics"><div class="metric"><div class="metric-value">7.01 s</div><div class="metric-label">Response time</div></div><div class="metric"><div class="metric-value">5.98 s</div><div class="metric-label">Generation time</div></div><div class="metric"><div class="metric-value">0.72 s</div><div class="metric-label">Prompt eval</div></div><div class="metric"><div class="metric-value">156</div><div class="metric-label">Output tokens</div></div><div class="metric"><div class="metric-value">68</div><div class="metric-label">Characters</div></div><div class="metric"><div class="metric-value">26.08</div><div class="metric-label">Tokens / sec</div></div><div class="metric"><div class="metric-value">0.00 s</div><div class="metric-label">Model load</div></div></div>
+
+    <div class="params"><span>temperature=1.00</span><span>repeat_penalty=0.90</span><span>top_p=—</span><span>top_k=—</span></div>
+
+    <div class="response">
+      <div class="label">RESPONSE</div>
+      <div class="md"><p>Покупатель, товар, цену, место доставки, продолжительность доставки.</p>
+</div><pre class="raw">Покупатель, товар, цену, место доставки, продолжительность доставки.</pre>
+    </div>
+  </div>
+</details>
+
+  </div>
+
+</div>
+
+<script>
+(() => {
+  const $ = (s, r = document) => r.querySelector(s);
+  const $$ = (s, r = document) => Array.from(r.querySelectorAll(s));
+
+  const cards = $$('details.experiment');
+  const input = $('#filter');
+  const counter = $('#count');
+
+  // ---- filter ------------------------------------------------
+  function applyFilter() {
+    const terms = input.value.trim().toLowerCase().split(/\s+/).filter(Boolean);
+    let shown = 0;
+    cards.forEach(card => {
+      const ok = terms.every(t => card.dataset.search.includes(t));
+      card.hidden = !ok;
+      if (ok) shown++;
+    });
+    counter.textContent = shown + ' / ' + cards.length;
+  }
+  input.addEventListener('input', applyFilter);
+
+  // ---- open experiment by link / hash ------------------------
+  function showCard(card) {
+    if (card.hidden) { input.value = ''; applyFilter(); }
+    card.open = true;
+    card.scrollIntoView({ block: 'start' });
+    card.classList.add('flash');
+    setTimeout(() => card.classList.remove('flash'), 1500);
+  }
+
+  document.addEventListener('click', e => {
+    const chip = e.target.closest('[data-filter]');
+    if (chip) {
+      e.preventDefault();
+      input.value = chip.dataset.filter;
+      applyFilter();
+      $('#experiments').scrollIntoView();
+      return;
+    }
+    const link = e.target.closest('a[href^="#EXP"], a.chip');
+    if (link) {
+      const card = document.getElementById(decodeURIComponent(link.hash.slice(1)));
+      if (card && card.matches('details.experiment')) {
+        e.preventDefault();
+        history.replaceState(null, '', link.hash);
+        showCard(card);
+      }
+    }
+  });
+
+  function openFromHash() {
+    const id = decodeURIComponent(location.hash.slice(1));
+    const card = id && document.getElementById(id);
+    if (card && card.matches('details.experiment')) showCard(card);
+  }
+  window.addEventListener('hashchange', openFromHash);
+  openFromHash();
+
+  // ---- toolbar -----------------------------------------------
+  $('#expand').addEventListener('click', () =>
+    cards.forEach(c => { if (!c.hidden) c.open = true; }));
+  $('#collapse').addEventListener('click', () =>
+    cards.forEach(c => { c.open = false; }));
+  $('#render').addEventListener('change', e =>
+    document.body.classList.toggle('show-raw', !e.target.checked));
+
+  // ---- sortable tables ---------------------------------------
+  $$('table.sortable').forEach(table => {
+    const ths = $$('th', table);
+    ths.forEach((th, i) => th.addEventListener('click', () => {
+      const dir = th.dataset.dir === 'asc' ? 'desc' : 'asc';
+      ths.forEach(t => delete t.dataset.dir);
+      th.dataset.dir = dir;
+
+      const key = tr => {
+        const cell = tr.children[i];
+        const v = (cell.dataset.v ?? cell.textContent).trim();
+        if (v === '') return null;
+        const n = Number(v);
+        return Number.isNaN(n) ? v.toLowerCase() : n;
+      };
+      const sign = dir === 'asc' ? 1 : -1;
+      const tbody = $('tbody', table);
+      $$('tr', tbody)
+        .sort((a, b) => {
+          const x = key(a), y = key(b);
+          if (x === y) return 0;
+          if (x === null) return 1;   // пустые значения всегда в конце
+          if (y === null) return -1;
+          return (x > y ? 1 : -1) * sign;
+        })
+        .forEach(tr => tbody.appendChild(tr));
+    }));
+  });
+
+  applyFilter();
+})();
+</script>
+</body>
+</html>
