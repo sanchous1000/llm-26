@@ -1,0 +1,39 @@
+# Конфигурации для сравнения на шаге 5.
+# set — переопределения config.yaml (параметры индекса, шаг 3–4); mode — режим поиска.
+# Конфигурации с одинаковыми параметрами индекса используют одну коллекцию
+# (vector_type: hybrid хранит и dense, и BM25 — режимы поиска сравниваются на одном индексе).
+
+ks: [5, 10]
+
+experiments:
+  # --- базовый индекс: hybrid-сплиттер, 512/64, с заголовками; три режима поиска
+  - name: E1_dense
+    set: {chunking.splitter: hybrid, chunking.chunk_size: 512, chunking.overlap: 64, chunking.include_headers: true}
+    mode: dense
+  - name: E2_bm25
+    set: {chunking.splitter: hybrid, chunking.chunk_size: 512, chunking.overlap: 64, chunking.include_headers: true}
+    mode: sparse
+  - name: E3_hybrid
+    set: {chunking.splitter: hybrid, chunking.chunk_size: 512, chunking.overlap: 64, chunking.include_headers: true}
+    mode: hybrid
+
+  # --- влияние размера чанка
+  - name: E4_hybrid_cs256
+    set: {chunking.splitter: hybrid, chunking.chunk_size: 256, chunking.overlap: 32, chunking.include_headers: true}
+    mode: hybrid
+  - name: E5_hybrid_cs1000
+    set: {chunking.splitter: hybrid, chunking.chunk_size: 1000, chunking.overlap: 100, chunking.include_headers: true}
+    mode: hybrid
+
+  # --- влияние сплиттера
+  - name: E6_recursive_cs512
+    set: {chunking.splitter: recursive, chunking.chunk_size: 512, chunking.overlap: 64, chunking.include_headers: true}
+    mode: hybrid
+  - name: E7_markdown_cs512
+    set: {chunking.splitter: markdown, chunking.chunk_size: 512, chunking.overlap: 0, chunking.include_headers: true}
+    mode: hybrid
+
+  # --- влияние заголовков в тексте чанка
+  - name: E8_hybrid_noheaders
+    set: {chunking.splitter: hybrid, chunking.chunk_size: 512, chunking.overlap: 64, chunking.include_headers: false}
+    mode: hybrid

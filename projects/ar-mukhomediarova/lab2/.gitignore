@@ -1,0 +1,10 @@
+# Документы НИР и их производные не публикуются
+data/
+artifacts/
+qdrant_storage/
+qdrant_local/
+# ответы со сниппетами документов (в отчёт переносятся выборочно)
+results/qa_answers.md
+.venv/
+__pycache__/
+.DS_Store

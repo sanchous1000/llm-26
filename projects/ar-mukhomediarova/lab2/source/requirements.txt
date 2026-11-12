@@ -1,0 +1,17 @@
+pyyaml>=6.0
+numpy>=1.26
+pandas>=2.0
+tabulate>=0.9
+# парсинг
+python-docx>=1.1
+openpyxl>=3.1
+pymupdf>=1.24
+# чанкинг и векторизация
+tokenizers>=0.15
+snowballstemmer>=2.2
+openai>=1.40
+# векторное хранилище
+qdrant-client>=1.12
+# сервис
+fastapi>=0.110
+uvicorn>=0.29
