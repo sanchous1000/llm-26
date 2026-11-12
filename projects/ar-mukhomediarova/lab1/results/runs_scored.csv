@@ -1,0 +1,609 @@
+timestamp,model,prompt_id,mode,repeat,response,finish_reason,latency_s,ttft_s,prompt_tokens,completion_tokens,usage_from_server,prefill_tps,decode_tps,score,repeated_trigrams,format_ok,details
+2026-11-06T16:44:32,qwen2.5:7b,P1_generation,A_base,1,"Тема: Изменение сроков доставки и особые условия для вас
+
+Уважаемая Анна Сергеевна!
+
+Мы хотели бы извиниться за причиненные неудобства из-за задержки доставки вашего ноутбука заказа № 48213. С уважением сообщаем, что новый срок доставки — 14 ноября. В качестве компенсации мы предлагаем скидку 10% на следующий заказ с использованием промокода SORRY10.
+
+Спасибо за ваше терпение и понимание. Мы работаем над улучшением процессов и надеемся на дальнейшее сотрудничество.
+
+С уважением,
+Служба поддержки интернет-магазина «ТехноДом»",stop,32.894,2.39,219,190,True,91.64,6.2,1.0,0.0,True,"{""missing_facts"": [], ""word_count"": 73, ""length_ok"": true}"
+2026-11-06T16:45:05,qwen2.5:7b,P1_generation,A_base,2,"Тема: Изменение сроков доставки и приятный сюрприз для вас!
+
+Уважаемая Анна Сергеевна,
+
+Мы хотели бы извиниться за доставленные неудобства в связи с задержкой вашего заказа № 48213 на ноутбук. Из-за сбоя у нашего поставщика сроки доставки были вынуждены пересмотреть. Мы рады сообщить, что ваш заказ будет доставлен не позднее 14 ноября.
+
+В благодарность за ваше понимание мы предлагаем вам скидку 10% на следующий заказ по промокоду SORRY10.
+
+Благодарим за ваше терпение и надеемся на дальнейшее сотрудничество!
+
+С уважением,
+Служба поддержки интернет-магазина «ТехноДом»",stop,32.93,0.163,219,211,True,1345.97,6.41,1.0,0.0,True,"{""missing_facts"": [], ""word_count"": 83, ""length_ok"": true}"
+2026-11-06T16:45:38,qwen2.5:7b,P1_generation,A_base,3,"Тема: О задержке доставки вашего заказа и компенсации
+
+Уважаемая Анна Сергеевна!
+
+Мы извиняемся за неудобства, причиненные из-за задержки доставки вашего заказа № 48213. К сожалению, сбой у нашего поставщика привел к задержке. Новая дата доставки — 14 ноября. В качестве компенсации предлагаем скидку 10% на следующий заказ с промокодом SORRY10.
+
+Благодарим за ваше терпение и понимание.
+
+С уважением,
+Служба поддержки интернет-магазина «ТехноДом»",stop,37.12,0.2,219,176,True,1096.58,4.74,1.0,0.017,True,"{""missing_facts"": [], ""word_count"": 62, ""length_ok"": true}"
+2026-11-06T16:46:15,qwen2.5:7b,P1_generation,B_tuned,1,"Тема: Изменение сроков доставки и предложение компенсации
+
+Уважаемая Анна Сергеевна!
+
+Мы хотели бы извиниться за неудобства, вызванные задержкой доставки вашего заказа № 48213 с ноутбуком. Сожалеем о причиненных неудобствах и благодарим вас за понимание.
+
+Приносим извинения за сбой у нашего поставщика. Новая дата доставки вашего заказа — 14 ноября. В качестве компенсации предлагаем вам скидку 10% на следующий заказ с использованием промокода SORRY10.
+
+Благодарим вас за доверие к нашему интернет-магазину «ТехноДом».
+
+С уважением,
+Служба поддержки «ТехноДом»",stop,35.676,0.233,219,212,True,938.9,5.95,1.0,0.027,True,"{""missing_facts"": [], ""word_count"": 75, ""length_ok"": true}"
+2026-11-06T16:46:51,qwen2.5:7b,P1_generation,B_tuned,2,"Тема: Изменение сроков доставки и предложение компенсации
+
+Уважаемая Анна Сергеевна!
+
+Мы хотели бы извиниться за доставленные неудобства из-за задержки доставки вашего заказа № 48213 (ноутбук). Сожалеем о причиненных неудобствах и благодарим вас за понимание.
+
+Поставщик столкнулся с техническими проблемами, из-за которых сроки доставки были нарушены. Новая дата ожидаемой доставки — 14 ноября.
+
+В качестве компенсации предлагаем вам скидку 10% на следующий заказ. Промокод: SORRY10.
+
+Мы ценим ваше доверие и надеемся на дальнейшее сотрудничество.
+
+С уважением,
+Служба поддержки интернет-магазина «ТехноДом»",stop,40.938,0.163,219,228,True,1345.18,5.57,1.0,0.0,True,"{""missing_facts"": [], ""word_count"": 80, ""length_ok"": true}"
+2026-11-06T16:47:32,qwen2.5:7b,P1_generation,B_tuned,3,"Тема: Изменение сроков доставки и предложение компенсации
+
+Уважаемая Анна Сергеевна!
+
+Мы хотели бы извиниться за неудобства, вызванные задержкой доставки вашего заказа № 48213 (ноутбук). К сожалению, сбой у нашего поставщика привел к задержке. Новая дата доставки — 14 ноября.
+
+Как компенсацию за доставленные неудобства, предлагаем вам скидку 10% на следующий заказ по промокоду SORRY10.
+
+Мы ценим ваше понимание и надеемся на дальнейшее сотрудничество.
+
+С уважением,
+Служба поддержки интернет-магазина «ТехноДом»",stop,33.544,0.176,219,199,True,1244.17,5.93,1.0,0.0,True,"{""missing_facts"": [], ""word_count"": 68, ""length_ok"": true}"
+2026-11-06T16:48:05,qwen2.5:7b,P2_classification,A_base,1,"1: Billing
+2: Tech support
+3: Sales
+4: Tech support
+5: Billing
+6: Sales",stop,6.87,2.67,247,26,True,92.5,5.95,1.0,0.0,True,"{""predicted"": {""1"": ""Billing"", ""2"": ""Tech support"", ""3"": ""Sales"", ""4"": ""Tech support"", ""5"": ""Billing"", ""6"": ""Sales""}, ""errors"": {}, ""format_ok"": true}"
+2026-11-06T16:48:12,qwen2.5:7b,P2_classification,A_base,2,"1: Billing
+2: Tech support
+3: Sales
+4: Tech support
+5: Billing
+6: Sales",stop,4.345,0.182,247,26,True,1356.11,6.01,1.0,0.0,True,"{""predicted"": {""1"": ""Billing"", ""2"": ""Tech support"", ""3"": ""Sales"", ""4"": ""Tech support"", ""5"": ""Billing"", ""6"": ""Sales""}, ""errors"": {}, ""format_ok"": true}"
+2026-11-06T16:48:16,qwen2.5:7b,P2_classification,A_base,3,"1: Billing
+2: Tech support
+3: Sales
+4: Tech support
+5: Billing
+6: Sales",stop,4.308,0.17,247,26,True,1452.62,6.04,1.0,0.0,True,"{""predicted"": {""1"": ""Billing"", ""2"": ""Tech support"", ""3"": ""Sales"", ""4"": ""Tech support"", ""5"": ""Billing"", ""6"": ""Sales""}, ""errors"": {}, ""format_ok"": true}"
+2026-11-06T16:48:21,qwen2.5:7b,P2_classification,B_tuned,1,"1: Billing
+2: Tech support
+3: Sales
+4: Tech support
+5: Billing
+6: Sales",stop,4.307,0.169,247,26,True,1458.41,6.04,1.0,0.0,True,"{""predicted"": {""1"": ""Billing"", ""2"": ""Tech support"", ""3"": ""Sales"", ""4"": ""Tech support"", ""5"": ""Billing"", ""6"": ""Sales""}, ""errors"": {}, ""format_ok"": true}"
+2026-11-06T16:48:25,qwen2.5:7b,P2_classification,B_tuned,2,"1: Billing
+2: Tech support
+3: Sales
+4: Tech support
+5: Billing
+6: Sales",stop,4.309,0.17,247,26,True,1452.06,6.04,1.0,0.0,True,"{""predicted"": {""1"": ""Billing"", ""2"": ""Tech support"", ""3"": ""Sales"", ""4"": ""Tech support"", ""5"": ""Billing"", ""6"": ""Sales""}, ""errors"": {}, ""format_ok"": true}"
+2026-11-06T16:48:29,qwen2.5:7b,P2_classification,B_tuned,3,"1: Billing
+2: Tech support
+3: Sales
+4: Tech support
+5: Billing
+6: Sales",stop,4.292,0.171,247,26,True,1440.42,6.07,1.0,0.0,True,"{""predicted"": {""1"": ""Billing"", ""2"": ""Tech support"", ""3"": ""Sales"", ""4"": ""Tech support"", ""5"": ""Billing"", ""6"": ""Sales""}, ""errors"": {}, ""format_ok"": true}"
+2026-11-06T16:48:34,qwen2.5:7b,P3_extraction,A_base,1,"{
+""name"": ""Nebula X5"",
+""brand"": ""Orion"",
+""color"": ""графит"",
+""screen_inches"": 6.7,
+""ram_gb"": 8,
+""storage_gb"": 256,
+""battery_mah"": 5000,
+""weight_g"": 189,
+""price"": 54990,
+""currency"": ""RUB"",
+""warranty_months"": null,
+""summary"": ""Смартфон Orion Nebula X5 с AMOLED-экраном 6.7 дюйма, 8 ГБ RAM и 256 ГБ встроенной памяти.""
+}",stop,27.091,3.528,301,143,True,85.32,6.03,1.0,0.0,True,"{""json_valid"": true, ""json_only"": true, ""wrong_fields"": [], ""hallucinated_warranty"": false, ""summary_words"": 18, ""summary_ok"": true}"
+2026-11-06T16:49:01,qwen2.5:7b,P3_extraction,A_base,2,"{
+""name"": ""X5"",
+""brand"": ""Nebula"",
+""color"": ""графит"",
+""screen_inches"": 6.7,
+""ram_gb"": 8,
+""storage_gb"": 256,
+""battery_mah"": 5000,
+""weight_g"": 189,
+""price"": 54990,
+""currency"": ""RUB"",
+""warranty_months"": null,
+""summary"": ""Смартфон Nebula X5, AMOLED, 6.7 дюймов, 8 ГБ RAM, 256 ГБ встроенного хранилища, аккумулятор 5000 мА·ч.""
+}",stop,25.486,0.164,301,154,True,1834.17,6.04,0.818,0.0,True,"{""json_valid"": true, ""json_only"": true, ""wrong_fields"": [""name"", ""brand""], ""hallucinated_warranty"": false, ""summary_words"": 18, ""summary_ok"": true}"
+2026-11-06T16:49:26,qwen2.5:7b,P3_extraction,A_base,3,"{
+""name"": ""Nebula X5"",
+""brand"": ""Orion"",
+""color"": ""графит"",
+""screen_inches"": 6.7,
+""ram_gb"": 8,
+""storage_gb"": 256,
+""battery_mah"": 5000,
+""weight_g"": 189,
+""price"": 54990,
+""currency"": ""RUB"",
+""warranty_months"": null,
+""summary"": ""Смартфон Orion Nebula X5 с AMOLED-экраном 6.7 дюйма, 8 ГБ RAM и 256 ГБ встроенной памяти.""
+}",stop,23.052,0.172,301,143,True,1748.7,6.21,1.0,0.0,True,"{""json_valid"": true, ""json_only"": true, ""wrong_fields"": [], ""hallucinated_warranty"": false, ""summary_words"": 18, ""summary_ok"": true}"
+2026-11-06T16:49:49,qwen2.5:7b,P3_extraction,B_tuned,1,"{
+""name"": ""Nebula X5"",
+""brand"": ""Orion"",
+""color"": ""графит"",
+""screen_inches"": 6.7,
+""ram_gb"": 8,
+""storage_gb"": 256,
+""battery_mah"": 5000,
+""weight_g"": 189,
+""price"": 54990,
+""currency"": ""RUB"",
+""warranty_months"": null,
+""summary"": ""Смартфон Orion Nebula X5, AMOLED экран 6.7 дюйма, 8 ГБ RAM, 256 ГБorage.""
+}",stop,22.151,0.167,301,135,True,1801.54,6.1,1.0,0.0,True,"{""json_valid"": true, ""json_only"": true, ""wrong_fields"": [], ""hallucinated_warranty"": false, ""summary_words"": 14, ""summary_ok"": true}"
+2026-11-06T16:50:11,qwen2.5:7b,P3_extraction,B_tuned,2,"{
+""name"": ""Nebula X5"",
+""brand"": ""Orion"",
+""color"": ""графит"",
+""screen_inches"": 6.7,
+""ram_gb"": 8,
+""storage_gb"": 256,
+""battery_mah"": 5000,
+""weight_g"": 189,
+""price"": 54990,
+""currency"": ""RUB"",
+""warranty_months"": null,
+""summary"": ""Смартфон Orion Nebula X5, AMOLED 6.7 дюймов, 8 ГБ RAM, 256 ГБ памяти, 5000 мА·ч батарея""
+}",stop,25.505,0.165,301,152,True,1823.5,5.96,1.0,0.0,True,"{""json_valid"": true, ""json_only"": true, ""wrong_fields"": [], ""hallucinated_warranty"": false, ""summary_words"": 18, ""summary_ok"": true}"
+2026-11-06T16:50:37,qwen2.5:7b,P3_extraction,B_tuned,3,"{
+""name"": ""Nebula X5"",
+""brand"": ""Orion"",
+""color"": ""графит"",
+""screen_inches"": 6.7,
+""ram_gb"": 8,
+""storage_gb"": 256,
+""battery_mah"": 5000,
+""weight_g"": 189,
+""price"": 54990,
+""currency"": ""RUB"",
+""warranty_months"": null,
+""summary"": ""Смартфон Orion Nebula X5 с AMOLED экраном 6.7 дюйма, 8 ГБ RAM и 256 ГБ встроенной памяти.""
+}",stop,22.659,0.173,301,141,True,1737.76,6.23,1.0,0.0,True,"{""json_valid"": true, ""json_only"": true, ""wrong_fields"": [], ""hallucinated_warranty"": false, ""summary_words"": 18, ""summary_ok"": true}"
+2026-11-06T16:51:05,llama3.1:8b,P1_generation,A_base,1,"Предоставлю вам письмо, согласно описанию:
+
+Тема: Извинения за задержку заказа № 48213
+
+Приветствую, Анна Сергеевна!
+
+От имени всей команды интернет-магазина «ТехноДом» хотим официально извиниться за задержку вашего заказа № 48213. Несмотря на нашу тщательную работу по организации логистики, у нашего поставщика произошел сбой, из-за которого доставка заказа не может быть выполнена в срок.
+
+Вместе с тем, нам приятно сообщить, что мы уже нашли решение этой проблемы. Новая дата доставки – 14 ноября. Мы надеемся, что это не доставит вам неудобств.
+
+В качестве компенсации за затруднение, мы хотим предложить вам скидку 10% на следующий заказ. Чтобы воспользоваться этой скидкой, просто введите промокод SORRY10 при оформлении заказа.
+
+Пожалуйста, принимайте наши извинения. Если у вас есть вопросы или замечания, не стесняйтесь обращаться к нам.
+
+С уважением,
+Служба поддержки интернет-магазина «ТехноДом»",stop,51.879,2.303,179,287,True,77.73,5.77,1.0,0.008,True,"{""missing_facts"": [], ""word_count"": 127, ""length_ok"": true}"
+2026-11-06T16:51:57,llama3.1:8b,P1_generation,A_base,2,"Тема: Ответ на ваш заказ № 48213
+
+Анна Сергеевна,
+
+Мы хотим извиниться за задержку вашего заказа № 48213, в который входил ноутбук. Нам сожалеют, что вы не получили его вовремя. На данный момент поставщик столкнулся с неожиданным сбоям, что привело к задержке доставки товара. После того, как проблема решена, мы ожидаем получения заказа у вас в срок 14 ноября.
+
+Мы хотим компенсировать это неудобство скидкой 10% на следующий заказ. Чтобы воспользоваться скидкой, используйте промокод SORRY10 при оформлении следующего заказа.
+
+Если у вас есть вопросы, не стесняйтесь обращаться к нам.
+
+С уважением,
+Служба поддержки «ТехноДом».",stop,34.485,0.175,179,205,True,1021.28,5.95,1.0,0.0,True,"{""missing_facts"": [], ""word_count"": 92, ""length_ok"": true}"
+2026-11-06T16:52:31,llama3.1:8b,P1_generation,A_base,3,"Уважаемая Анна Сергеевна,
+
+Мы хотим извиниться перед вами за задержку вашего заказа № 48213. Наши поставщики столкнулись с непредвиденной проблемой, из-за которой невозможно обеспечить необходимые товары в срок. Планируемая дата доставки теперь — 14 ноября.
+
+Мы хотим выразить признательность за ваше терпение и понимание. В качестве компенсации мы предоставляем вам скидку 10% на следующий заказ. Чтобы воспользоваться этой возможностью, воспользуйтесь промокодом SORRY10 при оформлении заказа.
+
+Пожалуйста, если у вас есть какие-либо вопросы, не сомневайтесь, обращайтесь к нам. Мы готовы помочь.
+
+С уважением,
+Служба поддержки интернет-магазина «ТехноДом».",stop,35.455,0.168,179,206,True,1063.48,5.81,1.0,0.0,True,"{""missing_facts"": [], ""word_count"": 87, ""length_ok"": true}"
+2026-11-06T16:53:07,llama3.1:8b,P1_generation,B_tuned,1,"Тема: Извинения за задержку заказа № 48213
+
+Дорогая Анна Сергеевна,
+
+Мы хотим извиниться за задержку вашего заказа № 48213, который был отправлен к вам с нашего интернет-магазина «ТехноДом». Мы понимаем, что такое задержки доставки могут быть неудобны и неожиданны.
+
+Пожалуйста, прощите нас, что мы не смогли выполнить нашу обычную скорость доставки. Сбой у нашего поставщика привел к задержке, но мы работаем над тем, чтобы исправить ситуацию как можно скорее.
+
+Новая дата доставки вашего заказа — 14 ноября. Мы надеемся, что вы будете довольны нашим продуктом и что он будет соответствовать вашим ожиданиям.
+
+В качестве компенсации за неудобства мы предоставляем вам скидку 10% на следующий заказ. Чтобы воспользоваться этой скидкой, просто введите промокод SORRY10 при оформлении заказа.
+
+Если у вас есть какие-либо вопросы или проблемы, не стесняйтесь обращаться к нам.
+
+С уважением,
+
+Служба поддержки «ТехноДом»",stop,50.21,0.169,179,294,True,1056.28,5.86,1.0,0.0,True,"{""missing_facts"": [], ""word_count"": 133, ""length_ok"": true}"
+2026-11-06T16:53:57,llama3.1:8b,P1_generation,B_tuned,2,"Тема: Извинения за задержку заказа № 48213
+
+Дорогая Анна Сергеевна,
+
+Мы хотим извиниться перед вами за задержку вашего заказа № 48213. Нам пришлось столкнуться с неожиданным сбоям у нашего поставщика, что привело к задержке поставки вашего ноутбука.
+
+Новая дата доставки вашего заказа — 14 ноября. Мы понимаем, что это не тот срок, который вы ожидали, и хотим извиниться за причиненное неудобство.
+
+В качестве компенсации за это неудобство мы хотим предложить вам скидку 10% на следующий заказ. Чтобы воспользоваться этой скидкой, просто введите промокод SORRY10 при оформлении заказа.
+
+Если у вас есть какие-либо вопросы или проблемы, не стесняйтесь обращаться к нам.
+
+С уважением,
+Служба поддержки «ТехноДом».",stop,39.099,0.177,179,232,True,1012.57,5.93,1.0,0.0,True,"{""missing_facts"": [], ""word_count"": 103, ""length_ok"": true}"
+2026-11-06T16:54:36,llama3.1:8b,P1_generation,B_tuned,3,"Тема: Извинения за задержку заказа № 48213
+
+Дорогая Анна Сергеевна,
+
+Мы хотим извиниться за задержку вашего заказа № 48213. Нам пришлось столкнуться с неожиданным сбоем у нашего поставщика, что повлияло на сроки доставки. Мы понимаем, что это неудобно для вас и хотим сообщить, что новая дата доставки — 14 ноября.
+
+Хотим вас заверить, что мы работаем над решением этой проблемы и сделаем все возможное, чтобы ваш заказ был доставлен как можно скорее.
+
+В качестве компенсации за неудобства мы хотим предложить вам скидку 10% на следующий заказ. Для этого воспользуйтесь промокодом SORRY10 при оформлении заказа.
+
+Если у вас есть какие-либо вопросы или проблемы, не стесняйтесь обращаться к нам.
+
+С уважением,
+Служба поддержки «ТехноДома»",stop,40.586,0.178,179,235,True,1006.99,5.79,1.0,0.0,True,"{""missing_facts"": [], ""word_count"": 110, ""length_ok"": true}"
+2026-11-06T16:55:16,llama3.1:8b,P2_classification,A_base,1,"1: Billing
+2: Tech support
+3: Sales
+4: Tech support
+5: Billing
+6: Sales",stop,6.955,2.801,218,26,True,77.83,6.02,1.0,0.0,True,"{""predicted"": {""1"": ""Billing"", ""2"": ""Tech support"", ""3"": ""Sales"", ""4"": ""Tech support"", ""5"": ""Billing"", ""6"": ""Sales""}, ""errors"": {}, ""format_ok"": true}"
+2026-11-06T16:55:23,llama3.1:8b,P2_classification,A_base,2,"1: Billing
+2: Tech support
+3: Sales
+4: Tech support
+5: Billing
+6: Sales",stop,4.351,0.172,218,26,True,1268.1,5.98,1.0,0.0,True,"{""predicted"": {""1"": ""Billing"", ""2"": ""Tech support"", ""3"": ""Sales"", ""4"": ""Tech support"", ""5"": ""Billing"", ""6"": ""Sales""}, ""errors"": {}, ""format_ok"": true}"
+2026-11-06T16:55:28,llama3.1:8b,P2_classification,A_base,3,"1: Billing
+2: Tech support
+3: Sales
+4: Tech support
+5: Billing
+6: Sales",stop,4.414,0.174,218,26,True,1249.47,5.9,1.0,0.0,True,"{""predicted"": {""1"": ""Billing"", ""2"": ""Tech support"", ""3"": ""Sales"", ""4"": ""Tech support"", ""5"": ""Billing"", ""6"": ""Sales""}, ""errors"": {}, ""format_ok"": true}"
+2026-11-06T16:55:32,llama3.1:8b,P2_classification,B_tuned,1,"1: Billing
+2: Tech support
+3: Sales
+4: Tech support
+5: Billing
+6: Tech support",stop,4.605,0.175,218,27,True,1244.41,5.87,0.833,0.0,True,"{""predicted"": {""1"": ""Billing"", ""2"": ""Tech support"", ""3"": ""Sales"", ""4"": ""Tech support"", ""5"": ""Billing"", ""6"": ""Tech support""}, ""errors"": {""6"": {""gold"": ""Sales"", ""pred"": ""Tech support""}}, ""format_ok"": true}"
+2026-11-06T16:55:37,llama3.1:8b,P2_classification,B_tuned,2,"1: Billing
+2: Tech support
+3: Sales
+4: Tech support
+5: Billing
+6: Sales",stop,4.39,0.175,218,26,True,1245.46,5.93,1.0,0.0,True,"{""predicted"": {""1"": ""Billing"", ""2"": ""Tech support"", ""3"": ""Sales"", ""4"": ""Tech support"", ""5"": ""Billing"", ""6"": ""Sales""}, ""errors"": {}, ""format_ok"": true}"
+2026-11-06T16:55:41,llama3.1:8b,P2_classification,B_tuned,3,"1: Billing
+2: Tech support
+3: Sales
+4: Tech support
+5: Billing
+6: Sales",stop,4.376,0.166,218,26,True,1312.33,5.94,1.0,0.0,True,"{""predicted"": {""1"": ""Billing"", ""2"": ""Tech support"", ""3"": ""Sales"", ""4"": ""Tech support"", ""5"": ""Billing"", ""6"": ""Sales""}, ""errors"": {}, ""format_ok"": true}"
+2026-11-06T16:55:46,llama3.1:8b,P3_extraction,A_base,1,"{
+""name"": ""Nebula X5"",
+""brand"": ""Orion"",
+""color"": ""графит"",
+""screen_inches"": 6.7,
+""ram_gb"": 8,
+""storage_gb"": 256,
+""battery_mah"": 5000,
+""weight_g"": 189,
+""price"": 54990,
+""currency"": ""RUB"",
+""warranty_months"": null,
+""summary"": ""Новинка осени от компании Orion""
+}",stop,20.18,3.403,257,100,True,75.52,5.9,1.0,0.0,True,"{""json_valid"": true, ""json_only"": true, ""wrong_fields"": [], ""hallucinated_warranty"": false, ""summary_words"": 5, ""summary_ok"": true}"
+2026-11-06T16:56:06,llama3.1:8b,P3_extraction,A_base,2,"{
+""name"": ""Nebula X5"",
+""brand"": ""Orion"",
+""color"": ""графит"",
+""screen_inches"": 6.7,
+""ram_gb"": 8,
+""storage_gb"": 256,
+""battery_mah"": 5000,
+""weight_g"": 189,
+""price"": 54990,
+""currency"": ""RUB"",
+""warranty_months"": null,
+""summary"": ""Новинка осени от компании Orion""
+}",stop,17.026,0.173,257,100,True,1487.98,5.87,1.0,0.0,True,"{""json_valid"": true, ""json_only"": true, ""wrong_fields"": [], ""hallucinated_warranty"": false, ""summary_words"": 5, ""summary_ok"": true}"
+2026-11-06T16:56:23,llama3.1:8b,P3_extraction,A_base,3,"{
+    ""name"": ""Nebula X5"",
+    ""brand"": ""Orion"",
+    ""color"": ""графит"",
+    ""screen_inches"": 6.7,
+    ""ram_gb"": 8,
+    ""storage_gb"": 256,
+    ""battery_mah"": 5000,
+    ""weight_g"": 189,
+    ""price"": 54990,
+    ""currency"": ""RUB"",
+    ""warranty_months"": null,
+    ""summary"": ""Новинка осени с высокими характеристиками""
+}",stop,20.407,0.169,257,121,True,1522.49,5.93,1.0,0.0,True,"{""json_valid"": true, ""json_only"": true, ""wrong_fields"": [], ""hallucinated_warranty"": false, ""summary_words"": 5, ""summary_ok"": true}"
+2026-11-06T16:56:43,llama3.1:8b,P3_extraction,B_tuned,1,"{
+  ""name"": ""Nebula X5"",
+  ""brand"": ""Orion"",
+  ""color"": ""графит"",
+  ""screen_inches"": 6.7,
+  ""ram_gb"": 8,
+  ""storage_gb"": 256,
+  ""battery_mah"": 5000,
+  ""weight_g"": 189,
+  ""price"": 54990,
+  ""currency"": ""RUB"",
+  ""warranty_months"": null,
+  ""summary"": ""Новинка осени от компании Orion""
+}",stop,19.103,0.17,257,114,True,1512.22,5.97,1.0,0.0,True,"{""json_valid"": true, ""json_only"": true, ""wrong_fields"": [], ""hallucinated_warranty"": false, ""summary_words"": 5, ""summary_ok"": true}"
+2026-11-06T16:57:02,llama3.1:8b,P3_extraction,B_tuned,2,"{
+""name"": ""Nebula X5"",
+""brand"": ""Orion"",
+""color"": ""графит"",
+""screen_inches"": 6.7,
+""ram_gb"": 8,
+""storage_gb"": 256,
+""battery_mah"": 5000,
+""weight_g"": 189,
+""price"": 54990,
+""currency"": ""RUB"",
+""warranty_months"": null,
+""summary"": ""Новинка осени от компании Orion""
+}",stop,16.654,0.172,257,100,True,1494.84,6.01,1.0,0.0,True,"{""json_valid"": true, ""json_only"": true, ""wrong_fields"": [], ""hallucinated_warranty"": false, ""summary_words"": 5, ""summary_ok"": true}"
+2026-11-06T16:57:19,llama3.1:8b,P3_extraction,B_tuned,3,"{
+  ""name"": ""Nebula X5"",
+  ""brand"": ""Orion"",
+  ""color"": ""графит"",
+  ""screen_inches"": 6.7,
+  ""ram_gb"": 8,
+  ""storage_gb"": 256,
+  ""battery_mah"": 5000,
+  ""weight_g"": 189,
+  ""price"": 54990,
+  ""currency"": ""RUB"",
+  ""warranty_months"": null,
+  ""summary"": ""Новинка осени от компании Orion""
+}",stop,18.966,0.176,257,114,True,1458.27,6.01,1.0,0.0,True,"{""json_valid"": true, ""json_only"": true, ""wrong_fields"": [], ""hallucinated_warranty"": false, ""summary_words"": 5, ""summary_ok"": true}"
+2026-11-06T16:57:42,mistral:7b,P1_generation,A_base,1," Госпожа Анна Сергеевна,
+
+Уважаемая клиентка нашего интернет-магазина «ТехноДом»!
+
+Мы хотим обратить Ваше внимание на задержку в доставке Вашего заказа № 48213 (ноутбук). Ошибка у поставщика заставила нас перенести сроки поставки на 14 ноября.
+
+В качестве компенсации мы прилагаем Вам скидку в размере 10% на следующий заказ. Для использования этой скидки, пожалуйста, воспользуйтесь промокодом SORRY10 при оформлении заказа.
+
+Мы извиняемся за возникшие неудобства и прилагаем максимум усилий для обеспечения срочного доставки Вашего заказа.
+
+Сервис поддержки ""ТехноДома""
+
+С привязкой,
+Администрация ""ТехноДома""",stop,47.524,3.064,230,280,True,75.06,6.28,1.0,0.0,True,"{""missing_facts"": [], ""word_count"": 79, ""length_ok"": true}"
+2026-11-06T16:58:29,mistral:7b,P1_generation,A_base,2," Городок, 03.11.2021
+
+Разглезненная Анна Сергеевна,
+
+с пожеланием удачи и отличных впечатлений от работы с нашим интернет-магазином «ТехноДом»!
+
+Мы рады, что вы выбрали наш магазин для покупки ноутбука в заказе № 48213. Мы сожалеем, что вы столкнулись с задержкой в доставке. Поставщик опытывает технический сбой, что приводит к невозможности доставки товара по первоначальной дате.
+
+Мы считаем важным выразить наши извинения за неудобства, которые вы могли пережить из-за этой ситуации. В качестве компенсации мы готовы предоставить вам скидку 10% на следующий заказ.
+
+Чтобы использовать эту скидку, пожалуйста, воспользуйтесь промокодом SORRY10 при оформлении следующего заказа. Новая дата доставки вашего заказа — 14 ноября.
+
+Мы надеемся, что это повысит вашу уверенность в нашей компании и заставляет вас вернуться к нам для новых покупок.
+
+С уважением,
+
+Служба поддержки «ТехноДома»",stop,62.69,0.173,230,400,True,1326.59,6.38,1.0,0.0,True,"{""missing_facts"": [], ""word_count"": 126, ""length_ok"": true}"
+2026-11-06T16:59:32,mistral:7b,P1_generation,A_base,3," Главное отделение поддержки, «ТехноДом»
+
+Обращение к постояльной клиенту Анне Сергеевне!
+
+Мы очень сожалеем, что из-за технической проблемы у нашего поставщика доставка вашего заказа № 48213 (ноутбук) задерживается. Сейчас мы находимся в процессе решения этой ситуации и ожидаем, что ваш заказ будет доставлен до 14 ноября.
+
+В качестве компенсации за ваши неудобства мы предоставляем скидку 10% на следующий заказ по промокоду SORRY10.
+
+Мы извиняемся за любые неудобства, которые вы могли пережить и надеемся, что дальше наш сотрудничество будет продолжаться успешно.
+
+С уважением,
+Служба поддержки, «ТехноДом»",stop,44.657,0.174,230,272,True,1321.38,6.09,1.0,0.0,True,"{""missing_facts"": [], ""word_count"": 84, ""length_ok"": true}"
+2026-11-06T17:00:17,mistral:7b,P1_generation,B_tuned,1," Гражданка Анна Сергеевна,
+
+С пожеланием приветствия! Мы хотим обратить Ваше внимание на задержку в доставке Вашего заказа № 48213 (ноутбук). Мы очень сожалеем о неудобстве, которое это может вызвать.
+
+Причина задержки заключается в техническом сбое у нашего поставщика. Мы работаем над решением этой проблемы и настоятельно надеемся, что Ваш заказ будет доставлен до 14 ноября.
+
+Как компенсацию за неудобства, которые Вы могли пережить, мы готовы предоставить Вам скидку 10% на следующий заказ, используя промокод SORRY10.
+
+Мы извиняемся за неудобства, которые Вы могли пережить, и надеемся, что Ваш опыт с нашим интернет-магазином «ТехноДом» останется положительным.
+
+С уважением,
+Служба поддержки «ТехноДома»",stop,49.572,0.203,230,310,True,1134.59,6.26,1.0,0.052,True,"{""missing_facts"": [], ""word_count"": 99, ""length_ok"": true}"
+2026-11-06T17:01:06,mistral:7b,P1_generation,B_tuned,2," Гражданка Анна Сергеевна,
+
+С пожеланием приветствия! Мы хотим обратить Ваше внимание на задержку в доставке Вашего заказа № 48213 (ноутбук). Мы очень сожалеем о неудобстве, которое это может вызвать.
+
+Причина задержки заключается в техническом сбое у нашего поставщика. Мы работаем над решением этой проблемы и настоятельно рекомендуем Вам проверить состояние заказа в ближайшие дни.
+
+В качестве компенсации мы готовы предоставить Вам скидку 10% на следующий заказ по промокоду SORRY10.
+
+Мы извиняемся за неудобство и надеемся, что Вам понравится наш сервис и мы сможем удовлетворить Ваши будущие потребности в технике.
+
+С уважением,
+Служба поддержки ТехноДом.",stop,46.374,0.167,230,290,True,1377.41,6.25,0.8,0.0,True,"{""missing_facts"": [""дата 14 ноября""], ""word_count"": 93, ""length_ok"": true}"
+2026-11-06T17:01:53,mistral:7b,P1_generation,B_tuned,3," Гражданка Анна Сергеевна,
+
+С приветствием! Мы обращаемся к Вам по поводу Вашего заказа № 48213, который задерживается из-за технического сбоя у нашего поставщика. Мы извиняемся за неудобства, которые это причинило Вам.
+
+Новая дата доставки Вашего ноутбука - 14 ноября. В качестве компенсации мы предоставляем Вам скидку 10% на следующий заказ по промокоду SORRY10.
+
+Мы всегда стараемся предоставлять Вам высококачественные товары и удовлетворять Ваши ожидания. Мы рады, что Вы являетесь нашим клиентом и надеемся, что дальнейшее сотрудничество будет продолжено.
+
+С уважением,
+Служба поддержки интернет-магазина ТехноДом.",stop,42.259,0.175,230,269,True,1312.01,6.37,1.0,0.0,True,"{""missing_facts"": [], ""word_count"": 84, ""length_ok"": true}"
+2026-11-06T17:02:35,mistral:7b,P2_classification,A_base,1," 1: Billing
+2: Tech support
+3: Sales
+4: Tech support
+5: Billing
+6: Sales",stop,8.193,3.824,270,29,True,70.61,6.41,1.0,0.0,True,"{""predicted"": {""1"": ""Billing"", ""2"": ""Tech support"", ""3"": ""Sales"", ""4"": ""Tech support"", ""5"": ""Billing"", ""6"": ""Sales""}, ""errors"": {}, ""format_ok"": true}"
+2026-11-06T17:02:43,mistral:7b,P2_classification,A_base,2," 1: Billing
+2: Tech support
+3: Sales
+4: Tech support
+5: Billing
+6: Sales",stop,4.82,0.159,270,29,True,1696.42,6.01,1.0,0.0,True,"{""predicted"": {""1"": ""Billing"", ""2"": ""Tech support"", ""3"": ""Sales"", ""4"": ""Tech support"", ""5"": ""Billing"", ""6"": ""Sales""}, ""errors"": {}, ""format_ok"": true}"
+2026-11-06T17:02:48,mistral:7b,P2_classification,A_base,3," 1: Billing
+2: Tech support
+3: Sales
+4: Tech support
+5: Billing
+6: Sales",stop,4.789,0.168,270,29,True,1606.23,6.06,1.0,0.0,True,"{""predicted"": {""1"": ""Billing"", ""2"": ""Tech support"", ""3"": ""Sales"", ""4"": ""Tech support"", ""5"": ""Billing"", ""6"": ""Sales""}, ""errors"": {}, ""format_ok"": true}"
+2026-11-06T17:02:53,mistral:7b,P2_classification,B_tuned,1," 1: Billing
+2: Tech support
+3: Sales
+4: Tech support
+5: Billing
+6: Sales",stop,4.747,0.165,270,29,True,1638.07,6.11,1.0,0.0,True,"{""predicted"": {""1"": ""Billing"", ""2"": ""Tech support"", ""3"": ""Sales"", ""4"": ""Tech support"", ""5"": ""Billing"", ""6"": ""Sales""}, ""errors"": {}, ""format_ok"": true}"
+2026-11-06T17:02:58,mistral:7b,P2_classification,B_tuned,2," 1: Billing
+2: Tech support
+3: Sales
+4: Tech support
+5: Billing
+6: Sales",stop,4.637,0.164,270,29,True,1650.13,6.26,1.0,0.0,True,"{""predicted"": {""1"": ""Billing"", ""2"": ""Tech support"", ""3"": ""Sales"", ""4"": ""Tech support"", ""5"": ""Billing"", ""6"": ""Sales""}, ""errors"": {}, ""format_ok"": true}"
+2026-11-06T17:03:02,mistral:7b,P2_classification,B_tuned,3," 1: Billing
+2: Tech support
+3: Sales
+4: Tech support
+5: Billing
+6: Sales",stop,4.672,0.162,270,29,True,1661.72,6.21,1.0,0.0,True,"{""predicted"": {""1"": ""Billing"", ""2"": ""Tech support"", ""3"": ""Sales"", ""4"": ""Tech support"", ""5"": ""Billing"", ""6"": ""Sales""}, ""errors"": {}, ""format_ok"": true}"
+2026-11-06T17:03:07,mistral:7b,P3_extraction,A_base,1," {
+  ""name"": ""Nebula X5"",
+  ""brand"": ""Orion"",
+  ""color"": ""graphite"",
+  ""screen_inches"": 6.7,
+  ""ram_gb"": 8,
+  ""storage_gb"": 256,
+  ""battery_mah"": 5000,
+  ""weight_g"": 189,
+  ""price"": {
+    ""official_store"": 54990,
+    ""pre_order"": null
+  },
+  ""currency"": ""RUB"",
+  ""warranty_months"": null,
+  ""summary"": ""Aluminum body smartphone with 6.7 inch AMOLED screen, 8GB RAM, 256GB storage, 5000mAh battery, 189g weight, priced at 54990 RUB in official store.""
+}",stop,37.604,5.261,320,216,True,60.82,6.65,0.818,0.0,True,"{""json_valid"": true, ""json_only"": true, ""wrong_fields"": [""color"", ""price""], ""hallucinated_warranty"": false, ""summary_words"": 24, ""summary_ok"": false}"
+2026-11-06T17:03:44,mistral:7b,P3_extraction,A_base,2," {
+  ""name"": ""Nebula X5"",
+  ""brand"": ""Orion"",
+  ""color"": ""graphite"",
+  ""screen_inches"": 6.7,
+  ""ram_gb"": 8,
+  ""storage_gb"": 256,
+  ""battery_mah"": 5000,
+  ""weight_g"": 189,
+  ""price"": {
+    ""official_store"": 54990,
+    ""preorder"": null
+  },
+  ""currency"": ""RUB"",
+  ""warranty_months"": null,
+  ""summary"": ""New autumn release, aluminum body, AMOLED screen, 8GB RAM, 256GB storage, 5000mAh battery, 189g, 54990 RUB in official store.""
+}",stop,30.817,0.18,320,207,True,1782.33,6.72,0.818,0.0,True,"{""json_valid"": true, ""json_only"": true, ""wrong_fields"": [""color"", ""price""], ""hallucinated_warranty"": false, ""summary_words"": 19, ""summary_ok"": true}"
+2026-11-06T17:04:15,mistral:7b,P3_extraction,A_base,3," {
+  ""name"": ""Nebula X5"",
+  ""brand"": ""Orion"",
+  ""color"": ""graphite"",
+  ""screen_inches"": 6.7,
+  ""ram_gb"": 8,
+  ""storage_gb"": 256,
+  ""battery_mah"": 5000,
+  ""weight_g"": 189,
+  ""price"": {
+    ""official"": 54990,
+    ""preorder"": null
+  },
+  ""currency"": ""RUB"",
+  ""warranty_months"": null,
+  ""summary"": ""Latest autumn release, aluminum body, AMOLED 6.7-inch screen, 8GB RAM, 256GB storage.""
+}",stop,27.577,0.195,320,185,True,1643.72,6.72,0.818,0.0,True,"{""json_valid"": true, ""json_only"": true, ""wrong_fields"": [""color"", ""price""], ""hallucinated_warranty"": false, ""summary_words"": 14, ""summary_ok"": true}"
+2026-11-06T17:04:43,mistral:7b,P3_extraction,B_tuned,1," {
+  ""name"": ""Nebula X5"",
+  ""brand"": ""Orion"",
+  ""color"": ""graphite"",
+  ""screen_inches"": 6.7,
+  ""ram_gb"": 8,
+  ""storage_gb"": 256,
+  ""battery_mah"": 5000,
+  ""weight_g"": 189,
+  ""price"": {
+    ""official_store"": 54990,
+    ""preorder"": null
+  },
+  ""currency"": ""RUB"",
+  ""warranty_months"": null,
+  ""summary"": ""Aluminum body smartphone with AMOLED screen, fast charging, and large storage.""
+}",stop,26.059,0.275,320,174,True,1162.53,6.71,0.818,0.0,True,"{""json_valid"": true, ""json_only"": true, ""wrong_fields"": [""color"", ""price""], ""hallucinated_warranty"": false, ""summary_words"": 11, ""summary_ok"": true}"
+2026-11-06T17:05:09,mistral:7b,P3_extraction,B_tuned,2," {
+  ""name"": ""Nebula X5"",
+  ""brand"": ""Orion"",
+  ""color"": ""graphite"",
+  ""screen_inches"": 6.7,
+  ""ram_gb"": 8,
+  ""storage_gb"": 256,
+  ""battery_mah"": 5000,
+  ""weight_g"": 189,
+  ""price"": {
+    ""official_store"": 54990,
+    ""preorder"": null
+  },
+  ""currency"": ""RUB"",
+  ""warranty_months"": null,
+  ""summary"": ""Aluminum-built AMOLED smartphone with 8GB RAM, 256GB storage, 5000mAh battery, and 67W fast charging.""
+}",stop,28.703,0.205,320,195,True,1560.69,6.81,0.818,0.0,True,"{""json_valid"": true, ""json_only"": true, ""wrong_fields"": [""color"", ""price""], ""hallucinated_warranty"": false, ""summary_words"": 15, ""summary_ok"": true}"
+2026-11-06T17:05:38,mistral:7b,P3_extraction,B_tuned,3," {
+  ""name"": ""Nebula X5"",
+  ""brand"": ""Orion"",
+  ""color"": ""graphite"",
+  ""screen_inches"": 6.7,
+  ""ram_gb"": 8,
+  ""storage_gb"": 256,
+  ""battery_mah"": 5000,
+  ""weight_g"": 189,
+  ""price"": {
+    ""official_store"": 54990,
+    ""preorder"": null
+  },
+  ""currency"": ""RUB"",
+  ""warranty_months"": null,
+  ""summary"": ""Aluminum body smartphone with AMOLED screen, fast charging, and large storage.""
+}",stop,26.027,0.182,320,174,True,1757.12,6.69,0.818,0.0,True,"{""json_valid"": true, ""json_only"": true, ""wrong_fields"": [""color"", ""price""], ""hallucinated_warranty"": false, ""summary_words"": 11, ""summary_ok"": true}"
