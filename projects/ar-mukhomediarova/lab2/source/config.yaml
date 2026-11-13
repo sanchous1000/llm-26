@@ -34,11 +34,15 @@ corpus:
   skip_names: [".DS_Store", "~$"]
 
 chunking:
+  # Сплиттеры LangChain (langchain-text-splitters):
+  #   recursive — RecursiveCharacterTextSplitter по всему документу;
+  #   markdown  — MarkdownHeaderTextSplitter (раздел = чанк, длинные дорезаются без перекрытия);
+  #   hybrid    — MarkdownHeaderTextSplitter + RecursiveCharacterTextSplitter с перекрытием.
   splitter: hybrid               # recursive | markdown | hybrid
   chunk_size: 512                # максимальный размер чанка, токенов (токенизатор bge-m3)
   overlap: 64                    # перекрытие соседних чанков, токенов
   include_headers: true          # добавлять «Документ > Раздел > Подраздел» в текст для эмбеддинга
-  min_chunk_tokens: 40           # hybrid: мелкие соседние разделы склеиваются до этого размера
+  header_levels: 3               # markdown/hybrid: делить по заголовкам h1–h3
   tokenizer: BAAI/bge-m3         # HF-токенизатор для подсчёта токенов (fallback — оценка по словам)
 
 embeddings:

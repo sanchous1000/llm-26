@@ -7,6 +7,7 @@ python-docx>=1.1
 openpyxl>=3.1
 pymupdf>=1.24
 # чанкинг и векторизация
+langchain-text-splitters>=0.3
 tokenizers>=0.15
 snowballstemmer>=2.2
 openai>=1.40
