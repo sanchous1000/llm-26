@@ -1,0 +1,65 @@
+{
+  "run_id": "phi4-mini-3.8b-P2-tuned",
+  "started_at": "2026-11-06T14:43:20.207998+00:00",
+  "model": {
+    "id": "phi4-mini:3.8b",
+    "family": "Phi",
+    "parameters": "3.8B",
+    "quantization": "Q4_K_M"
+  },
+  "prompt": {
+    "id": "P2",
+    "type": "classification",
+    "title": "Классификация обращений",
+    "system": "Ты — точный классификатор. Возвращай только валидный JSON без Markdown и пояснений.",
+    "user": "Классифицируй каждое обращение ровно одной меткой из списка: [\"Оплата\", \"Техподдержка\", \"Продажи\", \"Аккаунт\"].\nA: \"После списания денег подписка не активировалась\".\nB: \"Приложение вылетает при загрузке файла\".\nC: \"Хотим купить корпоративный тариф на 80 сотрудников\".\nD: \"Как удалить мою учётную запись?\".\nФормат ответа: {\"A\": \"метка\", \"B\": \"метка\", \"C\": \"метка\", \"D\": \"метка\"}."
+  },
+  "mode": "tuned",
+  "repeat": 1,
+  "parameters": {
+    "temperature": 0.2,
+    "top_p": 0.4,
+    "max_tokens": 384
+  },
+  "request_endpoint": "/v1/chat/completions",
+  "response": "{\"A\": \"Оплата\", \"B\": \"Техподдержка\", \"C\": \"Продажи\", \"D\": \"Аккаунт\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 155,
+    "prompt_tokens_details": {
+      "cached_tokens": 154
+    },
+    "completion_tokens": 33,
+    "total_tokens": 188
+  },
+  "metrics": {
+    "wall_time_s": 3.083,
+    "end_to_end_completion_tokens_per_s": 10.704,
+    "cold_start_excluded": true
+  },
+  "raw_response": {
+    "id": "chatcmpl-46",
+    "object": "chat.completion",
+    "created": 1793976203,
+    "model": "phi4-mini:3.8b",
+    "system_fingerprint": "fp_ollama",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\"A\": \"Оплата\", \"B\": \"Техподдержка\", \"C\": \"Продажи\", \"D\": \"Аккаунт\"}"
+        },
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 155,
+      "prompt_tokens_details": {
+        "cached_tokens": 154
+      },
+      "completion_tokens": 33,
+      "total_tokens": 188
+    }
+  }
+}

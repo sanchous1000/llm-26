@@ -1,0 +1,719 @@
+[
+  {
+    "run_id": "ministral-3-3b-P1-baseline",
+    "model": "ministral-3:3b",
+    "family": "Mistral",
+    "prompt": "P1",
+    "mode": "baseline",
+    "repeat": 1,
+    "usage": {
+      "prompt_tokens": 165,
+      "prompt_tokens_details": {
+        "cached_tokens": 2
+      },
+      "completion_tokens": 418,
+      "total_tokens": 583
+    },
+    "metrics": {
+      "wall_time_s": 43.638,
+      "end_to_end_completion_tokens_per_s": 9.579,
+      "cold_start_excluded": true
+    },
+    "evaluation": {
+      "score": 0.667,
+      "checks": {
+        "название": true,
+        "дата": true,
+        "адрес": false,
+        "бесплатно": true,
+        "регистрация": true,
+        "150 мест": true,
+        "заголовок и один абзац": false,
+        "90–120 слов": false,
+        "ответ не обрезан": true
+      },
+      "failed_checks": [
+        "адрес",
+        "заголовок и один абзац",
+        "90–120 слов"
+      ],
+      "word_count": 152,
+      "valid_json": null
+    }
+  },
+  {
+    "run_id": "ministral-3-3b-P1-tuned",
+    "model": "ministral-3:3b",
+    "family": "Mistral",
+    "prompt": "P1",
+    "mode": "tuned",
+    "repeat": 1,
+    "usage": {
+      "prompt_tokens": 165,
+      "prompt_tokens_details": {
+        "cached_tokens": 164
+      },
+      "completion_tokens": 189,
+      "total_tokens": 354
+    },
+    "metrics": {
+      "wall_time_s": 18.515,
+      "end_to_end_completion_tokens_per_s": 10.208,
+      "cold_start_excluded": true
+    },
+    "evaluation": {
+      "score": 0.889,
+      "checks": {
+        "название": true,
+        "дата": true,
+        "адрес": true,
+        "бесплатно": true,
+        "регистрация": true,
+        "150 мест": true,
+        "заголовок и один абзац": true,
+        "90–120 слов": false,
+        "ответ не обрезан": true
+      },
+      "failed_checks": [
+        "90–120 слов"
+      ],
+      "word_count": 75,
+      "valid_json": null
+    }
+  },
+  {
+    "run_id": "ministral-3-3b-P2-baseline",
+    "model": "ministral-3:3b",
+    "family": "Mistral",
+    "prompt": "P2",
+    "mode": "baseline",
+    "repeat": 1,
+    "usage": {
+      "prompt_tokens": 186,
+      "prompt_tokens_details": {
+        "cached_tokens": 5
+      },
+      "completion_tokens": 48,
+      "total_tokens": 234
+    },
+    "metrics": {
+      "wall_time_s": 6.812,
+      "end_to_end_completion_tokens_per_s": 7.046,
+      "cold_start_excluded": true
+    },
+    "evaluation": {
+      "score": 0.833,
+      "checks": {
+        "A": true,
+        "B": true,
+        "C": true,
+        "D": true,
+        "формат: только JSON": false,
+        "ответ не обрезан": true
+      },
+      "failed_checks": [
+        "формат: только JSON"
+      ],
+      "word_count": 12,
+      "valid_json": true
+    }
+  },
+  {
+    "run_id": "ministral-3-3b-P2-tuned",
+    "model": "ministral-3:3b",
+    "family": "Mistral",
+    "prompt": "P2",
+    "mode": "tuned",
+    "repeat": 1,
+    "usage": {
+      "prompt_tokens": 186,
+      "prompt_tokens_details": {
+        "cached_tokens": 185
+      },
+      "completion_tokens": 48,
+      "total_tokens": 234
+    },
+    "metrics": {
+      "wall_time_s": 4.326,
+      "end_to_end_completion_tokens_per_s": 11.095,
+      "cold_start_excluded": true
+    },
+    "evaluation": {
+      "score": 0.833,
+      "checks": {
+        "A": true,
+        "B": true,
+        "C": true,
+        "D": true,
+        "формат: только JSON": false,
+        "ответ не обрезан": true
+      },
+      "failed_checks": [
+        "формат: только JSON"
+      ],
+      "word_count": 12,
+      "valid_json": true
+    }
+  },
+  {
+    "run_id": "ministral-3-3b-P3-baseline",
+    "model": "ministral-3:3b",
+    "family": "Mistral",
+    "prompt": "P3",
+    "mode": "baseline",
+    "repeat": 1,
+    "usage": {
+      "prompt_tokens": 187,
+      "prompt_tokens_details": {
+        "cached_tokens": 5
+      },
+      "completion_tokens": 180,
+      "total_tokens": 367
+    },
+    "metrics": {
+      "wall_time_s": 19.236,
+      "end_to_end_completion_tokens_per_s": 9.358,
+      "cold_start_excluded": true
+    },
+    "evaluation": {
+      "score": 0.909,
+      "checks": {
+        "name": true,
+        "volume_l": true,
+        "power_w": true,
+        "materials": true,
+        "features": true,
+        "price_rub": true,
+        "warranty_months": true,
+        "smartphone_control": true,
+        "summary": true,
+        "формат: только JSON": false,
+        "ответ не обрезан": true
+      },
+      "failed_checks": [
+        "формат: только JSON"
+      ],
+      "word_count": 56,
+      "valid_json": true
+    }
+  },
+  {
+    "run_id": "ministral-3-3b-P3-tuned",
+    "model": "ministral-3:3b",
+    "family": "Mistral",
+    "prompt": "P3",
+    "mode": "tuned",
+    "repeat": 1,
+    "usage": {
+      "prompt_tokens": 187,
+      "prompt_tokens_details": {
+        "cached_tokens": 186
+      },
+      "completion_tokens": 135,
+      "total_tokens": 322
+    },
+    "metrics": {
+      "wall_time_s": 12.401,
+      "end_to_end_completion_tokens_per_s": 10.886,
+      "cold_start_excluded": true
+    },
+    "evaluation": {
+      "score": 0.818,
+      "checks": {
+        "name": true,
+        "volume_l": true,
+        "power_w": true,
+        "materials": true,
+        "features": false,
+        "price_rub": true,
+        "warranty_months": true,
+        "smartphone_control": true,
+        "summary": true,
+        "формат: только JSON": false,
+        "ответ не обрезан": true
+      },
+      "failed_checks": [
+        "features",
+        "формат: только JSON"
+      ],
+      "word_count": 37,
+      "valid_json": true
+    }
+  },
+  {
+    "run_id": "phi4-mini-3.8b-P1-baseline",
+    "model": "phi4-mini:3.8b",
+    "family": "Phi",
+    "prompt": "P1",
+    "mode": "baseline",
+    "repeat": 1,
+    "usage": {
+      "prompt_tokens": 137,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      },
+      "completion_tokens": 279,
+      "total_tokens": 416
+    },
+    "metrics": {
+      "wall_time_s": 31.306,
+      "end_to_end_completion_tokens_per_s": 8.912,
+      "cold_start_excluded": true
+    },
+    "evaluation": {
+      "score": 0.778,
+      "checks": {
+        "название": true,
+        "дата": true,
+        "адрес": true,
+        "бесплатно": true,
+        "регистрация": true,
+        "150 мест": true,
+        "заголовок и один абзац": false,
+        "90–120 слов": false,
+        "ответ не обрезан": true
+      },
+      "failed_checks": [
+        "заголовок и один абзац",
+        "90–120 слов"
+      ],
+      "word_count": 125,
+      "valid_json": null
+    }
+  },
+  {
+    "run_id": "phi4-mini-3.8b-P1-tuned",
+    "model": "phi4-mini:3.8b",
+    "family": "Phi",
+    "prompt": "P1",
+    "mode": "tuned",
+    "repeat": 1,
+    "usage": {
+      "prompt_tokens": 137,
+      "prompt_tokens_details": {
+        "cached_tokens": 136
+      },
+      "completion_tokens": 235,
+      "total_tokens": 372
+    },
+    "metrics": {
+      "wall_time_s": 26.224,
+      "end_to_end_completion_tokens_per_s": 8.961,
+      "cold_start_excluded": true
+    },
+    "evaluation": {
+      "score": 0.667,
+      "checks": {
+        "название": true,
+        "дата": true,
+        "адрес": true,
+        "бесплатно": false,
+        "регистрация": true,
+        "150 мест": false,
+        "заголовок и один абзац": false,
+        "90–120 слов": true,
+        "ответ не обрезан": true
+      },
+      "failed_checks": [
+        "бесплатно",
+        "150 мест",
+        "заголовок и один абзац"
+      ],
+      "word_count": 116,
+      "valid_json": null
+    }
+  },
+  {
+    "run_id": "phi4-mini-3.8b-P2-baseline",
+    "model": "phi4-mini:3.8b",
+    "family": "Phi",
+    "prompt": "P2",
+    "mode": "baseline",
+    "repeat": 1,
+    "usage": {
+      "prompt_tokens": 155,
+      "prompt_tokens_details": {
+        "cached_tokens": 3
+      },
+      "completion_tokens": 33,
+      "total_tokens": 188
+    },
+    "metrics": {
+      "wall_time_s": 7.108,
+      "end_to_end_completion_tokens_per_s": 4.643,
+      "cold_start_excluded": true
+    },
+    "evaluation": {
+      "score": 1.0,
+      "checks": {
+        "A": true,
+        "B": true,
+        "C": true,
+        "D": true,
+        "формат: только JSON": true,
+        "ответ не обрезан": true
+      },
+      "failed_checks": [],
+      "word_count": 8,
+      "valid_json": true
+    }
+  },
+  {
+    "run_id": "phi4-mini-3.8b-P2-tuned",
+    "model": "phi4-mini:3.8b",
+    "family": "Phi",
+    "prompt": "P2",
+    "mode": "tuned",
+    "repeat": 1,
+    "usage": {
+      "prompt_tokens": 155,
+      "prompt_tokens_details": {
+        "cached_tokens": 154
+      },
+      "completion_tokens": 33,
+      "total_tokens": 188
+    },
+    "metrics": {
+      "wall_time_s": 3.921,
+      "end_to_end_completion_tokens_per_s": 8.416,
+      "cold_start_excluded": true
+    },
+    "evaluation": {
+      "score": 1.0,
+      "checks": {
+        "A": true,
+        "B": true,
+        "C": true,
+        "D": true,
+        "формат: только JSON": true,
+        "ответ не обрезан": true
+      },
+      "failed_checks": [],
+      "word_count": 8,
+      "valid_json": true
+    }
+  },
+  {
+    "run_id": "phi4-mini-3.8b-P3-baseline",
+    "model": "phi4-mini:3.8b",
+    "family": "Phi",
+    "prompt": "P3",
+    "mode": "baseline",
+    "repeat": 1,
+    "usage": {
+      "prompt_tokens": 165,
+      "prompt_tokens_details": {
+        "cached_tokens": 3
+      },
+      "completion_tokens": 186,
+      "total_tokens": 351
+    },
+    "metrics": {
+      "wall_time_s": 25.319,
+      "end_to_end_completion_tokens_per_s": 7.346,
+      "cold_start_excluded": true
+    },
+    "evaluation": {
+      "score": 0.727,
+      "checks": {
+        "name": true,
+        "volume_l": true,
+        "power_w": true,
+        "materials": false,
+        "features": true,
+        "price_rub": true,
+        "warranty_months": true,
+        "smartphone_control": true,
+        "summary": false,
+        "формат: только JSON": false,
+        "ответ не обрезан": true
+      },
+      "failed_checks": [
+        "materials",
+        "summary",
+        "формат: только JSON"
+      ],
+      "word_count": 68,
+      "valid_json": true
+    }
+  },
+  {
+    "run_id": "phi4-mini-3.8b-P3-tuned",
+    "model": "phi4-mini:3.8b",
+    "family": "Phi",
+    "prompt": "P3",
+    "mode": "tuned",
+    "repeat": 1,
+    "usage": {
+      "prompt_tokens": 165,
+      "prompt_tokens_details": {
+        "cached_tokens": 164
+      },
+      "completion_tokens": 187,
+      "total_tokens": 352
+    },
+    "metrics": {
+      "wall_time_s": 23.008,
+      "end_to_end_completion_tokens_per_s": 8.128,
+      "cold_start_excluded": true
+    },
+    "evaluation": {
+      "score": 0.727,
+      "checks": {
+        "name": true,
+        "volume_l": true,
+        "power_w": true,
+        "materials": false,
+        "features": true,
+        "price_rub": true,
+        "warranty_months": true,
+        "smartphone_control": true,
+        "summary": false,
+        "формат: только JSON": false,
+        "ответ не обрезан": true
+      },
+      "failed_checks": [
+        "materials",
+        "summary",
+        "формат: только JSON"
+      ],
+      "word_count": 63,
+      "valid_json": true
+    }
+  },
+  {
+    "run_id": "qwen2.5-3b-P1-baseline",
+    "model": "qwen2.5:3b",
+    "family": "Qwen",
+    "prompt": "P1",
+    "mode": "baseline",
+    "repeat": 1,
+    "usage": {
+      "prompt_tokens": 183,
+      "prompt_tokens_details": {
+        "cached_tokens": 3
+      },
+      "completion_tokens": 179,
+      "total_tokens": 362
+    },
+    "metrics": {
+      "wall_time_s": 17.763,
+      "end_to_end_completion_tokens_per_s": 10.077,
+      "cold_start_excluded": true
+    },
+    "evaluation": {
+      "score": 0.667,
+      "checks": {
+        "название": true,
+        "дата": false,
+        "адрес": true,
+        "бесплатно": true,
+        "регистрация": true,
+        "150 мест": true,
+        "заголовок и один абзац": false,
+        "90–120 слов": false,
+        "ответ не обрезан": true
+      },
+      "failed_checks": [
+        "дата",
+        "заголовок и один абзац",
+        "90–120 слов"
+      ],
+      "word_count": 62,
+      "valid_json": null
+    }
+  },
+  {
+    "run_id": "qwen2.5-3b-P1-tuned",
+    "model": "qwen2.5:3b",
+    "family": "Qwen",
+    "prompt": "P1",
+    "mode": "tuned",
+    "repeat": 1,
+    "usage": {
+      "prompt_tokens": 183,
+      "prompt_tokens_details": {
+        "cached_tokens": 182
+      },
+      "completion_tokens": 192,
+      "total_tokens": 375
+    },
+    "metrics": {
+      "wall_time_s": 16.842,
+      "end_to_end_completion_tokens_per_s": 11.4,
+      "cold_start_excluded": true
+    },
+    "evaluation": {
+      "score": 0.556,
+      "checks": {
+        "название": true,
+        "дата": true,
+        "адрес": true,
+        "бесплатно": false,
+        "регистрация": true,
+        "150 мест": false,
+        "заголовок и один абзац": false,
+        "90–120 слов": false,
+        "ответ не обрезан": true
+      },
+      "failed_checks": [
+        "бесплатно",
+        "150 мест",
+        "заголовок и один абзац",
+        "90–120 слов"
+      ],
+      "word_count": 66,
+      "valid_json": null
+    }
+  },
+  {
+    "run_id": "qwen2.5-3b-P2-baseline",
+    "model": "qwen2.5:3b",
+    "family": "Qwen",
+    "prompt": "P2",
+    "mode": "baseline",
+    "repeat": 1,
+    "usage": {
+      "prompt_tokens": 190,
+      "prompt_tokens_details": {
+        "cached_tokens": 6
+      },
+      "completion_tokens": 38,
+      "total_tokens": 228
+    },
+    "metrics": {
+      "wall_time_s": 6.071,
+      "end_to_end_completion_tokens_per_s": 6.259,
+      "cold_start_excluded": true
+    },
+    "evaluation": {
+      "score": 1.0,
+      "checks": {
+        "A": true,
+        "B": true,
+        "C": true,
+        "D": true,
+        "формат: только JSON": true,
+        "ответ не обрезан": true
+      },
+      "failed_checks": [],
+      "word_count": 8,
+      "valid_json": true
+    }
+  },
+  {
+    "run_id": "qwen2.5-3b-P2-tuned",
+    "model": "qwen2.5:3b",
+    "family": "Qwen",
+    "prompt": "P2",
+    "mode": "tuned",
+    "repeat": 1,
+    "usage": {
+      "prompt_tokens": 190,
+      "prompt_tokens_details": {
+        "cached_tokens": 189
+      },
+      "completion_tokens": 38,
+      "total_tokens": 228
+    },
+    "metrics": {
+      "wall_time_s": 3.36,
+      "end_to_end_completion_tokens_per_s": 11.309,
+      "cold_start_excluded": true
+    },
+    "evaluation": {
+      "score": 1.0,
+      "checks": {
+        "A": true,
+        "B": true,
+        "C": true,
+        "D": true,
+        "формат: только JSON": true,
+        "ответ не обрезан": true
+      },
+      "failed_checks": [],
+      "word_count": 8,
+      "valid_json": true
+    }
+  },
+  {
+    "run_id": "qwen2.5-3b-P3-baseline",
+    "model": "qwen2.5:3b",
+    "family": "Qwen",
+    "prompt": "P3",
+    "mode": "baseline",
+    "repeat": 1,
+    "usage": {
+      "prompt_tokens": 201,
+      "prompt_tokens_details": {
+        "cached_tokens": 6
+      },
+      "completion_tokens": 143,
+      "total_tokens": 344
+    },
+    "metrics": {
+      "wall_time_s": 14.745,
+      "end_to_end_completion_tokens_per_s": 9.698,
+      "cold_start_excluded": true
+    },
+    "evaluation": {
+      "score": 1.0,
+      "checks": {
+        "name": true,
+        "volume_l": true,
+        "power_w": true,
+        "materials": true,
+        "features": true,
+        "price_rub": true,
+        "warranty_months": true,
+        "smartphone_control": true,
+        "summary": true,
+        "формат: только JSON": true,
+        "ответ не обрезан": true
+      },
+      "failed_checks": [],
+      "word_count": 40,
+      "valid_json": true
+    }
+  },
+  {
+    "run_id": "qwen2.5-3b-P3-tuned",
+    "model": "qwen2.5:3b",
+    "family": "Qwen",
+    "prompt": "P3",
+    "mode": "tuned",
+    "repeat": 1,
+    "usage": {
+      "prompt_tokens": 201,
+      "prompt_tokens_details": {
+        "cached_tokens": 200
+      },
+      "completion_tokens": 146,
+      "total_tokens": 347
+    },
+    "metrics": {
+      "wall_time_s": 12.241,
+      "end_to_end_completion_tokens_per_s": 11.928,
+      "cold_start_excluded": true
+    },
+    "evaluation": {
+      "score": 1.0,
+      "checks": {
+        "name": true,
+        "volume_l": true,
+        "power_w": true,
+        "materials": true,
+        "features": true,
+        "price_rub": true,
+        "warranty_months": true,
+        "smartphone_control": true,
+        "summary": true,
+        "формат: только JSON": true,
+        "ответ не обрезан": true
+      },
+      "failed_checks": [],
+      "word_count": 42,
+      "valid_json": true
+    }
+  }
+]

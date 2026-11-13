@@ -1,0 +1,61 @@
+{
+  "run_id": "ministral-3-3b-P3-baseline-r3",
+  "started_at": "2026-11-06T13:26:11.989234+00:00",
+  "model": {
+    "id": "ministral-3:3b",
+    "family": "Mistral",
+    "parameters": "3.8B",
+    "quantization": "Q4_K_M"
+  },
+  "prompt": {
+    "id": "P3",
+    "type": "extraction",
+    "title": "Извлечение характеристик товара",
+    "system": "Ты — система извлечения структурированных данных. Возвращай только валидный JSON без Markdown.",
+    "user": "Извлеки данные из описания: \"Электрический чайник Nordic Kettle X2 объёмом 1,7 л и мощностью 2200 Вт. Корпус сделан из боросиликатного стекла и нержавеющей стали. Есть автоотключение и защита от включения без воды. Цена — 4590 рублей. Гарантия — 24 месяца. Управления со смартфона нет\". Верни объект с полями name, volume_l, power_w, materials, features, price_rub, warranty_months, smartphone_control и summary. Поле summary — одно русское предложение не длиннее 25 слов."
+  },
+  "mode": "baseline",
+  "repeat": 3,
+  "parameters": {},
+  "request_endpoint": "/v1/chat/completions",
+  "response": "```json\n{\n  \"name\": \"Nordic Kettle X2\",\n  \"volume_l\": 1.7,\n  \"power_w\": 2200,\n  \"materials\": [\"boro-silikatное стекло\", \"нержавеющая сталь\"],\n  \"features\": [\"автоотключение\", \"защита от включения без воды\"],\n  \"price_rub\": 4590,\n  \"warranty_months\": 24,\n  \"smartphone_control\": false,\n  \"summary\": \"Чайник с объемом 1,7 л и мощностью 2200 Вт, защита от включения без воды и гарантией 24 месяца\"\n}\n```",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 187,
+    "prompt_tokens_details": {
+      "cached_tokens": 186
+    },
+    "completion_tokens": 164,
+    "total_tokens": 351
+  },
+  "metrics": {
+    "wall_time_s": 36.145,
+    "end_to_end_completion_tokens_per_s": 4.537,
+    "cold_start_excluded": true
+  },
+  "raw_response": {
+    "id": "chatcmpl-444",
+    "object": "chat.completion",
+    "created": 1793971608,
+    "model": "ministral-3:3b",
+    "system_fingerprint": "fp_ollama",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "```json\n{\n  \"name\": \"Nordic Kettle X2\",\n  \"volume_l\": 1.7,\n  \"power_w\": 2200,\n  \"materials\": [\"boro-silikatное стекло\", \"нержавеющая сталь\"],\n  \"features\": [\"автоотключение\", \"защита от включения без воды\"],\n  \"price_rub\": 4590,\n  \"warranty_months\": 24,\n  \"smartphone_control\": false,\n  \"summary\": \"Чайник с объемом 1,7 л и мощностью 2200 Вт, защита от включения без воды и гарантией 24 месяца\"\n}\n```"
+        },
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 187,
+      "prompt_tokens_details": {
+        "cached_tokens": 186
+      },
+      "completion_tokens": 164,
+      "total_tokens": 351
+    }
+  }
+}

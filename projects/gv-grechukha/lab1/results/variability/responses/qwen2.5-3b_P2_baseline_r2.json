@@ -1,0 +1,61 @@
+{
+  "run_id": "qwen2.5-3b-P2-baseline-r2",
+  "started_at": "2026-11-06T13:16:33.717986+00:00",
+  "model": {
+    "id": "qwen2.5:3b",
+    "family": "Qwen",
+    "parameters": "3B",
+    "quantization": "Q4_K_M"
+  },
+  "prompt": {
+    "id": "P2",
+    "type": "classification",
+    "title": "Классификация обращений",
+    "system": "Ты — точный классификатор. Возвращай только валидный JSON без Markdown и пояснений.",
+    "user": "Классифицируй каждое обращение ровно одной меткой из списка: [\"Оплата\", \"Техподдержка\", \"Продажи\", \"Аккаунт\"].\nA: \"После списания денег подписка не активировалась\".\nB: \"Приложение вылетает при загрузке файла\".\nC: \"Хотим купить корпоративный тариф на 80 сотрудников\".\nD: \"Как удалить мою учётную запись?\".\nФормат ответа: {\"A\": \"метка\", \"B\": \"метка\", \"C\": \"метка\", \"D\": \"метка\"}."
+  },
+  "mode": "baseline",
+  "repeat": 2,
+  "parameters": {},
+  "request_endpoint": "/v1/chat/completions",
+  "response": "{\"A\": \"Оплата\", \"B\": \"Техподдержка\", \"C\": \"Продажи\", \"D\": \"Аккаунт\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 190,
+    "prompt_tokens_details": {
+      "cached_tokens": 189
+    },
+    "completion_tokens": 38,
+    "total_tokens": 228
+  },
+  "metrics": {
+    "wall_time_s": 4.714,
+    "end_to_end_completion_tokens_per_s": 8.061,
+    "cold_start_excluded": true
+  },
+  "raw_response": {
+    "id": "chatcmpl-926",
+    "object": "chat.completion",
+    "created": 1793970998,
+    "model": "qwen2.5:3b",
+    "system_fingerprint": "fp_ollama",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\"A\": \"Оплата\", \"B\": \"Техподдержка\", \"C\": \"Продажи\", \"D\": \"Аккаунт\"}"
+        },
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 190,
+      "prompt_tokens_details": {
+        "cached_tokens": 189
+      },
+      "completion_tokens": 38,
+      "total_tokens": 228
+    }
+  }
+}
