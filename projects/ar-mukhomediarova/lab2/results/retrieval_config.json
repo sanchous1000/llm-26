@@ -1,0 +1,185 @@
+{
+  "base_config": {
+    "paths": {
+      "raw_dir": "data/raw",
+      "markdown_dir": "data/markdown",
+      "artifacts_dir": "artifacts",
+      "results_dir": "results"
+    },
+    "corpus": {
+      "repo_path": "data/raw/itmo-research",
+      "repo_include": [
+        "README.md",
+        "results/reports/*.md",
+        "results/reports/*/*.md",
+        "config/*.yaml",
+        "scripts/*.sh",
+        "src/**/*.py"
+      ],
+      "repo_exclude": [
+        "**/__init__.py",
+        "**/__main__.py",
+        "results/runs/**"
+      ],
+      "xlsx_sheets": {
+        "НИР План.xlsx": [
+          {
+            "sheet": "Семестр I"
+          },
+          {
+            "sheet": "Семестр II"
+          },
+          {
+            "sheet": "Семестр III"
+          },
+          {
+            "sheet": "Семестр III (гипотезы)",
+            "skip_preamble": true,
+            "title": "Гипотезы НИР (Г1–Г6)"
+          },
+          {
+            "sheet": "Тех. задание",
+            "title": "Календарный план работ (ТЗ)"
+          }
+        ]
+      },
+      "pdf_drop_references": true,
+      "skip_names": [
+        ".DS_Store",
+        "~$"
+      ]
+    },
+    "chunking": {
+      "splitter": "hybrid",
+      "chunk_size": 512,
+      "overlap": 64,
+      "include_headers": true,
+      "header_levels": 3,
+      "tokenizer": "BAAI/bge-m3"
+    },
+    "embeddings": {
+      "vector_type": "hybrid",
+      "dense_model": "bge-m3",
+      "base_url": "http://localhost:11434/v1",
+      "batch_size": 16,
+      "bm25": {
+        "k1": 1.2,
+        "b": 0.75
+      }
+    },
+    "vector_store": {
+      "url": "http://localhost:6333",
+      "collection_prefix": "nir",
+      "distance": "Cosine",
+      "hnsw": {
+        "m": 16,
+        "ef_construct": 128,
+        "full_scan_threshold": 10
+      },
+      "indexing_threshold": 10,
+      "quantization": "none"
+    },
+    "search": {
+      "mode": "dense",
+      "top_k": 5,
+      "ef_search": 64,
+      "prefetch_k": 30
+    },
+    "llm": {
+      "base_url": "http://localhost:11434/v1",
+      "model": "qwen2.5:7b",
+      "temperature": 0.1,
+      "max_tokens": 700,
+      "context_chunks": 5,
+      "snippet_chars": 300
+    }
+  },
+  "experiments": {
+    "ks": [
+      5,
+      10
+    ],
+    "experiments": [
+      {
+        "name": "E1_dense",
+        "set": {
+          "chunking.splitter": "hybrid",
+          "chunking.chunk_size": 512,
+          "chunking.overlap": 64,
+          "chunking.include_headers": true
+        },
+        "mode": "dense"
+      },
+      {
+        "name": "E2_bm25",
+        "set": {
+          "chunking.splitter": "hybrid",
+          "chunking.chunk_size": 512,
+          "chunking.overlap": 64,
+          "chunking.include_headers": true
+        },
+        "mode": "sparse"
+      },
+      {
+        "name": "E3_hybrid",
+        "set": {
+          "chunking.splitter": "hybrid",
+          "chunking.chunk_size": 512,
+          "chunking.overlap": 64,
+          "chunking.include_headers": true
+        },
+        "mode": "hybrid"
+      },
+      {
+        "name": "E4_hybrid_cs256",
+        "set": {
+          "chunking.splitter": "hybrid",
+          "chunking.chunk_size": 256,
+          "chunking.overlap": 32,
+          "chunking.include_headers": true
+        },
+        "mode": "hybrid"
+      },
+      {
+        "name": "E5_hybrid_cs1000",
+        "set": {
+          "chunking.splitter": "hybrid",
+          "chunking.chunk_size": 1000,
+          "chunking.overlap": 100,
+          "chunking.include_headers": true
+        },
+        "mode": "hybrid"
+      },
+      {
+        "name": "E6_recursive_cs512",
+        "set": {
+          "chunking.splitter": "recursive",
+          "chunking.chunk_size": 512,
+          "chunking.overlap": 64,
+          "chunking.include_headers": true
+        },
+        "mode": "hybrid"
+      },
+      {
+        "name": "E7_markdown_cs512",
+        "set": {
+          "chunking.splitter": "markdown",
+          "chunking.chunk_size": 512,
+          "chunking.overlap": 0,
+          "chunking.include_headers": true
+        },
+        "mode": "hybrid"
+      },
+      {
+        "name": "E8_hybrid_noheaders",
+        "set": {
+          "chunking.splitter": "hybrid",
+          "chunking.chunk_size": 512,
+          "chunking.overlap": 64,
+          "chunking.include_headers": false
+        },
+        "mode": "hybrid"
+      }
+    ]
+  }
+}

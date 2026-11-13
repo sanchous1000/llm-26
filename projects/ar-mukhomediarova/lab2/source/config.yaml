@@ -1,0 +1,78 @@
+# Конфигурация RAG-агента по материалам НИР.
+# Любой параметр переопределяется из CLI: --set chunking.chunk_size=256
+# Пути — относительно каталога lab2/.
+
+paths:
+  raw_dir: data/raw              # исходные документы (не коммитятся)
+  markdown_dir: data/markdown    # нормализованный Markdown (шаг 2)
+  artifacts_dir: artifacts       # чанки и эмбеддинги, по каталогу на конфигурацию (шаг 3)
+  results_dir: results           # метрики и ответы (шаги 5–6)
+
+corpus:
+  # Локальный клон https://github.com/alinocco/itmo-research
+  repo_path: data/raw/itmo-research
+  repo_include:
+    - README.md
+    - results/reports/*.md
+    - results/reports/*/*.md
+    - config/*.yaml
+    - scripts/*.sh
+    - src/**/*.py
+  repo_exclude:
+    - "**/__init__.py"
+    - "**/__main__.py"
+    - results/runs/**
+  # Из xlsx берутся только актуальные листы (черновики плана Семестра III исключены)
+  xlsx_sheets:
+    "НИР План.xlsx":
+      - {sheet: "Семестр I"}
+      - {sheet: "Семестр II"}
+      - {sheet: "Семестр III"}
+      - {sheet: "Семестр III (гипотезы)", skip_preamble: true, title: "Гипотезы НИР (Г1–Г6)"}
+      - {sheet: "Тех. задание", title: "Календарный план работ (ТЗ)"}
+  pdf_drop_references: true      # отбрасывать список литературы в PDF-статьях
+  skip_names: [".DS_Store", "~$"]
+
+chunking:
+  # Сплиттеры LangChain (langchain-text-splitters):
+  #   recursive — RecursiveCharacterTextSplitter по всему документу;
+  #   markdown  — MarkdownHeaderTextSplitter (раздел = чанк, длинные дорезаются без перекрытия);
+  #   hybrid    — MarkdownHeaderTextSplitter + RecursiveCharacterTextSplitter с перекрытием.
+  splitter: hybrid               # recursive | markdown | hybrid
+  chunk_size: 512                # максимальный размер чанка, токенов (токенизатор bge-m3)
+  overlap: 64                    # перекрытие соседних чанков, токенов
+  include_headers: true          # добавлять «Документ > Раздел > Подраздел» в текст для эмбеддинга
+  header_levels: 3               # markdown/hybrid: делить по заголовкам h1–h3
+  tokenizer: BAAI/bge-m3         # HF-токенизатор для подсчёта токенов (fallback — оценка по словам)
+
+embeddings:
+  vector_type: hybrid            # dense | sparse | hybrid (hybrid = оба вектора в коллекции)
+  dense_model: bge-m3            # модель эмбеддингов в Ollama
+  base_url: http://localhost:11434/v1
+  batch_size: 16
+  bm25: {k1: 1.2, b: 0.75}
+
+vector_store:
+  url: http://localhost:6333     # Qdrant в Docker; "path:qdrant_local" — встроенный режим без Docker
+  collection_prefix: nir
+  distance: Cosine
+  hnsw: {m: 16, ef_construct: 128, full_scan_threshold: 10}
+  # Qdrant не строит HNSW для маленьких коллекций (порог по умолчанию — 20 МБ векторов).
+  # Ставим 10 КБ (минимум, который принимает Qdrant для full_scan_threshold), чтобы индекс
+  # действительно строился и использовался: коллекция ~3 МБ, параметры HNSW на что-то влияют.
+  indexing_threshold: 10
+  quantization: none             # none | scalar (int8)
+
+search:
+  mode: dense                    # dense | sparse | hybrid (RRF-слияние dense и BM25); dense — лучший по eval_retrieval
+  top_k: 5
+  ef_search: 64                  # hnsw_ef на этапе поиска
+  prefetch_k: 30                 # кандидатов из каждой ветки для гибридного поиска
+
+llm:
+  base_url: http://localhost:11434/v1
+  model: qwen2.5:7b              # лучшая модель по итогам lab1
+  temperature: 0.1
+  max_tokens: 700
+  context_chunks: 5              # сколько чанков отдавать в промпт
+  snippet_chars: 300

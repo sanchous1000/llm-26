@@ -1,0 +1,9 @@
+experiment,splitter,chunk_size,overlap,headers,mode,n_questions,recall@5,recall@10,precision@5,precision@10,hit@5,hit@10,mrr,chunks,tokens_mean,build_s,dense_embed_s,query_ms,ann_agreement@10,collection
+E1_dense,hybrid,512,64,True,dense,20,0.875,0.925,0.33,0.19,0.9,0.95,0.784,724,288.1,130.55,123.77,42.0,1.0,nir_hybrid_cs512_ov64_h1_hybrid_bge-m3_97cdcab2_m16_ef128
+E2_bm25,hybrid,512,64,True,sparse,20,0.65,0.8,0.24,0.16,0.65,0.8,0.557,724,288.1,130.55,123.77,5.5,,nir_hybrid_cs512_ov64_h1_hybrid_bge-m3_97cdcab2_m16_ef128
+E3_hybrid,hybrid,512,64,True,hybrid,20,0.85,0.875,0.33,0.18,0.85,0.9,0.72,724,288.1,130.55,123.77,45.8,,nir_hybrid_cs512_ov64_h1_hybrid_bge-m3_97cdcab2_m16_ef128
+E4_hybrid_cs256,hybrid,256,32,True,hybrid,20,0.75,0.9,0.32,0.215,0.75,0.9,0.646,1363,166.9,117.03,112.17,41.5,,nir_hybrid_cs256_ov32_h1_hybrid_bge-m3_4b9a0237_m16_ef128
+E5_hybrid_cs1000,hybrid,1000,100,True,hybrid,20,0.85,0.875,0.29,0.175,0.85,0.9,0.73,527,381.6,84.64,80.57,34.5,,nir_hybrid_cs1000_ov100_h1_hybrid_bge-m3_ae82bf69_m16_ef128
+E6_recursive_cs512,recursive,512,64,True,hybrid,20,0.875,0.925,0.35,0.21,0.9,0.95,0.721,550,390.3,114.35,109.95,36.0,,nir_recursive_cs512_ov64_h1_hybrid_bge-m3_56860cc2_m16_ef128
+E7_markdown_cs512,markdown,512,0,True,hybrid,20,0.85,0.875,0.33,0.19,0.85,0.9,0.742,716,283.5,30.69,26.55,34.5,,nir_markdown_cs512_ov0_h1_hybrid_bge-m3_3956a976_m16_ef128
+E8_hybrid_noheaders,hybrid,512,64,False,hybrid,20,0.725,0.775,0.26,0.14,0.75,0.8,0.637,689,271.6,110.44,106.6,35.1,,nir_hybrid_cs512_ov64_h0_hybrid_bge-m3_868b821d_m16_ef128
