@@ -111,7 +111,7 @@ def load_yaml(path: Path) -> dict:
 
 def parse_args(argv: list[str] | None = None) -> argparse.Namespace:
     p = argparse.ArgumentParser(add_help=True)
-    p.add_argument("--config", default=str(ROOT / "config_middle.yaml"))
+    p.add_argument("--config", default=str(ROOT / "config_hard.yaml"))
     p.add_argument("--splitter", choices=["recursive", "markdown", "semantic", "hybrid"])
     p.add_argument("--chunk-size", type=int, default=None)
     p.add_argument("--overlap", type=int, default=None)

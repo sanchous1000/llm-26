@@ -8,10 +8,10 @@ paths:
   gold_path: "./eval/gold.json"
 
 chunking:
-  splitter: markdown          # recursive | markdown | html | semantic | hybrid
+  splitter: semantic          # recursive | markdown | html | semantic
   chunk_size: 400           
   overlap: 80
-  headers_mode: metadata        # none | text | metadata | both
+  headers_mode: none        # none | text | metadata | both
 
 embeddings:
   vectorization: dense     # dense | sparse | hybrid

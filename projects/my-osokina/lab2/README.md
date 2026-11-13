@@ -22,7 +22,6 @@ python parse_to_markdown.py --input ".../data_for_llm_2" --output ".../markdown_
 | `recursive` | `RecursiveCharacterTextSplitter` | Страницы PDF, затем рекурсия по заголовкам/абзацам/предложениям с `overlap`. |
 | `markdown` | `MarkdownHeaderTextSplitter` | Нарезка по **h1–h3**; слишком длинные секции дорезает `RecursiveCharacterTextSplitter` без overlap. |
 | `semantic` | `SemanticChunker` (алиас `SemanticChunker`) | Семантические границы через dense-модель, затем рекурсия до `chunk_size`. |
-| `hybrid` | MarkdownHeader + Recursive | Заголовки h1–h3 и окно с `overlap` внутри секции. |
 
 Длина чанка считается **одним** `LengthCounter` (`src/length.py`): это max(число токенов) по токенайзерам всех моделей прогона (dense, cross-encoder). Лимит = min(`model_max_length`) − special tokens. 
 

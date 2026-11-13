@@ -102,18 +102,18 @@ def _get_recursive_splitter(length: LengthCounter, chunk_size: int, overlap: int
         chunk_overlap=overlap,
         separators=SEPARATORS,
         is_separator_regex=False,
-        length_fn=length,
+        length_function=length,
     )
 
 
 def _apply_headers(text: str, headers: list[str], mode: str) -> tuple[str, list[str]]:
-    clean = [h for h in headers if h]
+    headers_prefix = [h for h in headers if h]
     if mode in {"none", "metadata"}:
         body = text
     else:
-        prefix = " > ".join(clean)
+        prefix = " > ".join(headers_prefix)
         body = f"{prefix}\n\n{text}" if prefix else text
-    meta_headers = clean if mode in {"metadata", "both"} else []
+    meta_headers = headers_prefix if mode in {"metadata", "both"} else []
     return body.strip(), meta_headers
 
 
@@ -157,7 +157,7 @@ def _split_oversized(docs: list[Document], splitter: RecursiveCharacterTextSplit
 
 
 def _markdown_docs(text: str) -> list[Document]:
-    md = MarkdownHeaderTextSplitter(headers_to_split_on=MD_HEADERS, strip_headers=True)
+    md = MarkdownHeaderTextSplitter(headers_to_split_on=MD_HEADERS, strip_headers=False)
     docs = md.split_text(text)
     return docs or [Document(page_content=text, metadata={})]
 
@@ -176,7 +176,7 @@ def _semantic_docs(text: str, dense_model: str) -> list[Document]:
     return [Document(page_content=c, metadata={}) for c in chunks] or [Document(page_content=text, metadata={})]
 
 
-def _chunks_from_docs(docs, meta, page, headers_mode, length_counter, rec, chunk_size, runtime_prefix=""):
+def _chunks_from_docs(docs, meta, page, headers_mode, length_counter, overlap, chunk_size, runtime_prefix=""):
     chunks = []
     for doc in docs:
         headers = _headers_from_doc(doc)
@@ -184,7 +184,8 @@ def _chunks_from_docs(docs, meta, page, headers_mode, length_counter, rec, chunk
         if header_prefix:
             header_prefix += "\n\n"
         budget = min(chunk_size, length_counter.content_budget(runtime_prefix, header_prefix))
-        splitter = _get_recursive_splitter(length_counter, budget, rec.chunk_overlap)
+        effective_overlap = min(overlap, max(0, budget // 2))
+        splitter = _get_recursive_splitter(length_counter, budget, effective_overlap)
         for piece in _split_oversized([doc], splitter):
             item = _make_chunk(piece.page_content, meta, headers, page, headers_mode, length_counter, runtime_prefix)
             if item:
@@ -203,8 +204,7 @@ def chunk_markdown(
     runtime_prefix: str = "",
 ) -> list[Chunk]:
     meta, body = _parse_frontmatter(raw)
-    window = overlap if splitter in {"recursive", "hybrid", "semantic"} else 0
-    recursive_splitter = _get_recursive_splitter(length_counter, chunk_size, window)
+    window = overlap if splitter in {"recursive", "semantic"} else 0
     chunks: list[Chunk] = []
 
     for page, text in _page_blocks(body):
@@ -219,7 +219,7 @@ def chunk_markdown(
             docs = _semantic_docs(text, dense_model)
         else:
             docs = _markdown_docs(text)
-        chunks.extend(_chunks_from_docs(docs, meta, page, headers_mode, length_counter, recursive_splitter, chunk_size, runtime_prefix,))
+        chunks.extend(_chunks_from_docs(docs, meta, page, headers_mode, length_counter, window, chunk_size, runtime_prefix,))
     return chunks
 
 
