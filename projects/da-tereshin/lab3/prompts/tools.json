@@ -1,0 +1,39 @@
+[
+  {
+    "name": "search_theory",
+    "description": "Найти теорию в материалах курса. Возвращает до 10 чанков с текстом, источником, страницей PDF, chunk_id и squared_l2 (меньше — ближе). Формулируй содержательный поисковый запрос.",
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "query": {"type": "string", "description": "Тема или вопрос для поиска в материалах курса"}
+      },
+      "required": ["query"],
+      "additionalProperties": false
+    }
+  },
+  {
+    "name": "get_scene",
+    "description": "Получить исходную карточку сцены по ID: название, происхождение, длительность и наблюдаемые события. Карточка не содержит готового теоретического разбора.",
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "scene_id": {"type": "string", "description": "Идентификатор сцены, например S01"}
+      },
+      "required": ["scene_id"],
+      "additionalProperties": false
+    }
+  },
+  {
+    "name": "save_study_plan",
+    "description": "Сохранить план подготовки по известному билету в файл текущей сессии. Возвращает статус и путь после успешной записи. Каждый вызов создаёт новый файл, поэтому не повторяй уже успешное сохранение без просьбы пользователя.",
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "ticket_id": {"type": "string", "description": "Известный идентификатор билета, например B01"},
+        "points": {"type": "array", "items": {"type": "string"}, "description": "Пункты плана подготовки в нужном порядке"}
+      },
+      "required": ["ticket_id", "points"],
+      "additionalProperties": false
+    }
+  }
+]

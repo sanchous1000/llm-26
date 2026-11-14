@@ -1,0 +1,45 @@
+{
+  "model": {
+    "name": "gpt-5.4-nano",
+    "max_output_tokens": 2048,
+    "request_timeout_seconds": 30,
+    "max_retries": 2
+  },
+  "agent": {
+    "max_iterations": 5,
+    "turn_timeout_seconds": 120
+  },
+  "tracing": {
+    "enabled": true,
+    "user_id": "da-tereshin",
+    "version": "langgraph-v1"
+  },
+  "context": {
+    "input_budget_tokens": 9000,
+    "strategies": [
+      "drop_tool_calls",
+      "summary",
+      "sliding_window"
+    ],
+    "summary": {
+      "model": {
+        "name": "gpt-5.4-nano",
+        "max_output_tokens": 2048,
+        "request_timeout_seconds": 20,
+        "max_retries": 1
+      },
+      "input_budget_tokens": 16000,
+      "keep_recent_turns": 1,
+      "max_calls": 2
+    }
+  },
+  "paths": {
+    "system_prompt": "prompts/system.txt",
+    "summary_prompt": "prompts/summary.txt",
+    "tool_schemas": "prompts/tools.json",
+    "checkpoints": "artifacts/checkpoints.sqlite",
+    "docs": "docs",
+    "plans": "artifacts/plans",
+    "vector_store": "../lab2/experiments/2026-11-05_21-15-53_474914_chunking/recursive_700_100/vector_store"
+  }
+}
