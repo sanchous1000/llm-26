@@ -2,3 +2,8 @@
 /results
 .venv/
 __pycache__/
+AGENTS.md
+DIALOG.md
+LOCAL_MEMORY.md
+settings.json
+trash.md
